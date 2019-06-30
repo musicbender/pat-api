@@ -1,0 +1,21 @@
+
+# Dependency directories
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Tests
+test/runner
+test/integration/runner
+
+# Other
+.DS_Store
+dist
+server/temp
+server/uploads/*
+.git
+.env
+
+# Webstorm Files
+.idea
