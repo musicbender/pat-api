@@ -1,5 +1,8 @@
-import * as Router from 'koa-router';
+import * as combineRouters from 'koa-combine-routers';
+import test from './test';
 
-const router = new Router();
+const router = combineRouters(
+  test
+)
 
-router.get('/');
+export { router };

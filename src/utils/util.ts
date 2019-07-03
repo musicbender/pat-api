@@ -1,7 +1,6 @@
-import { Context } from 'koa';
+import { BaseContext } from 'koa';
 
-export const restResponse = (ctx: Context, httpCode: number = 200, message: string = 'success', data: object = {}): void => {
-  ctx
-    .status(httpCode)
-    .body({ message, data });
+export const restResponse = (ctx: BaseContext, httpCode: number = 200, message: string = 'success', data: object = {}): void => {
+  ctx.status = httpCode;
+  ctx.body = { message, data };
 }

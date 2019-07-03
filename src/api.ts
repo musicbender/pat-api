@@ -4,12 +4,13 @@ import * as helmet from 'koa-helmet';
 import * as cors from '@koa/cors';
 import * as winston from 'winston';
 import * as dotenv from 'dotenv';
-// import { router } from './routes';
+import { router } from './routes';
 
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 const app = new Koa();
-// const router = new Router();
+
+app.use(router());
 
 app.listen(process.env.PATAPI_PORT, () => {
   console.log(`Pat API running at port ${process.env.PATAPI_PORT}`)
