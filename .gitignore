@@ -11,5 +11,12 @@ dist
 .git
 .env
 
+# Log files
+*.log
+
 # Webstorm Files
 .idea
+
+# Environment Vars
+.env.*
+.env
