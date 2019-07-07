@@ -10,3 +10,7 @@ export const findStepByDate = (date: Date) => {
   const end = moment(date).endOf('day');
   return Step.findOne({ date: { $gte: start, $lte: end }})
 }
+
+export const addAStep = (input) => {
+  
+}
