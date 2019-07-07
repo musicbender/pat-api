@@ -1,4 +1,5 @@
 import GraphQLDate from 'graphql-date';
+import GraphQLUnionInputType from 'graphql-union-input-type';
 import {
   GraphQLObjectType,
   GraphQLInputObjectType,
@@ -6,6 +7,7 @@ import {
   GraphQLInt,
   GraphQLNonNull
 } from 'graphql';
+
 
 export const StepInputType = new GraphQLInputObjectType({
   name: 'StepInputType',
@@ -15,6 +17,28 @@ export const StepInputType = new GraphQLInputObjectType({
     date: { type: GraphQLDate }
   })
 });
+
+export const StepQueryInputIdType = new GraphQLInputObjectType({
+  name: 'StepQueryInputIdType',
+  description: 'Step count id input',
+  fields: () => ({
+    _id: { type: GraphQLID },
+  })
+});
+
+export const StepQueryInputDateType = new GraphQLInputObjectType({
+  name: 'StepQueryInputDateType',
+  description: 'Step count date input',
+  fields: () => ({
+    date: { type: GraphQLDate }
+  })
+});
+
+export const StepQueryInputType = new GraphQLUnionInputType({
+  name: 'StepQueryInputType',
+  description: 'Input for single step query',
+  inputTypes: [StepQueryInputIdType, StepQueryInputDateType]
+})
 
 export const StepType = new GraphQLObjectType({
   name: 'StepType',
