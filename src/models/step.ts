@@ -1,7 +1,13 @@
-import mongoose from 'mongoose';
+import * as mongoose from 'mongoose';
+import uuid from 'uuid';
+
 const Schema = mongoose.Schema;
 
 const stepsSchema = new Schema({
+  _id: {
+    type: String,
+    default: uuid()
+  },
   stepCount: {
     type: Number,
     default: 0,
@@ -11,6 +17,13 @@ const stepsSchema = new Schema({
     type: Date,
     default: Date.now(),
     required: true
+  },
+  sources: {
+    type: [String]
+  },
+  unit: {
+    type: String,
+    default: ''
   }
 });
 

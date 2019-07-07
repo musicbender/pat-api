@@ -1,5 +1,6 @@
 import { StepType, StepInputType } from '../../types';
 import { addAStep } from '../../../controllers/step';
+import uuid from 'uuid';
 
 export const addStep = {
   name: 'addStep',
@@ -11,6 +12,33 @@ export const addStep = {
     }
   },
   resolve(parentValue, { input }) {
-    return addAStep(input);
+    return new Promise((resolve, reject) => {
+      console.log('TEST RESOLVE ADD STEP')
+      resolve({
+        _id: uuid(),
+        stepCount: 1000,
+        date: new Date()
+      });
+    });
+    // return addAStep(input);
+  }
+}
+
+export const updateStep = {
+  name: 'updateStep',
+  description: 'Update a step count node',
+  type: StepType,
+  args: {
+    input: {
+      type: StepInputType
+    }
+  },
+  resolve(parentValue, { input }) {
+    console.log('TEST RESOLVE ADD STEP')
+    resolve({
+      _id: uuid(),
+      stepCount: 1000,
+      date: new Date()
+    });
   }
 }
