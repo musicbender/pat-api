@@ -1,5 +1,5 @@
 import * as mongoose from 'mongoose';
-import uuid from 'uuid';
+import * as uuid from 'uuid';
 
 const Schema = mongoose.Schema;
 

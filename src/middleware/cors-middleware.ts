@@ -4,7 +4,7 @@ import * as cors from '@koa/cors'
 const { APP_ALLOWED_ORIGINS } = process.env;
 
 const corsMiddleware = (ctx: Context, next: () => Promise<any>): any => {
-  cors();
+  // cors();
   return next();
 }
 

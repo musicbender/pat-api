@@ -6,17 +6,19 @@ import { Context } from 'koa';
 
 const router = new Router();
 
-router.post(
+router.all(
   '/graphql',
   bodyParser(),
   graphqlHTTP((ctx: Context) => ({
     schema,
     graphiql: false,
     context: {
-      ctx,
+      ctx
     },
     pretty: process.env.NODE_ENV === 'development'
   }))
 );
+
+router.allowedMethods();
 
 export default router;

@@ -17,7 +17,9 @@ export const addStep = {
       resolve({
         _id: uuid(),
         stepCount: 1000,
-        date: new Date()
+        date: new Date(),
+        sources: ['iphone'],
+        unit: 'count'
       });
     });
     // return addAStep(input);
@@ -34,11 +36,15 @@ export const updateStep = {
     }
   },
   resolve(parentValue, { input }) {
-    console.log('TEST RESOLVE ADD STEP')
-    resolve({
-      _id: uuid(),
-      stepCount: 1000,
-      date: new Date()
+    return new Promise((resolve, reject) => {
+      console.log('TEST RESOLVE ADD STEP')
+      resolve({
+        _id: uuid(),
+        stepCount: 1000,
+        date: new Date(),
+        sources: ['iphone'],
+        unit: 'count'
+      });
     });
   }
 }

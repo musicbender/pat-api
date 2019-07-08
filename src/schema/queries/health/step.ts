@@ -1,19 +1,29 @@
-import { StepType, StepQueryInputType } from '../../types';
-import GraphQLDate from 'graphql-date';
-import { GraphQLID } from 'graphql';
+import { StepType } from '../../types';
 import { findStepById, findStepByDate } from '../../../controllers/step';
+import * as GraphQLDate from 'graphql-date';
+import { GraphQLString, GraphQLNonNull } from 'graphql';
 
-export const step = {
+const step = {
   type: StepType,
   description: 'Get a single step count',
   args: {
-    input: { type: StepQueryInputType }
+    // input: { type: StepQueryInputType }
+    _id: {
+      type: GraphQLString
+    },
+    date: {
+      type: GraphQLDate
+    }
   },
-  resolve(parentValue, { input }) {
-    if (input._id) {
-      return findStepById(input._id);
-    } else if (input.date) {
-      return findStepByDate(input.date);
+  resolve(parentValue, args) {
+    if (args._id) {args
+      return findStepById(args._id);
+    } else if (args.date) {
+      return findStepByDate(args.date);
+    } else {
+      throw new Error('ARGUMENT_REQUIRED')
     }
   }
 }
+
+export default step;

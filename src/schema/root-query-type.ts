@@ -1,13 +1,13 @@
-import { GraphQLObjectType } from 'graphql';
-// import {
-//
-// } from './queries';
+import { GraphQLObjectType, GraphQLString } from 'graphql';
+import {
+  step
+} from './queries';
 
-const RootQuery = new GraphQLObjectType({
+const RootQueryType = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: () => ({
-
+    step
   })
 });
 
-export default RootQuery;
+export default RootQueryType;

@@ -3,7 +3,7 @@ import Step from '../models/step';
 
 //--//--//--// PRIVATE //--//--//--//
 const aggrigateStepData = (stepData) => {
-
+  return;
 }
 
 //--//--//--// PUBLIC //--//--//--//
