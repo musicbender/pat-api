@@ -13,7 +13,12 @@ const stepsSchema = new Schema({
     default: 0,
     required: true
   },
-  date: {
+  createdOn: {
+    type: Date,
+    default: Date.now(),
+    required: true
+  },
+  samplesDate: {
     type: Date,
     default: Date.now(),
     required: true

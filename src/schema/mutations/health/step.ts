@@ -1,6 +1,6 @@
+import { GraphQLNonNull, GraphQLID } from 'graphql';
 import { StepType, StepInputType } from '../../types';
 import { addAStep } from '../../../controllers/step';
-import uuid from 'uuid';
 
 export const addStep = {
   name: 'addStep',
@@ -8,21 +8,11 @@ export const addStep = {
   type: StepType,
   args: {
     input: {
-      type: StepInputType
+      type: new GraphQLNonNull(StepInputType)
     }
   },
   resolve(parentValue, { input }) {
-    return new Promise((resolve, reject) => {
-      console.log('TEST RESOLVE ADD STEP')
-      resolve({
-        _id: uuid(),
-        stepCount: 1000,
-        date: new Date(),
-        sources: ['iphone'],
-        unit: 'count'
-      });
-    });
-    // return addAStep(input);
+    return addAStep(input);
   }
 }
 
@@ -31,20 +21,14 @@ export const updateStep = {
   description: 'Update a step count node',
   type: StepType,
   args: {
+    _id: {
+      type: new GraphQLNonNull(GraphQLID)
+    },
     input: {
-      type: StepInputType
+      type: new GraphQLNonNull(StepInputType)
     }
   },
-  resolve(parentValue, { input }) {
-    return new Promise((resolve, reject) => {
-      console.log('TEST RESOLVE ADD STEP')
-      resolve({
-        _id: uuid(),
-        stepCount: 1000,
-        date: new Date(),
-        sources: ['iphone'],
-        unit: 'count'
-      });
-    });
+  resolve(parentValue, { _id, input }) {
+    return null;
   }
 }

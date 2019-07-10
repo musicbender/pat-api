@@ -1,12 +1,34 @@
-import moment from 'moment';
+import * as moment from 'moment';
+import * as uuid from 'uuid'
 import Step from '../models/step';
 
-//--//--//--// PRIVATE //--//--//--//
-const aggrigateStepData = (stepData) => {
-  return;
+export const aggregateStepData = ({ stepData, date }) => {
+  const { unit, samples } = stepData[0].data;
+  let count = 0;
+  let output = {
+    _id: uuid(),
+    unit,
+    createdOn: date || Date.now(),
+    stepCount: 0,
+    sampleDate: null,
+    sources: []
+  };
+
+  samples.forEach((sample) => {
+    output.sources += sample.value;
+
+    if (!output.sampleDate) {
+      output.sampleDate = sample.date
+    }
+
+    if (output.sources.indexOf(sample.source) == -1) {
+      output.sources.push(sample.source);
+    }
+  });
+
+  return output;
 }
 
-//--//--//--// PUBLIC //--//--//--//
 export const findStepById = (_id: String) => {
   return Step.findOne({ _id });
 }
@@ -19,7 +41,8 @@ export const findStepByDate = (date: Date) => {
 
 export const addAStep = (input: any) => {
   return new Promise((resolve, reject) => {
-    const newStep = new Step(input);
+    const data = aggregateStepData(input);
+    const newStep = new Step(data);
     newStep.save((err, result) => {
       if (err) reject('ADD_STEP_ERROR')
       resolve(result);
