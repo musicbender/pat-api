@@ -9,11 +9,31 @@ import {
   GraphQLNonNull
 } from 'graphql';
 
+export const StepInputDataSampleType = new GraphQLInputObjectType({
+  name: 'StepInputDataSampleType',
+  description: 'Sample item in step data',
+  fields: () => ({
+    date: { type: GraphQLString },
+    source: { type: GraphQLString },
+    value: { type: new GraphQLNonNull(GraphQLString)}
+  })
+});
+
+export const StepInputDataType = new GraphQLInputObjectType({
+  name: 'StepInputDataType',
+  description: 'Step data type',
+  fields: () => ({
+    health_type: { type: new GraphQLNonNull(GraphQLString) },
+    unit: { type: GraphQLString },
+    samples: { type: new GraphQLList(StepInputDataSampleType) }
+  })
+})
+
 export const StepInputType = new GraphQLInputObjectType({
   name: 'StepInputType',
   description: 'Step count input',
   fields: () => ({
-    stepData: { type: new GraphQLNonNull(GraphQLInt) },
+    data: { type: new GraphQLNonNull(StepInputDataType) },
     date: { type: GraphQLDate }
   })
 });

@@ -2,8 +2,8 @@ import * as moment from 'moment';
 import * as uuid from 'uuid'
 import Step from '../models/step';
 
-export const aggregateStepData = ({ stepData, date }) => {
-  const { unit, samples } = stepData[0].data;
+export const aggregateStepData = ({ data, date }) => {
+  const { unit, samples } = data;
   let count = 0;
   let output = {
     _id: uuid(),
@@ -15,7 +15,8 @@ export const aggregateStepData = ({ stepData, date }) => {
   };
 
   samples.forEach((sample) => {
-    output.sources += sample.value;
+    const value = Number(sample.value);
+    output.stepCount += value;
 
     if (!output.sampleDate) {
       output.sampleDate = sample.date
@@ -41,8 +42,13 @@ export const findStepByDate = (date: Date) => {
 
 export const addAStep = (input: any) => {
   return new Promise((resolve, reject) => {
+    if (!input.data.health_type || input.data.health_type !== 'Steps') {
+      throw new Error('INVALID_HEALTH_TYPE');
+    }
+    
     const data = aggregateStepData(input);
     const newStep = new Step(data);
+
     newStep.save((err, result) => {
       if (err) reject('ADD_STEP_ERROR')
       resolve(result);

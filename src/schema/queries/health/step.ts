@@ -21,7 +21,7 @@ const step = {
     } else if (args.date) {
       return findStepByDate(args.date);
     } else {
-      throw new Error('ARGUMENT_REQUIRED')
+      throw new Error('INVALID_ARGUMENTS');
     }
   }
 }
