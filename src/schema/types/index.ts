@@ -1,1 +1,1 @@
-export * from './health/step';
+export * from './health-type';

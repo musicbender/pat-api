@@ -1,13 +1,12 @@
 import { StepType } from '../../types';
-import { findStepById, findStepByDate } from '../../../controllers/step';
+import { findHealthById, findHealthByDate } from '../../../controllers/health';
 import * as GraphQLDate from 'graphql-date';
 import { GraphQLString, GraphQLNonNull } from 'graphql';
 
 const step = {
   type: StepType,
-  description: 'Get a single step count',
+  description: 'Get a single step count by either _id or date, _id taking priority',
   args: {
-    // input: { type: StepQueryInputType }
     _id: {
       type: GraphQLString
     },
@@ -17,9 +16,9 @@ const step = {
   },
   resolve(parentValue, args) {
     if (args._id) {args
-      return findStepById(args._id);
+      return findStepById(args._id, 'Step');
     } else if (args.date) {
-      return findStepByDate(args.date);
+      return findStepByDate(args.date, 'Step');
     } else {
       throw new Error('INVALID_ARGUMENTS');
     }

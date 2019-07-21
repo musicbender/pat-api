@@ -19,6 +19,8 @@ export const StepInputDataSampleType = new GraphQLInputObjectType({
   })
 });
 
+console.log(StepInputDataSampleType);
+
 export const StepInputDataType = new GraphQLInputObjectType({
   name: 'StepInputDataType',
   description: 'Step data type',
@@ -38,35 +40,13 @@ export const StepInputType = new GraphQLInputObjectType({
   })
 });
 
-// export const StepQueryInputIdType = new GraphQLInputObjectType({
-//   name: 'StepQueryInputIdType',
-//   description: 'Step count id input',
-//   fields: () => ({
-//     _id: { type: GraphQLString },
-//   })
-// });
-//
-// export const StepQueryInputDateType = new GraphQLInputObjectType({
-//   name: 'StepQueryInputDateType',
-//   description: 'Step count date input',
-//   fields: () => ({
-//     date: { type: GraphQLDate }
-//   })
-// });
-//
-// export const StepQueryInputType = GraphQLUnionInputType({
-//   name: 'StepQueryInputType',
-//   description: 'Input for single step query',
-//   inputTypes: [StepQueryInputIdType, StepQueryInputDateType]
-// });
-
 export const StepType = new GraphQLObjectType({
   name: 'StepType',
   description: 'Step count data for a single day',
   fields: () => ({
     _id: { type: GraphQLString },
-    stepCount: { type: GraphQLInt },
-    samplesDate: { type: GraphQLDate },
+    value: { type: GraphQLInt },
+    sampledOn: { type: GraphQLDate },
     createdOn: { type: GraphQLDate },
     sources: { type: new GraphQLList(GraphQLString) },
     unit: { type: GraphQLString }

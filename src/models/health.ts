@@ -3,12 +3,13 @@ import * as uuid from 'uuid';
 
 const Schema = mongoose.Schema;
 
-const stepsSchema = new Schema({
+// schema objects
+const healthSchema = {
   _id: {
     type: String,
     default: uuid()
   },
-  stepCount: {
+  value: {
     type: Number,
     default: 0,
     required: true
@@ -18,7 +19,7 @@ const stepsSchema = new Schema({
     default: Date.now(),
     required: true
   },
-  samplesDate: {
+  sampledOn: {
     type: Date,
     default: Date.now(),
     required: true
@@ -30,8 +31,10 @@ const stepsSchema = new Schema({
     type: String,
     default: ''
   }
-});
+}
 
-const Step = mongoose.model('Step', stepsSchema);
+// mongoose schemas
+const stepsSchema = new Schema(healthSchema);
 
-export default Step;
+// export mongoose models
+export const Step = mongoose.model('Step', stepsSchema);
