@@ -12,7 +12,7 @@ import {
 import { router } from './routes';
 
 // init
-require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` });
+require('dotenv').config();
 
 const app = new Koa();
 

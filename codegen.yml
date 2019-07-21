@@ -1,6 +1,5 @@
 overwrite: true
-schema: "http://localhost:4000/graphql"
-documents: null
+schema: ${PATAPI_SCHEMA_PATH}
 generates:
   src/types/generated.d.ts:
     plugins:

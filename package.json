@@ -4,17 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/api.ts",
+    "start": "node src/api.ts",
+    "dev": "nodemon src/api.ts",
     "test": "jest",
-    "generate": "graphql-codegen --config codegen.yml",
-    "generate-init": "graphql-codegen init"
+    "generate": "graphql-codegen -r dotenv/config"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/musicbender/pat-api.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Pat Jacobs",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/musicbender/pat-api/issues"
@@ -23,6 +23,8 @@
   "devDependencies": {
     "@graphql-codegen/cli": "^1.4.0",
     "@graphql-codegen/typescript": "1.4.0",
+    "@graphql-codegen/typescript-document-nodes": "1.4.0",
+    "@graphql-codegen/typescript-mongodb": "1.4.0",
     "@graphql-codegen/typescript-resolvers": "1.4.0",
     "@types/dotenv": "^6.1.1",
     "@types/graphql": "^14.2.2",
@@ -34,12 +36,11 @@
     "@types/mongodb": "^3.1.28",
     "@types/mongoose": "^5.5.7",
     "@types/node": "^12.0.10",
+    "concurrently": "^4.1.1",
     "jest": "^24.8.0",
     "ts-node": "^8.3.0",
     "tslint": "^5.18.0",
-    "typescript": "^3.5.2",
-    "@graphql-codegen/typescript-mongodb": "1.4.0",
-    "@graphql-codegen/typescript-document-nodes": "1.4.0"
+    "typescript": "^3.5.2"
   },
   "dependencies": {
     "@koa/cors": "^3.0.0",

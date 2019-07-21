@@ -1,18 +1,21 @@
 import * as moment from 'moment';
 import mongoose from 'mongoose';
+import { Step } from '../models/health';
 import * as healthModel from '../models/health';
 
 type SampleType = {
-  date: Date,
-  source: string
-  value: number,
-  duration: number
+  date?: Date,
+  source?: string
+  value?: number,
+  duration?: number,
+  unit?: string
 }
 
-const reduceSampleData = (samples: SampleType[], input: any) => {
+//--//--//--// private //--//--//--//
+const reduceSampleData = (samples, input: any) => {
   let output = input;
 
-  samples.forEach((sample: SampleType) => {
+  samples.forEach((sample) => {
     const value = Number(sample.value);
     output.value += value;
 
@@ -28,7 +31,7 @@ const reduceSampleData = (samples: SampleType[], input: any) => {
   return output;
 }
 
-export const aggregateHealthData = ({ data, date }) => {
+const aggregateHealthData = ({ data, date }) => {
   const { unit } = data;
   const createdOn = !!date && moment.isDate(date) ? date : Date.now();
   const samples = data.hasOwnProperty('sampleList')
@@ -45,11 +48,10 @@ export const aggregateHealthData = ({ data, date }) => {
     sources: []
   };
 
-  output = reduceSampleData(samples, output);
-
-  return output;
+  return reduceSampleData(samples, output);
 }
 
+//--//--//--// public //--//--//--//
 export const findHealthById = (_id: string, type: string) => {
   return mongoose.model(type).findOne({ _id });
 }

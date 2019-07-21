@@ -7,12 +7,14 @@
     "target": "es2017",
     "outDir": "./dist",
     "baseUrl": "./src",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true
   },
   "include": [
     "src/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist"
   ]
 }
