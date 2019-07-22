@@ -12,10 +12,10 @@ type SampleType = {
 }
 
 //--//--//--// private //--//--//--//
-const reduceSampleData = (samples, input: any) => {
+const reduceSampleData = (samples: SampleType[], input: any) => {
   let output = input;
 
-  samples.forEach((sample) => {
+  samples.forEach((sample: SampleType) => {
     const value = Number(sample.value);
     output.value += value;
 
@@ -31,13 +31,13 @@ const reduceSampleData = (samples, input: any) => {
   return output;
 }
 
-const aggregateHealthData = ({ data, date }) => {
-  const { unit } = data;
+const aggregateHealthData = (input) => {
+  const { unit, date } = input;
   const createdOn = !!date && moment.isDate(date) ? date : Date.now();
-  const samples = data.hasOwnProperty('sampleList')
-    ? data.sampleList
-    : data.sample
-    ? [data.sample]
+  const samples = input.hasOwnProperty('sampleList')
+    ? input.sampleList
+    : input.sample
+    ? [input.sample]
     : [];
 
   let output = {
@@ -64,7 +64,11 @@ export const findHealthByDate = (date: Date, type: string) => {
 
 export const addHealthItem = (input: any, type: string) => {
   return new Promise((resolve, reject) => {
-    if (!input.data.healthType || input.data.healthType !== type) {
+
+    console.log(`input in controller:`);
+    console.log(input);
+
+    if (!input.type || input.type !== type) {
       throw new Error('INVALID_HEALTH_TYPE');
     }
 

@@ -8,7 +8,8 @@
     "outDir": "./dist",
     "baseUrl": "./src",
     "allowSyntheticDefaultImports": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true
   },
   "include": [
     "src/**/*.ts"

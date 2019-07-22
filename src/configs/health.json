@@ -1,0 +1,89 @@
+{
+  "healthTypes": {
+    "weight": {
+      "id": "weight",
+      "healthkitID": "Weight",
+      "collectionID": "weights"
+    },
+    "height": {
+      "id": "height",
+      "healthkitID": "Height",
+      "collectionID": "heights"
+    },
+    "steps": {
+      "id": "steps",
+      "healthkitID": "Steps",
+      "collectionID": "steps"
+    },
+    "caffeine": {
+      "id": "caffeine",
+      "healthkitID": "Caffeine",
+      "collectionID": "caffeines"
+    },
+    "flightsClimbed": {
+      "id": "flightsClimbed",
+      "healthkitID": "Flights Climbed",
+      "collectionID": "flights-climbed"
+    },
+    "heartRate": {
+      "id": "heartRate",
+      "healthkitID": "Heart Rate",
+      "collectionID": "heart-rates"
+    },
+    "heartRateVariability": {
+      "id": "heartRateVariability",
+      "healthkitID": "Heart Rate Variability",
+      "collectionID": "heart-rate-variabilities"
+    },
+    "mindfulMinutes": {
+      "id": "mindfulMinutes",
+      "healthkitID": "Mindful Minutes",
+      "collectionID": "mindful-minutes"
+    },
+    "restingHeartRate": {
+      "id": "restingHeartRate",
+      "healthkitID": "Resting Heart Rate",
+      "collectionID": "resting-heart-rates"
+    },
+    "sleepAnalysis": {
+      "id": "sleepAnalysis",
+      "healthkitID": "Sleep Analysis",
+      "collectionID": "sleep-analyses"
+    },
+    "swimmingDistance": {
+      "id": "weight",
+      "healthkitID": "Weight",
+      "collectionID": "weight"
+    },
+    "walkingHeartRateAverage": {
+      "id": "walkingHeartRateAverage",
+      "healthkitID": "Walking Heart Rate Average",
+      "collectionID": "walking-heart-rate-averages"
+    },
+    "waistCircumference": {
+      "id": "waistCircumference",
+      "healthkitID": "Waist Circumference",
+      "collectionID": "waist-circumferences"
+    },
+    "systolicBloodPressure": {
+      "id": "systolicBloodPressure",
+      "healthkitID": "Systolic Blood Pressure",
+      "collectionID": "systolic-blood-pressures"
+    },
+    "diastolicBloodPressure": {
+      "id": "diastolicBloodPressure",
+      "healthkitID": "Diastolic Blood Pressure",
+      "collectionID": "diastolic-blood-pressures"
+    },
+    "oxygenSaturation": {
+      "id": "oxygenSaturation",
+      "healthkitID": "Oxygen Saturation",
+      "collectionID": "oxygen-saturations"
+    },
+    "bodyTemperature": {
+      "id": "bodyTemperature",
+      "healthkitID": "Body Temperature",
+      "collectionID": "body-temperatures"
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import * as mongoose from 'mongoose';
 import * as uuid from 'uuid';
+import { healthTypes } from '../configs/health.json';
 
 const Schema = mongoose.Schema;
 
@@ -34,7 +35,7 @@ const healthSchema = {
 }
 
 // mongoose schemas
-const stepsSchema = new Schema(healthSchema);
+const stepsSchema = new Schema(healthSchema, { collection: healthTypes.steps.collectionId });
 
 // export mongoose models
 export const Step = mongoose.model('Step', stepsSchema);
