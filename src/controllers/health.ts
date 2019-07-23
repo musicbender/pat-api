@@ -11,8 +11,7 @@ type SampleType = {
   unit?: string
 }
 
-//--//--//--// private //--//--//--//
-const reduceSampleData = (samples: SampleType[], input: any) => {
+export const reduceSampleData = (samples: SampleType[], input: any) => {
   let output = input;
 
   samples.forEach((sample: SampleType) => {
@@ -31,7 +30,7 @@ const reduceSampleData = (samples: SampleType[], input: any) => {
   return output;
 }
 
-const aggregateHealthData = (input) => {
+export const aggregateHealthData = (input) => {
   const { unit, date } = input;
   const createdOn = !!date && moment.isDate(date) ? date : Date.now();
   const samples = input.hasOwnProperty('sampleList')
@@ -51,7 +50,6 @@ const aggregateHealthData = (input) => {
   return reduceSampleData(samples, output);
 }
 
-//--//--//--// public //--//--//--//
 export const findHealthById = (_id: string, type: string) => {
   return mongoose.model(type).findOne({ _id });
 }

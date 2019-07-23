@@ -1,5 +1,5 @@
 import * as combineRouters from 'koa-combine-routers';
-import test from './test';
+import test from './validate-service';
 import graphql from './graphql'
 import altair from './altair';
 
