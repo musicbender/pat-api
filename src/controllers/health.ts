@@ -75,7 +75,7 @@ export const addHealthItem = (input: any, type: string) => {
   });
 }
 
-export const addManyHealthItems = (input: any[]) => {
+export const addHealthKitItems = (input: any[]) => {
   return new Promise((resolve, reject) => {
 
   });

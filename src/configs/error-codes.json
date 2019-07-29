@@ -1,8 +1,13 @@
 {
-  "INTERNAL_ERROR": {
-    "description": "Internal Error"
+  "common": {
+    "INTERNAL_ERROR": {
+      "description": "Internal Error"
+    },
+    "SERVER_TIMEOUT": {
+      "description": "Server Timeout"
+    }
   },
-  "SERVER_TIMEOUT": {
-    "description": "Server Timeout"
+  "health": {
+    
   }
 }

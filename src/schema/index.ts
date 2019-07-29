@@ -1,10 +1,4 @@
-// import { GraphQLSchema } from 'graphql';
-import {
-  graphql,
-  GraphQLSchema,
-  GraphQLObjectType,
-  GraphQLString
-} from 'graphql';
+import { GraphQLSchema } from 'graphql';
 import RootQueryType from './root-query-type';
 import mutations from './mutations';
 
