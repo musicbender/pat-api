@@ -60,10 +60,6 @@ export const findHealthByDate = (date: Date, type: string) => {
 
 export const addHealthItem = (input: any, type: string) => {
   return new Promise((resolve, reject) => {
-
-    console.log(`input in controller:`);
-    console.log(input);
-
     if (!input.type || input.type !== type) {
       throw new Error('INVALID_HEALTH_TYPE');
     }
@@ -76,5 +72,11 @@ export const addHealthItem = (input: any, type: string) => {
       if (err) reject('ADD_HEALTH_ERROR');
       resolve(result);
     })
+  });
+}
+
+export const addManyHealthItems = (input: any[]) => {
+  return new Promise((resolve, reject) => {
+
   });
 }
