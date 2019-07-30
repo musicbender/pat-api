@@ -52,6 +52,7 @@
     "dotenv": "^8.0.0",
     "graphql": "^14.4.1",
     "graphql-date": "^1.0.3",
+    "graphql-middleware": "^3.0.3",
     "graphql-union-input-type": "^0.4.0",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",

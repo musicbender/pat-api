@@ -25,19 +25,20 @@ export const addHealthKit = {
       type: new GraphQLList(HealthInputType)
     }
   },
-  resolve(parentValue, { input }) {
+  resolve: async (parentValue, { input }) => {
     // return addHealthKitItems(input);
-    return new Promise((resolve, reject) => {
-      throw new ExpectedError('INTERNAL_ERROR');
 
-      resolve({
-        _id: 'not-real-id',
-        value: 1234,
-        sampledOn: new Date(),
-        createdOn: new Date(),
-        sources: ['Apple Watch'],
-        unit: 'steps'
-      })
-    });
+    console.log(`in addHealthKit resolver`);
+
+    throw new ExpectedError('INTERNAL_ERROR');
+
+    return {
+      _id: 'not-real-id',
+      value: 1234,
+      sampledOn: new Date(),
+      createdOn: new Date(),
+      sources: ['Apple Watch'],
+      unit: 'steps'
+    };
   }
 }
