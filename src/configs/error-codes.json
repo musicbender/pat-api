@@ -8,6 +8,8 @@
     }
   },
   "health": {
-    
+    "INVALID_HEALTHKIT_INPUT": {
+      "description": "Input is invalid or empty"
+    }
   }
 }

@@ -4,12 +4,14 @@ import { addHealthKitItems } from '../../../controllers/health';
 import { common, health } from '../../../configs/error-codes.json';
 import { ExpectedError } from '../../../utils/errors';
 
+const validErrors = {
+  ...common,
+  ...health
+};
+
 const errorCodesType = new GraphQLEnumType({
   name: 'addHealthkitErrorCodes',
-  values: {
-    ...common,
-    ...health
-  }
+  values: validErrors
 });
 
 export const addHealthKit = {
@@ -28,9 +30,9 @@ export const addHealthKit = {
   resolve: async (parentValue, { input }) => {
     // return addHealthKitItems(input);
 
-    console.log(`in addHealthKit resolver`);
-
-    throw new ExpectedError('INTERNAL_ERROR');
+    if (!input || input.length === 0) {
+      throw new ExpectedError('INVALID_HEALTHKIT_INPUT', 'health');
+    }
 
     return {
       _id: 'not-real-id',
