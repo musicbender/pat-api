@@ -1,5 +1,6 @@
 import * as moment from 'moment';
 import mongoose from 'mongoose';
+import { ExpectedError } from '../utils/errors';
 
 type SampleType = {
   date?: Date,
@@ -58,25 +59,19 @@ export const findHealthByDate = (date: Date, type: string) => {
   return mongoose.model(type).findOne({ date: { $gte: start, $lte: end }})
 }
 
-export const addHealthItem = (input: any, type: string) => {
-  return new Promise((resolve, reject) => {
-    if (!input.type || input.type !== type) {
-      throw new Error('INVALID_HEALTH_TYPE');
-    }
+export const addHealthItem = async (input: any, type: string) => {
+  if (!input.type || input.type !== type) {
+    throw new ExpectedError('INVALID_HEALTH_TYPE');
+  }
 
-    const data = aggregateHealthData(input);
-    const HealthItem = mongoose.model(type)
-    const newHealthItem = new HealthItem(data);
+  const data = aggregateHealthData(input);
+  const HealthItem = mongoose.model(type)
+  const newHealthItem = new HealthItem(data);
 
-    newHealthItem.save((err, result) => {
-      if (err) reject('ADD_HEALTH_ERROR');
-      resolve(result);
-    })
-  });
-}
-
-export const addHealthKitItems = (input: any[]) => {
-  return new Promise((resolve, reject) => {
-
-  });
+  try {
+    const savedHealthItem = await newHealthItem.save();
+    return savedHealthItem;
+  } catch (err) {
+    throw new ExpectedError('ADD_HEALTH_ERROR');
+  }
 }

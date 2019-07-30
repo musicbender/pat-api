@@ -3,87 +3,87 @@
     "weight": {
       "id": "weight",
       "healthkitID": "Weight",
-      "collectionID": "weights"
+      "modelID": "Weight"
     },
     "height": {
       "id": "height",
       "healthkitID": "Height",
-      "collectionID": "heights"
+      "modelID": "Height"
     },
     "steps": {
       "id": "steps",
       "healthkitID": "Steps",
-      "collectionID": "steps"
+      "modelID": "Step"
     },
     "caffeine": {
       "id": "caffeine",
       "healthkitID": "Caffeine",
-      "collectionID": "caffeines"
+      "modelID": "Caffeine"
     },
     "flightsClimbed": {
-      "id": "flightsClimbed",
+      "id": "flights-climbed",
       "healthkitID": "Flights Climbed",
-      "collectionID": "flights-climbed"
+      "modelID": "FlightsClimbed"
     },
     "heartRate": {
-      "id": "heartRate",
+      "id": "heart-rate",
       "healthkitID": "Heart Rate",
-      "collectionID": "heart-rates"
+      "modelID": "HeartRate"
     },
     "heartRateVariability": {
-      "id": "heartRateVariability",
+      "id": "heart-rate-variability",
       "healthkitID": "Heart Rate Variability",
-      "collectionID": "heart-rate-variabilities"
+      "modelID": "HeartRateVariability"
     },
     "mindfulMinutes": {
-      "id": "mindfulMinutes",
+      "id": "mindful-minutes",
       "healthkitID": "Mindful Minutes",
-      "collectionID": "mindful-minutes"
+      "modelID": "MindfulMinutes"
     },
     "restingHeartRate": {
-      "id": "restingHeartRate",
+      "id": "resting-heart-rate",
       "healthkitID": "Resting Heart Rate",
-      "collectionID": "resting-heart-rates"
+      "modelID": "RestingHeartRate"
     },
     "sleepAnalysis": {
-      "id": "sleepAnalysis",
+      "id": "sleep-analysis",
       "healthkitID": "Sleep Analysis",
-      "collectionID": "sleep-analyses"
+      "modelID": "SleepAnalysis"
     },
     "swimmingDistance": {
       "id": "weight",
       "healthkitID": "Weight",
-      "collectionID": "weight"
+      "modelID": "Weight"
     },
     "walkingHeartRateAverage": {
-      "id": "walkingHeartRateAverage",
+      "id": "walking-heart-rate-average",
       "healthkitID": "Walking Heart Rate Average",
-      "collectionID": "walking-heart-rate-averages"
+      "modelID": "WalkingHeartRateAverage"
     },
     "waistCircumference": {
-      "id": "waistCircumference",
+      "id": "waist-circumference",
       "healthkitID": "Waist Circumference",
-      "collectionID": "waist-circumferences"
+      "modelID": "WaistCircumference"
     },
     "systolicBloodPressure": {
-      "id": "systolicBloodPressure",
+      "id": "systolic-blood-pressure",
       "healthkitID": "Systolic Blood Pressure",
-      "collectionID": "systolic-blood-pressures"
+      "modelID": "SystolicBloodPressure"
     },
     "diastolicBloodPressure": {
-      "id": "diastolicBloodPressure",
+      "id": "diastolic-blood-pressure",
       "healthkitID": "Diastolic Blood Pressure",
-      "collectionID": "diastolic-blood-pressures"
+      "modelID": "DiastolicBloodPressure"
     },
     "oxygenSaturation": {
-      "id": "oxygenSaturation",
+      "id": "oxygen-saturation",
       "healthkitID": "Oxygen Saturation",
-      "collectionID": "oxygen-saturations"
+      "modelID": "OxygenSaturation"
     },
     "bodyTemperature": {
-      "id": "bodyTemperature",
+      "id": "body-temperature",
       "healthkitID": "Body Temperature",
-      "collectionID": "body-temperatures"
+      "modelID": "BodyTemperature"
     }
   }
 }

@@ -16,9 +16,9 @@ const step = {
   },
   resolve(parentValue, args) {
     if (args._id) {
-      return findHealthById(args._id, 'Step');
+      return findHealthById(args._id, 'Steps');
     } else if (args.date) {
-      return findHealthByDate(args.date, 'Step');
+      return findHealthByDate(args.date, 'Steps');
     } else {
       throw new Error('INVALID_ARGUMENTS');
     }

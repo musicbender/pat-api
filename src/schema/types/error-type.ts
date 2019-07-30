@@ -1,11 +1,17 @@
-import { GraphQLObjectType, GraphQLString } from 'graphql';
+import { GraphQLObjectType, GraphQLEnumType, GraphQLString } from 'graphql';
+const errors = require('../../configs/error-codes.json');
 
-const ErrorType = (name: string, enumType: any): any => {
+const ErrorType = (name: string): any => {
+  const errorCodesType = new GraphQLEnumType({
+    name: 'errorCodesType',
+    values: { ...errors }
+  });
+
   return new GraphQLObjectType({
     name,
     fields: {
       errorCode: {
-        type: enumType,
+        type: errorCodesType,
       },
       errorDesc: {
         type: GraphQLString,

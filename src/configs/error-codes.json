@@ -1,15 +1,17 @@
 {
-  "common": {
-    "INTERNAL_ERROR": {
-      "description": "Internal Error"
-    },
-    "SERVER_TIMEOUT": {
-      "description": "Server Timeout"
-    }
+  "INTERNAL_ERROR": {
+    "description": "Internal Error"
   },
-  "health": {
-    "INVALID_HEALTHKIT_INPUT": {
-      "description": "Input is invalid or empty"
-    }
+  "SERVER_TIMEOUT": {
+    "description": "Server Timeout"
+  },
+  "ADD_HEALTH_ERROR": {
+    "description": "An error occured trying to add health item"
+  },
+  "INVALID_HEALTH_TYPE": {
+    "description": "Not a valid health type"
+  },
+  "INVALID_HEALTHKIT_INPUT": {
+    "description": "Input is invalid or empty"
   }
 }

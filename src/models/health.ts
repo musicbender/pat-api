@@ -35,7 +35,9 @@ const healthSchema = {
 }
 
 // mongoose schemas
-const stepsSchema = new Schema(healthSchema, { collection: healthTypes.steps.collectionId });
+const stepsSchema = new Schema(healthSchema, { collection: healthTypes.steps.id });
 
 // export mongoose models
-export const Step = mongoose.model('Step', stepsSchema);
+export default {
+  [healthTypes.steps.modelID]: mongoose.model(healthTypes.steps.modelID, stepsSchema)
+}
