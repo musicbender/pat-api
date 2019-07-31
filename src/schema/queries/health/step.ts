@@ -3,6 +3,7 @@ import { findHealthById, findHealthByDate } from '../../../controllers/health';
 import * as GraphQLDate from 'graphql-date';
 import { GraphQLString, GraphQLNonNull } from 'graphql';
 import { healthTypes } from '../../../configs/health.json';
+import { ExpectedError } from '../../../utils/errors';
 
 const step = {
   type: HealthType,
@@ -21,7 +22,7 @@ const step = {
     } else if (args.date) {
       return findHealthByDate(args.date, healthTypes.steps);
     } else {
-      throw new Error('INVALID_ARGUMENTS');
+      throw new ExpectedError('INVALID_ARGUMENTS');
     }
   }
 }

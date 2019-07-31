@@ -1,5 +1,6 @@
 import * as moment from 'moment';
-import mongoose from 'mongoose';
+import * as mongoose from 'mongoose';
+import { healthModels } from '../models';
 import { ExpectedError } from '../utils/errors';
 
 type SampleType = {
@@ -65,7 +66,7 @@ export const addHealthItem = async (input: any, config: any): Promise<any> => {
   }
 
   const data = aggregateHealthData(input);
-  const HealthItem = mongoose.model(config.modelID)
+  const HealthItem = healthModels[config.modelID];
   const newHealthItem = new HealthItem(data);
 
   try {

@@ -1,1 +1,1 @@
-export * from './health';
+export { default as healthModels } from './health';

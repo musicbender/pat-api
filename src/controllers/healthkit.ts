@@ -37,5 +37,7 @@ export const addHealthKitItems = async (input: any[]) => {
   console.log(`length: ${output.length}`);
   console.log(output);
 
-  return output;
+  return {
+    response: output
+  };
 }
