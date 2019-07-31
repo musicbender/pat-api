@@ -20,7 +20,7 @@ export const addHealthKitItems = async (input: any[]) => {
     switch(type) {
       case healthTypes.steps.healthkitID: {
         console.log(`is steps type`);
-        output = await addHealthItem(healthItem, healthTypes.steps.modelID);
+        output = await addHealthItem(healthItem, healthTypes.steps);
         break;
       }
       default:

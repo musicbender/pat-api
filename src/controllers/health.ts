@@ -49,23 +49,23 @@ export const aggregateHealthData = (input) => {
   return reduceSampleData(samples, output);
 }
 
-export const findHealthById = (_id: string, type: string) => {
-  return mongoose.model(type).findOne({ _id });
+export const findHealthById = (_id: string, config: any): any => {
+  return mongoose.model(config.modelID).findOne({ _id });
 }
 
-export const findHealthByDate = (date: Date, type: string) => {
+export const findHealthByDate = (date: Date, config: any): any => {
   const start = moment(date).startOf('day');
   const end = moment(date).endOf('day');
-  return mongoose.model(type).findOne({ date: { $gte: start, $lte: end }})
+  return mongoose.model(config.modelID).findOne({ date: { $gte: start, $lte: end }})
 }
 
-export const addHealthItem = async (input: any, type: string) => {
-  if (!input.type || input.type !== type) {
+export const addHealthItem = async (input: any, config: any): Promise<any> => {
+  if (!input.type || input.type !== config.healthkitID) {
     throw new ExpectedError('INVALID_HEALTH_TYPE');
   }
 
   const data = aggregateHealthData(input);
-  const HealthItem = mongoose.model(type)
+  const HealthItem = mongoose.model(config.modelID)
   const newHealthItem = new HealthItem(data);
 
   try {

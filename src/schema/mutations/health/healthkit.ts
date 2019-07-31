@@ -1,13 +1,23 @@
-import { GraphQLEnumType, GraphQLList } from 'graphql';
+import { GraphQLObjectType, GraphQLEnumType, GraphQLList } from 'graphql';
 import { ResponseType, ErrorType, HealthType, HealthInputType } from '../../types';
 import { addHealthKitItems } from '../../../controllers/healthkit';
 
+const addHealthKitResponseType = new GraphQLObjectType({
+  name: 'addHealthKitResponse',
+  description: 'Response data for adding healthkit data',
+  fields: () => ({
+    response: {
+      type: new GraphQLList(HealthType)
+    }
+  })
+});
+
 export const addHealthKit = {
   name: 'addHealthKit',
+  description: 'Add multiple HealthKit data types',
   type: ResponseType({
-    name: 'addHealthKitResponse',
-    description: 'Add multiple HealthKit data types',
-    responseType: HealthType,
+    name: 'addHealthKitUnion',
+    responseType: addHealthKitResponseType,
     errorType: ErrorType('addHealthKitError')
   }),
   args: {

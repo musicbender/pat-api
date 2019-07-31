@@ -13,7 +13,7 @@ export const addStep = {
     }
   },
   resolve(parentValue, { input }) {
-    return addHealthItem(input, healthTypes.steps.modelID);
+    return addHealthItem(input, healthTypes.steps);
   }
 }
 
