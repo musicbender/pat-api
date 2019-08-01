@@ -2,6 +2,7 @@ import * as moment from 'moment';
 import * as mongoose from 'mongoose';
 import { healthModels } from '../models';
 import { ExpectedError } from '../utils/errors';
+import { addToDuration } from '../utils/date';
 
 type SampleType = {
   date?: Date,
@@ -25,6 +26,10 @@ export const reduceSampleData = (samples: SampleType[], input: any) => {
     if (output.sources.indexOf(sample.source) === -1) {
       output.sources.push(sample.source);
     }
+
+    if (sample.duration) {
+      output.duration = addToDuration(`${sample.duration}`, output.duration);
+    }
   });
 
   return output;
@@ -44,7 +49,8 @@ export const aggregateHealthData = (input) => {
     value: 0,
     createdOn,
     sampledOn: null,
-    sources: []
+    sources: [],
+    duration: '00:00:00'
   };
 
   return reduceSampleData(samples, output);
