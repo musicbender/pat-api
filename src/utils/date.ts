@@ -1,5 +1,34 @@
 import * as moment from 'moment';
 
+//--//--//--// private //--//--//--//
+const formatInputDuration = (input: string): string => {
+  let newDuration = `${input}`;
+
+  switch (true) {
+    case newDuration === "0":
+      newDuration = '0.00:00:00';
+      break;
+    case newDuration.length === 4 && newDuration.indexOf(':') === 1:
+      newDuration = '0.00:0' + newDuration;
+      break;
+    case newDuration.length === 7 && newDuration.indexOf(':') === 1:
+      newDuration = '0' + newDuration;
+      break;
+    case newDuration.length === 5 && newDuration.indexOf(':') === 2:
+      newDuration = '0.00:' + newDuration;
+      break;
+    case newDuration.length === 1 && newDuration.indexOf(':') < 0:
+      newDuration = '0.00:00:0' + newDuration;
+      break;
+    case newDuration.length === 2 && newDuration.indexOf(':') < 0:
+      newDuration = '0.00:00:' + newDuration;
+      break;
+  }
+
+  return newDuration;
+}
+
+//--//--//--// public //--//--//--//
 export const formatDuration = (duration: moment.Duration): string => {
   if (!duration || !moment.isDuration(duration)) {
     throw new Error('Must give duration paramter');
@@ -15,27 +44,8 @@ export const addToDuration = (input: string = '0.00:00:00', inputTotal: string =
     throw new Error('Total must be duration string');
   }
 
-  let newDuration = input;
+  let newDuration = formatInputDuration(input);
   let total = inputTotal;
-
-  if (newDuration === "0") {
-    newDuration = '0.00:00:00';
-  }
-
-  // missing a leading 0
-  if (newDuration.length === 4 && newDuration.indexOf(':') === 1) {
-    newDuration = '0' + newDuration;
-  }
-
-  // missing a leading 0
-  if (newDuration.length === 7 && newDuration.indexOf(':') === 1) {
-    newDuration = '0' + newDuration;
-  }
-
-  // if only minutes/seconds provided to input
-  if (newDuration.length === 5 && newDuration.indexOf(':') === 2) {
-    newDuration = '0.00:' + newDuration;
-  }
 
   // if only minutes/seconds provided to total
   if (total.length === 5 && total.indexOf(':') === 2) {

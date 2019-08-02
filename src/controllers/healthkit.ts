@@ -15,20 +15,18 @@ export const addHealthKitItems = async (input: any[]) => {
     const { type } = healthItem;
     let output;
 
-    console.log(`type: ${type}`);
-
     switch(type) {
       case healthTypes.steps.healthkitID: {
-        console.log(`is steps type`);
         output = await addHealthItem(healthItem, healthTypes.steps);
         break;
       }
       default:
-        console.log(`default`);
         output = null;
     }
 
-    return output;
+    if (output) {
+      return output;
+    }
   });
 
   const output = await Promise.all(allItems);

@@ -28,15 +28,15 @@ export const reduceSampleData = (samples: SampleType[], input: any) => {
     }
 
     if (sample.duration) {
-
-      console.log(`DURATION:`);
-      console.log(`sample: ${sample.duration}`);
-      console.log(`total: ${output.totalDuration}`);
-      console.log(`added: ${addToDuration(`${sample.duration}`, output.totalDuration)}`);
-
+      // console.log(`DURATION:`);
+      // console.log(`sample: ${sample.duration}`);
+      // console.log(`added: ${addToDuration(`${sample.duration}`, output.totalDuration)}`);
       output.totalDuration = addToDuration(`${sample.duration}`, output.totalDuration);
     }
   });
+
+  console.log(`output:`);
+  console.log(output);
 
   return output;
 }
@@ -81,6 +81,8 @@ export const addHealthItem = async (input: any, config: any): Promise<any> => {
   const HealthItem = healthModels[config.modelID];
   const newHealthItem = new HealthItem(data);
 
+  console.log(`saving to db...`);
+  
   try {
     const savedHealthItem = await newHealthItem.save();
     return savedHealthItem;
