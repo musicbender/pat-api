@@ -27,7 +27,7 @@ export const addHealthKit = {
     }
   },
   resolve: async (parentValue, { input }, { ctx }) => {
-    if (!ctx.headers['user-agent'].includes('Shortcuts')) {
+    if (!ctx.headers['user-agent'].includes(process.env.PATAPI_HEALTHKIT_USER_AGENT)) {
       throw new ExpectedError('UNAUTHORIZED');
     }
 

@@ -31,6 +31,10 @@ const healthSchema = {
   unit: {
     type: String,
     default: ''
+  },
+  totalDuration: {
+    type: String,
+    default: '0.00:00:00'
   }
 }
 

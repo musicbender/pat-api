@@ -40,6 +40,7 @@ export const HealthType = new GraphQLObjectType({
     sampledOn: { type: GraphQLDate },
     createdOn: { type: GraphQLDate },
     sources: { type: new GraphQLList(GraphQLString) },
-    unit: { type: GraphQLString }
+    unit: { type: GraphQLString },
+    totalDuration: { type: GraphQLString }
   })
 });

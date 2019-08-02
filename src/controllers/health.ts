@@ -28,7 +28,13 @@ export const reduceSampleData = (samples: SampleType[], input: any) => {
     }
 
     if (sample.duration) {
-      output.duration = addToDuration(`${sample.duration}`, output.duration);
+
+      console.log(`DURATION:`);
+      console.log(`sample: ${sample.duration}`);
+      console.log(`total: ${output.totalDuration}`);
+      console.log(`added: ${addToDuration(`${sample.duration}`, output.totalDuration)}`);
+
+      output.totalDuration = addToDuration(`${sample.duration}`, output.totalDuration);
     }
   });
 
@@ -50,7 +56,7 @@ export const aggregateHealthData = (input) => {
     createdOn,
     sampledOn: null,
     sources: [],
-    duration: '00:00:00'
+    totalDuration: '0.00:00:00'
   };
 
   return reduceSampleData(samples, output);
