@@ -1,0 +1,14 @@
+{
+  "input": [
+    {
+      "type": "Steps",
+      "sampleList": [{
+          "date": "2019-07-06T00:05:17-07:00",
+          "source": "Apple Watch",
+          "value": "243"
+        }
+      ],
+      "unit": "count"
+    }
+  ]
+}

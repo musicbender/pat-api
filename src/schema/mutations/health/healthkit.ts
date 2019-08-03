@@ -31,13 +31,6 @@ export const addHealthKit = {
       throw new ExpectedError('UNAUTHORIZED');
     }
 
-    console.log(`here we go`);
-    console.log(`ctx:`);
-    console.log(`url: ${ctx.url}`);
-    console.log(`host: ${ctx.host}`);
-    console.log(JSON.stringify(ctx.body));
-    console.log(ctx.headers);
-
     return addHealthKitItems(input);
   }
 }
