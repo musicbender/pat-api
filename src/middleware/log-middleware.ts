@@ -20,7 +20,7 @@ const logMiddleware = (winstonInstance) => {
           logLevel = 'info';
         }
 
-        const msg: string = `${ctx.method} ${ctx.originalUrl} ${ctx.status} ${ms}ms`;
+        const msg: string = `${ctx.method} ${ctx.originalUrl} ${ctx.status} ${ms}ms reqID(${ctx.state.reqID})`;
 
         winstonInstance.configure({
           level: process.env.PATPI_LOGGING_DEBUG ? 'debug' : 'info',
