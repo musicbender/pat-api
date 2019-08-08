@@ -9,14 +9,11 @@ const router = new Router();
 router.all(
   '/graphql',
   bodyParser(),
-  graphqlHTTP((ctx: Context) => ({
+  graphqlHTTP({
     schema,
     graphiql: false,
-    context: {
-      ctx
-    },
     pretty: process.env.NODE_ENV === 'development'
-  }))
+  })
 );
 
 router.allowedMethods();

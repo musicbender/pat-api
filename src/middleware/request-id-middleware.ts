@@ -2,7 +2,7 @@ import * as uuid from 'uuid';
 import { Context } from 'koa';
 
 const requestIDMiddleware = (ctx: Context, next: () => Promise<any>) => {
-  ctx.reqID = uuid();
+  ctx.state.reqID = uuid();
   return next();
 }
 

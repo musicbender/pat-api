@@ -9,7 +9,14 @@ export class ExpectedError extends Error {
   constructor(message: string, desc?: string) {
     super();
 
-    this.message = message;
-    this.desc = desc || errors[message].description || null;
+    console.log(`in err util----&&&`);
+    console.log(message);
+
+    this.message = errors.hasOwnProperty(message) ? message : 'INTERNAL_ERROR';
+    this.desc = desc || errors[message].description || errors.INTERNAL_ERROR.description;
+
+    console.log(this.message);
+    console.log(this.desc);
+    console.log(`----&&&`);
   }
 }

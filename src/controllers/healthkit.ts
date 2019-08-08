@@ -9,8 +9,6 @@ export const addHealthKitItems = async (input: any[]) => {
     throw new ExpectedError('INVALID_HEALTHKIT_INPUT');
   }
 
-  console.log(`in healthkit controller. Let's loop...`);
-
   const allItems = input.map(async healthItem => {
     const { type } = healthItem;
     let output;
@@ -21,7 +19,7 @@ export const addHealthKitItems = async (input: any[]) => {
         break;
       }
       default:
-        output = null;
+        throw new ExpectedError('INVALID_HEALTH_TYPE');
     }
 
     if (output) {
