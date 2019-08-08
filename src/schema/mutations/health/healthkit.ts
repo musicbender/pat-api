@@ -32,10 +32,6 @@ export const addHealthKit = {
       throw new ExpectedError('UNAUTHORIZED');
     }
 
-    console.log(`things:`);
-    console.log(parentValue);
-    console.log(info);
-
     return addHealthKitItems(input);
   }
 }
