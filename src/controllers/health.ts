@@ -1,5 +1,6 @@
 import * as moment from 'moment';
 import * as mongoose from 'mongoose';
+import * as uuid from 'uuid';
 import { healthModels } from '../models';
 import { ExpectedError } from '../utils/errors';
 import { addToDuration } from '../utils/date';
@@ -45,6 +46,7 @@ export const aggregateHealthData = (input) => {
     : [];
 
   let output = {
+    _id: uuid(),
     unit,
     value: 0,
     createdOn,
@@ -76,8 +78,7 @@ export const addHealthItem = async (input: any, config: any): Promise<any> => {
   const newHealthItem = new HealthItem(data);
 
   try {
-    const savedHealthItem = await newHealthItem.save();
-    return savedHealthItem;
+    return await newHealthItem.save();
   } catch (err) {
     throw new ExpectedError('ADD_HEALTH_ERROR');
   }
