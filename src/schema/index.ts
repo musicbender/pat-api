@@ -2,7 +2,7 @@ import { GraphQLSchema } from 'graphql';
 import { applyMiddleware } from 'graphql-middleware';
 import RootQueryType from './root-query-type';
 import mutations from './mutations';
-import { errorMiddleware, authMiddleware } from './middleware';
+import { excludeMiddleware, errorMiddleware, authMiddleware } from './middleware';
 
 const schema = new GraphQLSchema({
   query: RootQueryType,
@@ -11,6 +11,7 @@ const schema = new GraphQLSchema({
 
 export default applyMiddleware(
   schema,
+  excludeMiddleware,
   errorMiddleware,
   authMiddleware
 );

@@ -27,10 +27,6 @@ export const addHealthKit = {
     }
   },
   resolve: async (parentValue, { input }, { ctx }, info) => {
-    console.log('----in resolver----');
-    console.log(`fieldName: ${info.fieldName}`)
-    // throw new ExpectedError('UNAUTHORIZED');
-    
     if (process.env.PATAPI_HEALTHKIT_USER_AGENT !== 'false' && !ctx.headers['user-agent'].includes(process.env.PATAPI_HEALTHKIT_USER_AGENT)) {
       throw new ExpectedError('UNAUTHORIZED');
     }
