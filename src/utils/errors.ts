@@ -10,7 +10,6 @@ export class ExpectedError extends Error {
     super();
 
     console.log(`in err util----&&&`);
-    console.log(message);
 
     this.message = errors.hasOwnProperty(message) ? message : 'INTERNAL_ERROR';
     this.desc = desc || errors[message].description || errors.INTERNAL_ERROR.description;
