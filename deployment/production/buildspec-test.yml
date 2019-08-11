@@ -1,0 +1,17 @@
+version: 0.2
+
+env:
+  variables:
+    NODE_ENV: test
+
+phases:
+  pre_build:
+    commands:
+      - npm install
+  build:
+    commands:
+      - echo Running unit tests...
+      - npm test
+  post_build:
+    commands:
+      - echo Build completed on `date`

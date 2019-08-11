@@ -1,0 +1,16 @@
+{
+  "apps": [
+    {
+      "name": "pat-api",
+      "script": "/var/www/pat-api/index.js",
+      "instances": "max",
+      "autorestart": true,
+      "exec_mode": "cluster",
+      "log_date_format": "YYYY-MM-DD HH:mm:ss",
+      "merge_logs": true,
+      "env": {
+        "PORT": 4000
+      }
+    }
+  ]
+}

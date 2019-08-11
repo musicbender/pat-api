@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - npm install -g pm2
+      - npm install
+  build:
+    commands:
+      - webpack --config webpack.client.config.js
+  post_build:
+    commands:
+      - cp deployment/production/appspec-production.yml appspec.yml
+
+artifacts:
+  type: zip
+  files:
+    - dist/**/*
+    - node_modules/**/*
+    - deployment/lib/**/*
+    - deployment/production/**/*
+    - appspec.yml
