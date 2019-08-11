@@ -3,13 +3,13 @@ import * as bodyParser from 'koa-bodyparser';
 import * as helmet from 'koa-helmet';
 import * as winston from 'winston';
 import * as mongoose from 'mongoose';
-import * as mount from 'koa-mount';
+import { router } from './routes';
 import {
   corsMiddleware,
   logMiddleware,
-  requestIDMiddleware
+  requestIDMiddleware,
+  headersMiddleware
 } from './middleware';
-import { router } from './routes';
 
 // init
 require('dotenv').config();
@@ -19,9 +19,10 @@ const app = new Koa();
 // middlewares
 app.use(requestIDMiddleware);
 app.use(helmet());
-app.use(corsMiddleware);
 app.use(bodyParser());
+app.use(corsMiddleware());
 app.use(logMiddleware(winston));
+app.use(headersMiddleware);
 
 // mongodb
 mongoose.connect(
