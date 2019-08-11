@@ -3,7 +3,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - npm install -g pm2
+      - npm install -g pm2 typescript
       - npm install
   build:
     commands:
