@@ -12,7 +12,7 @@ const errorMiddleware = async (resolve, root, args, context, info) => {
       return {
         errorCode: err.message,
         errorDesc: err.errorDesc || err.desc || null
-      };;
+      };
     } else {
       throw err;
     }

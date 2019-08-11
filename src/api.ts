@@ -18,11 +18,14 @@ const app = new Koa();
 
 // middlewares
 app.use(requestIDMiddleware);
-app.use(helmet());
 app.use(bodyParser());
 app.use(corsMiddleware());
 app.use(logMiddleware(winston));
 app.use(headersMiddleware);
+
+if (process.env.PATAPI_DISABLE_HELMET !== 'true') {
+  app.use(helmet());
+}
 
 // mongodb
 mongoose.connect(

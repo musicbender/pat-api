@@ -29,10 +29,6 @@ export const addHealthKitItems = async (input: any[]) => {
 
   const output = await Promise.all(allItems);
 
-  console.log(`output:`);
-  console.log(`length: ${output.length}`);
-  console.log(output);
-
   return {
     response: output
   };
