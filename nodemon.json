@@ -11,5 +11,5 @@
     "NODE_ENV": "development"
   },
   "ext": "ts, json",
-  "exec": "ts-node"
+  "exec": "yarn start"
 }

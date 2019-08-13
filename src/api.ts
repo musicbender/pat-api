@@ -12,8 +12,6 @@ import {
 } from './middleware';
 
 // init
-require('dotenv').config();
-
 const app = new Koa();
 
 // middlewares
