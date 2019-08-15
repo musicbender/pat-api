@@ -25,9 +25,10 @@ if (process.env.PATAPI_DISABLE_HELMET !== 'true') {
   app.use(helmet());
 }
 
+console.log(`${process.env.PATAPI_DB_URI}/${process.env.PATAPI_DB_NAME}`)
 // mongodb
 mongoose.connect(
-  `mongodb://${process.env.PATAPI_DB_HOST}:${process.env.PATAPI_DB_PORT}/${process.env.PATAPI_DB_NAME}`,
+  `${process.env.PATAPI_DB_URI}/${process.env.PATAPI_DB_NAME}`,
   {
     useNewUrlParser: true,
     autoReconnect: true
