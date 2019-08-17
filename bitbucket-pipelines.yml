@@ -1,0 +1,11 @@
+image: node:12.7.0
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - node
+        script: 
+          - yarn
+          - npm test
+
