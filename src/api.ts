@@ -3,7 +3,7 @@ import * as bodyParser from 'koa-bodyparser';
 import * as helmet from 'koa-helmet';
 import * as winston from 'winston';
 import { router } from './routes';
-import { connectDB } from './controllers/database';
+import { connectDB } from './database';
 import {
   corsMiddleware,
   logMiddleware,

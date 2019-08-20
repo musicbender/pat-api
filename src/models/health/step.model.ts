@@ -1,4 +1,7 @@
+import * as uuid from 'uuid';
+import { healthTypes } from '../../configs/health.json';
 import { 
+  DataType,
   Model, 
   IsUUID, 
   PrimaryKey, 
@@ -8,8 +11,11 @@ import {
   IsDate
 } from 'sequelize-typescript';
 
-@Table
-export class Steps extends Model<Steps> {
+@Table({
+  tableName: healthTypes.steps.id
+})
+export default class Step extends Model<Step> {
+  @Default(uuid())
   @IsUUID(4)
   @PrimaryKey
   @Column
@@ -29,7 +35,7 @@ export class Steps extends Model<Steps> {
   @Column
   sampledOn: Date;
 
-  @Column
+  @Column(DataType.ARRAY(DataType.STRING))
   sources: string[];
 
   @Column
