@@ -2,9 +2,8 @@ import * as Koa from 'koa';
 import * as bodyParser from 'koa-bodyparser';
 import * as helmet from 'koa-helmet';
 import * as winston from 'winston';
-import * as mongoose from 'mongoose';
 import { router } from './routes';
-import { connectDB } from './utils/database';
+import { connectDB } from './controllers/database';
 import {
   corsMiddleware,
   logMiddleware,

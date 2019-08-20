@@ -1,6 +1,6 @@
 import { GraphQLNonNull, GraphQLID } from 'graphql';
 import { HealthType, HealthInputType } from '../../types';
-import { addHealthItem } from '../../../controllers/health';
+// import { addHealthItem } from '../../../controllers/health';
 import { healthTypes } from '../../../configs/health.json';
 
 export const addStep = {
@@ -13,7 +13,8 @@ export const addStep = {
     }
   },
   resolve(parentValue, { input }) {
-    return addHealthItem(input, healthTypes.steps);
+    // return addHealthItem(input, healthTypes.steps);
+    return;
   }
 }
 

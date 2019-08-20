@@ -1,47 +1,41 @@
-import * as mongoose from 'mongoose';
-import * as uuid from 'uuid';
-import { healthTypes } from '../configs/health.json';
+import { 
+  Model, 
+  IsUUID, 
+  PrimaryKey, 
+  Column, 
+  Table,
+  Default,
+  IsDate
+} from 'sequelize-typescript';
 
-const Schema = mongoose.Schema;
+@Table
+export class Steps extends Model<Steps> {
+  @IsUUID(4)
+  @PrimaryKey
+  @Column
+  id: string;
 
-// schema objects
-const healthSchema = {
-  _id: {
-    type: String,
-    default: uuid()
-  },
-  value: {
-    type: Number,
-    default: 0,
-    required: true
-  },
-  createdOn: {
-    type: Date,
-    default: Date.now(),
-    required: true
-  },
-  sampledOn: {
-    type: Date,
-    default: Date.now(),
-    required: true
-  },
-  sources: {
-    type: [String]
-  },
-  unit: {
-    type: String,
-    default: ''
-  },
-  totalDuration: {
-    type: String,
-    default: '0.00:00:00'
-  }
-}
+  @Default(0)
+  @Column
+  value: number;
 
-// mongoose schemas
-const stepsSchema = new Schema(healthSchema, { collection: healthTypes.steps.id });
+  @Default(Date.now())
+  @IsDate
+  @Column
+  createdOn: Date;
 
-// export mongoose models
-export default {
-  [healthTypes.steps.modelID]: mongoose.model(healthTypes.steps.modelID, stepsSchema)
+  @Default(Date.now())
+  @IsDate
+  @Column
+  sampledOn: Date;
+
+  @Column
+  sources: string[];
+
+  @Column
+  unit: string;
+
+  @Default('0.00:00:00')
+  @Column
+  totalDuration: string;
 }

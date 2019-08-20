@@ -1,85 +1,85 @@
-import * as moment from 'moment';
-import * as mongoose from 'mongoose';
-import * as uuid from 'uuid';
-import { healthModels } from '../models';
-import { ExpectedError } from '../utils/errors';
-import { addToDuration } from '../utils/date';
+// import * as moment from 'moment';
+// import * as mongoose from 'mongoose';
+// import * as uuid from 'uuid';
+// import { healthModels } from '../models';
+// import { ExpectedError } from '../utils/errors';
+// import { addToDuration } from '../utils/date';
 
-type SampleType = {
-  date?: Date,
-  source?: string
-  value?: number,
-  duration?: number,
-  unit?: string
-}
+// type SampleType = {
+//   date?: Date,
+//   source?: string
+//   value?: number,
+//   duration?: number,
+//   unit?: string
+// }
 
-export const reduceSampleData = (samples: SampleType[], input: any) => {
-  let output = input;
+// export const reduceSampleData = (samples: SampleType[], input: any) => {
+//   let output = input;
 
-  samples.forEach((sample: SampleType) => {
-    const value = Number(sample.value);
-    output.value += value;
+//   samples.forEach((sample: SampleType) => {
+//     const value = Number(sample.value);
+//     output.value += value;
 
-    if (!output.sampledOn) {
-      output.sampledOn = sample.date;
-    }
+//     if (!output.sampledOn) {
+//       output.sampledOn = sample.date;
+//     }
 
-    if (output.sources.indexOf(sample.source) === -1) {
-      output.sources.push(sample.source);
-    }
+//     if (output.sources.indexOf(sample.source) === -1) {
+//       output.sources.push(sample.source);
+//     }
 
-    if (sample.duration) {
-      output.totalDuration = addToDuration(`${sample.duration}`, output.totalDuration);
-    }
-  });
+//     if (sample.duration) {
+//       output.totalDuration = addToDuration(`${sample.duration}`, output.totalDuration);
+//     }
+//   });
   
-  return output;
-}
+//   return output;
+// }
 
-export const aggregateHealthData = (input) => {
-  const { unit } = input;
-  const createdOn = !!input.date && moment.isDate(input.date) ? input.date : Date.now();
-  const samples = input.hasOwnProperty('sampleList')
-    ? input.sampleList
-    : input.sample
-    ? [input.sample]
-    : [];
+// export const aggregateHealthData = (input) => {
+//   const { unit } = input;
+//   const createdOn = !!input.date && moment.isDate(input.date) ? input.date : Date.now();
+//   const samples = input.hasOwnProperty('sampleList')
+//     ? input.sampleList
+//     : input.sample
+//     ? [input.sample]
+//     : [];
 
-  let output = {
-    _id: uuid(),
-    unit,
-    value: 0,
-    createdOn,
-    sampledOn: null,
-    sources: [],
-    totalDuration: '0.00:00:00'
-  };
+//   let output = {
+//     _id: uuid(),
+//     unit,
+//     value: 0,
+//     createdOn,
+//     sampledOn: null,
+//     sources: [],
+//     totalDuration: '0.00:00:00'
+//   };
 
-  return reduceSampleData(samples, output);
-}
+//   return reduceSampleData(samples, output);
+// }
 
-export const findHealthById = (_id: string, config: any): any => {
-  return mongoose.model(config.modelID).findOne({ _id });
-}
+// export const findHealthById = (_id: string, config: any): any => {
+//   return mongoose.model(config.modelID).findOne({ _id });
+// }
 
-export const findHealthByDate = (date: Date, config: any): any => {
-  const start = moment(date).startOf('day');
-  const end = moment(date).endOf('day');
-  return mongoose.model(config.modelID).findOne({ date: { $gte: start, $lte: end }})
-}
+// export const findHealthByDate = (date: Date, config: any): any => {
+//   const start = moment(date).startOf('day');
+//   const end = moment(date).endOf('day');
+//   return mongoose.model(config.modelID).findOne({ date: { $gte: start, $lte: end }})
+// }
 
-export const addHealthItem = async (input: any, config: any): Promise<any> => {
-  if (!input.type || input.type !== config.healthkitID) {
-    throw new ExpectedError('INVALID_HEALTH_TYPE');
-  }
+// export const addHealthItem = async (input: any, config: any): Promise<any> => {
+//   if (!input.type || input.type !== config.healthkitID) {
+//     throw new ExpectedError('INVALID_HEALTH_TYPE');
+//   }
 
-  const data = aggregateHealthData(input);
-  const HealthItem = healthModels[config.modelID];
-  const newHealthItem = new HealthItem(data);
+//   const data = aggregateHealthData(input);
+//   const HealthItem = healthModels[config.modelID];
+//   const newHealthItem = new HealthItem(data);
 
-  try {
-    return await newHealthItem.save();
-  } catch (err) {
-    throw new ExpectedError('ADD_HEALTH_ERROR');
-  }
-}
+//   try {
+//     return await newHealthItem.save();
+//   } catch (err) {
+//     throw new ExpectedError('ADD_HEALTH_ERROR');
+//   }
+// }

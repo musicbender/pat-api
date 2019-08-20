@@ -1,5 +1,4 @@
 import * as moment from 'moment';
-import mongoose from 'mongoose';
 import { addHealthItem } from './health';
 import { ExpectedError } from '../utils/errors';
 import { healthTypes } from '../configs/health.json';
