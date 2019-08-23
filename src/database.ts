@@ -2,7 +2,7 @@ import { Sequelize } from 'sequelize-typescript';
 
 const getDBConfig = (): any => {
   const config = {
-    dialect: 'mysql',
+    dialect: 'postgres',
     database: process.env.PATAPI_DB_NAME,
     models: [`${__dirname}/models/**/*.model.ts`]
   };
@@ -19,6 +19,7 @@ const getDBConfig = (): any => {
       {
         ...config,
         host: process.env.PATAPI_DB_HOST,
+        port: process.env.PATAPI_DB_PORT,
         username: process.env.PATAPI_DB_USER || 'root',
         password: process.env.PATAPI_DB_PASSWORD || ''
       };
@@ -26,5 +27,5 @@ const getDBConfig = (): any => {
 
 export const connectDB = () => {
   const sequelize = new Sequelize(getDBConfig());
-  return sequelize.sync;
+  return sequelize.sync();
 }

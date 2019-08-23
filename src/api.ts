@@ -31,7 +31,7 @@ app.use(router());
 // connect database and start server
 (async () => {
   try {
-    const db = await connectDB();
+    await connectDB();
   } catch (err) {
     throw new Error(`Database could not connect: ${err}`);
   }
