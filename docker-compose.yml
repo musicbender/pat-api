@@ -2,15 +2,26 @@ version: "3"
 
 services:
   app:
-    context: .
+    build:
+      context: ./src
+      dockerfile: Dockerfile.dev
+    ports:
+      - 4000:4000
     volumes:
       - ./:/app
     depends_on:
-      - mongo
-
-  mongo:
-    image: pat-api-mongo
+      - postgres
+    env_file:
+      - .env
+  postgres:
+    image: postgres
     expose:
-      -27017
+      - 5432
     volumes:
-      - ./data/db:/data/db
+      - /Users/patjacobs/docker/volumes/postgres
+    environment:
+      POSTGRES_DB: pat_api
+      POSTGRES_USER: postgres 
+      POSTGRES_PASSWORD: 5NMMqWwQcipc1iCiQ8Dqh
+      
+      

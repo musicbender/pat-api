@@ -35,7 +35,7 @@ export const HealthType = new GraphQLObjectType({
   name: 'HealthType',
   description: 'Health data',
   fields: () => ({
-    _id: { type: GraphQLString },
+    id: { type: GraphQLString },
     value: { type: GraphQLInt },
     sampledOn: { type: GraphQLDate },
     createdOn: { type: GraphQLDate },

@@ -44,7 +44,7 @@ export const StepType = new GraphQLObjectType({
   name: 'StepType',
   description: 'Step count data for a single day',
   fields: () => ({
-    _id: { type: GraphQLString },
+    id: { type: GraphQLString },
     value: { type: GraphQLInt },
     sampledOn: { type: GraphQLDate },
     createdOn: { type: GraphQLDate },

@@ -45,7 +45,7 @@ export const aggregateHealthData = (input) => {
     : [];
 
   let output = {
-    _id: uuid(),
+    id: uuid(),
     unit,
     value: 0,
     createdOn,
@@ -57,8 +57,8 @@ export const aggregateHealthData = (input) => {
   return reduceSampleData(samples, output);
 }
 
-export const findHealthById = (_id: string, config: any): any => {
-//   return mongoose.model(config.modelID).findOne({ _id });
+export const findHealthById = (id: string, config: any): any => {
+//   return mongoose.model(config.modelID).findOne({ id });
 }
 
 export const findHealthByDate = (date: Date, config: any): any => {
@@ -76,7 +76,10 @@ export const addHealthItem = async (input: any, config: any): Promise<any> => {
   const HealthItem = healthModels[config.modelID];
 
   try {
-    return await HealthItem.create(data);
+    const res: any = await HealthItem.create(data);
+    console.log(res.dataValues)
+    return res.dataValues;
+    
   } catch (err) {
     console.error(err);
     throw new ExpectedError('ADD_HEALTH_ERROR');
