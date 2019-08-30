@@ -1,5 +1,4 @@
 import * as moment from 'moment';
-import * as mongoose from 'mongoose';
 import * as uuid from 'uuid';
 import { healthModels } from '../models';
 import { ExpectedError } from '../utils/errors';
@@ -46,7 +45,7 @@ export const aggregateHealthData = (input) => {
     : [];
 
   let output = {
-    _id: uuid(),
+    id: uuid(),
     unit,
     value: 0,
     createdOn,
@@ -58,14 +57,14 @@ export const aggregateHealthData = (input) => {
   return reduceSampleData(samples, output);
 }
 
-export const findHealthById = (_id: string, config: any): any => {
-  return mongoose.model(config.modelID).findOne({ _id });
+export const findHealthById = (id: string, config: any): any => {
+//   return mongoose.model(config.modelID).findOne({ id });
 }
 
 export const findHealthByDate = (date: Date, config: any): any => {
   const start = moment(date).startOf('day');
   const end = moment(date).endOf('day');
-  return mongoose.model(config.modelID).findOne({ date: { $gte: start, $lte: end }})
+//   return mongoose.model(config.modelID).findOne({ date: { $gte: start, $lte: end }})
 }
 
 export const addHealthItem = async (input: any, config: any): Promise<any> => {
@@ -75,11 +74,14 @@ export const addHealthItem = async (input: any, config: any): Promise<any> => {
 
   const data = aggregateHealthData(input);
   const HealthItem = healthModels[config.modelID];
-  const newHealthItem = new HealthItem(data);
 
   try {
-    return await newHealthItem.save();
+    const res: any = await HealthItem.create(data);
+    console.log(res.dataValues)
+    return res.dataValues;
+    
   } catch (err) {
+    console.error(err);
     throw new ExpectedError('ADD_HEALTH_ERROR');
   }
 }

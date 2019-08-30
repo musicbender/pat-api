@@ -1,5 +1,4 @@
 import * as moment from 'moment';
-import mongoose from 'mongoose';
 import { addHealthItem } from './health';
 import { ExpectedError } from '../utils/errors';
 import { healthTypes } from '../configs/health.json';
@@ -9,7 +8,7 @@ export const addHealthKitItems = async (input: any[]) => {
     throw new ExpectedError('INVALID_HEALTHKIT_INPUT');
   }
 
-  const allItems = input.map(async healthItem => {
+  const allItems = input.map(async (healthItem: any): Promise<any> => {
     const { type } = healthItem;
     let output;
 
@@ -22,14 +21,10 @@ export const addHealthKitItems = async (input: any[]) => {
         throw new ExpectedError('INVALID_HEALTH_TYPE');
     }
 
-    if (output) {
-      return output;
-    }
+    return output;
   });
 
   const output = await Promise.all(allItems);
 
-  return {
-    response: output
-  };
+  return { response: output };
 }

@@ -2,8 +2,8 @@ import * as Koa from 'koa';
 import * as bodyParser from 'koa-bodyparser';
 import * as helmet from 'koa-helmet';
 import * as winston from 'winston';
-import * as mongoose from 'mongoose';
 import { router } from './routes';
+import { connectDB } from './database';
 import {
   corsMiddleware,
   logMiddleware,
@@ -25,26 +25,19 @@ if (process.env.PATAPI_DISABLE_HELMET !== 'true') {
   app.use(helmet());
 }
 
-console.log(`${process.env.PATAPI_DB_URI}/${process.env.PATAPI_DB_NAME}`)
-// mongodb
-mongoose.connect(
-  `${process.env.PATAPI_DB_URI}/${process.env.PATAPI_DB_NAME}`,
-  {
-    useNewUrlParser: true,
-    autoReconnect: true
-  }
-);
-
-const db = mongoose.connection;
-
-db.on('error', err => {
-  console.error(err);
-});
-
 // REST routes
 app.use(router());
 
-// start server
-app.listen(process.env.PATAPI_PORT, () => {
-  console.log(`Pat API running at port ${process.env.PATAPI_PORT}`)
-});
+// connect database and start server
+(async () => {
+  try {
+    await connectDB();
+  } catch (err) {
+    throw new Error(`Database could not connect: ${err}`);
+  }
+
+  // start server
+  app.listen(process.env.PATAPI_PORT, () => {
+    console.log(`Pat API running at port ${process.env.PATAPI_PORT}`)
+  });
+})();

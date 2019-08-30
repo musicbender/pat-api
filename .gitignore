@@ -20,3 +20,6 @@ dist
 # Environment Vars
 .env.*
 .env
+
+# docker
+docker/secrets
