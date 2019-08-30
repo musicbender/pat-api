@@ -1,11 +1,28 @@
 image: node:12.7.0
+image:
+  name: atlassian/pipelines-awscli
+
+definitions:
+  buildImage: &buildImage
+    name: patapi
+    caches:
+      - docker
+    services:
+      - docker
+    script:
+      # aws login
+      - eval $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
+      # docker
+      - export BUILD_ID=$BITBUCKET_BRANCH_$BITBUCKET_COMMIT_$BITBUCKET_BUILD_NUMBER
+      - docker build -t ${AWS_REGISTRY_URL}:$BUILD_ID .
+      - docker push ${AWS_REGISTRY_URL}:$BUILD_ID
+      - docker tag ${AWS_REGISTRY_URL}:$BUILD_ID ${AWS_REGISTRY_URL}:development
+      - docker push ${AWS_REGISTRY_URL}:development
+      
 
 pipelines:
-  default:
-    - step:
-        caches:
-          - node
-        script: 
-          - yarn
-          - npm test
+  branches:
+    master:
+      - step: *buildImage
+          
 
