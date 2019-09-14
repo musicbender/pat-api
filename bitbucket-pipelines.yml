@@ -1,28 +1,26 @@
-image: node:12.7.0
 image:
   name: atlassian/pipelines-awscli
 
 definitions:
-  buildImage: &buildImage
-    name: patapi
-    caches:
-      - docker
-    services:
-      - docker
-    script:
-      # aws login
-      - eval $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
-      # docker
-      - export BUILD_ID=$BITBUCKET_BRANCH_$BITBUCKET_COMMIT_$BITBUCKET_BUILD_NUMBER
-      - docker build -t ${AWS_REGISTRY_URL}:$BUILD_ID .
-      - docker push ${AWS_REGISTRY_URL}:$BUILD_ID
-      - docker tag ${AWS_REGISTRY_URL}:$BUILD_ID ${AWS_REGISTRY_URL}:development
-      - docker push ${AWS_REGISTRY_URL}:development
+  build:
+    - step: &build
+        name: pat-api
+        deployment: production
+        caches:
+          - docker
+        services:
+          - docker
+        script:
+          # aws login
+          - eval $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
+          # docker
+          - export BUILD_ID=$BITBUCKET_BRANCH_$BITBUCKET_COMMIT_$BITBUCKET_BUILD_NUMBER
+          - docker build -t ${AWS_REGISTRY_URL}:$BUILD_ID .
+          - docker push ${AWS_REGISTRY_URL}:$BUILD_ID
+          - docker tag ${AWS_REGISTRY_URL}:$BUILD_ID ${AWS_REGISTRY_URL}:development
+          - docker push ${AWS_REGISTRY_URL}:development
       
-
 pipelines:
   branches:
     master:
-      - step: *buildImage
-          
-
+      - step: *build
