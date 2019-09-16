@@ -12,7 +12,7 @@ definitions:
           - docker
         script:
           # aws login
-          - export AWS_REGISTRY_URL="$(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)"
+          - eval $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
           # docker
           - export BUILD_ID=$BITBUCKET_BRANCH_$BITBUCKET_COMMIT_$BITBUCKET_BUILD_NUMBER
           - docker build -t ${AWS_REGISTRY_URL}:$BUILD_ID -f Dockerfile.prod .
