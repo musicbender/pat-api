@@ -9,7 +9,6 @@ node_modules
 .DS_Store
 dist
 .git
-.env
 
 # Log files
 *.log
@@ -20,6 +19,7 @@ dist
 # Environment Vars
 .env.*
 .env
+deploy/**/env.*
 
 # docker
 docker/secrets
