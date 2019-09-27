@@ -3,24 +3,34 @@ image:
 
 definitions:
   steps:
-    - step: &build-and-deploy
-        name: pat-api
+    - step: &build-and-push
+        name: Build and push docker image
         deployment: production
         caches:
           - docker
         services:
           - docker
         script:
-          # aws login
           - eval $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
-          # docker
           - export BUILD_ID="$BITBUCKET_BRANCH"_"$BITBUCKET_COMMIT"_"$BITBUCKET_BUILD_NUMBER"
           - docker build -t ${AWS_REGISTRY_URL}:$BUILD_ID -f Dockerfile.prod .
           - docker push ${AWS_REGISTRY_URL}:$BUILD_ID
           - docker tag ${AWS_REGISTRY_URL}:$BUILD_ID ${AWS_REGISTRY_URL}:development
           - docker push ${AWS_REGISTRY_URL}:development
+    - step: &deploy
+        name: Deploy to ECS
+        script:
+          - pipe: atlassian/aws-ecs-deploy:1.0.1
+          - variables:
+              AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+              AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+              AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+              CLUSTER_NAME: 'pat-api-cluster'
+              SERVICE_NAME: 'pat-api-service'
+              TASK_DEFINITION: 'deploy/task-definition.json'
 
 pipelines:
   branches:
     master:
-      - step: *build-and-deploy
+      - step: *build-and-push
+      - step: *deploy
