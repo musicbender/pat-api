@@ -32,5 +32,5 @@ definitions:
 pipelines:
   branches:
     master:
-      - step: *build-and-push
-      - step: *deploy
+      # - step: *build-and-push
+      # - step: *deploy
