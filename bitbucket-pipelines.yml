@@ -18,19 +18,23 @@ definitions:
           - docker tag ${AWS_REGISTRY_URL}:$BUILD_ID ${AWS_REGISTRY_URL}:development
           - docker push ${AWS_REGISTRY_URL}:development
     - step: &deploy
-        name: Deploy to ECS
+        name: Deploy to K8s
         script:
-          - pipe: atlassian/aws-ecs-deploy:1.0.1
-          - variables:
-              AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-              AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-              AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
-              CLUSTER_NAME: 'pat-api-cluster'
-              SERVICE_NAME: 'pat-api-service'
-              TASK_DEFINITION: 'deploy/task-definition.json'
+           # Download the necessary tools to deploy to kubernetes
+          - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+          - chmod +x ./kubectl
+          - sudo mv ./kubectl /usr/local/bin/kubectl
+          # Configure kubectl
+          - kubectl config set-cluster <my.cluster.name> --server=<my.kubernetes.host> --certificate-authority=/path/to/ca.pem
+          - kubectl config set-credentials <my.user> --username=$KUBERNETES_USERNAME --password=$KUBERNETES_PASSWORD
+          - kubectl config set-context <my.context> --cluster=<my.cluster.name> --user=<my.user>
+          - kubectl config use-context <my.context>
+          # Update the deployment to use the new Docker image
+          - kubectl set image deployment/<my.app> <my.app>=<my.dockerhub.username>/<my.app>:$BITBUCKET_COMMIT
+        
 
-pipelines:
-  branches:
-    master:
-      # - step: *build-and-push
-      # - step: *deploy
+# pipelines:
+#   branches:
+#     master:
+#       - step: *build-and-push
+#       - step: *deploy
