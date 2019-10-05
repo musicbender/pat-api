@@ -7,7 +7,7 @@ pipelines:
     master:
       - step: 
           name: Test the pipelines
-          deployment: production
+          deployment: prod_build
           image: node:12.7.0
           script:
             - echo all the varrrrssss...
@@ -21,9 +21,10 @@ pipelines:
       - step:
           name: Try k8s things
           image: atlassian/pipelines-kubectl
+          deployment: prod_deploy
           script:
             - echo trying k8s...
-            - echo "The port is...$PATAPI_PORT !!!!"
+            - echo "My region is $AWS_DEFAULT_REGION"
             - export BUILD_ID="$BITBUCKET_BRANCH"_"$BITBUCKET_COMMIT"_"$BITBUCKET_BUILD_NUMBER"
             - export IMAGE_NAME="$AWS_REGISTRY_URL":"$BUILD_ID"
             - echo Make token files...
