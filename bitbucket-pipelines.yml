@@ -16,7 +16,8 @@ pipelines:
             - echo $PATAPI_DB_HOST
             - echo "The port is...$PATAPI_PORT !!!!"
             - echo "My region is $AWS_DEFAULT_REGION"
-            - export YASS=$(echo $PATAPI_API_KEY | base64 -d)
+            - echo $PATAPI_API_KEY | base64 -d > api-key
+            - cat api-key
             - echo $YASS
       - step:
           name: Try k8s things
