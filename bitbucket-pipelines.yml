@@ -18,8 +18,9 @@ pipelines:
             - echo "My region is $AWS_DEFAULT_REGION"
             - echo "$PATAPI_API_KEY"
             - echo $PATAPI_API_KEY
+            - man base64
             - echo "my api key is...$PATAPI_API_KEY"
-            - echo "$PATAPI_API_KEY" | base64 -di > ./patapi_api_key
+            - echo $PATAPI_API_KEY | base64 -di > ./patapi_api_key
             - cat ./patapi_api_key
       - step:
           name: Try k8s things
@@ -31,8 +32,9 @@ pipelines:
             - export BUILD_ID="$BITBUCKET_BRANCH"_"$BITBUCKET_COMMIT"_"$BITBUCKET_BUILD_NUMBER"
             - export IMAGE_NAME="$AWS_REGISTRY_URL":"$BUILD_ID"
             - echo Make token files...
+            - man base64
             - echo "$KUBE_TOKEN" | base64 -di > ./kube_token
-            - echo "$KUBE_CA" | base64 -di > ./kube_ca
+            - echo "$KUBE_CA" | base64 -d > ./kube_ca
             - echo "kubectl time..."
             - kubectl config set-cluster pat-api-k8s --server=https://fcae1d7e-5f25-4d97-b187-b81f25326a71.k8s.ondigitalocean.com --certificate-authority="$(pwd)/kube_ca"
             - kubectl config set-credentials bitbucket --token="$(cat ./kube_token)"
