@@ -16,7 +16,10 @@ pipelines:
             - echo $PATAPI_DB_HOST
             - echo "The port is...$PATAPI_PORT !!!!"
             - echo "My region is $AWS_DEFAULT_REGION"
-            - echo "$PATAPI_API_KEY" | base64 -d > ./patapi_api_key.txt
+            - echo "$PATAPI_API_KEY"
+            - echo $PATAPI_API_KEY
+            - echo "my api key is...$PATAPI_API_KEY"
+            - echo "$PATAPI_API_KEY" | base64 -di > ./patapi_api_key.txt
             - cat ./patapi_api_key.txt
       - step:
           name: Try k8s things
