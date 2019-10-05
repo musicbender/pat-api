@@ -18,7 +18,6 @@ pipelines:
             - echo "My region is $AWS_DEFAULT_REGION"
             - echo "$PATAPI_API_KEY"
             - echo $PATAPI_API_KEY
-            - man base64
             - echo "my api key is...$PATAPI_API_KEY"
             - echo $PATAPI_API_KEY | base64 -di > ./patapi_api_key
             - cat ./patapi_api_key
