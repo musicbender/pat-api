@@ -11,9 +11,9 @@ pipelines:
           script:
             - echo all the varrrrssss...
             - export ALL_THE_VARS=$(declare -x -F)
-            - echo $ALL_THE_VARS
+            - echo "$ALL_THE_VARS"
             - echo $PATAPI_DB_HOST
-            - echo $PATAPI_PORT
+            - echo "$PATAPI_PORT"
             - echo $PATAPI_API_KEY
             - echo $AWS_DEFAULT_REGION
       - step:
