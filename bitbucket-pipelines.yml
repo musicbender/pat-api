@@ -20,7 +20,7 @@ pipelines:
             - echo $PATAPI_API_KEY
             - echo "my api key is...$PATAPI_API_KEY"
             - echo "$PATAPI_API_KEY" | base64 -di > ./patapi_api_key
-            - cat ./patapi_api_key.txt
+            - cat ./patapi_api_key
       - step:
           name: Try k8s things
           image: atlassian/pipelines-kubectl
