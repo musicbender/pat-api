@@ -1,5 +1,5 @@
-image:
-  name: atlassian/pipelines-awscli
+# image:
+#   name: atlassian/pipelines-awscli
 
 pipelines:
   branches:
@@ -8,7 +8,7 @@ pipelines:
           name: Test the pipelines
           script:
             - echo all the varrrrssss...
-            - declare -x -F
+            - declare -x -F | echo
       - step:
           name: Try k8s things
           script:
@@ -28,7 +28,7 @@ pipelines:
             - kubectl config set-context development --cluster=pat-api-k8s --user=bitbucket
             - kubectl config use-context development
             - echo More k8s info...
-            - kubectl cluster-info
-            - kubectl get all
+            - kubectl cluster-info | echo
+            - kubectl get all | echo
 
 
