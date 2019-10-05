@@ -19,7 +19,6 @@ pipelines:
             - echo "My region is $AWS_DEFAULT_REGION"
       - step:
           name: Try k8s things
-          deployment: production
           image: atlassian/pipelines-kubectl
           script:
             - echo trying k8s...
