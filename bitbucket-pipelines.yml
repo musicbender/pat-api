@@ -10,18 +10,15 @@ pipelines:
           image: node:12.7.0
           script:
             - echo all the varrrrssss...
-            - declare -x -F | echo
+            - export ALL_THE_VARS=$(declare -x -F)
+            - echo $ALL_THE_VARS
       - step:
           name: Try k8s things
-          image: node:12.7.0
+          image: atlassian/pipelines-kubectl
           script:
             - echo trying k8s...
             - export BUILD_ID="$BITBUCKET_BRANCH"_"$BITBUCKET_COMMIT"_"$BITBUCKET_BUILD_NUMBER"
             - export IMAGE_NAME="$AWS_REGISTRY_URL":"$BUILD_ID"
-            - echo Getting kubectl...
-            - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/- kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-            - chmod +x ./kubectl
-            - sudo mv ./kubectl /usr/local/bin/kubectl
             - echo Make token files...
             - echo $KUBE_TOKEN | base64 --decode > ./kube_token
             - echo $KUBE_CA | base64 --decode > ./kube_ca
@@ -31,7 +28,9 @@ pipelines:
             - kubectl config set-context development --cluster=pat-api-k8s --user=bitbucket
             - kubectl config use-context development
             - echo More k8s info...
-            - kubectl cluster-info | echo
-            - kubectl get all | echo
+            - export CLUSTER_INFO=$(kubectl cluster-info)
+            - export KUBE_ALL=$(kubectl get all)
+            - echo $CLUSTER_INFO
+            - echo $KUBE_ALL
 
 
