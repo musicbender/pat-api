@@ -1,16 +1,19 @@
 # image:
 #   name: atlassian/pipelines-awscli
 
+
 pipelines:
   branches:
     master:
       - step: 
           name: Test the pipelines
+          image: node:12.7.0
           script:
             - echo all the varrrrssss...
             - declare -x -F | echo
       - step:
           name: Try k8s things
+          image: node:12.7.0
           script:
             - echo trying k8s...
             - export BUILD_ID="$BITBUCKET_BRANCH"_"$BITBUCKET_COMMIT"_"$BITBUCKET_BUILD_NUMBER"
