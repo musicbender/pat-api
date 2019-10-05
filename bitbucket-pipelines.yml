@@ -19,7 +19,7 @@ pipelines:
             - echo "$PATAPI_API_KEY"
             - echo $PATAPI_API_KEY
             - echo "my api key is...$PATAPI_API_KEY"
-            - echo $PATAPI_API_KEY | base64 -di > ./build-files/patapi_api_key
+            - echo $PATAPI_API_KEY | base64 -di > ./patapi_api_key
             - cat ./patapi_api_key
       - step:
           name: Get k8s Credentials
