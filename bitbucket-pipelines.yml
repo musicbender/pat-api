@@ -28,7 +28,7 @@ pipelines:
           script:
             - mkdir kube
             - echo $KUBE_TOKEN
-            - echo $KUBE_TOKEN | base64 -d -i > ./kube/kube_token
+            - (umask 077 ; echo $KUBE_TOKEN | base64 -d -i > ./kube/kube_token)
             - echo $KUBE_CA | base64 -d -i > ./kube/kube_ca
           artifacts:
             - kube/*
