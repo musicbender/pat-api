@@ -27,8 +27,8 @@ pipelines:
           image: atlassian/default-image:2
           script:
             - mkdir kube
-            - echo "$KUBE_TOKEN" | base64 -di > ./kube/kube_token
-            - echo "$KUBE_CA" | base64 -di > ./kube/kube_ca
+            - echo $KUBE_TOKEN | base64 -d > ./kube/kube_token
+            - echo $KUBE_CA | base64 -d > ./kube/kube_ca
           artifacts:
             - kube/*
       - step:
