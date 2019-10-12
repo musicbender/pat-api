@@ -21,8 +21,10 @@ pipelines:
           name: Get aws secrets and save to artifact
           deployment: prod_get-secrets
           image: node:12.7.0
+          caches:
+              - node
           script:
-            - npm i -g aws-sdk minimist
+            - npm i aws-sdk minimist
             - mkdir config
             - node .deployment/scripts/build-secrets.js --aws-key=${AWS_ACCESS_KEY_ID} --aws-secret=${AWS_SECRET_ACCESS_KEY} -s ${AWS_SECRETS_NAME} -m ${SECRETS_META} -f ./config/secrets.json
           artifacts:
