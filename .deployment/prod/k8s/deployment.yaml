@@ -26,6 +26,9 @@ spec:
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
+        envFrom:
+          - secretRef:
+              name: patapi-runtime-secrets
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
