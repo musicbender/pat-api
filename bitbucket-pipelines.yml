@@ -1,28 +1,28 @@
 pipelines:
   branches:
     master:
-      - step:
-          name: Build and push docker image
-          deployment: prod_build
-          image: atlassian/pipelines-awscli
-          caches:
-            - docker
-          services:
-            - docker
-          script:
-            - eval $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
-            - export BUILD_ID="$BITBUCKET_BRANCH"_"$BITBUCKET_COMMIT"_"$BITBUCKET_BUILD_NUMBER"
-            - export IMAGE_NAME="$AWS_REGISTRY_URL":"$BUILD_ID"
-            - docker build -t ${IMAGE_NAME} -f Dockerfile.prod .
-            - docker push ${IMAGE_NAME}
-            - docker tag ${IMAGE_NAME} ${AWS_REGISTRY_URL}:development
-            - docker push ${AWS_REGISTRY_URL}:development
+      # - step:
+      #     name: Build and push docker image
+      #     deployment: prod_build
+      #     image: atlassian/pipelines-awscli
+      #     caches:
+      #       - docker
+      #     services:
+      #       - docker
+      #     script:
+      #       - eval $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
+      #       - export BUILD_ID="$BITBUCKET_BRANCH"_"$BITBUCKET_COMMIT"_"$BITBUCKET_BUILD_NUMBER"
+      #       - export IMAGE_NAME="$AWS_REGISTRY_URL":"$BUILD_ID"
+      #       - docker build -t ${IMAGE_NAME} -f Dockerfile.prod .
+      #       - docker push ${IMAGE_NAME}
+      #       - docker tag ${IMAGE_NAME} ${AWS_REGISTRY_URL}:development
+      #       - docker push ${AWS_REGISTRY_URL}:development
       - step:
           name: Get aws secrets and save to artifact
           deployment: prod_get-secrets
           image: node:12.7.0
           script:
-            - npm i -g aws-sdk minamist
+            - npm i -g aws-sdk minimist
             - mkdir config
             - node .deployment/scripts/build-secrets.js --aws-key=${AWS_ACCESS_KEY_ID} --aws-secret=${AWS_SECRET_ACCESS_KEY} -s ${AWS_SECRETS_NAME} -m ${SECRETS_META} -f ./config/secrets.json
           artifacts:
