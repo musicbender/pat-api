@@ -93,7 +93,8 @@ const buildSecrets = () => {
           apiVersion: 'v1',
           kind: 'Secret',
           metadata: {
-              name: secretName
+              name: secretName,
+              namespace: 'default'
           },
           type: 'Opaque',
           data: buildData(secrets)
