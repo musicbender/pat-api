@@ -8,7 +8,7 @@ const buildData = (secrets) => {
     Object.keys(secrets).forEach((s) => {
         output = {
             ...output, 
-            [s]: Buffer.from(secrets[s]).toString()
+            [s]: Buffer.from(secrets[s]).toString('base64')
         }
     });
 
