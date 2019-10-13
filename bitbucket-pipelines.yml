@@ -52,7 +52,7 @@ pipelines:
             - kubectl config set-credentials bitbucket --token="$(cat ./kube/kube_token)"
             - kubectl config set-context development --cluster=pat-api-k8s --user=bitbucket
             - kubectl config use-context development
-            - kubectl create secret -f ./config/secrets.json
+            - kubectl apply -f ./config/secrets.json
             - kubectl set image deployment/pat-api pat-api=${IMAGE_NAME}
 
 
