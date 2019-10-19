@@ -1,5 +1,6 @@
 import * as moment from 'moment';
 import * as uuid from 'uuid';
+import { Op } from 'sequelize';
 import { healthModels } from '../models';
 import { ExpectedError } from '../utils/errors';
 import { addToDuration } from '../utils/date';
@@ -62,11 +63,11 @@ export const findHealthById = (id: string, config: any): any => {
 }
 
 export const findHealthByDate = (date: Date, config: any): any => {
-  const start = moment(date).startOf('day');
-  const end = moment(date).endOf('day');
+  const start = moment(date).startOf('day').toDate();
+  const end = moment(date).endOf('day').toDate();
   return healthModels[config.modelID].findOne({ 
     where: { 
-      date: { $gte: start, $lte: end } 
+      sampledOn: { [Op.gte]: start, [Op.lte]: end } 
     } 
   });
 }
