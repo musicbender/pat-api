@@ -58,13 +58,17 @@ export const aggregateHealthData = (input) => {
 }
 
 export const findHealthById = (id: string, config: any): any => {
-//   return mongoose.model(config.modelID).findOne({ id });
+  return healthModels[config.modelID].findOne({ where: { id } });
 }
 
 export const findHealthByDate = (date: Date, config: any): any => {
   const start = moment(date).startOf('day');
   const end = moment(date).endOf('day');
-//   return mongoose.model(config.modelID).findOne({ date: { $gte: start, $lte: end }})
+  return healthModels[config.modelID].findOne({ 
+    where: { 
+      date: { $gte: start, $lte: end } 
+    } 
+  });
 }
 
 export const addHealthItem = async (input: any, config: any): Promise<any> => {
@@ -77,11 +81,8 @@ export const addHealthItem = async (input: any, config: any): Promise<any> => {
 
   try {
     const res: any = await HealthItem.create(data);
-    console.log(res.dataValues)
     return res.dataValues;
-    
   } catch (err) {
-    console.error(err);
     throw new ExpectedError('ADD_HEALTH_ERROR');
   }
 }
