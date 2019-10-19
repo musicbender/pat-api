@@ -16,7 +16,8 @@ const step = {
       type: GraphQLDate
     }
   },
-  resolve(parentValue, args) {
+  resolve(parentValue, args, request) {
+    
     // if (args._id) {
     //   return findHealthById(args._id, healthTypes.steps);
     // } else if (args.date) {

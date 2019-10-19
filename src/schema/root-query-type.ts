@@ -1,4 +1,4 @@
-import { GraphQLObjectType, GraphQLString } from 'graphql';
+import { GraphQLObjectType } from 'graphql';
 import {
   step
 } from './queries';

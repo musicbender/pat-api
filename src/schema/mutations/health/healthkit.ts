@@ -26,7 +26,7 @@ export const addHealthKit = {
       type: new GraphQLList(HealthInputType)
     }
   },
-  resolve: async (parentValue, { input }, { ctx }, info) => {
+  resolve: async (parentValue, { input }, ctx, info) => {
     if (process.env.PATAPI_HEALTHKIT_USER_AGENT !== 'false' && !ctx.headers['user-agent'].includes(process.env.PATAPI_HEALTHKIT_USER_AGENT)) {
       throw new ExpectedError('UNAUTHORIZED');
     }

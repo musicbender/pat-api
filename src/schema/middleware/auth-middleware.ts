@@ -1,7 +1,7 @@
 const publicFields = require('../../configs/public-fields.json');
 import { ExpectedError } from '../../utils/errors';
 
-const authMiddleware = async (resolve, root, args, context, info) => {
+const authMiddleware = async (resolve, root, args, context, info): Promise<any> => {
   if (info.excludeMiddleware) {
     return await resolve(root, args, context, info);
   }

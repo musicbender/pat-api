@@ -3,12 +3,14 @@ import { createRouteExplorer } from 'altair-koa-middleware';
 
 const router = new Router();
 
-createRouteExplorer({
-  url: '/altair',
-  router,
-  opts: {
-    endpointURL: '/graphql'
-  }
-});
+if (process.env.PATAPI_DISABLE_ALTAIR !== 'true') {
+  createRouteExplorer({
+    url: '/altair',
+    router,
+    opts: {
+      endpointURL: '/graphql'
+    }
+  });
+}
 
 export default router;
