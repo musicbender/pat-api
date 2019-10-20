@@ -8,7 +8,8 @@ import {
   Column, 
   Table,
   Default,
-  IsDate
+  CreatedAt,
+  UpdatedAt
 } from 'sequelize-typescript';
 
 @Table({
@@ -25,13 +26,13 @@ export default class Step extends Model<Step> {
   @Column
   value: number;
 
-  @Default(Date.now())
-  @IsDate
-  @Column
+  @CreatedAt
   createdOn: Date;
 
+  @UpdatedAt
+  updatedOn: Date
+
   @Default(Date.now())
-  @IsDate
   @Column
   sampledOn: Date;
 

@@ -39,6 +39,7 @@ export const HealthType = new GraphQLObjectType({
     value: { type: GraphQLInt },
     sampledOn: { type: GraphQLDate },
     createdOn: { type: GraphQLDate },
+    updatedOn: { type: GraphQLDate },
     sources: { type: new GraphQLList(GraphQLString) },
     unit: { type: GraphQLString },
     totalDuration: { type: GraphQLString }

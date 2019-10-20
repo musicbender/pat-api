@@ -13,7 +13,7 @@ type SampleType = {
   unit?: string
 }
 
-export const reduceSampleData = (samples: SampleType[], input: any) => {
+export const reduceSampleData = (samples: SampleType[], input: any, config: any): any => {
   let output = input;
 
   samples.forEach((sample: SampleType) => {
@@ -36,9 +36,8 @@ export const reduceSampleData = (samples: SampleType[], input: any) => {
   return output;
 }
 
-export const aggregateHealthData = (input) => {
-  const { unit } = input;
-  const createdOn = !!input.date && moment.isDate(input.date) ? input.date : Date.now();
+export const aggregateHealthData = (input: any, config: any): any => {
+  const sampledOn = !!input.date && moment.isDate(input.date) ? input.date : null;
   const samples = input.hasOwnProperty('sampleList')
     ? input.sampleList
     : input.sample
@@ -46,16 +45,14 @@ export const aggregateHealthData = (input) => {
     : [];
 
   let output = {
-    id: uuid(),
-    unit,
+    unit: input.unit,
     value: 0,
-    createdOn,
-    sampledOn: null,
+    sampledOn,
     sources: [],
     totalDuration: '0.00:00:00'
   };
 
-  return reduceSampleData(samples, output);
+  return reduceSampleData(samples, output, config);
 }
 
 export const findHealthById = (id: string, config: any): any => {
@@ -77,13 +74,17 @@ export const addHealthItem = async (input: any, config: any): Promise<any> => {
     throw new ExpectedError('INVALID_HEALTH_TYPE');
   }
 
-  const data = aggregateHealthData(input);
+  const data = aggregateHealthData(input, config);
   const HealthItem = healthModels[config.modelID];
+
+  console.log('input:');
+  console.log(data);
 
   try {
     const res: any = await HealthItem.create(data);
     return res.dataValues;
   } catch (err) {
+    console.log(err);
     throw new ExpectedError('ADD_HEALTH_ERROR');
   }
 }

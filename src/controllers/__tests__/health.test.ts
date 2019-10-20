@@ -30,7 +30,7 @@ describe('controllers/health.ts', function () {
 
     tests.forEach(({ assert, expected, info }) => {
       it(info, () => {
-        const data = aggregateHealthData(assert[0]);
+        const data = aggregateHealthData(assert[0], false);
         expect(data.unit).toEqual(expected.unit);
         expect(data.value).toEqual(expected.value);
         expect(data.sampledOn).toEqual(expected.sampledOn);
