@@ -1,7 +1,7 @@
 import { GraphQLNonNull, GraphQLID } from 'graphql';
 import { HealthType, HealthInputType } from '../../types';
 import { addHealthItem } from '../../../controllers/health';
-import { healthTypes } from '../../../configs/health.json';
+const { healthTypes } = require('../../../configs/health.json');
 
 export const addStep = {
   name: 'addStep',

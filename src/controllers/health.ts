@@ -4,19 +4,18 @@ import { Op } from 'sequelize';
 import { healthModels } from '../models';
 import { ExpectedError } from '../utils/errors';
 import { addToDuration } from '../utils/date';
+import { isWithinInterval } from '../utils/sample';
+import { HealthConfigType } from '../types';
+import { HealthType, HealthInputType, HealthInputSampleType } from '../types/generated';
 
-type SampleType = {
-  date?: Date,
-  source?: string
-  value?: number,
-  duration?: number,
-  unit?: string
-}
+export const reduceSampleData = (samples: HealthInputSampleType[], input: HealthType, config: HealthConfigType): HealthType => {
+  let output: HealthType = input;
 
-export const reduceSampleData = (samples: SampleType[], input: any, config: any): any => {
-  let output = input;
+  samples.forEach((sample: HealthInputSampleType) => {
+    if (config.interval && !isWithinInterval(config.interval, sample.date, output.sampledOn)) {
+      return;
+    }
 
-  samples.forEach((sample: SampleType) => {
     const value = Number(sample.value);
     output.value += value;
 
@@ -36,15 +35,16 @@ export const reduceSampleData = (samples: SampleType[], input: any, config: any)
   return output;
 }
 
-export const aggregateHealthData = (input: any, config: any): any => {
-  const sampledOn = !!input.date && moment.isDate(input.date) ? input.date : null;
-  const samples = input.hasOwnProperty('sampleList')
+export const aggregateHealthData = (input: HealthInputType, config: HealthConfigType): HealthType => {
+  const sampledOn = !!input.sampledOn && moment.isDate(input.sampledOn) ? input.sampledOn : null;
+  const samples: HealthInputSampleType[] = input.hasOwnProperty('sampleList')
     ? input.sampleList
     : input.sample
     ? [input.sample]
     : [];
 
-  let output = {
+  let output: HealthType = {
+    id: uuid(),
     unit: input.unit,
     value: 0,
     sampledOn,
@@ -55,11 +55,11 @@ export const aggregateHealthData = (input: any, config: any): any => {
   return reduceSampleData(samples, output, config);
 }
 
-export const findHealthById = (id: string, config: any): any => {
+export const findHealthById = (id: string, config: HealthConfigType): Promise<HealthType> => {
   return healthModels[config.modelID].findOne({ where: { id } });
 }
 
-export const findHealthByDate = (date: Date, config: any): any => {
+export const findHealthByDate = (date: Date, config: any): Promise<HealthType> => {
   const start = moment(date).startOf('day').toDate();
   const end = moment(date).endOf('day').toDate();
   return healthModels[config.modelID].findOne({ 
@@ -69,7 +69,7 @@ export const findHealthByDate = (date: Date, config: any): any => {
   });
 }
 
-export const addHealthItem = async (input: any, config: any): Promise<any> => {
+export const addHealthItem = async (input: HealthInputType, config: HealthConfigType): Promise<HealthType> => {
   if (!input.type || input.type !== config.healthkitID) {
     throw new ExpectedError('INVALID_HEALTH_TYPE');
   }
@@ -77,14 +77,11 @@ export const addHealthItem = async (input: any, config: any): Promise<any> => {
   const data = aggregateHealthData(input, config);
   const HealthItem = healthModels[config.modelID];
 
-  console.log('input:');
-  console.log(data);
-
   try {
     const res: any = await HealthItem.create(data);
     return res.dataValues;
   } catch (err) {
-    console.log(err);
+    console.error(err);
     throw new ExpectedError('ADD_HEALTH_ERROR');
   }
 }

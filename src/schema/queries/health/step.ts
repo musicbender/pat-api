@@ -1,9 +1,10 @@
 import { HealthType } from '../../types';
 import { findHealthById, findHealthByDate } from '../../../controllers/health';
 import * as GraphQLDate from 'graphql-date';
-import { GraphQLString, GraphQLNonNull } from 'graphql';
-import { healthTypes } from '../../../configs/health.json';
+import { GraphQLString } from 'graphql';
 import { ExpectedError } from '../../../utils/errors';
+import { HealthConfigType } from '../../../types';
+const { healthTypes } = require('../../../configs/health.json');
 
 const step = {
   type: HealthType,
@@ -17,10 +18,11 @@ const step = {
     }
   },
   resolve(parentValue, args, ctx) {
+    const config: HealthConfigType = healthTypes.steps;
     if (args.id) {
-      return findHealthById(args.id, healthTypes.steps);
+      return findHealthById(args.id, config);
     } else if (args.date) {
-      return findHealthByDate(args.date, healthTypes.steps);
+      return findHealthByDate(args.date, config);
     } else {
       throw new ExpectedError('INVALID_ARGUMENTS');
     }

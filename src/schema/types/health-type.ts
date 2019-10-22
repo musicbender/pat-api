@@ -27,7 +27,7 @@ export const HealthInputType = new GraphQLInputObjectType({
     unit: { type: GraphQLString },
     sampleList: { type: new GraphQLList(HealthInputSampleType) },
     sample: { type: HealthInputSampleType },
-    date: { type: GraphQLDate }
+    sampledOn: { type: GraphQLDate }
   })
 });
 

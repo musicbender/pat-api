@@ -1,7 +1,7 @@
 import * as moment from 'moment';
 import { addHealthItem } from './health';
 import { ExpectedError } from '../utils/errors';
-import { healthTypes } from '../configs/health.json';
+const { healthTypes } = require('../configs/health.json');
 
 export const addHealthKitItems = async (input: any[]) => {
   if (!input) {

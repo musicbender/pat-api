@@ -3,14 +3,12 @@
     "weight": {
       "id": "weight",
       "healthkitID": "Weight",
-      "modelID": "Weight",
-      "interval": false
+      "modelID": "Weight"
     },
     "height": {
       "id": "height",
       "healthkitID": "Height",
-      "modelID": "Height",
-      "interval": false
+      "modelID": "Height"
     },
     "steps": {
       "id": "steps",
@@ -75,32 +73,27 @@
     "waistCircumference": {
       "id": "waist-circumference",
       "healthkitID": "Waist Circumference",
-      "modelID": "WaistCircumference",
-      "interval": false
+      "modelID": "WaistCircumference"
     },
     "systolicBloodPressure": {
       "id": "systolic-blood-pressure",
       "healthkitID": "Systolic Blood Pressure",
-      "modelID": "SystolicBloodPressure",
-      "interval": false
+      "modelID": "SystolicBloodPressure"
     },
     "diastolicBloodPressure": {
       "id": "diastolic-blood-pressure",
       "healthkitID": "Diastolic Blood Pressure",
-      "modelID": "DiastolicBloodPressure",
-      "interval": false
+      "modelID": "DiastolicBloodPressure"
     },
     "oxygenSaturation": {
       "id": "oxygen-saturation",
       "healthkitID": "Oxygen Saturation",
-      "modelID": "OxygenSaturation",
-      "interval": false
+      "modelID": "OxygenSaturation"
     },
     "bodyTemperature": {
       "id": "body-temperature",
       "healthkitID": "Body Temperature",
-      "modelID": "BodyTemperature",
-      "interval": false
+      "modelID": "BodyTemperature"
     }
   }
 }

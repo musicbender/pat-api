@@ -16,7 +16,6 @@ import {
   tableName: healthTypes.steps.id
 })
 export default class Step extends Model<Step> {
-  @Default(uuid())
   @IsUUID(4)
   @PrimaryKey
   @Column
