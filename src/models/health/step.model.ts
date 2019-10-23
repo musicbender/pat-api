@@ -13,7 +13,9 @@ import {
 } from 'sequelize-typescript';
 
 @Table({
-  tableName: healthTypes.steps.id
+  tableName: healthTypes.steps.id,
+  createdAt: false, 
+  updatedAt: false
 })
 export default class Step extends Model<Step> {
   @IsUUID(4)
@@ -25,10 +27,12 @@ export default class Step extends Model<Step> {
   @Column
   value: number;
 
-  @CreatedAt
+  @Default(Date.now())
+  @Column
   createdOn: Date;
 
-  @UpdatedAt
+  @Default(Date.now())
+  @Column
   updatedOn: Date
 
   @Default(Date.now())
