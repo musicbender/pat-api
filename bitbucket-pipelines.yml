@@ -1,4 +1,14 @@
 pipelines:
+  definitions:
+    steps:
+      - step: &test
+        name: Run unit tests
+        image: note:12.7.0
+        caches:
+          - node
+        script:
+          - yarn install
+          - yarn test
   branches:
     master:
       - step:
