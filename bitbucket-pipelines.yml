@@ -1,7 +1,7 @@
 test: &test
   step: 
     name: Run unit tests
-    image: note:12.7.0
+    image: node:12.7.0
     caches:
       - node
     script:
