@@ -5,6 +5,7 @@ test: &test
     caches:
       - node
     script:
+      - yarn install -g jest
       - yarn install
       - yarn test
 
