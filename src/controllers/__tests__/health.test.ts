@@ -1,4 +1,5 @@
 import { aggregateHealthData } from '../health';
+import * as moment from 'moment';
 const { healthTypes } = require('../../configs/health.json');
 
 // mocks
@@ -11,8 +12,8 @@ describe('controllers/health.ts', function () {
         assert: [ mockStepData[0], healthTypes.steps ],
         expected: {
           unit: 'count',
-          value: 13626,
-          sampledOn: '2019-07-06T08:40:18-07:00',
+          value: 7081,
+          sampledOn: '2019-07-06T04:00:00-07:00',
           sources: ['Apple Watch']
         },
         info: 'Given mock sample data 1, outputs correct data'
@@ -21,12 +22,62 @@ describe('controllers/health.ts', function () {
         assert: [ mockStepData[1], healthTypes.steps ],
         expected: {
           unit: 'count',
-          value: 9,
-          sampledOn: '2019-07-07T23:00:00-07:00',
-          sources: ['iPhone', 'Apple Watch']
+          value: 8,
+          sampledOn: '2019-07-06T01:00:00-07:00',
+          sources: ['Apple Watch', 'iPhone']
         },
         info: 'Given mock sample data 2, outputs correct data'
       },
+      {
+        assert: [ mockStepData[2], healthTypes.steps ],
+        expected: {
+          unit: 'count',
+          value: 10,
+          sampledOn: '2019-10-10T01:00:00-07:00',
+          sources: ['iPhone']
+        },
+        info: 'Given mock sample data 3, outputs correct data'
+      },
+      {
+        assert: [ mockStepData[4], healthTypes.steps ],
+        expected: {
+          unit: 'count',
+          value: 100,
+          sampledOn: '2019-10-10T12:03:11-07:00',
+          sources: ['iPhone']
+        },
+        info: 'If right at midnight, still counts value'
+      },
+      {
+        assert: [ mockStepData[5], healthTypes.steps ],
+        expected: {
+          unit: 'count',
+          value: 100,
+          sampledOn: '2019-10-10T12:03:11-07:00',
+          sources: ['Apple Watch']
+        },
+        info: 'If 1 second before next day, still counts value'
+      },
+      {
+        assert: [ mockStepData[6], healthTypes.steps ],
+        expected: {
+          unit: 'count',
+          value: 0,
+          sampledOn: '2019-10-10T12:03:11-07:00',
+          sources: []
+        },
+        info: 'If midnight on next day, will not count value'
+      },
+      {
+        assert: [ mockStepData[6], healthTypes.steps ],
+        expected: {
+          unit: 'count',
+          value: 0,
+          sampledOn: '2019-10-10T12:03:11-07:00',
+          sources: []
+        },
+        info: 'If on previous day by 1 second, will not count value'
+      }
     ];
 
     tests.forEach(({ assert, expected, info }) => {
@@ -37,6 +88,15 @@ describe('controllers/health.ts', function () {
         expect(data.sampledOn).toEqual(expected.sampledOn);
         expect(data.sources).toEqual(expected.sources);
       });
-    })
+    });
+
+    it('If not given sampledOn, output is created but no value', () => {
+      const data = aggregateHealthData(mockStepData[6], healthTypes.steps);
+      const formatDate = moment(data.sampledOn, 'YYYY-MM-DD');
+      expect(data.unit).toEqual('count');
+      expect(data.value).toEqual(0);
+      expect(formatDate.isValid()).toEqual(true);
+      expect(data.sources).toEqual([]);
+    });
   });
 });

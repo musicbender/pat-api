@@ -1,6 +1,7 @@
 [
   {
     "type": "Steps",
+    "sampledOn": "2019-07-06T04:00:00-07:00",
     "sampleList": [{
         "date": "2019-07-06T00:05:17-07:00",
         "source": "Apple Watch",
@@ -251,6 +252,7 @@
   },
 	{
     "type": "Step",
+    "sampledOn": "2019-07-06T01:00:00-07:00",
     "sampleList": [{
         "date": "2019-07-07T23:00:00-07:00",
         "source": "iPhone",
@@ -283,12 +285,12 @@
       },
       {
         "date": "2019-07-06T06:00:00-07:00",
-        "source": "Apple Watch",
+        "source": "iPhone",
         "value": "1"
       },
 			{
         "date": "2019-07-06T06:00:00-07:00",
-        "source": "Apple Watch",
+        "source": "iPhone",
         "value": "1"
       },
 			{
@@ -298,5 +300,64 @@
       }
     ],
     "unit": "count"
+  },
+  {
+    "type": "Step",
+    "sampledOn": "2019-10-10T01:00:00-07:00",
+    "unit": "count",
+    "sampleList": [{
+      "date": "2019-10-10T23:00:00-07:00",
+      "source": "iPhone",
+      "value": "10"
+    }]
+  },
+  {
+    "type": "Step",
+    "unit": "count",
+    "sampleList": [{
+      "date": "2019-10-10T23:23:00-07:00",
+      "source": "iPhone",
+      "value": "10"
+    }]
+  },
+  {
+    "type": "Step",
+    "unit": "count",
+    "sampledOn": "2019-10-10T12:03:11-07:00",
+    "sampleList": [{
+      "date": "2019-10-10T00:00:00-07:00",
+      "source": "iPhone",
+      "value": "100"
+    }]
+  },
+  {
+    "type": "Step",
+    "unit": "count",
+    "sampledOn": "2019-10-10T12:03:11-07:00",
+    "sampleList": [{
+      "date": "2019-10-10T23:59:59-07:00",
+      "source": "Apple Watch",
+      "value": "100"
+    }]
+  },
+  {
+    "type": "Step",
+    "unit": "count",
+    "sampledOn": "2019-10-10T12:03:11-07:00",
+    "sampleList": [{
+      "date": "2019-10-11T00:00:00-07:00",
+      "source": "Apple Watch",
+      "value": "100"
+    }]
+  },
+  {
+    "type": "Step",
+    "unit": "count",
+    "sampledOn": "2019-10-10T12:03:11-07:00",
+    "sampleList": [{
+      "date": "2019-10-09T23:59:59-07:00",
+      "source": "Apple Watch",
+      "value": "100"
+    }]
   }
 ]
