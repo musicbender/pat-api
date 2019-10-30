@@ -7,7 +7,7 @@
     "start": "ts-node index.ts",
     "dev:d": "docker-compose up",
     "dev": "nodemon",
-    "test": "jest",
+    "test": "jest --watch",
     "generate": "graphql-codegen -r dotenv/config"
   },
   "repository": {

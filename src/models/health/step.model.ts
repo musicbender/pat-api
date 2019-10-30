@@ -1,4 +1,5 @@
 import * as uuid from 'uuid';
+import * as moment from 'moment';
 import { healthTypes } from '../../configs/health.json';
 import { 
   DataType,
@@ -27,17 +28,17 @@ export default class Step extends Model<Step> {
   @Column
   value: number;
 
-  @Default(Date.now())
+  @Default(moment().toISOString())
   @Column
-  createdOn: Date;
+  createdOn: string;
 
-  @Default(Date.now())
+  @Default(moment().toISOString())
   @Column
-  updatedOn: Date
+  updatedOn: string
 
-  @Default(Date.now())
+  @Default(moment().toISOString())
   @Column
-  sampledOn: Date;
+  sampledOn: string
 
   @Column(DataType.ARRAY(DataType.STRING))
   sources: string[];

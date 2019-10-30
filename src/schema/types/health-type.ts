@@ -1,4 +1,3 @@
-import * as GraphQLDate from 'graphql-date';
 import {
   GraphQLObjectType,
   GraphQLInputObjectType,
@@ -27,7 +26,7 @@ export const HealthInputType = new GraphQLInputObjectType({
     unit: { type: GraphQLString },
     sampleList: { type: new GraphQLList(HealthInputSampleType) },
     sample: { type: HealthInputSampleType },
-    sampledOn: { type: GraphQLDate }
+    sampledOn: { type: GraphQLString }
   })
 });
 
@@ -37,9 +36,9 @@ export const HealthType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLString },
     value: { type: GraphQLInt },
-    sampledOn: { type: GraphQLDate },
-    createdOn: { type: GraphQLDate },
-    updatedOn: { type: GraphQLDate },
+    sampledOn: { type: GraphQLString },
+    createdOn: { type: GraphQLString },
+    updatedOn: { type: GraphQLString },
     sources: { type: new GraphQLList(GraphQLString) },
     unit: { type: GraphQLString },
     totalDuration: { type: GraphQLString }

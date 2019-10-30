@@ -10,14 +10,13 @@ import { HealthType, HealthInputType, HealthInputSampleType } from '../types/gen
 
 export const reduceSampleData = (samples: HealthInputSampleType[], input: HealthType, config: HealthConfigType): HealthType => {
   let output: HealthType = input;
-
+  
   samples.forEach((sample: HealthInputSampleType) => {
     if (config.interval && !isWithinInterval(config.interval, sample.date, output.sampledOn)) {
       return;
     }
 
-    const value = Number(sample.value);
-    output.value += value;
+    output.value += Number(sample.value);
 
     if (!output.sampledOn) {
       output.sampledOn = sample.date;
@@ -31,12 +30,12 @@ export const reduceSampleData = (samples: HealthInputSampleType[], input: Health
       output.totalDuration = addToDuration(`${sample.duration}`, output.totalDuration);
     }
   });
-  
+
   return output;
 }
 
 export const aggregateHealthData = (input: HealthInputType, config: HealthConfigType): HealthType => {
-  const sampledOn = !!input.sampledOn && moment.isDate(input.sampledOn) ? input.sampledOn : null;
+  const sampledOn = !!input.sampledOn && moment(input.sampledOn).isValid() ? input.sampledOn : null;
   const samples: HealthInputSampleType[] = input.hasOwnProperty('sampleList')
     ? input.sampleList
     : input.sample
