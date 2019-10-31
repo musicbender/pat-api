@@ -5,8 +5,10 @@ test: &test
     caches:
       - node
     script:
+      - yarn config set ignore-engines true
       - yarn global add jest
       - yarn install
+      - yarn list --depth=0
       - yarn test
 
 pipelines:
