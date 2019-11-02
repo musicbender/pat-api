@@ -4,15 +4,34 @@ import { Op } from 'sequelize';
 import { healthModels } from '../models';
 import { ExpectedError } from '../utils/errors';
 import { addToDuration } from '../utils/date';
-import { isWithinInterval } from '../utils/sample';
+import { isWithinInterval, getValidSources } from '../utils/sample';
 import { HealthConfigType } from '../types';
 import { HealthType, HealthInputType, HealthInputSampleType } from '../types/generated';
+import { Model } from 'sequelize-typescript';
 
-export const reduceSampleData = (samples: HealthInputSampleType[], input: HealthType, config: HealthConfigType): HealthType => {
-  let output: HealthType = input;
+export const isValidSample = (sample: HealthInputSampleType, input: HealthInputType, config: HealthConfigType): boolean => {
+  // not within defined interval
+  if (config.interval && !isWithinInterval(config.interval, sample.date, input.sampledOn)) {
+    return false;
+  }
+
+  // not from valid source
+  if (input.validSources || config.defaultValidSource) {
+    const validSources: string[] = getValidSources(input.validSources, config.defaultValidSource);
+
+    if (validSources && validSources.indexOf(sample.source) > -1) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+export const reduceSampleData = (samples: HealthInputSampleType[], input: HealthInputType, healthData: HealthType, config: HealthConfigType): HealthType => {
+  let output: HealthType = healthData;
   
   samples.forEach((sample: HealthInputSampleType) => {
-    if (config.interval && !isWithinInterval(config.interval, sample.date, output.sampledOn)) {
+    if (!isValidSample(sample, input, config)) {
       return;
     }
 
@@ -51,14 +70,14 @@ export const aggregateHealthData = (input: HealthInputType, config: HealthConfig
     totalDuration: '0.00:00:00'
   };
 
-  return reduceSampleData(samples, output, config);
+  return reduceSampleData(samples, input, output, config);
 }
 
-export const findHealthById = (id: string, config: HealthConfigType): Promise<HealthType> => {
+export const findHealthById = (id: string, config: HealthConfigType): Promise<Model> => {
   return healthModels[config.modelID].findOne({ where: { id } });
 }
 
-export const findHealthByDate = (date: Date, config: any): Promise<HealthType> => {
+export const findHealthByDate = (date: Date, config: any): Promise<Model> => {
   const start = moment(date).startOf('day').toDate();
   const end = moment(date).endOf('day').toDate();
   return healthModels[config.modelID].findOne({ 
@@ -73,7 +92,7 @@ export const addHealthItem = async (input: HealthInputType, config: HealthConfig
     throw new ExpectedError('INVALID_HEALTH_TYPE');
   }
 
-  const data = aggregateHealthData(input, config);
+  const data: HealthType = aggregateHealthData(input, config);
   const HealthItem = healthModels[config.modelID];
 
   try {

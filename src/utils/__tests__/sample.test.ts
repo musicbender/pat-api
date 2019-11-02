@@ -1,4 +1,4 @@
-import { isWithinInterval } from '../sample';
+import { isWithinInterval, getValidSources } from '../sample';
 
 describe('sample.ts', () => {
     describe('isWithinInterval()', () => {
@@ -83,4 +83,22 @@ describe('sample.ts', () => {
             });
         });
     });
+
+    describe('getValidSources()', () => {
+        const tests: any = [
+            {
+                assert: [
+                    ["Pat's iPhone"],
+                    null
+                ],
+                expected: ["Pat's iPhone"]
+            },
+        ];
+
+        tests.forEach(({ assert, expected }) => {
+            it(`Given ${assert[0].length} valid sources, ${assert[1]} is default, returns ${expected}`, () => {
+                expect(getValidSources(assert[0], assert[1])).toEqual(expected);
+            });
+        })
+    })
 });

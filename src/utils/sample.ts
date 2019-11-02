@@ -8,3 +8,12 @@ export const isWithinInterval = (interval: moment.unitOfTime.StartOf, date: stri
 
     return moment(date1).isSame(moment(date2), 'day');
 }
+
+export const getValidSources = (validSources: string[], defaultValidSource: string): string[] | null => {
+    return validSources && validSources.length > 0
+        ? [ ...validSources ]
+        : defaultValidSource
+        ? [defaultValidSource]
+        : null;
+}
+

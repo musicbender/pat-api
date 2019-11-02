@@ -19,7 +19,6 @@ export const StepInputDataSampleType = new GraphQLInputObjectType({
   })
 });
 
-console.log(StepInputDataSampleType);
 
 export const StepInputDataType = new GraphQLInputObjectType({
   name: 'StepInputDataType',

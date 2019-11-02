@@ -8,11 +8,6 @@ export enum HealthInterval {
   false
 }
 
-export enum SourcesEnum {
-  "Pat's iPhone",
-  "Pat's Apple Watch"
-}
-
 // types
 export type SampleType = {
   date?: Date,
@@ -26,5 +21,6 @@ export type HealthConfigType = {
   id: string,
   healthkitID?: string,
   modelID: string,
-  interval?: moment.unitOfTime.StartOf
-}
+  interval?: moment.unitOfTime.StartOf,
+  defaultValidSource?: string
+}x

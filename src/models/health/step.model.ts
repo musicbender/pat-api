@@ -1,4 +1,3 @@
-import * as uuid from 'uuid';
 import * as moment from 'moment';
 import { healthTypes } from '../../configs/health.json';
 import { 
@@ -8,9 +7,7 @@ import {
   PrimaryKey, 
   Column, 
   Table,
-  Default,
-  CreatedAt,
-  UpdatedAt
+  Default
 } from 'sequelize-typescript';
 
 @Table({
