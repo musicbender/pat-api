@@ -17,7 +17,7 @@
       "healthkitID": "Steps",
       "modelID": "Step",
       "interval": "day",
-      "defaultValidSource": "Pat’s Apple Watch"
+      "defaultValidSource": "pat-apple-watch"
     },
     "caffeine": {
       "id": "caffeine",
@@ -31,56 +31,56 @@
       "healthkitID": "Flights Climbed",
       "modelID": "FlightsClimbed",
       "interval": "day",
-      "defaultValidSource": "Pat’s iPhone"
+      "defaultValidSource": "pat-iphone"
     },
     "heartRate": {
       "id": "heart-rate",
       "healthkitID": "Heart Rate",
       "modelID": "HeartRate",
       "interval": "day",
-      "defaultValidSource": "Pat’s Apple Watch"
+      "defaultValidSource": "pat-apple-watch"
     },
     "heartRateVariability": {
       "id": "heart-rate-variability",
       "healthkitID": "Heart Rate Variability",
       "modelID": "HeartRateVariability",
       "interval": "day",
-      "defaultValidSource": "Pat’s Apple Watch"
+      "defaultValidSource": "pat-apple-watch"
     },
     "mindfulMinutes": {
       "id": "mindful-minutes",
       "healthkitID": "Mindful Minutes",
       "modelID": "MindfulMinutes",
       "interval": "day",
-      "defaultValidSource": "Pat’s Apple Watch"
+      "defaultValidSource": "pat-apple-watch"
     },
     "restingHeartRate": {
       "id": "resting-heart-rate",
       "healthkitID": "Resting Heart Rate",
       "modelID": "RestingHeartRate",
       "interval": "day",
-      "defaultValidSource": "Pat’s Apple Watch"
+      "defaultValidSource": "pat-apple-watch"
     },
     "sleepAnalysis": {
       "id": "sleep-analysis",
       "healthkitID": "Sleep Analysis",
       "modelID": "SleepAnalysis",
       "interval": "day",
-      "defaultValidSource": "Pat’s Apple Watch"
+      "defaultValidSource": "pat-apple-watch"
     },
     "swimmingDistance": {
       "id": "weight",
       "healthkitID": "Weight",
       "modelID": "Weight",
       "interval": "day",
-      "defaultValidSource": "Pat’s Apple Watch"
+      "defaultValidSource": "pat-apple-watch"
     },
     "walkingHeartRateAverage": {
       "id": "walking-heart-rate-average",
       "healthkitID": "Walking Heart Rate Average",
       "modelID": "WalkingHeartRateAverage",
       "interval": "day",
-      "defaultValidSource": "Pat’s Apple Watch"
+      "defaultValidSource": "pat-apple-watch"
     },
     "waistCircumference": {
       "id": "waist-circumference",
