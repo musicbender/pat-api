@@ -1,5 +1,6 @@
 import * as moment from 'moment';
 
+// enums
 export enum HealthInterval {
   'days',
   'month',
@@ -7,6 +8,12 @@ export enum HealthInterval {
   false
 }
 
+export enum SourcesEnum {
+  "Pat's iPhone",
+  "Pat's Apple Watch"
+}
+
+// types
 export type SampleType = {
   date?: Date,
   source?: string

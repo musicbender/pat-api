@@ -65,10 +65,11 @@ export type HealthInputSampleType = {
 /** Health data input */
 export type HealthInputType = {
   type: Scalars['String'],
-  unit?: Maybe<Scalars['String']>,
+  unit?: Maybe<UnitType>,
   sampleList?: Maybe<Array<Maybe<HealthInputSampleType>>>,
   sample?: Maybe<HealthInputSampleType>,
-  sampledOn?: Maybe<Scalars['Date']>,
+  sampledOn?: Maybe<Scalars['String']>,
+  validSources?: Maybe<Array<Maybe<Scalars['String']>>>,
 };
 
 /** Health data */
@@ -76,11 +77,11 @@ export type HealthType = {
   __typename?: 'HealthType',
   id?: Maybe<Scalars['String']>,
   value?: Maybe<Scalars['Int']>,
-  sampledOn?: Maybe<Scalars['Date']>,
-  createdOn?: Maybe<Scalars['Date']>,
-  updatedOn?: Maybe<Scalars['Date']>,
+  sampledOn?: Maybe<Scalars['String']>,
+  createdOn?: Maybe<Scalars['String']>,
+  updatedOn?: Maybe<Scalars['String']>,
   sources?: Maybe<Array<Maybe<Scalars['String']>>>,
-  unit?: Maybe<Scalars['String']>,
+  unit?: Maybe<UnitType>,
   totalDuration?: Maybe<Scalars['String']>,
 };
 
@@ -121,6 +122,27 @@ export type RootQueryTypeStepArgs = {
   id?: Maybe<Scalars['String']>,
   date?: Maybe<Scalars['Date']>
 };
+
+/** Acceptable units of measurment */
+export enum UnitType {
+  Cm = 'cm',
+  Kg = 'kg',
+  Count = 'count',
+  Km = 'km',
+  Kcal = 'kcal',
+  Percent = 'percent',
+  CountMin = 'count_min',
+  DegC = 'degC',
+  MmHg = 'mmHg',
+  MgDL = 'mg_dL',
+  McS = 'mcS',
+  L = 'L',
+  LMin = 'L_min',
+  Ml = 'ml',
+  Mcg = 'mcg',
+  G = 'g',
+  Mg = 'mg'
+}
 
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
@@ -188,6 +210,7 @@ export type ResolversTypes = {
   Date: ResolverTypeWrapper<Scalars['Date']>,
   HealthType: ResolverTypeWrapper<HealthType>,
   Int: ResolverTypeWrapper<Scalars['Int']>,
+  UnitType: UnitType,
   Mutation: ResolverTypeWrapper<{}>,
   HealthInputType: HealthInputType,
   HealthInputSampleType: HealthInputSampleType,
@@ -207,6 +230,7 @@ export type ResolversParentTypes = {
   Date: Scalars['Date'],
   HealthType: HealthType,
   Int: Scalars['Int'],
+  UnitType: UnitType,
   Mutation: {},
   HealthInputType: HealthInputType,
   HealthInputSampleType: HealthInputSampleType,
@@ -258,11 +282,11 @@ export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes
 export type HealthTypeResolvers<ContextType = any, ParentType = ResolversParentTypes['HealthType']> = {
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   value?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>,
-  sampledOn?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>,
-  createdOn?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>,
-  updatedOn?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>,
+  sampledOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  createdOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  updatedOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   sources?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>,
-  unit?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  unit?: Resolver<Maybe<ResolversTypes['UnitType']>, ParentType, ContextType>,
   totalDuration?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
 };
 
@@ -302,3 +326,10 @@ export type DirectiveResolvers<ContextType = any> = {
   embedded?: EmbeddedDirectiveResolver<any, any, ContextType>,
   map?: MapDirectiveResolver<any, any, ContextType>,
 };
+
+
+/**
+* @deprecated
+* Use "DirectiveResolvers" root object instead. If you wish to get "IDirectiveResolvers", add "typesPrefix: I" to your config.
+*/
+export type IDirectiveResolvers<ContextType = any> = DirectiveResolvers<ContextType>;import { ObjectID } from 'mongodb';

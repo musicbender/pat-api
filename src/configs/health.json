@@ -3,97 +3,114 @@
     "weight": {
       "id": "weight",
       "healthkitID": "Weight",
-      "modelID": "Weight"
+      "modelID": "Weight",
+      "defaultValidSource": null
     },
     "height": {
       "id": "height",
       "healthkitID": "Height",
-      "modelID": "Height"
+      "modelID": "Height",
+      "defaultValidSource": null
     },
     "steps": {
       "id": "steps",
       "healthkitID": "Steps",
       "modelID": "Step",
-      "interval": "day"
+      "interval": "day",
+      "defaultValidSource": "Pat’s Apple Watch"
     },
     "caffeine": {
       "id": "caffeine",
       "healthkitID": "Caffeine",
       "modelID": "Caffeine",
-      "interval": "day"
+      "interval": "day",
+      "defaultValidSource": null
     },
     "flightsClimbed": {
       "id": "flights-climbed",
       "healthkitID": "Flights Climbed",
       "modelID": "FlightsClimbed",
-      "interval": "day"
+      "interval": "day",
+      "defaultValidSource": "Pat’s iPhone"
     },
     "heartRate": {
       "id": "heart-rate",
       "healthkitID": "Heart Rate",
       "modelID": "HeartRate",
-      "interval": "day"
+      "interval": "day",
+      "defaultValidSource": "Pat’s Apple Watch"
     },
     "heartRateVariability": {
       "id": "heart-rate-variability",
       "healthkitID": "Heart Rate Variability",
       "modelID": "HeartRateVariability",
-      "interval": "day"
+      "interval": "day",
+      "defaultValidSource": "Pat’s Apple Watch"
     },
     "mindfulMinutes": {
       "id": "mindful-minutes",
       "healthkitID": "Mindful Minutes",
       "modelID": "MindfulMinutes",
-      "interval": "day"
+      "interval": "day",
+      "defaultValidSource": "Pat’s Apple Watch"
     },
     "restingHeartRate": {
       "id": "resting-heart-rate",
       "healthkitID": "Resting Heart Rate",
       "modelID": "RestingHeartRate",
-      "interval": "day"
+      "interval": "day",
+      "defaultValidSource": "Pat’s Apple Watch"
     },
     "sleepAnalysis": {
       "id": "sleep-analysis",
       "healthkitID": "Sleep Analysis",
       "modelID": "SleepAnalysis",
-      "interval": "day"
+      "interval": "day",
+      "defaultValidSource": "Pat’s Apple Watch"
     },
     "swimmingDistance": {
       "id": "weight",
       "healthkitID": "Weight",
       "modelID": "Weight",
-      "interval": "day"
+      "interval": "day",
+      "defaultValidSource": "Pat’s Apple Watch"
     },
     "walkingHeartRateAverage": {
       "id": "walking-heart-rate-average",
       "healthkitID": "Walking Heart Rate Average",
       "modelID": "WalkingHeartRateAverage",
-      "interval": "day"
+      "interval": "day",
+      "defaultValidSource": "Pat’s Apple Watch"
     },
     "waistCircumference": {
       "id": "waist-circumference",
       "healthkitID": "Waist Circumference",
-      "modelID": "WaistCircumference"
+      "modelID": "WaistCircumference",
+      "defaultValidSource": null
     },
     "systolicBloodPressure": {
       "id": "systolic-blood-pressure",
       "healthkitID": "Systolic Blood Pressure",
-      "modelID": "SystolicBloodPressure"
+      "modelID": "SystolicBloodPressure",
+      "defaultValidSource": null
     },
     "diastolicBloodPressure": {
       "id": "diastolic-blood-pressure",
       "healthkitID": "Diastolic Blood Pressure",
-      "modelID": "DiastolicBloodPressure"
+      "modelID": "DiastolicBloodPressure",
+      "defaultValidSource": null
     },
     "oxygenSaturation": {
       "id": "oxygen-saturation",
       "healthkitID": "Oxygen Saturation",
-      "modelID": "OxygenSaturation"
+      "modelID": "OxygenSaturation",
+      "defaultValidSource": null
     },
     "bodyTemperature": {
       "id": "body-temperature",
       "healthkitID": "Body Temperature",
-      "modelID": "BodyTemperature"
+      "modelID": "BodyTemperature",
+      "defaultValidSource": null
     }
   }
 }

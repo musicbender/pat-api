@@ -6,6 +6,7 @@ import {
   GraphQLString,
   GraphQLNonNull
 } from 'graphql';
+import { UnitType } from './unit-type';
 
 export const HealthInputSampleType = new GraphQLInputObjectType({
   name: 'HealthInputSampleType',
@@ -23,10 +24,11 @@ export const HealthInputType = new GraphQLInputObjectType({
   description: 'Health data input',
   fields: () => ({
     type: { type: new GraphQLNonNull(GraphQLString) },
-    unit: { type: GraphQLString },
+    unit: { type: UnitType },
     sampleList: { type: new GraphQLList(HealthInputSampleType) },
     sample: { type: HealthInputSampleType },
-    sampledOn: { type: GraphQLString }
+    sampledOn: { type: GraphQLString },
+    validSources: { type: new GraphQLList(GraphQLString) }
   })
 });
 
@@ -40,7 +42,7 @@ export const HealthType = new GraphQLObjectType({
     createdOn: { type: GraphQLString },
     updatedOn: { type: GraphQLString },
     sources: { type: new GraphQLList(GraphQLString) },
-    unit: { type: GraphQLString },
+    unit: { type: UnitType },
     totalDuration: { type: GraphQLString }
   })
 });
