@@ -19,7 +19,7 @@ export const isValidSample = (sample: HealthInputSampleType, input: HealthInputT
   if (input.validSources || config.defaultValidSource) {
     const validSources: string[] = getValidSources(input.validSources, config.defaultValidSource);
 
-    if (validSources && validSources.indexOf(sample.source) < 0) {
+    if (validSources && validSources.indexOf('*') < 0 && validSources.indexOf(sample.source) < 0) {
       return false;
     }
   }
