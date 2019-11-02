@@ -21,6 +21,7 @@ pipelines:
           image: atlassian/pipelines-awscli
           caches:
             - docker
+            - node
           services:
             - docker
           script:
