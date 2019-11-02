@@ -4,13 +4,13 @@
       "id": "weight",
       "healthkitID": "Weight",
       "modelID": "Weight",
-      "defaultValidSource": null
+      "defaultValidSource": "*"
     },
     "height": {
       "id": "height",
       "healthkitID": "Height",
       "modelID": "Height",
-      "defaultValidSource": null
+      "defaultValidSource": "*"
     },
     "steps": {
       "id": "steps",
@@ -24,7 +24,7 @@
       "healthkitID": "Caffeine",
       "modelID": "Caffeine",
       "interval": "day",
-      "defaultValidSource": null
+      "defaultValidSource": "*"
     },
     "flightsClimbed": {
       "id": "flights-climbed",
@@ -86,31 +86,31 @@
       "id": "waist-circumference",
       "healthkitID": "Waist Circumference",
       "modelID": "WaistCircumference",
-      "defaultValidSource": null
+      "defaultValidSource": "*"
     },
     "systolicBloodPressure": {
       "id": "systolic-blood-pressure",
       "healthkitID": "Systolic Blood Pressure",
       "modelID": "SystolicBloodPressure",
-      "defaultValidSource": null
+      "defaultValidSource": "*"
     },
     "diastolicBloodPressure": {
       "id": "diastolic-blood-pressure",
       "healthkitID": "Diastolic Blood Pressure",
       "modelID": "DiastolicBloodPressure",
-      "defaultValidSource": null
+      "defaultValidSource": "*"
     },
     "oxygenSaturation": {
       "id": "oxygen-saturation",
       "healthkitID": "Oxygen Saturation",
       "modelID": "OxygenSaturation",
-      "defaultValidSource": null
+      "defaultValidSource": "*"
     },
     "bodyTemperature": {
       "id": "body-temperature",
       "healthkitID": "Body Temperature",
       "modelID": "BodyTemperature",
-      "defaultValidSource": null
+      "defaultValidSource": "*"
     }
   }
 }

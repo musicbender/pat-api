@@ -88,15 +88,92 @@ describe('sample.ts', () => {
         const tests: any = [
             {
                 assert: [
-                    ["Pat's iPhone"],
+                    ['pat-iphone'],
                     null
                 ],
-                expected: ["Pat's iPhone"]
+                expected: ['pat-iphone']
             },
+            {
+                assert: [
+                    ['pat-apple-watch'],
+                    null
+                ],
+                expected: ['pat-apple-watch']
+            },
+            {
+                assert: [
+                    ['pat-iphone', 'pat-apple-watch'],
+                    null
+                ],
+                expected: ['pat-iphone', 'pat-apple-watch']
+            },
+            {
+                assert: [
+                    ['wut'],
+                    null
+                ],
+                expected: ['wut']
+            },
+            {
+                assert: [
+                    null,
+                    null
+                ],
+                expected: ['*']
+            },
+            {
+                assert: [
+                    null,
+                    'pat-iphone'
+                ],
+                expected: ['pat-iphone']
+            },
+            {
+                assert: [
+                    null,
+                    'pat-apple-watch'
+                ],
+                expected: ['pat-apple-watch']
+            },
+            {
+                assert: [
+                    ['pat-iphone'],
+                    'pat-apple-watch'
+                ],
+                expected: ['pat-iphone']
+            },
+            {
+                assert: [
+                    ['*'],
+                    null
+                ],
+                expected: ['*']
+            },
+            {
+                assert: [
+                    [],
+                    null
+                ],
+                expected: ['*']
+            },
+            {
+                assert: [
+                    ['none'],
+                    null
+                ],
+                expected: null
+            },
+            {
+                assert: [
+                    null,
+                    'none'
+                ],
+                expected: null
+            }
         ];
 
         tests.forEach(({ assert, expected }) => {
-            it(`Given ${assert[0].length} valid sources, ${assert[1]} is default, returns ${expected}`, () => {
+            it(`Given ${assert[0] ? assert[0].length : '0'} valid sources, ${assert[1]} is default, returns ${expected}`, () => {
                 expect(getValidSources(assert[0], assert[1])).toEqual(expected);
             });
         })

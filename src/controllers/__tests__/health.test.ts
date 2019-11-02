@@ -14,7 +14,7 @@ describe('controllers/health.ts', function () {
           unit: 'count',
           value: 7081,
           sampledOn: '2019-07-06T04:00:00-07:00',
-          sources: ['Apple Watch']
+          sources: ['pat-apple-watch']
         },
         info: 'Given mock sample data 1, outputs correct data'
       },
@@ -24,7 +24,7 @@ describe('controllers/health.ts', function () {
           unit: 'count',
           value: 8,
           sampledOn: '2019-07-06T01:00:00-07:00',
-          sources: ['Apple Watch', 'iPhone']
+          sources: ['pat-apple-watch', 'pat-iphone']
         },
         info: 'Given mock sample data 2, outputs correct data'
       },
@@ -34,7 +34,7 @@ describe('controllers/health.ts', function () {
           unit: 'count',
           value: 10,
           sampledOn: '2019-10-10T01:00:00-07:00',
-          sources: ['iPhone']
+          sources: ['pat-iphone']
         },
         info: 'Given mock sample data 3, outputs correct data'
       },
@@ -44,7 +44,7 @@ describe('controllers/health.ts', function () {
           unit: 'count',
           value: 100,
           sampledOn: '2019-10-10T12:03:11-07:00',
-          sources: ['iPhone']
+          sources: ['pat-iphone']
         },
         info: 'If right at midnight, still counts value'
       },
@@ -54,7 +54,7 @@ describe('controllers/health.ts', function () {
           unit: 'count',
           value: 100,
           sampledOn: '2019-10-10T12:03:11-07:00',
-          sources: ['Apple Watch']
+          sources: ['pat-apple-watch']
         },
         info: 'If 1 second before next day, still counts value'
       },
@@ -69,7 +69,7 @@ describe('controllers/health.ts', function () {
         info: 'If midnight on next day, will not count value'
       },
       {
-        assert: [ mockStepData[6], healthTypes.steps ],
+        assert: [ mockStepData[7], healthTypes.steps ],
         expected: {
           unit: 'count',
           value: 0,
@@ -77,6 +77,46 @@ describe('controllers/health.ts', function () {
           sources: []
         },
         info: 'If on previous day by 1 second, will not count value'
+      },
+      {
+        assert: [ mockStepData[8], healthTypes.steps ],
+        expected: {
+          unit: 'count',
+          value: 0,
+          sampledOn: '2019-10-10T12:03:11-07:00',
+          sources: []
+        },
+        info: 'If on previous day by 1 second, will not count value'
+      },
+      {
+        assert: [ mockStepData[9], healthTypes.steps ],
+        expected: {
+          unit: 'count',
+          value: 100,
+          sampledOn: '2019-10-10T12:03:11-07:00',
+          sources: ['pat-iphone']
+        },
+        info: 'If valid sources and sample date match, value is correct'
+      },
+      {
+        assert: [ mockStepData[10], healthTypes.steps ],
+        expected: {
+          unit: 'count',
+          value: 100,
+          sampledOn: '2019-10-10T12:03:11-07:00',
+          sources: ['pat-iphone']
+        },
+        info: 'If all sources accepted, counts all sources'
+      },
+      {
+        assert: [ mockStepData[11], healthTypes.steps ],
+        expected: {
+          unit: 'count',
+          value: 100,
+          sampledOn: '2019-10-10T12:03:11-07:00',
+          sources: ['pat-apple-watch']
+        },
+        info: 'If no valid sources defined, counts all sources'
       }
     ];
 

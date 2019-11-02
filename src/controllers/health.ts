@@ -16,12 +16,11 @@ export const isValidSample = (sample: HealthInputSampleType, input: HealthInputT
   }
 
   // not from valid source
-  if (input.validSources || config.defaultValidSource) {
-    const validSources: string[] = getValidSources(input.validSources, config.defaultValidSource);
+  const validSources: string[] = getValidSources(input.validSources, config.defaultValidSource);
+  if (!validSources) return false;
 
-    if (validSources && validSources.indexOf('*') < 0 && validSources.indexOf(sample.source) < 0) {
-      return false;
-    }
+  if (validSources.indexOf(sample.source) < 0 && validSources.indexOf('*') < 0) {
+    return false;
   }
 
   return true;
