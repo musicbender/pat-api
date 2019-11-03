@@ -52,7 +52,7 @@ export const reduceSampleData = (samples: HealthInputSampleType[], input: Health
   return output;
 }
 
-export const aggregateHealthData = (input: HealthInputType, config: HealthConfigType): HealthType => {
+export const aggregateHealthData = (input: HealthInputType, config: HealthConfigType, id?: string): HealthType => {
   const sampledOn = !!input.sampledOn && moment(input.sampledOn).isValid() ? input.sampledOn : null;
   const samples: HealthInputSampleType[] = input.hasOwnProperty('sampleList')
     ? input.sampleList
@@ -61,12 +61,12 @@ export const aggregateHealthData = (input: HealthInputType, config: HealthConfig
     : [];
 
   let output: HealthType = {
-    id: uuid(),
     unit: input.unit,
     value: 0,
     sampledOn,
     sources: [],
-    totalDuration: '0.00:00:00'
+    totalDuration: '0.00:00:00',
+    updatedOn: moment().toISOString()
   };
 
   return reduceSampleData(samples, input, output, config);
@@ -92,6 +92,7 @@ export const addHealthItem = async (input: HealthInputType, config: HealthConfig
   }
 
   const data: HealthType = aggregateHealthData(input, config);
+  data.id = uuid();
   const HealthItem = healthModels[config.modelID];
 
   try {
@@ -100,5 +101,23 @@ export const addHealthItem = async (input: HealthInputType, config: HealthConfig
   } catch (err) {
     console.error(err);
     throw new ExpectedError('ADD_HEALTH_ERROR');
+  }
+}
+
+export const updateHealthItem = async (id: string, input: HealthInputType, config: HealthConfigType): Promise<Model> => {
+  if (!input.type || input.type !== config.healthkitID) {
+    throw new ExpectedError('INVALID_HEALTH_TYPE');
+  }
+
+  const data: HealthType = aggregateHealthData(input, config);
+  const HealthItem = healthModels[config.modelID];
+
+  try {
+    const res: any = HealthItem.update({ ...data }, { where: { id }, returning: true });
+    console.log(res);
+    return res.dataValues;
+  } catch (err) {
+    console.error(err);
+    throw new ExpectedError('UPDATE_HEALTH_ERROR');
   }
 }
