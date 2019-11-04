@@ -1,18 +1,13 @@
-import { GraphQLUnionType } from 'graphql';
+import { GraphQLObjectType } from 'graphql';
 
-const ResponseType = (options: any) => {
-  return new GraphQLUnionType({
-    name: options.name,
-    description: 'Can either be response data or error data',
-    types: [ options.responseType, options.errorType ],
-    resolveType: (value) => {
-      if (Object.prototype.hasOwnProperty.call(value, 'errorCode')) {
-        return options.errorType;
-      }
-
-      return options.responseType;
-    }
+const ResponseType = (name: string, type: any): GraphQLObjectType => {
+  return new GraphQLObjectType({
+    name: `${name}Response`,
+    description: `Response data for ${name}`,
+    fields: () => ({
+      response: { type }
+    })
   });
-};
+}
 
 export default ResponseType;

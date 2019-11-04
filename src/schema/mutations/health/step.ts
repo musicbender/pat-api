@@ -1,6 +1,6 @@
 import { GraphQLNonNull, GraphQLID } from 'graphql';
 import { HealthType, HealthInputType } from '../../types';
-import { addHealthItem } from '../../../controllers/health';
+import { addHealthItem, updateHealthItem } from '../../../controllers/health';
 const { healthTypes } = require('../../../configs/health.json');
 
 export const addStep = {
@@ -22,14 +22,14 @@ export const updateStep = {
   description: 'Update a step count node',
   type: HealthType,
   args: {
-    _id: {
+    id: {
       type: new GraphQLNonNull(GraphQLID)
     },
     input: {
       type: new GraphQLNonNull(HealthInputType)
     }
   },
-  resolve(parentValue, { _id, input }) {
-    return null;
+  resolve(parentValue, { id, input }) {
+    return updateHealthItem(id, input, healthTypes.steps);
   }
 }
