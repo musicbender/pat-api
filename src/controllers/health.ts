@@ -5,16 +5,9 @@ import { healthModels } from '../models';
 import { ExpectedError } from '../utils/errors';
 import { addToDuration } from '../utils/date';
 import { isWithinInterval, getValidSources } from '../utils/sample';
-import { HealthConfigType } from '../types';
+import { HealthConfigType, ValidSampleOptionsType } from '../types';
 import { HealthType, HealthInputType, HealthInputSampleType } from '../types/generated';
 import { Model } from 'sequelize-typescript';
-
-type ValidSampleOptionsType = {
-  sample: HealthInputSampleType, 
-  input: HealthInputType, 
-  config: HealthConfigType,
-  validSources: string[]
-}
 
 export const isValidSample = (options: ValidSampleOptionsType): boolean => {
   const { config, input, sample, validSources } = options;
@@ -47,7 +40,7 @@ export const reduceSampleData = (samples: HealthInputSampleType[], input: Health
     }
 
     output.value += Number(sample.value);
-    
+
     if (!output.sampledOn) {
       output.sampledOn = sample.date;
     }

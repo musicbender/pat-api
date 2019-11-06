@@ -3,7 +3,7 @@ const errors = require('../../configs/error-codes.json');
 
 const ErrorType = (name: string): GraphQLObjectType => {
   const errorCodesType = new GraphQLEnumType({
-    name: 'errorCodesType',
+    name: `${name}ErrorCodesType`,
     values: { ...errors }
   });
 

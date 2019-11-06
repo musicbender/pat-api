@@ -1,4 +1,5 @@
 import * as moment from 'moment';
+import { HealthType, HealthInputType, HealthInputSampleType } from '../types/generated';
 
 // enums
 export enum HealthInterval {
@@ -23,4 +24,11 @@ export type HealthConfigType = {
   modelID: string,
   interval?: moment.unitOfTime.StartOf,
   defaultValidSource?: string
-}x
+}
+
+export type ValidSampleOptionsType = {
+  sample: HealthInputSampleType, 
+  input: HealthInputType, 
+  config: HealthConfigType,
+  validSources: string[]
+}
