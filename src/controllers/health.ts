@@ -9,16 +9,27 @@ import { HealthConfigType } from '../types';
 import { HealthType, HealthInputType, HealthInputSampleType } from '../types/generated';
 import { Model } from 'sequelize-typescript';
 
-export const isValidSample = (sample: HealthInputSampleType, input: HealthInputType, config: HealthConfigType): boolean => {
+type ValidSampleOptionsType = {
+  sample: HealthInputSampleType, 
+  input: HealthInputType, 
+  config: HealthConfigType,
+  validSources: string[]
+}
+
+export const isValidSample = (options: ValidSampleOptionsType): boolean => {
+  const { config, input, sample, validSources } = options;
+
   // not within defined interval
   if (config.interval && !isWithinInterval(config.interval, sample.date, input.sampledOn)) {
     return false;
   }
 
-  // not from valid source
-  const validSources: string[] = getValidSources(input.validSources, config.defaultValidSource);
-  if (!validSources) return false;
+  // no valid sources
+  if (!validSources) {
+    return false;
+  }
 
+  // not from valid source
   if (validSources.indexOf(sample.source) < 0 && validSources.indexOf('*') < 0) {
     return false;
   }
@@ -28,14 +39,15 @@ export const isValidSample = (sample: HealthInputSampleType, input: HealthInputT
 
 export const reduceSampleData = (samples: HealthInputSampleType[], input: HealthInputType, healthData: HealthType, config: HealthConfigType): HealthType => {
   let output: HealthType = healthData;
+  const validSources: string[] = getValidSources(input.validSources, config.defaultValidSource);
   
   samples.forEach((sample: HealthInputSampleType) => {
-    if (!isValidSample(sample, input, config)) {
+    if (!isValidSample({ sample, input, config, validSources })) {
       return;
     }
 
     output.value += Number(sample.value);
-
+    
     if (!output.sampledOn) {
       output.sampledOn = sample.date;
     }
@@ -52,7 +64,7 @@ export const reduceSampleData = (samples: HealthInputSampleType[], input: Health
   return output;
 }
 
-export const aggregateHealthData = (input: HealthInputType, config: HealthConfigType, id?: string): HealthType => {
+export const aggregateHealthData = (input: HealthInputType, config: HealthConfigType): HealthType => {
   const sampledOn = !!input.sampledOn && moment(input.sampledOn).isValid() ? input.sampledOn : null;
   const samples: HealthInputSampleType[] = input.hasOwnProperty('sampleList')
     ? input.sampleList
@@ -76,7 +88,7 @@ export const findHealthById = (id: string, config: HealthConfigType): Promise<Mo
   return healthModels[config.modelID].findOne({ where: { id } });
 }
 
-export const findHealthByDate = (date: Date, config: any): Promise<Model> => {
+export const findHealthByDate = (date: Date | string, config: any): Promise<Model> => {
   const start = moment(date).startOf('day').toDate();
   const end = moment(date).endOf('day').toDate();
   return healthModels[config.modelID].findOne({ 
@@ -91,7 +103,12 @@ export const addHealthItem = async (input: HealthInputType, config: HealthConfig
     throw new ExpectedError('INVALID_HEALTH_TYPE');
   }
 
-  const data: HealthType = aggregateHealthData(input, config);
+  if (config.interval) {
+    const dupeItem = await findHealthByDate(input.sampledOn, config);
+    if (dupeItem) return updateHealthItem(dupeItem.id, input, config);
+  }
+
+  let data: HealthType = aggregateHealthData(input, config);
   data.id = uuid();
   const HealthItem = healthModels[config.modelID];
 
@@ -99,7 +116,6 @@ export const addHealthItem = async (input: HealthInputType, config: HealthConfig
     const res: any = await HealthItem.create(data);
     return res.dataValues;
   } catch (err) {
-    console.error(err);
     throw new ExpectedError('ADD_HEALTH_ERROR');
   }
 }
@@ -113,11 +129,9 @@ export const updateHealthItem = async (id: string, input: HealthInputType, confi
   const HealthItem = healthModels[config.modelID];
 
   try {
-    const res: any = HealthItem.update({ ...data }, { where: { id }, returning: true });
-    console.log(res);
-    return res.dataValues;
+    const [rows, [ updatedItem ]]: any = await HealthItem.update({ ...data }, { where: { id }, returning: true });
+    return updatedItem;
   } catch (err) {
-    console.error(err);
     throw new ExpectedError('UPDATE_HEALTH_ERROR');
   }
 }

@@ -17,7 +17,7 @@ const step = {
       type: GraphQLDate
     }
   },
-  resolve(parentValue, args, ctx) {
+  resolve(parentValue, args) {
     const config: HealthConfigType = healthTypes.steps;
     if (args.id) {
       return findHealthById(args.id, config);
