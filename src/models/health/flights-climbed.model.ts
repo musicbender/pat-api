@@ -3,8 +3,8 @@ import { healthTypes } from '../../configs/health.json';
 import { Table } from 'sequelize-typescript';
 
 @Table({
-  tableName: healthTypes.steps.id,
+  tableName: healthTypes.flightsClimbed.id,
   createdAt: false, 
   updatedAt: false
 })
-export default class Step extends HealthKit<Step> {}
+export default class FlightsClimbed extends HealthKit<FlightsClimbed> {}
