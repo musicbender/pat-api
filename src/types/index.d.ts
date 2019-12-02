@@ -23,7 +23,8 @@ export type HealthConfigType = {
   healthkitID?: string,
   modelID: string,
   interval?: moment.unitOfTime.StartOf,
-  defaultValidSource?: string
+  defaultValidSource?: string,
+  valueType: string,
 }
 
 export type ValidSampleOptionsType = {

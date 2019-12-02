@@ -5,31 +5,34 @@ import {
   IsUUID, 
   PrimaryKey, 
   Column, 
-  Table,
-  Default
+  Default,
 } from 'sequelize-typescript';
 
 export default class Healthkit<T = any, T2 = any> extends Model<Healthkit> {
   @IsUUID(4)
   @PrimaryKey
   @Column
-  id: string;
+  id: string;;
 
   @Default(0)
   @Column
   value: number;
 
-  @Default(null)
+  @Default(0)
   @Column
-  average: number
+  total: number;
 
   @Default(0)
   @Column
-  highestSampleValue: number
+  average: number;
 
   @Default(0)
   @Column
-  lowestSampleValue: number
+  highestSampleValue: number;
+
+  @Default(0)
+  @Column
+  lowestSampleValue: number;
 
   @Default(moment().toISOString())
   @Column

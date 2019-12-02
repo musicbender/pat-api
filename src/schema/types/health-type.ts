@@ -38,6 +38,7 @@ export const HealthType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLString },
     value: { type: GraphQLInt },
+    total: { type: GraphQLInt },
     average: { type: GraphQLInt },
     highestSampleValue: { type: GraphQLInt },
     lowestSampleValue: { type: GraphQLInt },
