@@ -3,7 +3,7 @@ const databaseConf = {
   "password": PATAPI_DB_PASSWORD || '',
   "database": PATAPI_DB_NAME,
   "host": PATAPI_DB_HOST,
-  "dialect": "mysql",
+  "dialect": "postgres",
   "operatorsAliases": false
 }
 
