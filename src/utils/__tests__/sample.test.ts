@@ -1,8 +1,9 @@
-import { isWithinInterval, getValidSources } from '../sample';
+import { isWithinInterval, getValidSources, getAverage, findOutterValues } from '../sample';
+import { TestItem } from '../../types';
 
 describe('sample.ts', () => {
     describe('isWithinInterval()', () => {
-        const tests: any = [
+        const tests: TestItem[] = [
             {
                 assert: [
                     "day",
@@ -85,7 +86,7 @@ describe('sample.ts', () => {
     });
 
     describe('getValidSources()', () => {
-        const tests: any = [
+        const tests: TestItem[] = [
             {
                 assert: [
                     ['pat-iphone'],
@@ -176,6 +177,171 @@ describe('sample.ts', () => {
             it(`Given ${assert[0] ? assert[0].length : '0'} valid sources, ${assert[1]} is default, returns ${expected}`, () => {
                 expect(getValidSources(assert[0], assert[1])).toEqual(expected);
             });
-        })
-    })
+        });
+    });
+
+    describe('getAverage()', () => {
+      const tests: TestItem[] = [
+        {
+          assert: [1, 2, 3],
+          expected: 2
+        },
+        {
+          assert: [1, 2, 3, 4, 5],
+          expected: 3
+        },
+        {
+          assert: [0, 5, 10],
+          expected: 5
+        },
+        {
+          assert: [10, 0, 5],
+          expected: 5
+        },
+        {
+          assert: [1],
+          expected: 1
+        },
+        {
+          assert: [4, 34, 0, 6, 12, 456, 3, 99],
+          expected: 76.75
+        },
+        {
+          assert: [0, 100],
+          expected: 50
+        },
+        {
+          assert: [0],
+          expected: 0
+        },
+        {
+          assert: [1, 2, -3],
+          expected: 0
+        },
+        {
+          assert: [1, 2, -10],
+          expected: -2.33
+        },
+        {
+          assert: [1, 2, 3.75],
+          expected: 2.25
+        },
+        {
+          assert: [0, 1000],
+          expected: 500
+        },
+        {
+          assert: [],
+          expected: 0
+        },
+      ];
+
+      tests.forEach(({ assert, expected }) => {
+        it(`Given ${assert[0]} will output ${expected}`, () => {
+          expect(getAverage(assert)).toEqual(expected);
+        });
+      });
+    });
+
+    describe('findOutterValues()', () => {
+      const tests: TestItem[] = [
+        {
+          assert: [
+            [1, 2, 3],
+            'lowest'
+          ],
+          expected: 1
+        },
+        {
+          assert: [
+            [2, 1, 3],
+            'lowest'
+          ],
+          expected: 1
+        },
+        {
+          assert: [
+            [30, 56, 45, 99, 10, 11, 55],
+            'lowest'
+          ],
+          expected: 10
+        },
+        {
+          assert: [
+            [1, 2, -3],
+            'lowest'
+          ],
+          expected: -3
+        },
+        {
+          assert: [
+            [100],
+            'lowest'
+          ],
+          expected: 100
+        },
+        {
+          assert: [
+            [2, 2],
+            'lowest'
+          ],
+          expected: 2
+        },
+        {
+          assert: [
+            [1, 2, 3],
+            'highest'
+          ],
+          expected: 3
+        },
+        {
+          assert: [
+            [3, 1, 2],
+            'highest'
+          ],
+          expected: 3
+        },
+        {
+          assert: [
+            [999, 453, 337, 37, -12, 1000, 1001, 500],
+            'highest'
+          ],
+          expected: 1001
+        },
+        {
+          assert: [
+            [0, 100],
+            'highest'
+          ],
+          expected: 100
+        },
+        {
+          assert: [
+            [1],
+            'highest'
+          ],
+          expected: 1
+        },
+        {
+          assert: [
+            [-100, -99],
+            'highest'
+          ],
+          expected: -99
+        },
+        {
+          assert: [
+            [22, 22],
+            'highest'
+          ],
+          expected: 22
+        }
+      ];
+
+      tests.forEach(({ assert, expected }) => {
+        it(`Given ${assert[0]} will output ${expected}`, () => {
+          expect(findOutterValues(assert[0], assert[1])).toEqual(expected);
+        });
+      });
+    });
 });

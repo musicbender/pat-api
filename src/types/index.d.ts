@@ -9,6 +9,11 @@ export enum HealthInterval {
   false
 }
 
+export enum FindOutterValuesTypes {
+  'highest',
+  'lowest'
+}
+
 // types
 export type SampleType = {
   date?: Date,
@@ -48,4 +53,10 @@ export type DbSSLType = {
   key?: Buffer,
   cert?: Buffer,
   ca?: Buffer
+}
+
+export type TestItem = {
+  assert: any,
+  expected: any,
+  description?: string
 }
