@@ -1,10 +1,10 @@
-const databaseConf = {
-  "username": PATAPI_DB_USER || 'root',
-  "password": PATAPI_DB_PASSWORD || '',
-  "database": PATAPI_DB_NAME,
-  "host": PATAPI_DB_HOST,
-  "dialect": "postgres",
-  "operatorsAliases": false
-}
+const dotenv = require('dotenv').config();
+const { getDBConfig } = require('../database.ts');
 
-export default databaseConf;
+console.log(getDBConfig({
+  externalAccess: true
+}));
+
+module.exports = getDBConfig({
+  externalAccess: true
+});

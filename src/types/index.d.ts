@@ -33,3 +33,19 @@ export type ValidSampleOptionsType = {
   config: HealthConfigType,
   validSources: string[]
 }
+
+export type DatabaseConfigOptions = {
+  externalAccess?: boolean
+}
+
+export type DbSSLConfigType = {
+  key?: string,
+  cert?: string,
+  ca?: string
+}
+
+export type DbSSLType = {
+  key?: Buffer,
+  cert?: Buffer,
+  ca?: Buffer
+}

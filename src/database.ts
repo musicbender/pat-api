@@ -1,17 +1,6 @@
 import { Sequelize } from 'sequelize-typescript';
 import * as fs from 'fs';
-
-type SSLConfigType = {
-  key?: string,
-  cert?: string,
-  ca?: string
-}
-
-type SSLType = {
-  key?: Buffer,
-  cert?: Buffer,
-  ca?: Buffer
-}
+import { DatabaseConfigOptions, DbSSLConfigType, DbSSLType } from './types';
 
 const sslConfig = {
   key: process.env.PATAPI_DB_SSL_KEY,
@@ -19,7 +8,7 @@ const sslConfig = {
   ca: process.env.PATAPI_DB_SSL_CA
 }
 
-const getSSLFiles = (files: SSLConfigType): SSLType => {
+const getSSLFiles = (files: DbSSLConfigType): DbSSLType => {
   let ssl = {};
 
   Object.keys(files).forEach((key) => {
@@ -30,7 +19,13 @@ const getSSLFiles = (files: SSLConfigType): SSLType => {
   return ssl;
 }
 
-const getDBConfig = (): any => {
+const getAccessProperty = (externalAccess: boolean = false, property: string = 'PORT'): string | number => {
+  return externalAccess && process.env[`PATAPI_DB_EXTERNAL_${property}`]
+    ? process.env[`PATAPI_DB_EXTERNAL_${property}`]
+    : process.env[`PATAPI_DB_${property}`] || '';
+}
+
+export const getDBConfig = (options: DatabaseConfigOptions = {}): any => {
   const config = {
     dialect: 'postgres',
     database: process.env.PATAPI_DB_NAME,
@@ -46,8 +41,8 @@ const getDBConfig = (): any => {
     : 
       {
         ...config,
-        host: process.env.PATAPI_DB_HOST,
-        port: process.env.PATAPI_DB_PORT,
+        host: getAccessProperty(options.externalAccess, 'HOST'),
+        port: getAccessProperty(options.externalAccess, 'PORT'),
         username: process.env.PATAPI_DB_USER || 'root',
         password: process.env.PATAPI_DB_PASSWORD || '',
         dialectOptions: {
