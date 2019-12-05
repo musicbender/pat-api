@@ -1,8 +1,8 @@
 import { Context } from 'koa';
 import * as winston from 'winston';
 
-const logMiddleware = (winstonInstance) => {
-    return async(ctx: Context, next: () => Promise<any>) => {
+const logMiddleware = (winstonInstance: any) => {
+    return async (ctx: Context, next: () => Promise<any>) => {
         const start = new Date().getMilliseconds();
 
         await next();

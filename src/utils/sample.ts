@@ -30,7 +30,7 @@ export const getAverage = (values: number[] = []): number => {
   if (!values || values.length < 1) return 0;
 
   let total = values.reduce((sum: number, num: number): number => sum + num, 0);
-  return +(total / values.length).toFixed(2);
+  return +(total / values.length).toFixed(0);
 }
 
 export const findOutterValues = (values: number[] = [], type: keyof typeof FindOutterValuesTypes = 'highest'): number => {

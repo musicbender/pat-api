@@ -20,26 +20,11 @@ export type Scalars = {
 
 export type AddHealthKitError = {
   __typename?: 'addHealthKitError',
-  errorCode?: Maybe<ErrorCodesType>,
+  errorCode?: Maybe<AddHealthKitErrorErrorCodesType>,
   errorDesc?: Maybe<Scalars['String']>,
 };
 
-/** Response data for adding healthkit data */
-export type AddHealthKitResponse = {
-  __typename?: 'addHealthKitResponse',
-  response?: Maybe<Array<Maybe<HealthType>>>,
-};
-
-/** Can either be response data or error data */
-export type AddHealthKitUnion = AddHealthKitResponse | AddHealthKitError;
-
-export type AdditionalEntityFields = {
-  path?: Maybe<Scalars['String']>,
-  type?: Maybe<Scalars['String']>,
-};
-
-
-export enum ErrorCodesType {
+export enum AddHealthKitErrorErrorCodesType {
   /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
   /** Server Timeout */
@@ -48,11 +33,60 @@ export enum ErrorCodesType {
   Unauthorized = 'UNAUTHORIZED',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
   /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
+
+/** Response data for addHealthKit */
+export type AddHealthKitResponse = {
+  __typename?: 'addHealthKitResponse',
+  response?: Maybe<Array<Maybe<HealthType>>>,
+};
+
+/** Return either be response data or error data for addHealthKit */
+export type AddHealthKitUnion = AddHealthKitResponse | AddHealthKitError;
+
+export type AdditionalEntityFields = {
+  path?: Maybe<Scalars['String']>,
+  type?: Maybe<Scalars['String']>,
+};
+
+export type AddStepError = {
+  __typename?: 'addStepError',
+  errorCode?: Maybe<AddStepErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddStepErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server Timeout */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Response data for addStep */
+export type AddStepResponse = {
+  __typename?: 'addStepResponse',
+  response?: Maybe<HealthType>,
+};
+
+/** Return either be response data or error data for addStep */
+export type AddStepUnion = AddStepResponse | AddStepError;
+
 
 /** Sample item in health data */
 export type HealthInputSampleType = {
@@ -77,6 +111,10 @@ export type HealthType = {
   __typename?: 'HealthType',
   id?: Maybe<Scalars['String']>,
   value?: Maybe<Scalars['Int']>,
+  total?: Maybe<Scalars['Int']>,
+  average?: Maybe<Scalars['Int']>,
+  highestSampleValue?: Maybe<Scalars['Int']>,
+  lowestSampleValue?: Maybe<Scalars['Int']>,
   sampledOn?: Maybe<Scalars['String']>,
   createdOn?: Maybe<Scalars['String']>,
   updatedOn?: Maybe<Scalars['String']>,
@@ -88,9 +126,9 @@ export type HealthType = {
 export type Mutation = {
   __typename?: 'Mutation',
   /** Add a step count node */
-  addStep?: Maybe<HealthType>,
+  addStep?: Maybe<AddStepUnion>,
   /** Update a step count node */
-  updateStep?: Maybe<HealthType>,
+  updateStep?: Maybe<UpdateStepUnion>,
   /** Add multiple HealthKit data types */
   addHealthKit?: Maybe<AddHealthKitUnion>,
 };
@@ -102,7 +140,7 @@ export type MutationAddStepArgs = {
 
 
 export type MutationUpdateStepArgs = {
-  _id: Scalars['ID'],
+  id: Scalars['ID'],
   input: HealthInputType
 };
 
@@ -143,6 +181,39 @@ export enum UnitType {
   G = 'g',
   Mg = 'mg'
 }
+
+export type UpdateStepError = {
+  __typename?: 'updateStepError',
+  errorCode?: Maybe<UpdateStepErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateStepErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server Timeout */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Response data for updateStep */
+export type UpdateStepResponse = {
+  __typename?: 'updateStepResponse',
+  response?: Maybe<HealthType>,
+};
+
+/** Return either be response data or error data for updateStep */
+export type UpdateStepUnion = UpdateStepResponse | UpdateStepError;
+
 
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
@@ -214,11 +285,19 @@ export type ResolversTypes = {
   Mutation: ResolverTypeWrapper<{}>,
   HealthInputType: HealthInputType,
   HealthInputSampleType: HealthInputSampleType,
+  addStepUnion: ResolversTypes['addStepResponse'] | ResolversTypes['addStepError'],
+  addStepResponse: ResolverTypeWrapper<AddStepResponse>,
+  addStepError: ResolverTypeWrapper<AddStepError>,
+  addStepErrorErrorCodesType: AddStepErrorErrorCodesType,
   ID: ResolverTypeWrapper<Scalars['ID']>,
+  updateStepUnion: ResolversTypes['updateStepResponse'] | ResolversTypes['updateStepError'],
+  updateStepResponse: ResolverTypeWrapper<UpdateStepResponse>,
+  updateStepError: ResolverTypeWrapper<UpdateStepError>,
+  updateStepErrorErrorCodesType: UpdateStepErrorErrorCodesType,
   addHealthKitUnion: ResolversTypes['addHealthKitResponse'] | ResolversTypes['addHealthKitError'],
   addHealthKitResponse: ResolverTypeWrapper<AddHealthKitResponse>,
   addHealthKitError: ResolverTypeWrapper<AddHealthKitError>,
-  errorCodesType: ErrorCodesType,
+  addHealthKitErrorErrorCodesType: AddHealthKitErrorErrorCodesType,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
   AdditionalEntityFields: AdditionalEntityFields,
 };
@@ -234,11 +313,19 @@ export type ResolversParentTypes = {
   Mutation: {},
   HealthInputType: HealthInputType,
   HealthInputSampleType: HealthInputSampleType,
+  addStepUnion: ResolversTypes['addStepResponse'] | ResolversTypes['addStepError'],
+  addStepResponse: AddStepResponse,
+  addStepError: AddStepError,
+  addStepErrorErrorCodesType: AddStepErrorErrorCodesType,
   ID: Scalars['ID'],
+  updateStepUnion: ResolversTypes['updateStepResponse'] | ResolversTypes['updateStepError'],
+  updateStepResponse: UpdateStepResponse,
+  updateStepError: UpdateStepError,
+  updateStepErrorErrorCodesType: UpdateStepErrorErrorCodesType,
   addHealthKitUnion: ResolversTypes['addHealthKitResponse'] | ResolversTypes['addHealthKitError'],
   addHealthKitResponse: AddHealthKitResponse,
   addHealthKitError: AddHealthKitError,
-  errorCodesType: ErrorCodesType,
+  addHealthKitErrorErrorCodesType: AddHealthKitErrorErrorCodesType,
   Boolean: Scalars['Boolean'],
   AdditionalEntityFields: AdditionalEntityFields,
 };
@@ -263,7 +350,7 @@ export type EmbeddedDirectiveResolver<Result, Parent, ContextType = any, Args = 
 export type MapDirectiveResolver<Result, Parent, ContextType = any, Args = {   path?: Maybe<Scalars['String']> }> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
 
 export type AddHealthKitErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addHealthKitError']> = {
-  errorCode?: Resolver<Maybe<ResolversTypes['errorCodesType']>, ParentType, ContextType>,
+  errorCode?: Resolver<Maybe<ResolversTypes['addHealthKitErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
 };
 
@@ -275,6 +362,19 @@ export type AddHealthKitUnionResolvers<ContextType = any, ParentType = Resolvers
   __resolveType: TypeResolveFn<'addHealthKitResponse' | 'addHealthKitError', ParentType, ContextType>
 };
 
+export type AddStepErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addStepError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addStepErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddStepResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addStepResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type AddStepUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addStepUnion']> = {
+  __resolveType: TypeResolveFn<'addStepResponse' | 'addStepError', ParentType, ContextType>
+};
+
 export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Date'], any> {
   name: 'Date'
 }
@@ -282,6 +382,10 @@ export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes
 export type HealthTypeResolvers<ContextType = any, ParentType = ResolversParentTypes['HealthType']> = {
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   value?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>,
+  total?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>,
+  average?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>,
+  highestSampleValue?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>,
+  lowestSampleValue?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>,
   sampledOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   createdOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   updatedOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
@@ -291,8 +395,8 @@ export type HealthTypeResolvers<ContextType = any, ParentType = ResolversParentT
 };
 
 export type MutationResolvers<ContextType = any, ParentType = ResolversParentTypes['Mutation']> = {
-  addStep?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, MutationAddStepArgs>,
-  updateStep?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, MutationUpdateStepArgs>,
+  addStep?: Resolver<Maybe<ResolversTypes['addStepUnion']>, ParentType, ContextType, MutationAddStepArgs>,
+  updateStep?: Resolver<Maybe<ResolversTypes['updateStepUnion']>, ParentType, ContextType, MutationUpdateStepArgs>,
   addHealthKit?: Resolver<Maybe<ResolversTypes['addHealthKitUnion']>, ParentType, ContextType, MutationAddHealthKitArgs>,
 };
 
@@ -300,14 +404,33 @@ export type RootQueryTypeResolvers<ContextType = any, ParentType = ResolversPare
   step?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeStepArgs>,
 };
 
+export type UpdateStepErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateStepError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateStepErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateStepResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateStepResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type UpdateStepUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateStepUnion']> = {
+  __resolveType: TypeResolveFn<'updateStepResponse' | 'updateStepError', ParentType, ContextType>
+};
+
 export type Resolvers<ContextType = any> = {
   addHealthKitError?: AddHealthKitErrorResolvers<ContextType>,
   addHealthKitResponse?: AddHealthKitResponseResolvers<ContextType>,
   addHealthKitUnion?: AddHealthKitUnionResolvers,
+  addStepError?: AddStepErrorResolvers<ContextType>,
+  addStepResponse?: AddStepResponseResolvers<ContextType>,
+  addStepUnion?: AddStepUnionResolvers,
   Date?: GraphQLScalarType,
   HealthType?: HealthTypeResolvers<ContextType>,
   Mutation?: MutationResolvers<ContextType>,
   RootQueryType?: RootQueryTypeResolvers<ContextType>,
+  updateStepError?: UpdateStepErrorResolvers<ContextType>,
+  updateStepResponse?: UpdateStepResponseResolvers<ContextType>,
+  updateStepUnion?: UpdateStepUnionResolvers,
 };
 
 
@@ -332,4 +455,5 @@ export type DirectiveResolvers<ContextType = any> = {
 * @deprecated
 * Use "DirectiveResolvers" root object instead. If you wish to get "IDirectiveResolvers", add "typesPrefix: I" to your config.
 */
-export type IDirectiveResolvers<ContextType = any> = DirectiveResolvers<ContextType>;import { ObjectID } from 'mongodb';
+export type IDirectiveResolvers<ContextType = any> = DirectiveResolvers<ContextType>;
+import { ObjectID } from 'mongodb';
