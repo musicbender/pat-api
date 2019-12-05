@@ -32,14 +32,14 @@ export const isValidSample = (options: ValidSampleOptionsType): boolean => {
 }
 
 // determine value based on value type
-export const getOutputValue = (valueType: string = 'total', output: HealthType): number => {
+export const getOutputValue = (valueType: string = 'totalSampleValue', output: HealthType): number => {
   switch(valueType) {
-    case 'total':
-      return output.total;
-    case 'average':
-      return output.average;
+    case 'totalSampleValue':
+      return output.totalSampleValue;
+    case 'averageSampleValue':
+      return output.averageSampleValue;
     default:
-      return output.total;
+      return output.totalSampleValue || 0;
   }
 }
 
@@ -54,8 +54,8 @@ export const reduceSampleData = (samples: HealthInputSampleType[], input: Health
       return;
     }
 
-    if (config.valueType === 'total') {
-      output.total += Number(sample.value);
+    if (config.valueType === 'totalSampleValue') {
+      output.totalSampleValue += Number(sample.value);
     }
    
     if (!output.sampledOn) {
@@ -73,7 +73,7 @@ export const reduceSampleData = (samples: HealthInputSampleType[], input: Health
     valueArr = [ ...valueArr, +sample.value ];
   });
 
-  output.average = getAverage(valueArr);
+  output.averageSampleValue = getAverage(valueArr);
   output.highestSampleValue = findOutterValues(valueArr, 'highest');
   output.lowestSampleValue = findOutterValues(valueArr, 'lowest');
   output.value = getOutputValue(config.valueType, output);
@@ -93,8 +93,9 @@ export const aggregateHealthData = (input: HealthInputType, config: HealthConfig
   const initialOutput: HealthType = {
     unit: input.unit,
     value: 0,
-    total: null,
-    average: 0,
+    valueType: config.valueType || 'totalSampleValue',
+    totalSampleValue: 0,
+    averageSampleValue: 0,
     highestSampleValue: 0, 
     lowestSampleValue: 0,
     sampledOn,

@@ -18,13 +18,17 @@ export default class Healthkit<T = any, T2 = any> extends Model<Healthkit> {
   @Column
   value: number;
 
-  @Default(0)
+  @Default('totalSampleValue')
   @Column
-  total: number;
+  valueType: string
 
   @Default(0)
   @Column
-  average: number;
+  totalSampleValue: number;
+
+  @Default(0)
+  @Column
+  averageSampleValue: number;
 
   @Default(0)
   @Column

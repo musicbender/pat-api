@@ -6,7 +6,7 @@
       "modelID": "Weight",
       "interval": null,
       "defaultValidSource": "*",
-      "valueType": "average"
+      "valueType": "averageSampleValue"
     },
     "height": {
       "id": "height",
@@ -14,7 +14,7 @@
       "modelID": "Height",
       "interval": null,
       "defaultValidSource": "*",
-      "valueType": "average"
+      "valueType": "averageSampleValue"
     },
     "steps": {
       "id": "steps",
@@ -22,7 +22,7 @@
       "modelID": "Step",
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
-      "valueType": "total"
+      "valueType": "totalSampleValue"
     },
     "caffeine": {
       "id": "caffeine",
@@ -30,7 +30,7 @@
       "modelID": "Caffeine",
       "interval": "day",
       "defaultValidSource": "*",
-      "valueType": "total"
+      "valueType": "totalSampleValue"
     },
     "flightsClimbed": {
       "id": "flights-climbed",
@@ -38,7 +38,7 @@
       "modelID": "FlightsClimbed",
       "interval": "day",
       "defaultValidSource": "pat-iphone",
-      "valueType": "total"
+      "valueType": "totalSampleValue"
     },
     "heartRate": {
       "id": "heart-rate",
@@ -46,7 +46,7 @@
       "modelID": "HeartRate",
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
-      "valueType": "total"
+      "valueType": "totalSampleValue"
     },
     "heartRateVariability": {
       "id": "heart-rate-variability",
@@ -54,7 +54,7 @@
       "modelID": "HeartRateVariability",
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
-      "valueType": "total"
+      "valueType": "totalSampleValue"
     },
     "mindfulMinutes": {
       "id": "mindful-minutes",
@@ -62,7 +62,7 @@
       "modelID": "MindfulMinutes",
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
-      "valueType": "total"
+      "valueType": "totalSampleValue"
     },
     "restingHeartRate": {
       "id": "resting-heart-rate",
@@ -70,7 +70,7 @@
       "modelID": "RestingHeartRate",
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
-      "valueType": "total"
+      "valueType": "totalSampleValue"
     },
     "sleepAnalysis": {
       "id": "sleep-analysis",
@@ -78,7 +78,7 @@
       "modelID": "SleepAnalysis",
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
-      "valueType": "total"
+      "valueType": "totalSampleValue"
     },
     "swimmingDistance": {
       "id": "weight",
@@ -86,7 +86,7 @@
       "modelID": "Weight",
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
-      "valueType": "total"
+      "valueType": "totalSampleValue"
     },
     "walkingHeartRateAverage": {
       "id": "walking-heart-rate-average",
@@ -94,7 +94,7 @@
       "modelID": "WalkingHeartRateAverage",
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
-      "valueType": "total"
+      "valueType": "totalSampleValue"
     },
     "waistCircumference": {
       "id": "waist-circumference",
@@ -102,7 +102,7 @@
       "modelID": "WaistCircumference",
       "interval": null,
       "defaultValidSource": "*",
-      "valueType": "average"
+      "valueType": "averageSampleValue"
     },
     "systolicBloodPressure": {
       "id": "systolic-blood-pressure",
@@ -110,7 +110,7 @@
       "modelID": "SystolicBloodPressure",
       "interval": null,
       "defaultValidSource": "*",
-      "valueType": "average"
+      "valueType": "averageSampleValue"
     },
     "diastolicBloodPressure": {
       "id": "diastolic-blood-pressure",
@@ -118,7 +118,7 @@
       "modelID": "DiastolicBloodPressure",
       "interval": null,
       "defaultValidSource": "*",
-      "valueType": "average"
+      "valueType": "averageSampleValue"
     },
     "oxygenSaturation": {
       "id": "oxygen-saturation",
@@ -126,7 +126,7 @@
       "modelID": "OxygenSaturation",
       "defaultValidSource": "*",
       "interval": null,
-      "valueType": "average"
+      "valueType": "averageSampleValue"
     },
     "bodyTemperature": {
       "id": "body-temperature",
@@ -134,7 +134,7 @@
       "modelID": "BodyTemperature",
       "defaultValidSource": "*",
       "interval": null,
-      "valueType": "average"
+      "valueType": "averageSampleValue"
     }
   }
 }
