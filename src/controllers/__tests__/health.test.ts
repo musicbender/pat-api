@@ -128,6 +128,16 @@ describe('controllers/health.ts', function () {
           sources: ['pat-iphone']
         },
         info: 'Given valid flights climbed data, outputs correct data'
+      },
+      {
+        assert: [ mockFlightsData[1], healthTypes.flightsClimbed ],
+        expected: {
+          unit: 'count',
+          value: 2,
+          sampledOn: '2019-12-10T12:03:11-07:00',
+          sources: ['pat-iphone']
+        },
+        info: 'Does not include invalid flights source sample'
       }
     ];
 
