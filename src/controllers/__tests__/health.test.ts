@@ -4,6 +4,7 @@ const { healthTypes } = require('../../configs/health.json');
 
 // mocks
 const mockStepData = require( '../../../test/mocks/step-data-1.json');
+const mockFlightsData = require( '../../../test/mocks/flights-climbed-data.json');
 
 describe('controllers/health.ts', function () {
   describe('aggregateHealthData()', function () {
@@ -111,12 +112,22 @@ describe('controllers/health.ts', function () {
       {
         assert: [ mockStepData[11], healthTypes.steps ],
         expected: {
-          unit: 'count',
+          unit: 'count', 
           value: 100,
           sampledOn: '2019-10-10T12:03:11-07:00',
           sources: ['pat-apple-watch']
         },
         info: 'If no valid sources defined, counts all sources'
+      },
+      {
+        assert: [ mockFlightsData[0], healthTypes.flightsClimbed ],
+        expected: {
+          unit: 'count',
+          value: 5,
+          sampledOn: '2019-12-10T12:03:11-07:00',
+          sources: ['pat-iphone']
+        },
+        info: 'Given valid flights climbed data, outputs correct data'
       }
     ];
 

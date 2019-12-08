@@ -19,7 +19,6 @@ dist
 # Environment Vars
 .env.*
 .env
-deploy/**/env.*
 
 # docker
 docker/secrets
