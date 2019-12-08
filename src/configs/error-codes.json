@@ -17,6 +17,9 @@
     "INVALID_HEALTH_TYPE": {
       "description": "Not a valid health type"
     },
+    "DISABLED_HEALTH_TYPE": {
+      "description": "Health type has been disabled"
+    },
     "INVALID_HEALTHKIT_INPUT": {
       "description": "Input is invalid or empty"
     }

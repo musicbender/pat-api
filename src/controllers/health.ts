@@ -116,6 +116,7 @@ export const findHealthById = (id: string, config: HealthConfigType): Promise<Mo
 export const findHealthByDate = (date: Date | string, config: any): Promise<Model> => {
   const start = moment(date).startOf('day').toDate();
   const end = moment(date).endOf('day').toDate();
+
   return healthModels[config.modelID].findOne({ 
     where: { 
       sampledOn: { [Op.gte]: start, [Op.lte]: end } 
@@ -130,8 +131,15 @@ export const addHealthItem = async (input: HealthInputType, config: HealthConfig
   }
 
   if (config.interval) {
-    const dupeItem = await findHealthByDate(input.sampledOn, config);
-    if (dupeItem) return updateHealthItem(dupeItem.id, input, config);
+    const dupeItem: any = await findHealthByDate(input.sampledOn, config);
+
+    const id = dupeItem && dupeItem.id 
+      ? dupeItem.id 
+      : dupeItem && dupeItem.dataValues 
+      ? dupeItem.dataValues.id 
+      : null;
+
+    if (dupeItem) return updateHealthItem(id, input, config);
   }
 
   let data: HealthType = aggregateHealthData(input, config);

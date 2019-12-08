@@ -1,13 +1,17 @@
 {
-  "input": [{
-    "type": "Steps",
-    "unit": "count",
-    "sampledOn": "2019-10-22T23:15:00-07:00",
-    "sampleList": [{
-      "date": "2019-10-22T06:52:33-07:00",
-      "value": "82",
-      "source": "pat-apple-watch",
-      "duration": "5:49"
-    }]
-  }]
+  "input": [
+    {
+      "type": "Steps",
+      "unit": "count",
+      "sampledOn": "2019-10-22T23:15:00-07:00",
+      "sampleList": [
+        {
+          "date": "2019-10-22T06:52:33-07:00",
+          "value": "82",
+          "source": "pat-apple-watch",
+          "duration": "5:49"
+        }
+      ]
+    }
+  ]
 }

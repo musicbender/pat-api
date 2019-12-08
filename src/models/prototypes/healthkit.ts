@@ -40,15 +40,15 @@ export default class Healthkit<T = any, T2 = any> extends Model<Healthkit> {
 
   @Default(moment().toISOString())
   @Column
-  createdOn: string;
+  createdOn: Date;
 
   @Default(moment().toISOString())
   @Column
-  updatedOn: string
+  updatedOn: Date
 
   @Default(moment().toISOString())
   @Column
-  sampledOn: string
+  sampledOn: Date
 
   @Column(DataType.ARRAY(DataType.STRING))
   sources: string[];
