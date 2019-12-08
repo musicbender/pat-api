@@ -204,7 +204,7 @@ describe('sample.ts', () => {
         },
         {
           assert: [4, 34, 0, 6, 12, 456, 3, 99],
-          expected: 76.75
+          expected: 77
         },
         {
           assert: [0, 100],
@@ -220,11 +220,11 @@ describe('sample.ts', () => {
         },
         {
           assert: [1, 2, -10],
-          expected: -2.33
+          expected: -2
         },
         {
           assert: [1, 2, 3.75],
-          expected: 2.25
+          expected: 2
         },
         {
           assert: [0, 1000],
