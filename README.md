@@ -1,15 +1,11 @@
-### Environment Variables
+### About
 
-NODE_ENV - node environment
-PATAPI_PORT - server port
-PATAPI_DB_HOST - host for mongodb
-PATAPI_DB_PORT - port for mongodb
-PATAPI_DB_NAME - name of mongodb
-PATAPI_API_KEY= api key for restricted methods
-PATAPI_ALLOWED_ORIGINS - allowed request origins
-PATAPI_ALLOWED_METHODS - allowed request methods
-PATAPI_ALLOWED_HEADERS - allowed request headers
-PATAPI_LOGGING_ENABLED - enable server logging
-PATAPI_LOGGING_DEBUG - set logging to debug mode
-PATAPI_SCHEMA_PATH - schema url path for altair
-PATAPI_HEALTHKIT_USER_AGENT - user agent for adding healthkit data
+This is my personal life API for tracking different data point of my life: health, goals, habits, whatevers! 
+
+### Development
+
+For development I use docker compose to spin up a local postgres database and the api itself.
+
+### Production
+
+In production, it uses Bitbucket Pipelens for CI/CD deployments, AWS ECR for container registry, and finally to Digital Ocean using its Kubernetes service. The API runs on a Kubernetes node along with a sidecar hat proxies to a GCP Postgres database. 

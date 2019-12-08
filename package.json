@@ -8,6 +8,7 @@
     "dev:d": "docker-compose up",
     "dev": "nodemon",
     "db:migrate": "ts-node node_modules/.bin/sequelize db:migrate",
+    "db:migrate:prod": "export NODE_ENV=production; ts-node node_modules/.bin/sequelize db:migrate",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "tdd": "jest --watch",
     "test": "jest",
