@@ -1,17 +1,17 @@
-import { HealthType } from '../types';
-import { findHealthById, findHealthByDate } from '../../controllers/health';
 import * as GraphQLDate from 'graphql-date';
-import { GraphQLString, GraphQLField } from 'graphql';
+import { GraphQLString, GraphQLNonNull, GraphQLID } from 'graphql';
+import { findHealthById, findHealthByDate, addHealthItem, updateHealthItem } from '../../controllers/health';
 import { ExpectedError } from '../../utils/errors';
+import { HealthType, HealthInputType, ResponseUnionType } from '../types';
 import { HealthConfigType } from '../../types';
 const { healthTypes } = require('../../configs/health.json');
 
-type Options = {
+type QueryOptions = {
   type: string, 
   description?: string
 }
 
-export const composeHealthkitQuery = (options: Options) => {
+export const composeHealthkitQuery = (options: QueryOptions) => {
   return {
     type: HealthType,
     description: options.description || 'HealthKit query',
@@ -32,6 +32,61 @@ export const composeHealthkitQuery = (options: Options) => {
       } else {
         throw new ExpectedError('INVALID_ARGUMENTS');
       }
+    }
+  }
+}
+
+type AddOptions = {
+  type: string, 
+  name: string,
+  description?: string
+}
+
+export const composeHealthkitAdd = (options: AddOptions) => {
+  const name = `add${options.name}`;
+  return {
+    name,
+    description: options.description || 'Add Healthkit item.',
+    type: ResponseUnionType({
+      name,
+      responseType: HealthType
+    }),
+    args: {
+      input: {
+        type: new GraphQLNonNull(HealthInputType)
+      }
+    },
+    resolve(parentValue, { input }) {
+      return { response: addHealthItem(input, healthTypes[options.type]) };
+    }
+  }
+}
+
+type UpdateOptions = {
+  type: string, 
+  name: string,
+  description?: string
+}
+
+export const composeHealthkitUpdate = (options: UpdateOptions) => {
+  const name = `update${options.name}`;
+  return {
+    name,
+    description: options.description || 'Update Healthkit item',
+    type: ResponseUnionType({
+      name,
+      responseType: HealthType
+    }),
+    args: {
+      id: {
+        type: new GraphQLNonNull(GraphQLID)
+      },
+      input: {
+        type: new GraphQLNonNull(HealthInputType)
+      }
+    },
+    resolve(parentValue, { id, input }) {
+      return { response: updateHealthItem(id, input, healthTypes[options.type]) };
     }
   }
 }
