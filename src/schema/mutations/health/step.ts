@@ -1,13 +1,9 @@
 import { composeHealthkitAdd, composeHealthkitUpdate } from '../../utils/healthkit';
 
-export const addStep = composeHealthkitAdd({
+const options = {
   type: 'steps',
   name: 'Step',
-  description: 'Add a step count node'
-});
+}
 
-export const updateStep = composeHealthkitUpdate({
-  type: 'steps',
-  name: 'Step',
-  description: 'Update a step count node'
-});
+export const addStep = composeHealthkitAdd(options);
+export const updateStep = composeHealthkitUpdate(options);

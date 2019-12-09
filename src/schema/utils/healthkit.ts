@@ -46,7 +46,7 @@ export const composeHealthkitAdd = (options: AddOptions) => {
   const name = `add${options.name}`;
   return {
     name,
-    description: options.description || 'Add Healthkit item.',
+    description: options.description || `Add a ${options.name} node`,
     type: ResponseUnionType({
       name,
       responseType: HealthType
@@ -72,7 +72,7 @@ export const composeHealthkitUpdate = (options: UpdateOptions) => {
   const name = `update${options.name}`;
   return {
     name,
-    description: options.description || 'Update Healthkit item',
+    description: options.description || `Update a ${options.name} node`,
     type: ResponseUnionType({
       name,
       responseType: HealthType
