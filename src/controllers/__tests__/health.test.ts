@@ -5,6 +5,7 @@ const { healthTypes } = require('../../configs/health.json');
 // mocks
 const mockStepData = require( '../../../test/mocks/step-data-1.json');
 const mockFlightsData = require( '../../../test/mocks/flights-climbed-data.json');
+const mockHeartratesData = require( '../../../test/mocks/heartrate-data.json');
 
 describe('controllers/health.ts', function () {
   describe('aggregateHealthData()', function () {
@@ -135,9 +136,29 @@ describe('controllers/health.ts', function () {
           unit: 'count',
           value: 2,
           sampledOn: '2019-12-10T12:03:11-07:00',
-          sources: ['pat-iphone']
+          sources: ['pat-iphone'] 
         },
         info: 'Does not include invalid flights source sample'
+      },
+      {
+        assert: [ mockHeartratesData[0], healthTypes.heartRate ],
+        expected: {
+          unit: 'count_min',
+          value: 78,
+          sampledOn: '2019-12-10T12:03:11-07:00',
+          sources: ['pat-apple-watch']
+        },
+        info: 'Given valid heartrate data, outputs correct data'
+      },
+      {
+        assert: [ mockHeartratesData[1], healthTypes.heartRate ],
+        expected: {
+          unit: 'count_min',
+          value: 79,
+          sampledOn: '2019-12-10T12:03:11-07:00',
+          sources: ['pat-apple-watch']
+        },
+        info: 'Does not include invalid heartrate source sample'
       }
     ];
 

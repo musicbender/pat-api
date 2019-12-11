@@ -2,7 +2,7 @@ import * as GraphQLDate from 'graphql-date';
 import { GraphQLString, GraphQLNonNull, GraphQLID } from 'graphql';
 import { findHealthById, findHealthByDate, addHealthItem, updateHealthItem } from '../../controllers/health';
 import { ExpectedError } from '../../utils/errors';
-import { HealthType, HealthInputType, ResponseUnionType } from '../types';
+import { HealthType, HealthInputType, ResponseUnionType, HealthInputUpdateType } from '../types';
 import { HealthConfigType } from '../../types';
 const { healthTypes } = require('../../configs/health.json');
 
@@ -82,7 +82,7 @@ export const composeHealthkitUpdate = (options: UpdateOptions) => {
         type: new GraphQLNonNull(GraphQLID)
       },
       input: {
-        type: new GraphQLNonNull(HealthInputType)
+        type: new GraphQLNonNull(HealthInputUpdateType)
       }
     },
     resolve(parentValue, { id, input }) {

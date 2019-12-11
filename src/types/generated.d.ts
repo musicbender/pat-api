@@ -18,6 +18,42 @@ export type Scalars = {
 
 
 
+export type AddFlightsClimbedError = {
+  __typename?: 'addFlightsClimbedError',
+  errorCode?: Maybe<AddFlightsClimbedErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddFlightsClimbedErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Response data for addFlightsClimbed */
+export type AddFlightsClimbedResponse = {
+  __typename?: 'addFlightsClimbedResponse',
+  response?: Maybe<HealthType>,
+};
+
+/** Return either be response data or error data for addFlightsClimbed */
+export type AddFlightsClimbedUnion = AddFlightsClimbedResponse | AddFlightsClimbedError;
+
 export type AddHealthKitError = {
   __typename?: 'addHealthKitError',
   errorCode?: Maybe<AddHealthKitErrorErrorCodesType>,
@@ -27,16 +63,20 @@ export type AddHealthKitError = {
 export enum AddHealthKitErrorErrorCodesType {
   /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
-  /** Server Timeout */
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
   /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
@@ -49,6 +89,42 @@ export type AddHealthKitResponse = {
 
 /** Return either be response data or error data for addHealthKit */
 export type AddHealthKitUnion = AddHealthKitResponse | AddHealthKitError;
+
+export type AddHeartRateError = {
+  __typename?: 'addHeartRateError',
+  errorCode?: Maybe<AddHeartRateErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddHeartRateErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Response data for addHeartRate */
+export type AddHeartRateResponse = {
+  __typename?: 'addHeartRateResponse',
+  response?: Maybe<HealthType>,
+};
+
+/** Return either be response data or error data for addHeartRate */
+export type AddHeartRateUnion = AddHeartRateResponse | AddHeartRateError;
 
 export type AdditionalEntityFields = {
   path?: Maybe<Scalars['String']>,
@@ -64,16 +140,20 @@ export type AddStepError = {
 export enum AddStepErrorErrorCodesType {
   /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
-  /** Server Timeout */
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
   /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
@@ -106,6 +186,21 @@ export type HealthInputType = {
   validSources?: Maybe<Array<Maybe<Scalars['String']>>>,
 };
 
+/** Health data input for updating */
+export type HealthInputUpdateType = {
+  value?: Maybe<Scalars['Int']>,
+  valueType?: Maybe<Scalars['String']>,
+  totalSampleValue?: Maybe<Scalars['Int']>,
+  averageSampleValue?: Maybe<Scalars['Int']>,
+  highestSampleValue?: Maybe<Scalars['Int']>,
+  lowestSampleValue?: Maybe<Scalars['Int']>,
+  sampledOn?: Maybe<Scalars['String']>,
+  createdOn?: Maybe<Scalars['String']>,
+  sources?: Maybe<Array<Maybe<Scalars['String']>>>,
+  unit?: Maybe<UnitType>,
+  totalDuration?: Maybe<Scalars['String']>,
+};
+
 /** Health data */
 export type HealthType = {
   __typename?: 'HealthType',
@@ -126,10 +221,18 @@ export type HealthType = {
 
 export type Mutation = {
   __typename?: 'Mutation',
-  /** Add a step count node */
+  /** Add a Step node */
   addStep?: Maybe<AddStepUnion>,
-  /** Update a step count node */
+  /** Update a Step node */
   updateStep?: Maybe<UpdateStepUnion>,
+  /** Add a FlightsClimbed node */
+  addFlightsClimbed?: Maybe<AddFlightsClimbedUnion>,
+  /** Update a FlightsClimbed node */
+  updateFlightsClimbed?: Maybe<UpdateFlightsClimbedUnion>,
+  /** Add a HeartRate node */
+  addHeartRate?: Maybe<AddHeartRateUnion>,
+  /** Update a HeartRate node */
+  updateHeartRate?: Maybe<UpdateHeartRateUnion>,
   /** Add multiple HealthKit data types */
   addHealthKit?: Maybe<AddHealthKitUnion>,
 };
@@ -142,7 +245,29 @@ export type MutationAddStepArgs = {
 
 export type MutationUpdateStepArgs = {
   id: Scalars['ID'],
+  input: HealthInputUpdateType
+};
+
+
+export type MutationAddFlightsClimbedArgs = {
   input: HealthInputType
+};
+
+
+export type MutationUpdateFlightsClimbedArgs = {
+  id: Scalars['ID'],
+  input: HealthInputUpdateType
+};
+
+
+export type MutationAddHeartRateArgs = {
+  input: HealthInputType
+};
+
+
+export type MutationUpdateHeartRateArgs = {
+  id: Scalars['ID'],
+  input: HealthInputUpdateType
 };
 
 
@@ -154,10 +279,26 @@ export type RootQueryType = {
   __typename?: 'RootQueryType',
   /** Get a single step count by either _id or date, _id taking priority */
   step?: Maybe<HealthType>,
+  /** Get a single flights climbed count by either _id or date, _id taking priority */
+  flightsClimbed?: Maybe<HealthType>,
+  /** Get a single heartrate average by either _id or date, _id taking priority */
+  heartrate?: Maybe<HealthType>,
 };
 
 
 export type RootQueryTypeStepArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeFlightsClimbedArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeHeartrateArgs = {
   id?: Maybe<Scalars['String']>,
   date?: Maybe<Scalars['Date']>
 };
@@ -183,6 +324,78 @@ export enum UnitType {
   Mg = 'mg'
 }
 
+export type UpdateFlightsClimbedError = {
+  __typename?: 'updateFlightsClimbedError',
+  errorCode?: Maybe<UpdateFlightsClimbedErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateFlightsClimbedErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Response data for updateFlightsClimbed */
+export type UpdateFlightsClimbedResponse = {
+  __typename?: 'updateFlightsClimbedResponse',
+  response?: Maybe<HealthType>,
+};
+
+/** Return either be response data or error data for updateFlightsClimbed */
+export type UpdateFlightsClimbedUnion = UpdateFlightsClimbedResponse | UpdateFlightsClimbedError;
+
+export type UpdateHeartRateError = {
+  __typename?: 'updateHeartRateError',
+  errorCode?: Maybe<UpdateHeartRateErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateHeartRateErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Response data for updateHeartRate */
+export type UpdateHeartRateResponse = {
+  __typename?: 'updateHeartRateResponse',
+  response?: Maybe<HealthType>,
+};
+
+/** Return either be response data or error data for updateHeartRate */
+export type UpdateHeartRateUnion = UpdateHeartRateResponse | UpdateHeartRateError;
+
 export type UpdateStepError = {
   __typename?: 'updateStepError',
   errorCode?: Maybe<UpdateStepErrorErrorCodesType>,
@@ -192,16 +405,20 @@ export type UpdateStepError = {
 export enum UpdateStepErrorErrorCodesType {
   /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
-  /** Server Timeout */
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
   /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
@@ -291,10 +508,27 @@ export type ResolversTypes = {
   addStepError: ResolverTypeWrapper<AddStepError>,
   addStepErrorErrorCodesType: AddStepErrorErrorCodesType,
   ID: ResolverTypeWrapper<Scalars['ID']>,
+  HealthInputUpdateType: HealthInputUpdateType,
   updateStepUnion: ResolversTypes['updateStepResponse'] | ResolversTypes['updateStepError'],
   updateStepResponse: ResolverTypeWrapper<UpdateStepResponse>,
   updateStepError: ResolverTypeWrapper<UpdateStepError>,
   updateStepErrorErrorCodesType: UpdateStepErrorErrorCodesType,
+  addFlightsClimbedUnion: ResolversTypes['addFlightsClimbedResponse'] | ResolversTypes['addFlightsClimbedError'],
+  addFlightsClimbedResponse: ResolverTypeWrapper<AddFlightsClimbedResponse>,
+  addFlightsClimbedError: ResolverTypeWrapper<AddFlightsClimbedError>,
+  addFlightsClimbedErrorErrorCodesType: AddFlightsClimbedErrorErrorCodesType,
+  updateFlightsClimbedUnion: ResolversTypes['updateFlightsClimbedResponse'] | ResolversTypes['updateFlightsClimbedError'],
+  updateFlightsClimbedResponse: ResolverTypeWrapper<UpdateFlightsClimbedResponse>,
+  updateFlightsClimbedError: ResolverTypeWrapper<UpdateFlightsClimbedError>,
+  updateFlightsClimbedErrorErrorCodesType: UpdateFlightsClimbedErrorErrorCodesType,
+  addHeartRateUnion: ResolversTypes['addHeartRateResponse'] | ResolversTypes['addHeartRateError'],
+  addHeartRateResponse: ResolverTypeWrapper<AddHeartRateResponse>,
+  addHeartRateError: ResolverTypeWrapper<AddHeartRateError>,
+  addHeartRateErrorErrorCodesType: AddHeartRateErrorErrorCodesType,
+  updateHeartRateUnion: ResolversTypes['updateHeartRateResponse'] | ResolversTypes['updateHeartRateError'],
+  updateHeartRateResponse: ResolverTypeWrapper<UpdateHeartRateResponse>,
+  updateHeartRateError: ResolverTypeWrapper<UpdateHeartRateError>,
+  updateHeartRateErrorErrorCodesType: UpdateHeartRateErrorErrorCodesType,
   addHealthKitUnion: ResolversTypes['addHealthKitResponse'] | ResolversTypes['addHealthKitError'],
   addHealthKitResponse: ResolverTypeWrapper<AddHealthKitResponse>,
   addHealthKitError: ResolverTypeWrapper<AddHealthKitError>,
@@ -319,10 +553,27 @@ export type ResolversParentTypes = {
   addStepError: AddStepError,
   addStepErrorErrorCodesType: AddStepErrorErrorCodesType,
   ID: Scalars['ID'],
+  HealthInputUpdateType: HealthInputUpdateType,
   updateStepUnion: ResolversTypes['updateStepResponse'] | ResolversTypes['updateStepError'],
   updateStepResponse: UpdateStepResponse,
   updateStepError: UpdateStepError,
   updateStepErrorErrorCodesType: UpdateStepErrorErrorCodesType,
+  addFlightsClimbedUnion: ResolversTypes['addFlightsClimbedResponse'] | ResolversTypes['addFlightsClimbedError'],
+  addFlightsClimbedResponse: AddFlightsClimbedResponse,
+  addFlightsClimbedError: AddFlightsClimbedError,
+  addFlightsClimbedErrorErrorCodesType: AddFlightsClimbedErrorErrorCodesType,
+  updateFlightsClimbedUnion: ResolversTypes['updateFlightsClimbedResponse'] | ResolversTypes['updateFlightsClimbedError'],
+  updateFlightsClimbedResponse: UpdateFlightsClimbedResponse,
+  updateFlightsClimbedError: UpdateFlightsClimbedError,
+  updateFlightsClimbedErrorErrorCodesType: UpdateFlightsClimbedErrorErrorCodesType,
+  addHeartRateUnion: ResolversTypes['addHeartRateResponse'] | ResolversTypes['addHeartRateError'],
+  addHeartRateResponse: AddHeartRateResponse,
+  addHeartRateError: AddHeartRateError,
+  addHeartRateErrorErrorCodesType: AddHeartRateErrorErrorCodesType,
+  updateHeartRateUnion: ResolversTypes['updateHeartRateResponse'] | ResolversTypes['updateHeartRateError'],
+  updateHeartRateResponse: UpdateHeartRateResponse,
+  updateHeartRateError: UpdateHeartRateError,
+  updateHeartRateErrorErrorCodesType: UpdateHeartRateErrorErrorCodesType,
   addHealthKitUnion: ResolversTypes['addHealthKitResponse'] | ResolversTypes['addHealthKitError'],
   addHealthKitResponse: AddHealthKitResponse,
   addHealthKitError: AddHealthKitError,
@@ -350,6 +601,19 @@ export type EmbeddedDirectiveResolver<Result, Parent, ContextType = any, Args = 
 
 export type MapDirectiveResolver<Result, Parent, ContextType = any, Args = {   path?: Maybe<Scalars['String']> }> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
 
+export type AddFlightsClimbedErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addFlightsClimbedError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addFlightsClimbedErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddFlightsClimbedResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addFlightsClimbedResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type AddFlightsClimbedUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addFlightsClimbedUnion']> = {
+  __resolveType: TypeResolveFn<'addFlightsClimbedResponse' | 'addFlightsClimbedError', ParentType, ContextType>
+};
+
 export type AddHealthKitErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addHealthKitError']> = {
   errorCode?: Resolver<Maybe<ResolversTypes['addHealthKitErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
@@ -361,6 +625,19 @@ export type AddHealthKitResponseResolvers<ContextType = any, ParentType = Resolv
 
 export type AddHealthKitUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addHealthKitUnion']> = {
   __resolveType: TypeResolveFn<'addHealthKitResponse' | 'addHealthKitError', ParentType, ContextType>
+};
+
+export type AddHeartRateErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addHeartRateError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addHeartRateErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddHeartRateResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addHeartRateResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type AddHeartRateUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addHeartRateUnion']> = {
+  __resolveType: TypeResolveFn<'addHeartRateResponse' | 'addHeartRateError', ParentType, ContextType>
 };
 
 export type AddStepErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addStepError']> = {
@@ -399,11 +676,43 @@ export type HealthTypeResolvers<ContextType = any, ParentType = ResolversParentT
 export type MutationResolvers<ContextType = any, ParentType = ResolversParentTypes['Mutation']> = {
   addStep?: Resolver<Maybe<ResolversTypes['addStepUnion']>, ParentType, ContextType, MutationAddStepArgs>,
   updateStep?: Resolver<Maybe<ResolversTypes['updateStepUnion']>, ParentType, ContextType, MutationUpdateStepArgs>,
+  addFlightsClimbed?: Resolver<Maybe<ResolversTypes['addFlightsClimbedUnion']>, ParentType, ContextType, MutationAddFlightsClimbedArgs>,
+  updateFlightsClimbed?: Resolver<Maybe<ResolversTypes['updateFlightsClimbedUnion']>, ParentType, ContextType, MutationUpdateFlightsClimbedArgs>,
+  addHeartRate?: Resolver<Maybe<ResolversTypes['addHeartRateUnion']>, ParentType, ContextType, MutationAddHeartRateArgs>,
+  updateHeartRate?: Resolver<Maybe<ResolversTypes['updateHeartRateUnion']>, ParentType, ContextType, MutationUpdateHeartRateArgs>,
   addHealthKit?: Resolver<Maybe<ResolversTypes['addHealthKitUnion']>, ParentType, ContextType, MutationAddHealthKitArgs>,
 };
 
 export type RootQueryTypeResolvers<ContextType = any, ParentType = ResolversParentTypes['RootQueryType']> = {
   step?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeStepArgs>,
+  flightsClimbed?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeFlightsClimbedArgs>,
+  heartrate?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeHeartrateArgs>,
+};
+
+export type UpdateFlightsClimbedErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateFlightsClimbedError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateFlightsClimbedErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateFlightsClimbedResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateFlightsClimbedResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type UpdateFlightsClimbedUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateFlightsClimbedUnion']> = {
+  __resolveType: TypeResolveFn<'updateFlightsClimbedResponse' | 'updateFlightsClimbedError', ParentType, ContextType>
+};
+
+export type UpdateHeartRateErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateHeartRateError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateHeartRateErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateHeartRateResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateHeartRateResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type UpdateHeartRateUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateHeartRateUnion']> = {
+  __resolveType: TypeResolveFn<'updateHeartRateResponse' | 'updateHeartRateError', ParentType, ContextType>
 };
 
 export type UpdateStepErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateStepError']> = {
@@ -420,9 +729,15 @@ export type UpdateStepUnionResolvers<ContextType = any, ParentType = ResolversPa
 };
 
 export type Resolvers<ContextType = any> = {
+  addFlightsClimbedError?: AddFlightsClimbedErrorResolvers<ContextType>,
+  addFlightsClimbedResponse?: AddFlightsClimbedResponseResolvers<ContextType>,
+  addFlightsClimbedUnion?: AddFlightsClimbedUnionResolvers,
   addHealthKitError?: AddHealthKitErrorResolvers<ContextType>,
   addHealthKitResponse?: AddHealthKitResponseResolvers<ContextType>,
   addHealthKitUnion?: AddHealthKitUnionResolvers,
+  addHeartRateError?: AddHeartRateErrorResolvers<ContextType>,
+  addHeartRateResponse?: AddHeartRateResponseResolvers<ContextType>,
+  addHeartRateUnion?: AddHeartRateUnionResolvers,
   addStepError?: AddStepErrorResolvers<ContextType>,
   addStepResponse?: AddStepResponseResolvers<ContextType>,
   addStepUnion?: AddStepUnionResolvers,
@@ -430,6 +745,12 @@ export type Resolvers<ContextType = any> = {
   HealthType?: HealthTypeResolvers<ContextType>,
   Mutation?: MutationResolvers<ContextType>,
   RootQueryType?: RootQueryTypeResolvers<ContextType>,
+  updateFlightsClimbedError?: UpdateFlightsClimbedErrorResolvers<ContextType>,
+  updateFlightsClimbedResponse?: UpdateFlightsClimbedResponseResolvers<ContextType>,
+  updateFlightsClimbedUnion?: UpdateFlightsClimbedUnionResolvers,
+  updateHeartRateError?: UpdateHeartRateErrorResolvers<ContextType>,
+  updateHeartRateResponse?: UpdateHeartRateResponseResolvers<ContextType>,
+  updateHeartRateUnion?: UpdateHeartRateUnionResolvers,
   updateStepError?: UpdateStepErrorResolvers<ContextType>,
   updateStepResponse?: UpdateStepResponseResolvers<ContextType>,
   updateStepUnion?: UpdateStepUnionResolvers,

@@ -6,7 +6,7 @@ import { ExpectedError } from '../utils/errors';
 import { addToDuration } from '../utils/date';
 import { isWithinInterval, getValidSources, getAverage, findOutterValues } from '../utils/sample';
 import { HealthConfigType, ValidSampleOptionsType } from '../types';
-import { HealthType, HealthInputType, HealthInputSampleType } from '../types/generated';
+import { HealthType, HealthInputType, HealthInputSampleType, HealthInputUpdateType } from '../types/generated';
 import { Model } from 'sequelize-typescript';
 
 /******* Private ********/
@@ -174,10 +174,12 @@ export const replaceHealthItem = async (id: string, input: HealthInputType, conf
 }
 
 // update health item
-export const updateHealthItem = async (id: string, input: HealthType, config: HealthConfigType): Promise<Model> => {
+export const updateHealthItem = async (id: string, input: HealthInputUpdateType, config: HealthConfigType): Promise<Model> => {
   const HealthItem = healthModels[config.modelID];
+  let data = { ...input, updatedOn: moment().toISOString() }
+
   try {
-    const [rows, [ updatedItem ]]: any = HealthItem.update(input, { where: { id }, returning: true });
+    const [rows, [ updatedItem ]]: any = await HealthItem.update({ ...data }, { where: { id }, returning: true });
     return updatedItem;
   } catch (err) {
     throw new ExpectedError('UPDATE_HEALTH_ERROR');

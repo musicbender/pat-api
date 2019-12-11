@@ -51,7 +51,7 @@
       "modelID": "HeartRate",
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
-      "valueType": "totalSampleValue",
+      "valueType": "averageSampleValue",
       "disabled": true
     },
     "heartRateVariability": {
@@ -78,7 +78,7 @@
       "modelID": "RestingHeartRate",
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
-      "valueType": "totalSampleValue",
+      "valueType": "averageSampleValue",
       "disabled": true
     },
     "sleepAnalysis": {
@@ -105,7 +105,7 @@
       "modelID": "WalkingHeartRateAverage",
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
-      "valueType": "totalSampleValue",
+      "valueType": "averageSampleValue",
       "disabled": true
     },
     "waistCircumference": {

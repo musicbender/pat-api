@@ -17,8 +17,8 @@
     ]
   },
   {
-    "type": "Flights Climbed",
-    "unit": "count",
+    "type": "Heart Rate",
+    "unit": "count_min",
     "sampledOn": "2019-12-10T12:03:11-07:00",
     "sampleList": [
       {

@@ -32,6 +32,24 @@ export const HealthInputType = new GraphQLInputObjectType({
   })
 });
 
+export const HealthInputUpdateType = new GraphQLInputObjectType({
+  name: 'HealthInputUpdateType',
+  description: 'Health data input for updating',
+  fields: () => ({
+    value: { type: GraphQLInt },
+    valueType: { type: GraphQLString },
+    totalSampleValue: { type: GraphQLInt },
+    averageSampleValue: { type: GraphQLInt },
+    highestSampleValue: { type: GraphQLInt },
+    lowestSampleValue: { type: GraphQLInt },
+    sampledOn: { type: GraphQLString },
+    createdOn: { type: GraphQLString },
+    sources: { type: new GraphQLList(GraphQLString) },
+    unit: { type: UnitType },
+    totalDuration: { type: GraphQLString }
+  })
+});
+
 export const HealthType = new GraphQLObjectType({
   name: 'HealthType',
   description: 'Health data',
