@@ -1,0 +1,36 @@
+[
+  {
+    "type": "Heart Rate",
+    "unit": "count_min",
+    "sampledOn": "2019-12-10T12:03:11-07:00",
+    "sampleList": [
+      {
+        "date": "2019-12-10T18:00:59-07:00",
+        "source": "pat-apple-watch",
+        "value": "76"
+      },
+      {
+        "date": "2019-12-10T22:59:59-07:00",
+        "source": "pat-apple-watch",
+        "value": "80"
+      }
+    ]
+  },
+  {
+    "type": "Flights Climbed",
+    "unit": "count",
+    "sampledOn": "2019-12-10T12:03:11-07:00",
+    "sampleList": [
+      {
+        "date": "2019-12-10T18:00:59-07:00",
+        "source": "pat-iphone",
+        "value": "81"
+      },
+      {
+        "date": "2019-12-10T22:59:59-07:00",
+        "source": "pat-apple-watch",
+        "value": "79"
+      }
+    ]
+  }
+]

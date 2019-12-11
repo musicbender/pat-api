@@ -9,6 +9,7 @@ import { HealthConfigType, ValidSampleOptionsType } from '../types';
 import { HealthType, HealthInputType, HealthInputSampleType } from '../types/generated';
 import { Model } from 'sequelize-typescript';
 
+/******* Private ********/
 // check if sample is valid and should be counted
 export const isValidSample = (options: ValidSampleOptionsType): boolean => {
   const { config, input, sample, validSources } = options;
@@ -107,6 +108,7 @@ export const aggregateHealthData = (input: HealthInputType, config: HealthConfig
   return reduceSampleData(samples, input, initialOutput, config);
 }
 
+/******* Public ********/
 // find by id
 export const findHealthById = (id: string, config: HealthConfigType): Promise<Model> => {
   return healthModels[config.modelID].findOne({ where: { id } });
@@ -139,7 +141,7 @@ export const addHealthItem = async (input: HealthInputType, config: HealthConfig
       ? dupeItem.dataValues.id 
       : null;
 
-    if (dupeItem) return updateHealthItem(id, input, config);
+    if (dupeItem) return replaceHealthItem(id, input, config);
   }
 
   let data: HealthType = aggregateHealthData(input, config);
@@ -154,10 +156,10 @@ export const addHealthItem = async (input: HealthInputType, config: HealthConfig
   }
 }
 
-// update health item
-export const updateHealthItem = async (id: string, input: HealthInputType, config: HealthConfigType): Promise<Model> => {
+// replace health item
+export const replaceHealthItem = async (id: string, input: HealthInputType, config: HealthConfigType): Promise<Model> => {
   if (!input.type || input.type !== config.healthkitID) {
-    throw new ExpectedError('INVALID_HEALTH_TYPE');
+    throw new ExpectedError('INVALID_HEALTH_TYPE'); 
   }
 
   const data: HealthType = aggregateHealthData(input, config);
@@ -165,6 +167,17 @@ export const updateHealthItem = async (id: string, input: HealthInputType, confi
 
   try {
     const [rows, [ updatedItem ]]: any = await HealthItem.update({ ...data }, { where: { id }, returning: true });
+    return updatedItem;
+  } catch (err) {
+    throw new ExpectedError('REPLACE_HEALTH_ERROR');
+  }
+}
+
+// update health item
+export const updateHealthItem = async (id: string, input: HealthType, config: HealthConfigType): Promise<Model> => {
+  const HealthItem = healthModels[config.modelID];
+  try {
+    const [rows, [ updatedItem ]]: any = HealthItem.update(input, { where: { id }, returning: true });
     return updatedItem;
   } catch (err) {
     throw new ExpectedError('UPDATE_HEALTH_ERROR');

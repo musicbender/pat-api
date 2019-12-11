@@ -3,13 +3,16 @@
       "description": "Oh noes. There was an internal error."
     },
     "SERVER_TIMEOUT": {
-      "description": "Server Timeout"
+      "description": "Server timeout error"
     },
     "UNAUTHORIZED": {
       "description": "Authorization failed."
     },
     "ADD_HEALTH_ERROR": {
       "description": "An error occured trying to add health item"
+    },
+    "REPLACE_HEALTH_ERROR": {
+      "description": "An error occured trying to replace a health item"
     },
     "UPDATE_HEALTH_ERROR": {
       "description": "An error occured trying to update a health item"
