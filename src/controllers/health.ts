@@ -136,7 +136,7 @@ export const addHealthItem = async (input: HealthInputType, config: HealthConfig
     const dupeItem: any = await findHealthByDate(input.sampledOn, config);
 
     const id = dupeItem && dupeItem.id 
-      ? dupeItem.id 
+      ? dupeItem.id
       : dupeItem && dupeItem.dataValues 
       ? dupeItem.dataValues.id 
       : null;
@@ -145,7 +145,10 @@ export const addHealthItem = async (input: HealthInputType, config: HealthConfig
   }
 
   let data: HealthType = aggregateHealthData(input, config);
+  
   data.id = uuid();
+  data.createdOn = moment().toISOString();
+
   const HealthItem = healthModels[config.modelID];
 
   try {
