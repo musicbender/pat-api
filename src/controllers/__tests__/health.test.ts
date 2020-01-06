@@ -64,7 +64,7 @@ describe('controllers/health.ts', function () {
         assert: [ mockStepData[6], healthTypes.steps ],
         expected: {
           unit: 'count',
-          value: 0,
+          value: null,
           sampledOn: '2019-10-10T12:03:11-07:00',
           sources: []
         },
@@ -74,7 +74,7 @@ describe('controllers/health.ts', function () {
         assert: [ mockStepData[7], healthTypes.steps ],
         expected: {
           unit: 'count',
-          value: 0,
+          value: null,
           sampledOn: '2019-10-10T12:03:11-07:00',
           sources: []
         },
@@ -84,7 +84,7 @@ describe('controllers/health.ts', function () {
         assert: [ mockStepData[8], healthTypes.steps ],
         expected: {
           unit: 'count',
-          value: 0,
+          value: null,
           sampledOn: '2019-10-10T12:03:11-07:00',
           sources: []
         },
@@ -176,7 +176,7 @@ describe('controllers/health.ts', function () {
       const data = aggregateHealthData(mockStepData[6], healthTypes.steps);
       const formatDate = moment(data.sampledOn, 'YYYY-MM-DD');
       expect(data.unit).toEqual('count');
-      expect(data.value).toEqual(0);
+      expect(data.value).toEqual(null);
       expect(formatDate.isValid()).toEqual(true);
       expect(data.sources).toEqual([]);
     });

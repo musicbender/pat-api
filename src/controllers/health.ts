@@ -13,7 +13,7 @@ import { Model } from 'sequelize-typescript';
 // check if sample is valid and should be counted
 export const isValidSample = (options: ValidSampleOptionsType): boolean => {
   const { config, input, sample, validSources } = options;
-
+  
   // not within defined interval
   if (config.interval && !isWithinInterval(config.interval, sample.date, input.sampledOn)) {
     return false;

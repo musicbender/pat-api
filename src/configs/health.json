@@ -72,6 +72,15 @@
       "valueType": "totalSampleValue",
       "disabled": true
     },
+    "exerciseMinutes": {
+      "id": "exercise-minutes",
+      "healthkitID": "Exercise Minutes",
+      "modelID": "ExerciseMinutes",
+      "interval": "day",
+      "defaultValidSource": "pat-apple-watch",
+      "valueType": "totalSampleValue",
+      "disabled": false
+    },
     "restingHeartRate": {
       "id": "resting-heartrate",
       "healthkitID": "Resting Heart Rate",
@@ -79,7 +88,7 @@
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
       "valueType": "averageSampleValue",
-      "disabled": true
+      "disabled": false
     },
     "sleepAnalysis": {
       "id": "sleep-analysis",
@@ -106,7 +115,7 @@
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
       "valueType": "averageSampleValue",
-      "disabled": true
+      "disabled": false
     },
     "waistCircumference": {
       "id": "waist-circumference",
@@ -152,6 +161,24 @@
       "interval": null,
       "valueType": "averageSampleValue",
       "disabled": true
+    },
+    "activeEnergy": {
+      "id": "active-energy",
+      "healthkitID": "Active Energy",
+      "modelID": "ActiveEnergy",
+      "defaultValidSource": "pat-apple-watch",
+      "interval": "day",
+      "valueType": "totalSampleValue",
+      "disabled": true
+    },
+    "walkingRunningDistance": {
+      "id": "walking-running-distance",
+      "healthkitID": "Walking + Running Distance",
+      "modelID": "WalkingRunningDistance",
+      "defaultValidSource": "pat-apple-watch",
+      "interval": "day",
+      "valueType": "totalSampleValue",
+      "disabled": false
     }
   }
 }

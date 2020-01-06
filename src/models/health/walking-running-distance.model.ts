@@ -3,8 +3,8 @@ import HealthKit from '../prototypes/healthkit';
 const { healthTypes } = require('../../configs/health.json');
 
 @Table({
-  tableName: healthTypes.heartRateVariability.id,
+  tableName: healthTypes.walkingRunningDistance.id,
   createdAt: false, 
   updatedAt: false
 })
-export default class HeartRateVariability extends HealthKit<HeartRateVariability> {}
+export default class WalkingRunningDistance extends HealthKit<WalkingRunningDistance> {}

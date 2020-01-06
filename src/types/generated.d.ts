@@ -25,33 +25,22 @@ export type AddFlightsClimbedError = {
 };
 
 export enum AddFlightsClimbedErrorErrorCodesType {
-  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
-  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
-  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
-  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
-  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
-  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
-  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
-  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
-/** Response data for addFlightsClimbed */
 export type AddFlightsClimbedResponse = {
   __typename?: 'addFlightsClimbedResponse',
   response?: Maybe<HealthType>,
 };
 
-/** Return either be response data or error data for addFlightsClimbed */
 export type AddFlightsClimbedUnion = AddFlightsClimbedResponse | AddFlightsClimbedError;
 
 export type AddHealthKitError = {
@@ -61,33 +50,22 @@ export type AddHealthKitError = {
 };
 
 export enum AddHealthKitErrorErrorCodesType {
-  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
-  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
-  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
-  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
-  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
-  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
-  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
-  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
-/** Response data for addHealthKit */
 export type AddHealthKitResponse = {
   __typename?: 'addHealthKitResponse',
   response?: Maybe<Array<Maybe<HealthType>>>,
 };
 
-/** Return either be response data or error data for addHealthKit */
 export type AddHealthKitUnion = AddHealthKitResponse | AddHealthKitError;
 
 export type AddHeartRateError = {
@@ -97,34 +75,48 @@ export type AddHeartRateError = {
 };
 
 export enum AddHeartRateErrorErrorCodesType {
-  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
-  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
-  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
-  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
-  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
-  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
-  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
-  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
-/** Response data for addHeartRate */
 export type AddHeartRateResponse = {
   __typename?: 'addHeartRateResponse',
   response?: Maybe<HealthType>,
 };
 
-/** Return either be response data or error data for addHeartRate */
 export type AddHeartRateUnion = AddHeartRateResponse | AddHeartRateError;
+
+export type AddHeartRateVariabilityError = {
+  __typename?: 'addHeartRateVariabilityError',
+  errorCode?: Maybe<AddHeartRateVariabilityErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddHeartRateVariabilityErrorErrorCodesType {
+  InternalError = 'INTERNAL_ERROR',
+  ServerTimeout = 'SERVER_TIMEOUT',
+  Unauthorized = 'UNAUTHORIZED',
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+export type AddHeartRateVariabilityResponse = {
+  __typename?: 'addHeartRateVariabilityResponse',
+  response?: Maybe<HealthType>,
+};
+
+export type AddHeartRateVariabilityUnion = AddHeartRateVariabilityResponse | AddHeartRateVariabilityError;
 
 export type AdditionalEntityFields = {
   path?: Maybe<Scalars['String']>,
@@ -138,37 +130,25 @@ export type AddStepError = {
 };
 
 export enum AddStepErrorErrorCodesType {
-  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
-  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
-  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
-  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
-  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
-  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
-  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
-  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
-/** Response data for addStep */
 export type AddStepResponse = {
   __typename?: 'addStepResponse',
   response?: Maybe<HealthType>,
 };
 
-/** Return either be response data or error data for addStep */
 export type AddStepUnion = AddStepResponse | AddStepError;
 
 
-/** Sample item in health data */
 export type HealthInputSampleType = {
   date?: Maybe<Scalars['String']>,
   source?: Maybe<Scalars['String']>,
@@ -176,7 +156,6 @@ export type HealthInputSampleType = {
   duration?: Maybe<Scalars['String']>,
 };
 
-/** Health data input */
 export type HealthInputType = {
   type: Scalars['String'],
   unit?: Maybe<UnitType>,
@@ -186,7 +165,6 @@ export type HealthInputType = {
   validSources?: Maybe<Array<Maybe<Scalars['String']>>>,
 };
 
-/** Health data input for updating */
 export type HealthInputUpdateType = {
   value?: Maybe<Scalars['Int']>,
   valueType?: Maybe<Scalars['String']>,
@@ -201,7 +179,6 @@ export type HealthInputUpdateType = {
   totalDuration?: Maybe<Scalars['String']>,
 };
 
-/** Health data */
 export type HealthType = {
   __typename?: 'HealthType',
   id?: Maybe<Scalars['String']>,
@@ -221,19 +198,14 @@ export type HealthType = {
 
 export type Mutation = {
   __typename?: 'Mutation',
-  /** Add a Step node */
   addStep?: Maybe<AddStepUnion>,
-  /** Update a Step node */
   updateStep?: Maybe<UpdateStepUnion>,
-  /** Add a FlightsClimbed node */
   addFlightsClimbed?: Maybe<AddFlightsClimbedUnion>,
-  /** Update a FlightsClimbed node */
   updateFlightsClimbed?: Maybe<UpdateFlightsClimbedUnion>,
-  /** Add a HeartRate node */
   addHeartRate?: Maybe<AddHeartRateUnion>,
-  /** Update a HeartRate node */
   updateHeartRate?: Maybe<UpdateHeartRateUnion>,
-  /** Add multiple HealthKit data types */
+  addHeartRateVariability?: Maybe<AddHeartRateVariabilityUnion>,
+  updateHeartRateVariability?: Maybe<UpdateHeartRateVariabilityUnion>,
   addHealthKit?: Maybe<AddHealthKitUnion>,
 };
 
@@ -271,17 +243,25 @@ export type MutationUpdateHeartRateArgs = {
 };
 
 
+export type MutationAddHeartRateVariabilityArgs = {
+  input: HealthInputType
+};
+
+
+export type MutationUpdateHeartRateVariabilityArgs = {
+  id: Scalars['ID'],
+  input: HealthInputUpdateType
+};
+
+
 export type MutationAddHealthKitArgs = {
   input?: Maybe<Array<Maybe<HealthInputType>>>
 };
 
 export type RootQueryType = {
   __typename?: 'RootQueryType',
-  /** Get a single step count by either _id or date, _id taking priority */
   step?: Maybe<HealthType>,
-  /** Get a single flights climbed count by either _id or date, _id taking priority */
   flightsClimbed?: Maybe<HealthType>,
-  /** Get a single heartrate average by either _id or date, _id taking priority */
   heartrate?: Maybe<HealthType>,
 };
 
@@ -303,7 +283,6 @@ export type RootQueryTypeHeartrateArgs = {
   date?: Maybe<Scalars['Date']>
 };
 
-/** Acceptable units of measurment */
 export enum UnitType {
   Cm = 'cm',
   Kg = 'kg',
@@ -321,7 +300,9 @@ export enum UnitType {
   Ml = 'ml',
   Mcg = 'mcg',
   G = 'g',
-  Mg = 'mg'
+  Mg = 'mg',
+  Ms = 'ms',
+  Bpm = 'bpm'
 }
 
 export type UpdateFlightsClimbedError = {
@@ -331,33 +312,22 @@ export type UpdateFlightsClimbedError = {
 };
 
 export enum UpdateFlightsClimbedErrorErrorCodesType {
-  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
-  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
-  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
-  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
-  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
-  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
-  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
-  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
-/** Response data for updateFlightsClimbed */
 export type UpdateFlightsClimbedResponse = {
   __typename?: 'updateFlightsClimbedResponse',
   response?: Maybe<HealthType>,
 };
 
-/** Return either be response data or error data for updateFlightsClimbed */
 export type UpdateFlightsClimbedUnion = UpdateFlightsClimbedResponse | UpdateFlightsClimbedError;
 
 export type UpdateHeartRateError = {
@@ -367,34 +337,48 @@ export type UpdateHeartRateError = {
 };
 
 export enum UpdateHeartRateErrorErrorCodesType {
-  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
-  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
-  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
-  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
-  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
-  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
-  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
-  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
-/** Response data for updateHeartRate */
 export type UpdateHeartRateResponse = {
   __typename?: 'updateHeartRateResponse',
   response?: Maybe<HealthType>,
 };
 
-/** Return either be response data or error data for updateHeartRate */
 export type UpdateHeartRateUnion = UpdateHeartRateResponse | UpdateHeartRateError;
+
+export type UpdateHeartRateVariabilityError = {
+  __typename?: 'updateHeartRateVariabilityError',
+  errorCode?: Maybe<UpdateHeartRateVariabilityErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateHeartRateVariabilityErrorErrorCodesType {
+  InternalError = 'INTERNAL_ERROR',
+  ServerTimeout = 'SERVER_TIMEOUT',
+  Unauthorized = 'UNAUTHORIZED',
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+export type UpdateHeartRateVariabilityResponse = {
+  __typename?: 'updateHeartRateVariabilityResponse',
+  response?: Maybe<HealthType>,
+};
+
+export type UpdateHeartRateVariabilityUnion = UpdateHeartRateVariabilityResponse | UpdateHeartRateVariabilityError;
 
 export type UpdateStepError = {
   __typename?: 'updateStepError',
@@ -403,33 +387,22 @@ export type UpdateStepError = {
 };
 
 export enum UpdateStepErrorErrorCodesType {
-  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
-  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
-  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
-  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
-  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
-  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
-  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
-  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
-/** Response data for updateStep */
 export type UpdateStepResponse = {
   __typename?: 'updateStepResponse',
   response?: Maybe<HealthType>,
 };
 
-/** Return either be response data or error data for updateStep */
 export type UpdateStepUnion = UpdateStepResponse | UpdateStepError;
 
 
@@ -494,17 +467,15 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
-  RootQueryType: ResolverTypeWrapper<{}>,
-  String: ResolverTypeWrapper<Scalars['String']>,
-  Date: ResolverTypeWrapper<Scalars['Date']>,
-  HealthType: ResolverTypeWrapper<HealthType>,
-  Int: ResolverTypeWrapper<Scalars['Int']>,
-  UnitType: UnitType,
   Mutation: ResolverTypeWrapper<{}>,
   HealthInputType: HealthInputType,
+  String: ResolverTypeWrapper<Scalars['String']>,
+  UnitType: UnitType,
   HealthInputSampleType: HealthInputSampleType,
   addStepUnion: ResolversTypes['addStepResponse'] | ResolversTypes['addStepError'],
   addStepResponse: ResolverTypeWrapper<AddStepResponse>,
+  HealthType: ResolverTypeWrapper<HealthType>,
+  Int: ResolverTypeWrapper<Scalars['Int']>,
   addStepError: ResolverTypeWrapper<AddStepError>,
   addStepErrorErrorCodesType: AddStepErrorErrorCodesType,
   ID: ResolverTypeWrapper<Scalars['ID']>,
@@ -529,27 +500,35 @@ export type ResolversTypes = {
   updateHeartRateResponse: ResolverTypeWrapper<UpdateHeartRateResponse>,
   updateHeartRateError: ResolverTypeWrapper<UpdateHeartRateError>,
   updateHeartRateErrorErrorCodesType: UpdateHeartRateErrorErrorCodesType,
+  addHeartRateVariabilityUnion: ResolversTypes['addHeartRateVariabilityResponse'] | ResolversTypes['addHeartRateVariabilityError'],
+  addHeartRateVariabilityResponse: ResolverTypeWrapper<AddHeartRateVariabilityResponse>,
+  addHeartRateVariabilityError: ResolverTypeWrapper<AddHeartRateVariabilityError>,
+  addHeartRateVariabilityErrorErrorCodesType: AddHeartRateVariabilityErrorErrorCodesType,
+  updateHeartRateVariabilityUnion: ResolversTypes['updateHeartRateVariabilityResponse'] | ResolversTypes['updateHeartRateVariabilityError'],
+  updateHeartRateVariabilityResponse: ResolverTypeWrapper<UpdateHeartRateVariabilityResponse>,
+  updateHeartRateVariabilityError: ResolverTypeWrapper<UpdateHeartRateVariabilityError>,
+  updateHeartRateVariabilityErrorErrorCodesType: UpdateHeartRateVariabilityErrorErrorCodesType,
   addHealthKitUnion: ResolversTypes['addHealthKitResponse'] | ResolversTypes['addHealthKitError'],
   addHealthKitResponse: ResolverTypeWrapper<AddHealthKitResponse>,
   addHealthKitError: ResolverTypeWrapper<AddHealthKitError>,
   addHealthKitErrorErrorCodesType: AddHealthKitErrorErrorCodesType,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
+  RootQueryType: ResolverTypeWrapper<RootQueryType>,
+  Date: ResolverTypeWrapper<Scalars['Date']>,
   AdditionalEntityFields: AdditionalEntityFields,
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
-  RootQueryType: {},
-  String: Scalars['String'],
-  Date: Scalars['Date'],
-  HealthType: HealthType,
-  Int: Scalars['Int'],
-  UnitType: UnitType,
   Mutation: {},
   HealthInputType: HealthInputType,
+  String: Scalars['String'],
+  UnitType: UnitType,
   HealthInputSampleType: HealthInputSampleType,
   addStepUnion: ResolversTypes['addStepResponse'] | ResolversTypes['addStepError'],
   addStepResponse: AddStepResponse,
+  HealthType: HealthType,
+  Int: Scalars['Int'],
   addStepError: AddStepError,
   addStepErrorErrorCodesType: AddStepErrorErrorCodesType,
   ID: Scalars['ID'],
@@ -574,11 +553,21 @@ export type ResolversParentTypes = {
   updateHeartRateResponse: UpdateHeartRateResponse,
   updateHeartRateError: UpdateHeartRateError,
   updateHeartRateErrorErrorCodesType: UpdateHeartRateErrorErrorCodesType,
+  addHeartRateVariabilityUnion: ResolversTypes['addHeartRateVariabilityResponse'] | ResolversTypes['addHeartRateVariabilityError'],
+  addHeartRateVariabilityResponse: AddHeartRateVariabilityResponse,
+  addHeartRateVariabilityError: AddHeartRateVariabilityError,
+  addHeartRateVariabilityErrorErrorCodesType: AddHeartRateVariabilityErrorErrorCodesType,
+  updateHeartRateVariabilityUnion: ResolversTypes['updateHeartRateVariabilityResponse'] | ResolversTypes['updateHeartRateVariabilityError'],
+  updateHeartRateVariabilityResponse: UpdateHeartRateVariabilityResponse,
+  updateHeartRateVariabilityError: UpdateHeartRateVariabilityError,
+  updateHeartRateVariabilityErrorErrorCodesType: UpdateHeartRateVariabilityErrorErrorCodesType,
   addHealthKitUnion: ResolversTypes['addHealthKitResponse'] | ResolversTypes['addHealthKitError'],
   addHealthKitResponse: AddHealthKitResponse,
   addHealthKitError: AddHealthKitError,
   addHealthKitErrorErrorCodesType: AddHealthKitErrorErrorCodesType,
   Boolean: Scalars['Boolean'],
+  RootQueryType: RootQueryType,
+  Date: Scalars['Date'],
   AdditionalEntityFields: AdditionalEntityFields,
 };
 
@@ -640,6 +629,19 @@ export type AddHeartRateUnionResolvers<ContextType = any, ParentType = Resolvers
   __resolveType: TypeResolveFn<'addHeartRateResponse' | 'addHeartRateError', ParentType, ContextType>
 };
 
+export type AddHeartRateVariabilityErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addHeartRateVariabilityError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addHeartRateVariabilityErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddHeartRateVariabilityResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addHeartRateVariabilityResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type AddHeartRateVariabilityUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addHeartRateVariabilityUnion']> = {
+  __resolveType: TypeResolveFn<'addHeartRateVariabilityResponse' | 'addHeartRateVariabilityError', ParentType, ContextType>
+};
+
 export type AddStepErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addStepError']> = {
   errorCode?: Resolver<Maybe<ResolversTypes['addStepErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
@@ -680,6 +682,8 @@ export type MutationResolvers<ContextType = any, ParentType = ResolversParentTyp
   updateFlightsClimbed?: Resolver<Maybe<ResolversTypes['updateFlightsClimbedUnion']>, ParentType, ContextType, MutationUpdateFlightsClimbedArgs>,
   addHeartRate?: Resolver<Maybe<ResolversTypes['addHeartRateUnion']>, ParentType, ContextType, MutationAddHeartRateArgs>,
   updateHeartRate?: Resolver<Maybe<ResolversTypes['updateHeartRateUnion']>, ParentType, ContextType, MutationUpdateHeartRateArgs>,
+  addHeartRateVariability?: Resolver<Maybe<ResolversTypes['addHeartRateVariabilityUnion']>, ParentType, ContextType, MutationAddHeartRateVariabilityArgs>,
+  updateHeartRateVariability?: Resolver<Maybe<ResolversTypes['updateHeartRateVariabilityUnion']>, ParentType, ContextType, MutationUpdateHeartRateVariabilityArgs>,
   addHealthKit?: Resolver<Maybe<ResolversTypes['addHealthKitUnion']>, ParentType, ContextType, MutationAddHealthKitArgs>,
 };
 
@@ -715,6 +719,19 @@ export type UpdateHeartRateUnionResolvers<ContextType = any, ParentType = Resolv
   __resolveType: TypeResolveFn<'updateHeartRateResponse' | 'updateHeartRateError', ParentType, ContextType>
 };
 
+export type UpdateHeartRateVariabilityErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateHeartRateVariabilityError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateHeartRateVariabilityErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateHeartRateVariabilityResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateHeartRateVariabilityResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type UpdateHeartRateVariabilityUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateHeartRateVariabilityUnion']> = {
+  __resolveType: TypeResolveFn<'updateHeartRateVariabilityResponse' | 'updateHeartRateVariabilityError', ParentType, ContextType>
+};
+
 export type UpdateStepErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateStepError']> = {
   errorCode?: Resolver<Maybe<ResolversTypes['updateStepErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
@@ -738,6 +755,9 @@ export type Resolvers<ContextType = any> = {
   addHeartRateError?: AddHeartRateErrorResolvers<ContextType>,
   addHeartRateResponse?: AddHeartRateResponseResolvers<ContextType>,
   addHeartRateUnion?: AddHeartRateUnionResolvers,
+  addHeartRateVariabilityError?: AddHeartRateVariabilityErrorResolvers<ContextType>,
+  addHeartRateVariabilityResponse?: AddHeartRateVariabilityResponseResolvers<ContextType>,
+  addHeartRateVariabilityUnion?: AddHeartRateVariabilityUnionResolvers,
   addStepError?: AddStepErrorResolvers<ContextType>,
   addStepResponse?: AddStepResponseResolvers<ContextType>,
   addStepUnion?: AddStepUnionResolvers,
@@ -751,6 +771,9 @@ export type Resolvers<ContextType = any> = {
   updateHeartRateError?: UpdateHeartRateErrorResolvers<ContextType>,
   updateHeartRateResponse?: UpdateHeartRateResponseResolvers<ContextType>,
   updateHeartRateUnion?: UpdateHeartRateUnionResolvers,
+  updateHeartRateVariabilityError?: UpdateHeartRateVariabilityErrorResolvers<ContextType>,
+  updateHeartRateVariabilityResponse?: UpdateHeartRateVariabilityResponseResolvers<ContextType>,
+  updateHeartRateVariabilityUnion?: UpdateHeartRateVariabilityUnionResolvers,
   updateStepError?: UpdateStepErrorResolvers<ContextType>,
   updateStepResponse?: UpdateStepResponseResolvers<ContextType>,
   updateStepUnion?: UpdateStepUnionResolvers,

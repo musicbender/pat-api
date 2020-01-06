@@ -232,7 +232,7 @@ describe('sample.ts', () => {
         },
         {
           assert: [],
-          expected: 0
+          expected: null
         },
       ];
 
