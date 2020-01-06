@@ -93,12 +93,12 @@ export const aggregateHealthData = (input: HealthInputType, config: HealthConfig
 
   const initialOutput: HealthType = {
     unit: input.unit,
-    value: 0,
+    value: null,
     valueType: config.valueType || 'totalSampleValue',
-    totalSampleValue: 0,
-    averageSampleValue: 0,
-    highestSampleValue: 0, 
-    lowestSampleValue: 0,
+    totalSampleValue: null,
+    averageSampleValue: null,
+    highestSampleValue: null, 
+    lowestSampleValue: null,
     sampledOn,
     sources: [],
     totalDuration: '0.00:00:00',
@@ -128,10 +128,12 @@ export const findHealthByDate = (date: Date | string, config: any): Promise<Mode
 
 // add health item
 export const addHealthItem = async (input: HealthInputType, config: HealthConfigType): Promise<HealthType> => {
+  // if type is not valid
   if (!input.type || input.type !== config.healthkitID) {
     throw new ExpectedError('INVALID_HEALTH_TYPE');
   }
 
+  // if type has been disabled in config
   if (config.disabled) {
     throw new ExpectedError('DISABLED_HEALTH_TYPE');
   }
@@ -152,6 +154,11 @@ export const addHealthItem = async (input: HealthInputType, config: HealthConfig
   
   data.id = uuid();
   data.createdOn = moment().toISOString();
+
+  // do not create row if there is no value or type is disabled
+  if (data.value === null) {
+    return null;
+  };
 
   const HealthItem = healthModels[config.modelID];
 

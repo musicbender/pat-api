@@ -52,7 +52,7 @@
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
       "valueType": "averageSampleValue",
-      "disabled": true
+      "disabled": false
     },
     "heartRateVariability": {
       "id": "heartrate-variability",

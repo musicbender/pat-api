@@ -27,7 +27,7 @@ export const getValidSources = (validSources: string[], defaultValidSource: stri
 }
 
 export const getAverage = (values: number[] = []): number => {
-  if (!values || values.length < 1) return 0;
+  if (!values || values.length < 1) return null;
 
   let total = values.reduce((sum: number, num: number): number => sum + num, 0);
   return +(total / values.length).toFixed(0);

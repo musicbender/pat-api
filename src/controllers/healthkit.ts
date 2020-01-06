@@ -11,7 +11,7 @@ export const addHealthKitItems = async (input: HealthInputType[]) => {
     const config = healthTypes[Object.keys(healthTypes).find(c => healthTypes[c].healthkitID === type)];
 
     if (!config) new ExpectedError('INVALID_HEALTH_TYPE');
-    if (config.disabled) new ExpectedError('DISABLED_HEALTH_TYPE');
+    if (config.disabled) return null;
 
     return await addHealthItem(healthItem, config);
   });
