@@ -60,8 +60,8 @@
       "modelID": "HeartRateVariability",
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
-      "valueType": "totalSampleValue",
-      "disabled": true
+      "valueType": "averageSampleValue",
+      "disabled": false
     },
     "mindfulMinutes": {
       "id": "mindful-minutes",

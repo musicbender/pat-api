@@ -132,6 +132,10 @@ export const addHealthItem = async (input: HealthInputType, config: HealthConfig
     throw new ExpectedError('INVALID_HEALTH_TYPE');
   }
 
+  if (config.disabled) {
+    throw new ExpectedError('DISABLED_HEALTH_TYPE');
+  }
+
   if (config.interval) {
     const dupeItem: any = await findHealthByDate(input.sampledOn, config);
 
@@ -165,6 +169,10 @@ export const replaceHealthItem = async (id: string, input: HealthInputType, conf
     throw new ExpectedError('INVALID_HEALTH_TYPE'); 
   }
 
+  if (config.disabled) {
+    throw new ExpectedError('DISABLED_HEALTH_TYPE');
+  }
+
   const data: HealthType = aggregateHealthData(input, config);
   const HealthItem = healthModels[config.modelID];
 
@@ -178,6 +186,10 @@ export const replaceHealthItem = async (id: string, input: HealthInputType, conf
 
 // update health item
 export const updateHealthItem = async (id: string, input: HealthInputUpdateType, config: HealthConfigType): Promise<Model> => {
+  if (config.disabled) {
+    throw new ExpectedError('DISABLED_HEALTH_TYPE');
+  }
+
   const HealthItem = healthModels[config.modelID];
   let data = { ...input, updatedOn: moment().toISOString() }
 

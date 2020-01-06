@@ -20,6 +20,7 @@ export const UnitType = new GraphQLEnumType({
     "ml": { value: "ml" },
     "mcg": { value: "mcg" },
     "g": { value: "g" },
-    "mg": { value: "mg" }
+    "mg": { value: "mg" },
+    "ms": { value: "ms" }
   }
 });

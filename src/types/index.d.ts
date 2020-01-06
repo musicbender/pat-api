@@ -30,6 +30,7 @@ export type HealthConfigType = {
   interval?: moment.unitOfTime.StartOf,
   defaultValidSource?: string,
   valueType: string,
+  disabled?: boolean
 }
 
 export type ValidSampleOptionsType = {
