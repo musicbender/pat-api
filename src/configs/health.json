@@ -100,13 +100,13 @@
       "disabled": true
     },
     "swimmingDistance": {
-      "id": "weight",
-      "healthkitID": "Weight",
-      "modelID": "Weight",
+      "id": "swimming-distance",
+      "healthkitID": "Swimming Distance",
+      "modelID": "SwimmingDistance",
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
       "valueType": "totalSampleValue",
-      "disabled": true
+      "disabled": false
     },
     "walkingHeartRateAverage": {
       "id": "walking-heartrate-average",
@@ -124,7 +124,7 @@
       "interval": null,
       "defaultValidSource": "*",
       "valueType": "averageSampleValue",
-      "disabled": true
+      "disabled": false
     },
     "systolicBloodPressure": {
       "id": "systolic-blood-pressure",
@@ -169,7 +169,16 @@
       "defaultValidSource": "pat-apple-watch",
       "interval": "day",
       "valueType": "totalSampleValue",
-      "disabled": true
+      "disabled": false
+    },
+    "restingEnergy": {
+      "id": "resting-energy",
+      "healthkitID": "Resting Energy",
+      "modelID": "RestingEnergy",
+      "defaultValidSource": "pat-apple-watch",
+      "interval": "day",
+      "valueType": "totalSampleValue",
+      "disabled": false
     },
     "walkingRunningDistance": {
       "id": "walking-running-distance",
