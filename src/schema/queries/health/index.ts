@@ -2,7 +2,6 @@ export * from './step';
 export * from './flights-climbed';
 export * from './heartrate';
 export * from './heartrate-variability';
-export * from './healthkit';
 export * from './active-energy';
 export * from './caffeine';
 export * from './diastolic-blood-pressure';

@@ -6,6 +6,7 @@ export const UnitType = new GraphQLEnumType({
   values: {
     "cm": { value: "cm" },
     "kg": { value: "kg" },
+    "lbs": { value: "lbs" },
     "count": { value:"count" },
     "km": { value: "km" },
     "kcal": { value: "kcal" },

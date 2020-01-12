@@ -7,7 +7,7 @@
       "interval": null,
       "defaultValidSource": "*",
       "valueType": "averageSampleValue",
-      "disabled": true
+      "disabled": false
     },
     "height": {
       "id": "height",
@@ -16,7 +16,7 @@
       "interval": null,
       "defaultValidSource": "*",
       "valueType": "averageSampleValue",
-      "disabled": true
+      "disabled": false
     },
     "steps": {
       "id": "steps",
@@ -34,7 +34,7 @@
       "interval": "day",
       "defaultValidSource": "*",
       "valueType": "totalSampleValue",
-      "disabled": true
+      "disabled": false
     },
     "flightsClimbed": {
       "id": "flights-climbed",
@@ -97,7 +97,7 @@
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
       "valueType": "totalSampleValue",
-      "disabled": true
+      "disabled": false
     },
     "swimmingDistance": {
       "id": "swimming-distance",
@@ -133,7 +133,7 @@
       "interval": null,
       "defaultValidSource": "*",
       "valueType": "averageSampleValue",
-      "disabled": true
+      "disabled": false
     },
     "diastolicBloodPressure": {
       "id": "diastolic-blood-pressure",
@@ -142,7 +142,7 @@
       "interval": null,
       "defaultValidSource": "*",
       "valueType": "averageSampleValue",
-      "disabled": true
+      "disabled": false
     },
     "oxygenSaturation": {
       "id": "oxygen-saturation",
@@ -151,7 +151,7 @@
       "defaultValidSource": "*",
       "interval": null,
       "valueType": "averageSampleValue",
-      "disabled": true
+      "disabled": false
     },
     "bodyTemperature": {
       "id": "body-temperature",

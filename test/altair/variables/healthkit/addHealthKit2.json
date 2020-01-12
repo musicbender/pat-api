@@ -1,15 +1,14 @@
 {
   "input": [
     {
-      "type": "Steps",
-      "unit": "count",
-      "sampledOn": "2019-10-22T23:15:00-07:00",
+      "type": "Weight",
+      "unit": "lbs",
+      "sampledOn": "2019-12-10T12:03:11-07:00",
       "sampleList": [
         {
-          "date": "2019-10-22T06:52:33-07:00",
-          "value": "82",
+          "date": "2019-12-10T18:00:59-07:00",
           "source": "pat-apple-watch",
-          "duration": "5:49"
+          "value": "150"
         }
       ]
     }

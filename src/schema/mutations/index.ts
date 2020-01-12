@@ -1,13 +1,9 @@
 import { GraphQLObjectType } from 'graphql';
-
-// mutations
 import * as healthMutations from './health';
 
 const mutation = new GraphQLObjectType({
   name: 'Mutation',
-  fields: {
-    ...healthMutations
-  }
+  fields: healthMutations
 });
 
 export default mutation;

@@ -23,7 +23,7 @@ export const isValidSample = (options: ValidSampleOptionsType): boolean => {
   if (!validSources) {
     return false;
   }
-
+  
   // not from valid source
   if (validSources.indexOf(sample.source) < 0 && validSources.indexOf('*') < 0) {
     return false;

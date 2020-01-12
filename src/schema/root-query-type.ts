@@ -1,17 +1,9 @@
 import { GraphQLObjectType } from 'graphql';
-import {
-  step,
-  flightsClimbed,
-  heartrate,
-} from './queries';
+import * as queries from './queries';
 
 const RootQueryType = new GraphQLObjectType({
   name: 'RootQueryType',
-  fields: () => ({
-    step,
-    flightsClimbed,
-    heartrate,
-  })
+  fields: () => (queries)
 });
 
 export default RootQueryType;

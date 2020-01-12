@@ -4,5 +4,8 @@
   },
   "APPLE_WATCH": {
     "id": "pat-apple-watch"
+  },
+  "SHORTCUTS": {
+    "id": "Shortcuts"
   }
 }
