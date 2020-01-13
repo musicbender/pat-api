@@ -1,4 +1,4 @@
-import { healthTypes } from '../../configs/health.json';
+import { healthTypes } from '../../configs/healthkit.json';
 import Step from './step.model';
 import FlightsClimbed from './flights-climbed.model';
 import HeartRate from './heartrate.model';

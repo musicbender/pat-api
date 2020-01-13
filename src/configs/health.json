@@ -1,193 +1,32 @@
 {
-  "healthTypes": {
-    "weight": {
-      "id": "weight",
-      "healthkitID": "Weight",
-      "modelID": "Weight",
-      "interval": null,
-      "defaultValidSource": "*",
-      "valueType": "averageSampleValue",
-      "disabled": false
-    },
-    "height": {
-      "id": "height",
-      "healthkitID": "Height",
-      "modelID": "Height",
-      "interval": null,
-      "defaultValidSource": "*",
-      "valueType": "averageSampleValue",
-      "disabled": false
-    },
-    "steps": {
-      "id": "steps",
-      "healthkitID": "Steps",
-      "modelID": "Step",
-      "interval": "day",
-      "defaultValidSource": "pat-apple-watch",
-      "valueType": "totalSampleValue",
-      "disabled": false
-    },
-    "caffeine": {
-      "id": "caffeine",
-      "healthkitID": "Caffeine",
-      "modelID": "Caffeine",
-      "interval": "day",
-      "defaultValidSource": "*",
-      "valueType": "totalSampleValue",
-      "disabled": false
-    },
-    "flightsClimbed": {
-      "id": "flights-climbed",
-      "healthkitID": "Flights Climbed",
-      "modelID": "FlightsClimbed",
-      "interval": "day",
-      "defaultValidSource": "pat-iphone",
-      "valueType": "totalSampleValue",
-      "disabled": false
-    },
-    "heartRate": {
-      "id": "heartrate",
-      "healthkitID": "Heart Rate",
-      "modelID": "HeartRate",
-      "interval": "day",
-      "defaultValidSource": "pat-apple-watch",
-      "valueType": "averageSampleValue",
-      "disabled": false
-    },
-    "heartRateVariability": {
-      "id": "heartrate-variability",
-      "healthkitID": "Heart Rate Variability",
-      "modelID": "HeartRateVariability",
-      "interval": "day",
-      "defaultValidSource": "pat-apple-watch",
-      "valueType": "averageSampleValue",
-      "disabled": false
-    },
-    "mindfulMinutes": {
-      "id": "mindful-minutes",
-      "healthkitID": "Mindful Minutes",
-      "modelID": "MindfulMinutes",
-      "interval": "day",
-      "defaultValidSource": "pat-apple-watch",
-      "valueType": "totalSampleValue",
-      "disabled": true
-    },
-    "exerciseMinutes": {
-      "id": "exercise-minutes",
-      "healthkitID": "Exercise Minutes",
-      "modelID": "ExerciseMinutes",
-      "interval": "day",
-      "defaultValidSource": "pat-apple-watch",
-      "valueType": "totalSampleValue",
-      "disabled": false
-    },
-    "restingHeartRate": {
-      "id": "resting-heartrate",
-      "healthkitID": "Resting Heart Rate",
-      "modelID": "RestingHeartRate",
-      "interval": "day",
-      "defaultValidSource": "pat-apple-watch",
-      "valueType": "averageSampleValue",
-      "disabled": false
-    },
-    "sleepAnalysis": {
-      "id": "sleep-analysis",
-      "healthkitID": "Sleep Analysis",
-      "modelID": "SleepAnalysis",
-      "interval": "day",
-      "defaultValidSource": "pat-apple-watch",
-      "valueType": "totalSampleValue",
-      "disabled": false
-    },
-    "swimmingDistance": {
-      "id": "swimming-distance",
-      "healthkitID": "Swimming Distance",
-      "modelID": "SwimmingDistance",
-      "interval": "day",
-      "defaultValidSource": "pat-apple-watch",
-      "valueType": "totalSampleValue",
-      "disabled": false
-    },
-    "walkingHeartRateAverage": {
-      "id": "walking-heartrate-average",
-      "healthkitID": "Walking Heart Rate Average",
-      "modelID": "WalkingHeartRateAverage",
-      "interval": "day",
-      "defaultValidSource": "pat-apple-watch",
-      "valueType": "averageSampleValue",
-      "disabled": false
-    },
-    "waistCircumference": {
-      "id": "waist-circumference",
-      "healthkitID": "Waist Circumference",
-      "modelID": "WaistCircumference",
-      "interval": null,
-      "defaultValidSource": "*",
-      "valueType": "averageSampleValue",
-      "disabled": false
-    },
-    "systolicBloodPressure": {
-      "id": "systolic-blood-pressure",
-      "healthkitID": "Systolic Blood Pressure",
-      "modelID": "SystolicBloodPressure",
-      "interval": null,
-      "defaultValidSource": "*",
-      "valueType": "averageSampleValue",
-      "disabled": false
-    },
-    "diastolicBloodPressure": {
-      "id": "diastolic-blood-pressure",
-      "healthkitID": "Diastolic Blood Pressure",
-      "modelID": "DiastolicBloodPressure",
-      "interval": null,
-      "defaultValidSource": "*",
-      "valueType": "averageSampleValue",
-      "disabled": false
-    },
-    "oxygenSaturation": {
-      "id": "oxygen-saturation",
-      "healthkitID": "Oxygen Saturation",
-      "modelID": "OxygenSaturation",
-      "defaultValidSource": "*",
-      "interval": null,
-      "valueType": "averageSampleValue",
-      "disabled": false
-    },
-    "bodyTemperature": {
-      "id": "body-temperature",
-      "healthkitID": "Body Temperature",
-      "modelID": "BodyTemperature",
-      "defaultValidSource": "*",
-      "interval": null,
-      "valueType": "averageSampleValue",
-      "disabled": true
-    },
-    "activeEnergy": {
-      "id": "active-energy",
-      "healthkitID": "Active Energy",
-      "modelID": "ActiveEnergy",
-      "defaultValidSource": "pat-apple-watch",
-      "interval": "day",
-      "valueType": "totalSampleValue",
-      "disabled": false
-    },
-    "restingEnergy": {
-      "id": "resting-energy",
-      "healthkitID": "Resting Energy",
-      "modelID": "RestingEnergy",
-      "defaultValidSource": "pat-apple-watch",
-      "interval": "day",
-      "valueType": "totalSampleValue",
-      "disabled": false
-    },
-    "walkingRunningDistance": {
-      "id": "walking-running-distance",
-      "healthkitID": "Walking + Running Distance",
-      "modelID": "WalkingRunningDistance",
-      "defaultValidSource": "pat-apple-watch",
-      "interval": "day",
-      "valueType": "totalSampleValue",
-      "disabled": false
-    }
+  "weight": {
+    "id": "weight",
+    "modelID": "Weight",
+    "disabled": false
+  },
+  "height": {
+    "id": "height",
+    "modelID": "Height",
+    "disabled": false
+  },
+  "waistCircumference": {
+    "id": "waist-circumference",
+    "modelID": "WaistCircumference",
+    "disabled": false
+  },
+  "bloodPressure": {
+    "id": "systolic-blood-pressure",
+    "modelID": "SystolicBloodPressure",
+    "disabled": true
+  },
+  "oxygenSaturation": {
+    "id": "oxygen-saturation",
+    "modelID": "OxygenSaturation",
+    "disabled": true
+  },
+  "bodyTemperature": {
+    "id": "body-temperature",
+    "modelID": "BodyTemperature",
+    "disabled": true
   }
 }

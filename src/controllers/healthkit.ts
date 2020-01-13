@@ -1,6 +1,6 @@
 import { addHealthItem } from './health';
 import { ExpectedError } from '../utils/errors';
-const { healthTypes } = require('../configs/health.json');
+const { healthTypes } = require('../configs/healthkit.json');
 import { HealthType, HealthInputType } from '../types/generated';
 
 export const addHealthKitItems = async (input: HealthInputType[]) => {

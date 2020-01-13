@@ -4,7 +4,7 @@ import { findHealthById, findHealthByDate, addHealthItem, updateHealthItem } fro
 import { ExpectedError } from '../../utils/errors';
 import { HealthType, HealthInputType, ResponseUnionType, HealthInputUpdateType } from '../types';
 import { HealthConfigType } from '../../types';
-const { healthTypes } = require('../../configs/health.json');
+const { healthTypes } = require('../../configs/healthkit.json');
 
 type QueryOptions = {
   type: string, 

@@ -1,6 +1,6 @@
 import { aggregateHealthData } from '../health';
 import * as moment from 'moment';
-const { healthTypes } = require('../../configs/health.json');
+const { healthTypes } = require('../../configs/healthkit.json');
 
 // mocks
 const mockStepData = require( '../../../test/mocks/step-data-1.json');
