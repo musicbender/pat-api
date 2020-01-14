@@ -74,6 +74,7 @@ export const reduceSampleData = (samples: HealthInputSampleType[], input: Health
     valueArr = [ ...valueArr, +sample.value ];
   });
 
+  output.totalSampleValue = +output.totalSampleValue.toFixed(2);
   output.averageSampleValue = getAverage(valueArr);
   output.highestSampleValue = findOutterValues(valueArr, 'highest');
   output.lowestSampleValue = findOutterValues(valueArr, 'lowest');
