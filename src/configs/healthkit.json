@@ -101,7 +101,7 @@
     },
     "activeEnergy": {
       "id": "active-energy",
-      "healthkitID": "Active Energy",
+      "healthkitID": "Active Calories",
       "modelID": "ActiveEnergy",
       "defaultValidSource": "pat-apple-watch",
       "interval": "day",
@@ -110,7 +110,7 @@
     },
     "restingEnergy": {
       "id": "resting-energy",
-      "healthkitID": "Resting Energy",
+      "healthkitID": "Resting Calories",
       "modelID": "RestingEnergy",
       "defaultValidSource": "pat-apple-watch",
       "interval": "day",

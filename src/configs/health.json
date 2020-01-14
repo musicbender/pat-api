@@ -2,31 +2,37 @@
   "weight": {
     "id": "weight",
     "modelID": "Weight",
+    "unit": "lbs",
     "disabled": false
   },
   "height": {
     "id": "height",
     "modelID": "Height",
+    "unit": "feet",
     "disabled": false
   },
   "waistCircumference": {
     "id": "waist-circumference",
     "modelID": "WaistCircumference",
+    "unit": "inches",
     "disabled": false
   },
   "bloodPressure": {
     "id": "systolic-blood-pressure",
     "modelID": "SystolicBloodPressure",
+    "unit": "mmHG",
     "disabled": true
   },
   "oxygenSaturation": {
     "id": "oxygen-saturation",
     "modelID": "OxygenSaturation",
+    "unit": "%",
     "disabled": true
   },
   "bodyTemperature": {
     "id": "body-temperature",
     "modelID": "BodyTemperature",
+    "unit": "°F",
     "disabled": true
   }
 }

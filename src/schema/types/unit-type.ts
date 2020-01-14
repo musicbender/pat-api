@@ -7,7 +7,7 @@ export const UnitType = new GraphQLEnumType({
     "cm": { value: "cm" },
     "kg": { value: "kg" },
     "lbs": { value: "lbs" },
-    "count": { value:"count" },
+    "count": { value: "count" },
     "km": { value: "km" },
     "kcal": { value: "kcal" },
     "percent": { value: "%" },
@@ -24,5 +24,7 @@ export const UnitType = new GraphQLEnumType({
     "mg": { value: "mg" },
     "ms": { value: "ms" },
     "bpm": { value: "bpm" },
+    "min": { value: "min" },
+    "hrs": { value: "hrs" }
   }
 });

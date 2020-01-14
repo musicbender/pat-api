@@ -1,14 +1,24 @@
 {
   "input": [
     {
-      "type": "Weight",
-      "unit": "lbs",
+      "type": "Exercise Minutes",
+      "unit": "minutes",
       "sampledOn": "2019-12-10T12:03:11-07:00",
       "sampleList": [
         {
+          "date": "2019-12-10T18:00:59-05:00",
+          "source": "pat-iphone",
+          "value": "30"
+        },
+        {
           "date": "2019-12-10T18:00:59-07:00",
-          "source": "pat-apple-watch",
-          "value": "150"
+          "source": "pat-iphone",
+          "value": "1"
+        },
+        {
+          "date": "2019-12-10T18:00:59-09:00",
+          "source": "pat-iphone",
+          "value": "1"
         }
       ]
     }
