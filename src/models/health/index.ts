@@ -5,7 +5,6 @@ import HeartRate from './heartrate.model';
 import HeartRateVariability from './heartrate-variability.model';
 import ActiveEnergy from './active-energy.model';
 import Caffeine from './caffeine.model';
-import ExerciseMinutes from './exercise-minutes.model';
 import RestingEnergy from './resting-energy.model';
 import RestingHeartRate from './resting-heartrate.model';
 import SleepAnalysis from './sleep-analysis.model';
@@ -20,7 +19,6 @@ export default {
   [healthTypes.heartRateVariability.modelID]: HeartRateVariability,
   [healthTypes.activeEnergy.modelID]: ActiveEnergy,
   [healthTypes.caffeine.modelID]: Caffeine,
-  [healthTypes.exerciseMinutes.modelID]: ExerciseMinutes,
   [healthTypes.restingEnergy.modelID]: RestingEnergy,
   [healthTypes.restingHeartRate.modelID]: RestingHeartRate,
   [healthTypes.sleepAnalysis.modelID]: SleepAnalysis,

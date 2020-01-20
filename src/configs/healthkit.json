@@ -61,7 +61,7 @@
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
       "valueType": "totalSampleValue",
-      "disabled": false
+      "disabled": true
     },
     "restingHeartRate": {
       "id": "resting-heartrate",
@@ -79,7 +79,7 @@
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
       "valueType": "totalSampleValue",
-      "disabled": false
+      "disabled": true
     },
     "swimmingDistance": {
       "id": "swimming-distance",

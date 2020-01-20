@@ -4,7 +4,6 @@ export * from './heartrate';
 export * from './heartrate-variability';
 export * from './active-energy';
 export * from './caffeine';
-export * from './exercise-minutes';
 export * from './resting-energy';
 export * from './resting-heartrate';
 export * from './sleep-analysis';
