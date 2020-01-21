@@ -7,6 +7,7 @@
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
       "valueType": "totalSampleValue",
+      "defaultUnit": "count",
       "disabled": false
     },
     "caffeine": {
@@ -16,6 +17,7 @@
       "interval": "day",
       "defaultValidSource": "*",
       "valueType": "totalSampleValue",
+      "defaultUnit": "mg",
       "disabled": false
     },
     "flightsClimbed": {
@@ -25,6 +27,7 @@
       "interval": "day",
       "defaultValidSource": "pat-iphone",
       "valueType": "totalSampleValue",
+      "defaultUnit": "count",
       "disabled": false
     },
     "heartRate": {
@@ -34,6 +37,7 @@
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
       "valueType": "averageSampleValue",
+      "defaultUnit": "bpm",
       "disabled": false
     },
     "heartRateVariability": {
@@ -43,6 +47,7 @@
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
       "valueType": "averageSampleValue",
+      "defaultUnit": "ms",
       "disabled": false
     },
     "mindfulMinutes": {
@@ -52,6 +57,7 @@
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
       "valueType": "totalSampleValue",
+      "defaultUnit": "min",
       "disabled": true
     },
     "exerciseMinutes": {
@@ -61,6 +67,7 @@
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
       "valueType": "totalSampleValue",
+      "defaultUnit": "min",
       "disabled": true
     },
     "restingHeartRate": {
@@ -70,6 +77,7 @@
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
       "valueType": "averageSampleValue",
+      "defaultUnit": "bpm",
       "disabled": false
     },
     "sleepAnalysis": {
@@ -79,6 +87,7 @@
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
       "valueType": "totalSampleValue",
+      "defaultUnit": "hrs",
       "disabled": true
     },
     "swimmingDistance": {
@@ -88,6 +97,7 @@
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
       "valueType": "totalSampleValue",
+      "defaultUnit": "ft",
       "disabled": false
     },
     "walkingHeartRateAverage": {
@@ -97,6 +107,7 @@
       "interval": "day",
       "defaultValidSource": "pat-apple-watch",
       "valueType": "averageSampleValue",
+      "defaultUnit": "bpm",
       "disabled": false
     },
     "activeEnergy": {
@@ -106,6 +117,7 @@
       "defaultValidSource": "pat-apple-watch",
       "interval": "day",
       "valueType": "totalSampleValue",
+      "defaultUnit": "kcal",
       "disabled": false
     },
     "restingEnergy": {
@@ -115,6 +127,7 @@
       "defaultValidSource": "pat-apple-watch",
       "interval": "day",
       "valueType": "totalSampleValue",
+      "defaultUnit": "kcal",
       "disabled": false
     },
     "walkingRunningDistance": {
@@ -124,6 +137,7 @@
       "defaultValidSource": "pat-apple-watch",
       "interval": "day",
       "valueType": "totalSampleValue",
+      "defaultUnit": "mi",
       "disabled": false
     }
   }

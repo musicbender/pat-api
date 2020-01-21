@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import { HealthType, HealthInputType, HealthInputSampleType } from '../types/generated';
+import { HealthType, HealthInputType, HealthInputSampleType, UnitType } from '../types/generated';
 
 // enums
 export enum HealthInterval {
@@ -30,6 +30,7 @@ export type HealthConfigType = {
   interval?: moment.unitOfTime.StartOf,
   defaultValidSource?: string,
   valueType: string,
+  defaultUnit: UnitType,
   disabled?: boolean
 }
 

@@ -96,7 +96,7 @@ export const aggregateHealthData = (input: HealthInputType, config: HealthConfig
     : [];
 
   const initialOutput: HealthType = {
-    unit: input.unit,
+    unit: input.unit || config.defaultUnit,
     value: null,
     valueType: config.valueType || 'totalSampleValue',
     totalSampleValue: null,
