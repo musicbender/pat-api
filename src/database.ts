@@ -1,7 +1,9 @@
+console.log('a');
+
 import { Sequelize } from 'sequelize-typescript';
 import * as fs from 'fs';
 import { DatabaseConfigOptions, DbSSLConfigType, DbSSLType } from './types';
-
+console.log('b');
 const sslConfig = {
   key: process.env.PATAPI_DB_SSL_KEY,
   cert: process.env.PATAPI_DB_SSL_CERT,
@@ -25,7 +27,8 @@ const getAccessProperty = (externalAccess: boolean = false, property: string = '
     : process.env[`PATAPI_DB_${property}`] || '';
 }
 
-export const getDBConfig = (options: DatabaseConfigOptions = {}): any => {
+export const getDBConfig = (options: DatabaseConfigOptions): any => {
+  console.log('c');
   const config = {
     dialect: 'postgres',
     database: process.env.PATAPI_DB_NAME,
@@ -52,6 +55,6 @@ export const getDBConfig = (options: DatabaseConfigOptions = {}): any => {
 }
 
 export const connectDB = () => {
-  const sequelize = new Sequelize(getDBConfig());
+  const sequelize = new Sequelize(getDBConfig({}));
   return sequelize.sync();
 }

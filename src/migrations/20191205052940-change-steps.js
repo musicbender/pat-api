@@ -14,7 +14,6 @@ module.exports = {
       await queryInterface.renameColumn('steps', 'total', 'totalSampleValue')
     ]
   },
-
   down: async (queryInterface, Sequelize) => {
     await queryInterface.removeColumn('steps', 'valueType'),
     await queryInterface.renameColumn('steps', 'averageSampleValue', 'average'),

@@ -8,24 +8,4 @@ import { DataType, Default, Column } from 'sequelize-typescript';
   createdAt: false, 
   updatedAt: false
 })
-export default class WalkingRunningDistance extends HealthKit<WalkingRunningDistance> {
-  @Default(0)
-  @Column({ type: DataType.FLOAT })
-  value: number;
-  
-  @Default(0)
-  @Column({ type: DataType.FLOAT })
-  totalSampleValue: number;
-
-  @Default(0)
-  @Column({ type: DataType.FLOAT })
-  averageSampleValue: number;
-
-  @Default(0)
-  @Column({ type: DataType.FLOAT })
-  highestSampleValue: number;
-
-  @Default(0)
-  @Column({ type: DataType.FLOAT })
-  lowestSampleValue: number;
-}
+export default class WalkingRunningDistance extends HealthKit<WalkingRunningDistance> {}

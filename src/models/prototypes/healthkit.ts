@@ -15,7 +15,7 @@ export default class Healthkit<T = any, T2 = any> extends Model<Healthkit> {
   id: string;;
 
   @Default(0)
-  @Column
+  @Column({ type: DataType.FLOAT })
   value: number;
 
   @Default('totalSampleValue')
@@ -23,19 +23,19 @@ export default class Healthkit<T = any, T2 = any> extends Model<Healthkit> {
   valueType: string
 
   @Default(0)
-  @Column
+  @Column({ type: DataType.FLOAT })
   totalSampleValue: number;
 
   @Default(0)
-  @Column
+  @Column({ type: DataType.FLOAT })
   averageSampleValue: number;
 
   @Default(0)
-  @Column
+  @Column({ type: DataType.FLOAT })
   highestSampleValue: number;
 
   @Default(0)
-  @Column
+  @Column({ type: DataType.FLOAT })
   lowestSampleValue: number;
 
   @Default(moment().toISOString())

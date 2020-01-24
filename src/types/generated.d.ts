@@ -18,6 +18,56 @@ export type Scalars = {
 
 
 
+export type AddActiveEnergyError = {
+  __typename?: 'addActiveEnergyError',
+  errorCode?: Maybe<AddActiveEnergyErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddActiveEnergyErrorErrorCodesType {
+  InternalError = 'INTERNAL_ERROR',
+  ServerTimeout = 'SERVER_TIMEOUT',
+  Unauthorized = 'UNAUTHORIZED',
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+export type AddActiveEnergyResponse = {
+  __typename?: 'addActiveEnergyResponse',
+  response?: Maybe<HealthType>,
+};
+
+export type AddActiveEnergyUnion = AddActiveEnergyResponse | AddActiveEnergyError;
+
+export type AddCaffeineError = {
+  __typename?: 'addCaffeineError',
+  errorCode?: Maybe<AddCaffeineErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddCaffeineErrorErrorCodesType {
+  InternalError = 'INTERNAL_ERROR',
+  ServerTimeout = 'SERVER_TIMEOUT',
+  Unauthorized = 'UNAUTHORIZED',
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+export type AddCaffeineResponse = {
+  __typename?: 'addCaffeineResponse',
+  response?: Maybe<HealthType>,
+};
+
+export type AddCaffeineUnion = AddCaffeineResponse | AddCaffeineError;
+
 export type AddFlightsClimbedError = {
   __typename?: 'addFlightsClimbedError',
   errorCode?: Maybe<AddFlightsClimbedErrorErrorCodesType>,
@@ -123,6 +173,81 @@ export type AdditionalEntityFields = {
   type?: Maybe<Scalars['String']>,
 };
 
+export type AddRestingEnergyError = {
+  __typename?: 'addRestingEnergyError',
+  errorCode?: Maybe<AddRestingEnergyErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddRestingEnergyErrorErrorCodesType {
+  InternalError = 'INTERNAL_ERROR',
+  ServerTimeout = 'SERVER_TIMEOUT',
+  Unauthorized = 'UNAUTHORIZED',
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+export type AddRestingEnergyResponse = {
+  __typename?: 'addRestingEnergyResponse',
+  response?: Maybe<HealthType>,
+};
+
+export type AddRestingEnergyUnion = AddRestingEnergyResponse | AddRestingEnergyError;
+
+export type AddRestingHeartRateError = {
+  __typename?: 'addRestingHeartRateError',
+  errorCode?: Maybe<AddRestingHeartRateErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddRestingHeartRateErrorErrorCodesType {
+  InternalError = 'INTERNAL_ERROR',
+  ServerTimeout = 'SERVER_TIMEOUT',
+  Unauthorized = 'UNAUTHORIZED',
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+export type AddRestingHeartRateResponse = {
+  __typename?: 'addRestingHeartRateResponse',
+  response?: Maybe<HealthType>,
+};
+
+export type AddRestingHeartRateUnion = AddRestingHeartRateResponse | AddRestingHeartRateError;
+
+export type AddSleepAnalysisError = {
+  __typename?: 'addSleepAnalysisError',
+  errorCode?: Maybe<AddSleepAnalysisErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddSleepAnalysisErrorErrorCodesType {
+  InternalError = 'INTERNAL_ERROR',
+  ServerTimeout = 'SERVER_TIMEOUT',
+  Unauthorized = 'UNAUTHORIZED',
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+export type AddSleepAnalysisResponse = {
+  __typename?: 'addSleepAnalysisResponse',
+  response?: Maybe<HealthType>,
+};
+
+export type AddSleepAnalysisUnion = AddSleepAnalysisResponse | AddSleepAnalysisError;
+
 export type AddStepError = {
   __typename?: 'addStepError',
   errorCode?: Maybe<AddStepErrorErrorCodesType>,
@@ -147,6 +272,81 @@ export type AddStepResponse = {
 };
 
 export type AddStepUnion = AddStepResponse | AddStepError;
+
+export type AddSwimmingDistanceError = {
+  __typename?: 'addSwimmingDistanceError',
+  errorCode?: Maybe<AddSwimmingDistanceErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddSwimmingDistanceErrorErrorCodesType {
+  InternalError = 'INTERNAL_ERROR',
+  ServerTimeout = 'SERVER_TIMEOUT',
+  Unauthorized = 'UNAUTHORIZED',
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+export type AddSwimmingDistanceResponse = {
+  __typename?: 'addSwimmingDistanceResponse',
+  response?: Maybe<HealthType>,
+};
+
+export type AddSwimmingDistanceUnion = AddSwimmingDistanceResponse | AddSwimmingDistanceError;
+
+export type AddWalkingHeartRateAverageError = {
+  __typename?: 'addWalkingHeartRateAverageError',
+  errorCode?: Maybe<AddWalkingHeartRateAverageErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddWalkingHeartRateAverageErrorErrorCodesType {
+  InternalError = 'INTERNAL_ERROR',
+  ServerTimeout = 'SERVER_TIMEOUT',
+  Unauthorized = 'UNAUTHORIZED',
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+export type AddWalkingHeartRateAverageResponse = {
+  __typename?: 'addWalkingHeartRateAverageResponse',
+  response?: Maybe<HealthType>,
+};
+
+export type AddWalkingHeartRateAverageUnion = AddWalkingHeartRateAverageResponse | AddWalkingHeartRateAverageError;
+
+export type AddWalkingRunningDistanceError = {
+  __typename?: 'addWalkingRunningDistanceError',
+  errorCode?: Maybe<AddWalkingRunningDistanceErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddWalkingRunningDistanceErrorErrorCodesType {
+  InternalError = 'INTERNAL_ERROR',
+  ServerTimeout = 'SERVER_TIMEOUT',
+  Unauthorized = 'UNAUTHORIZED',
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+export type AddWalkingRunningDistanceResponse = {
+  __typename?: 'addWalkingRunningDistanceResponse',
+  response?: Maybe<HealthType>,
+};
+
+export type AddWalkingRunningDistanceUnion = AddWalkingRunningDistanceResponse | AddWalkingRunningDistanceError;
 
 
 export type HealthInputSampleType = {
@@ -207,6 +407,22 @@ export type Mutation = {
   addHeartRateVariability?: Maybe<AddHeartRateVariabilityUnion>,
   updateHeartRateVariability?: Maybe<UpdateHeartRateVariabilityUnion>,
   addHealthKit?: Maybe<AddHealthKitUnion>,
+  addActiveEnergy?: Maybe<AddActiveEnergyUnion>,
+  updateActiveEnergy?: Maybe<UpdateActiveEnergyUnion>,
+  addCaffeine?: Maybe<AddCaffeineUnion>,
+  updateCaffeine?: Maybe<UpdateCaffeineUnion>,
+  addRestingEnergy?: Maybe<AddRestingEnergyUnion>,
+  updateRestingEnergy?: Maybe<UpdateRestingEnergyUnion>,
+  addRestingHeartRate?: Maybe<AddRestingHeartRateUnion>,
+  updateRestingHeartRate?: Maybe<UpdateRestingHeartRateUnion>,
+  addSleepAnalysis?: Maybe<AddSleepAnalysisUnion>,
+  updateSleepAnalysis?: Maybe<UpdateSleepAnalysisUnion>,
+  addSwimmingDistance?: Maybe<AddSwimmingDistanceUnion>,
+  updateSwimmingDistance?: Maybe<UpdateSwimmingDistanceUnion>,
+  addWalkingHeartRateAverage?: Maybe<AddWalkingHeartRateAverageUnion>,
+  updateWalkingHeartRateAverage?: Maybe<UpdateWalkingHeartRateAverageUnion>,
+  addWalkingRunningDistance?: Maybe<AddWalkingRunningDistanceUnion>,
+  updateWalkingRunningDistance?: Maybe<UpdateWalkingRunningDistanceUnion>,
 };
 
 
@@ -258,11 +474,108 @@ export type MutationAddHealthKitArgs = {
   input?: Maybe<Array<Maybe<HealthInputType>>>
 };
 
+
+export type MutationAddActiveEnergyArgs = {
+  input: HealthInputType
+};
+
+
+export type MutationUpdateActiveEnergyArgs = {
+  id: Scalars['ID'],
+  input: HealthInputUpdateType
+};
+
+
+export type MutationAddCaffeineArgs = {
+  input: HealthInputType
+};
+
+
+export type MutationUpdateCaffeineArgs = {
+  id: Scalars['ID'],
+  input: HealthInputUpdateType
+};
+
+
+export type MutationAddRestingEnergyArgs = {
+  input: HealthInputType
+};
+
+
+export type MutationUpdateRestingEnergyArgs = {
+  id: Scalars['ID'],
+  input: HealthInputUpdateType
+};
+
+
+export type MutationAddRestingHeartRateArgs = {
+  input: HealthInputType
+};
+
+
+export type MutationUpdateRestingHeartRateArgs = {
+  id: Scalars['ID'],
+  input: HealthInputUpdateType
+};
+
+
+export type MutationAddSleepAnalysisArgs = {
+  input: HealthInputType
+};
+
+
+export type MutationUpdateSleepAnalysisArgs = {
+  id: Scalars['ID'],
+  input: HealthInputUpdateType
+};
+
+
+export type MutationAddSwimmingDistanceArgs = {
+  input: HealthInputType
+};
+
+
+export type MutationUpdateSwimmingDistanceArgs = {
+  id: Scalars['ID'],
+  input: HealthInputUpdateType
+};
+
+
+export type MutationAddWalkingHeartRateAverageArgs = {
+  input: HealthInputType
+};
+
+
+export type MutationUpdateWalkingHeartRateAverageArgs = {
+  id: Scalars['ID'],
+  input: HealthInputUpdateType
+};
+
+
+export type MutationAddWalkingRunningDistanceArgs = {
+  input: HealthInputType
+};
+
+
+export type MutationUpdateWalkingRunningDistanceArgs = {
+  id: Scalars['ID'],
+  input: HealthInputUpdateType
+};
+
 export type RootQueryType = {
   __typename?: 'RootQueryType',
   step?: Maybe<HealthType>,
   flightsClimbed?: Maybe<HealthType>,
   heartrate?: Maybe<HealthType>,
+  heartrateVariability?: Maybe<HealthType>,
+  activeEnergy?: Maybe<HealthType>,
+  caffeine?: Maybe<HealthType>,
+  restingEnergy?: Maybe<HealthType>,
+  restingHeartrate?: Maybe<HealthType>,
+  sleepAnalysis?: Maybe<HealthType>,
+  swimmingDistance?: Maybe<HealthType>,
+  walkingHeartrateAverage?: Maybe<HealthType>,
+  walkingRunningDistance?: Maybe<HealthType>,
 };
 
 
@@ -283,11 +596,68 @@ export type RootQueryTypeHeartrateArgs = {
   date?: Maybe<Scalars['Date']>
 };
 
+
+export type RootQueryTypeHeartrateVariabilityArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeActiveEnergyArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeCaffeineArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeRestingEnergyArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeRestingHeartrateArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeSleepAnalysisArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeSwimmingDistanceArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeWalkingHeartrateAverageArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeWalkingRunningDistanceArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
 export enum UnitType {
   Cm = 'cm',
   Kg = 'kg',
+  Lbs = 'lbs',
   Count = 'count',
   Km = 'km',
+  Ft = 'ft',
+  Mi = 'mi',
   Kcal = 'kcal',
   Percent = 'percent',
   CountMin = 'count_min',
@@ -302,8 +672,60 @@ export enum UnitType {
   G = 'g',
   Mg = 'mg',
   Ms = 'ms',
-  Bpm = 'bpm'
+  Bpm = 'bpm',
+  Min = 'min',
+  Hrs = 'hrs'
 }
+
+export type UpdateActiveEnergyError = {
+  __typename?: 'updateActiveEnergyError',
+  errorCode?: Maybe<UpdateActiveEnergyErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateActiveEnergyErrorErrorCodesType {
+  InternalError = 'INTERNAL_ERROR',
+  ServerTimeout = 'SERVER_TIMEOUT',
+  Unauthorized = 'UNAUTHORIZED',
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+export type UpdateActiveEnergyResponse = {
+  __typename?: 'updateActiveEnergyResponse',
+  response?: Maybe<HealthType>,
+};
+
+export type UpdateActiveEnergyUnion = UpdateActiveEnergyResponse | UpdateActiveEnergyError;
+
+export type UpdateCaffeineError = {
+  __typename?: 'updateCaffeineError',
+  errorCode?: Maybe<UpdateCaffeineErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateCaffeineErrorErrorCodesType {
+  InternalError = 'INTERNAL_ERROR',
+  ServerTimeout = 'SERVER_TIMEOUT',
+  Unauthorized = 'UNAUTHORIZED',
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+export type UpdateCaffeineResponse = {
+  __typename?: 'updateCaffeineResponse',
+  response?: Maybe<HealthType>,
+};
+
+export type UpdateCaffeineUnion = UpdateCaffeineResponse | UpdateCaffeineError;
 
 export type UpdateFlightsClimbedError = {
   __typename?: 'updateFlightsClimbedError',
@@ -380,6 +802,81 @@ export type UpdateHeartRateVariabilityResponse = {
 
 export type UpdateHeartRateVariabilityUnion = UpdateHeartRateVariabilityResponse | UpdateHeartRateVariabilityError;
 
+export type UpdateRestingEnergyError = {
+  __typename?: 'updateRestingEnergyError',
+  errorCode?: Maybe<UpdateRestingEnergyErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateRestingEnergyErrorErrorCodesType {
+  InternalError = 'INTERNAL_ERROR',
+  ServerTimeout = 'SERVER_TIMEOUT',
+  Unauthorized = 'UNAUTHORIZED',
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+export type UpdateRestingEnergyResponse = {
+  __typename?: 'updateRestingEnergyResponse',
+  response?: Maybe<HealthType>,
+};
+
+export type UpdateRestingEnergyUnion = UpdateRestingEnergyResponse | UpdateRestingEnergyError;
+
+export type UpdateRestingHeartRateError = {
+  __typename?: 'updateRestingHeartRateError',
+  errorCode?: Maybe<UpdateRestingHeartRateErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateRestingHeartRateErrorErrorCodesType {
+  InternalError = 'INTERNAL_ERROR',
+  ServerTimeout = 'SERVER_TIMEOUT',
+  Unauthorized = 'UNAUTHORIZED',
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+export type UpdateRestingHeartRateResponse = {
+  __typename?: 'updateRestingHeartRateResponse',
+  response?: Maybe<HealthType>,
+};
+
+export type UpdateRestingHeartRateUnion = UpdateRestingHeartRateResponse | UpdateRestingHeartRateError;
+
+export type UpdateSleepAnalysisError = {
+  __typename?: 'updateSleepAnalysisError',
+  errorCode?: Maybe<UpdateSleepAnalysisErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateSleepAnalysisErrorErrorCodesType {
+  InternalError = 'INTERNAL_ERROR',
+  ServerTimeout = 'SERVER_TIMEOUT',
+  Unauthorized = 'UNAUTHORIZED',
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+export type UpdateSleepAnalysisResponse = {
+  __typename?: 'updateSleepAnalysisResponse',
+  response?: Maybe<HealthType>,
+};
+
+export type UpdateSleepAnalysisUnion = UpdateSleepAnalysisResponse | UpdateSleepAnalysisError;
+
 export type UpdateStepError = {
   __typename?: 'updateStepError',
   errorCode?: Maybe<UpdateStepErrorErrorCodesType>,
@@ -404,6 +901,81 @@ export type UpdateStepResponse = {
 };
 
 export type UpdateStepUnion = UpdateStepResponse | UpdateStepError;
+
+export type UpdateSwimmingDistanceError = {
+  __typename?: 'updateSwimmingDistanceError',
+  errorCode?: Maybe<UpdateSwimmingDistanceErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateSwimmingDistanceErrorErrorCodesType {
+  InternalError = 'INTERNAL_ERROR',
+  ServerTimeout = 'SERVER_TIMEOUT',
+  Unauthorized = 'UNAUTHORIZED',
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+export type UpdateSwimmingDistanceResponse = {
+  __typename?: 'updateSwimmingDistanceResponse',
+  response?: Maybe<HealthType>,
+};
+
+export type UpdateSwimmingDistanceUnion = UpdateSwimmingDistanceResponse | UpdateSwimmingDistanceError;
+
+export type UpdateWalkingHeartRateAverageError = {
+  __typename?: 'updateWalkingHeartRateAverageError',
+  errorCode?: Maybe<UpdateWalkingHeartRateAverageErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateWalkingHeartRateAverageErrorErrorCodesType {
+  InternalError = 'INTERNAL_ERROR',
+  ServerTimeout = 'SERVER_TIMEOUT',
+  Unauthorized = 'UNAUTHORIZED',
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+export type UpdateWalkingHeartRateAverageResponse = {
+  __typename?: 'updateWalkingHeartRateAverageResponse',
+  response?: Maybe<HealthType>,
+};
+
+export type UpdateWalkingHeartRateAverageUnion = UpdateWalkingHeartRateAverageResponse | UpdateWalkingHeartRateAverageError;
+
+export type UpdateWalkingRunningDistanceError = {
+  __typename?: 'updateWalkingRunningDistanceError',
+  errorCode?: Maybe<UpdateWalkingRunningDistanceErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateWalkingRunningDistanceErrorErrorCodesType {
+  InternalError = 'INTERNAL_ERROR',
+  ServerTimeout = 'SERVER_TIMEOUT',
+  Unauthorized = 'UNAUTHORIZED',
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+export type UpdateWalkingRunningDistanceResponse = {
+  __typename?: 'updateWalkingRunningDistanceResponse',
+  response?: Maybe<HealthType>,
+};
+
+export type UpdateWalkingRunningDistanceUnion = UpdateWalkingRunningDistanceResponse | UpdateWalkingRunningDistanceError;
 
 
 
@@ -512,6 +1084,70 @@ export type ResolversTypes = {
   addHealthKitResponse: ResolverTypeWrapper<AddHealthKitResponse>,
   addHealthKitError: ResolverTypeWrapper<AddHealthKitError>,
   addHealthKitErrorErrorCodesType: AddHealthKitErrorErrorCodesType,
+  addActiveEnergyUnion: ResolversTypes['addActiveEnergyResponse'] | ResolversTypes['addActiveEnergyError'],
+  addActiveEnergyResponse: ResolverTypeWrapper<AddActiveEnergyResponse>,
+  addActiveEnergyError: ResolverTypeWrapper<AddActiveEnergyError>,
+  addActiveEnergyErrorErrorCodesType: AddActiveEnergyErrorErrorCodesType,
+  updateActiveEnergyUnion: ResolversTypes['updateActiveEnergyResponse'] | ResolversTypes['updateActiveEnergyError'],
+  updateActiveEnergyResponse: ResolverTypeWrapper<UpdateActiveEnergyResponse>,
+  updateActiveEnergyError: ResolverTypeWrapper<UpdateActiveEnergyError>,
+  updateActiveEnergyErrorErrorCodesType: UpdateActiveEnergyErrorErrorCodesType,
+  addCaffeineUnion: ResolversTypes['addCaffeineResponse'] | ResolversTypes['addCaffeineError'],
+  addCaffeineResponse: ResolverTypeWrapper<AddCaffeineResponse>,
+  addCaffeineError: ResolverTypeWrapper<AddCaffeineError>,
+  addCaffeineErrorErrorCodesType: AddCaffeineErrorErrorCodesType,
+  updateCaffeineUnion: ResolversTypes['updateCaffeineResponse'] | ResolversTypes['updateCaffeineError'],
+  updateCaffeineResponse: ResolverTypeWrapper<UpdateCaffeineResponse>,
+  updateCaffeineError: ResolverTypeWrapper<UpdateCaffeineError>,
+  updateCaffeineErrorErrorCodesType: UpdateCaffeineErrorErrorCodesType,
+  addRestingEnergyUnion: ResolversTypes['addRestingEnergyResponse'] | ResolversTypes['addRestingEnergyError'],
+  addRestingEnergyResponse: ResolverTypeWrapper<AddRestingEnergyResponse>,
+  addRestingEnergyError: ResolverTypeWrapper<AddRestingEnergyError>,
+  addRestingEnergyErrorErrorCodesType: AddRestingEnergyErrorErrorCodesType,
+  updateRestingEnergyUnion: ResolversTypes['updateRestingEnergyResponse'] | ResolversTypes['updateRestingEnergyError'],
+  updateRestingEnergyResponse: ResolverTypeWrapper<UpdateRestingEnergyResponse>,
+  updateRestingEnergyError: ResolverTypeWrapper<UpdateRestingEnergyError>,
+  updateRestingEnergyErrorErrorCodesType: UpdateRestingEnergyErrorErrorCodesType,
+  addRestingHeartRateUnion: ResolversTypes['addRestingHeartRateResponse'] | ResolversTypes['addRestingHeartRateError'],
+  addRestingHeartRateResponse: ResolverTypeWrapper<AddRestingHeartRateResponse>,
+  addRestingHeartRateError: ResolverTypeWrapper<AddRestingHeartRateError>,
+  addRestingHeartRateErrorErrorCodesType: AddRestingHeartRateErrorErrorCodesType,
+  updateRestingHeartRateUnion: ResolversTypes['updateRestingHeartRateResponse'] | ResolversTypes['updateRestingHeartRateError'],
+  updateRestingHeartRateResponse: ResolverTypeWrapper<UpdateRestingHeartRateResponse>,
+  updateRestingHeartRateError: ResolverTypeWrapper<UpdateRestingHeartRateError>,
+  updateRestingHeartRateErrorErrorCodesType: UpdateRestingHeartRateErrorErrorCodesType,
+  addSleepAnalysisUnion: ResolversTypes['addSleepAnalysisResponse'] | ResolversTypes['addSleepAnalysisError'],
+  addSleepAnalysisResponse: ResolverTypeWrapper<AddSleepAnalysisResponse>,
+  addSleepAnalysisError: ResolverTypeWrapper<AddSleepAnalysisError>,
+  addSleepAnalysisErrorErrorCodesType: AddSleepAnalysisErrorErrorCodesType,
+  updateSleepAnalysisUnion: ResolversTypes['updateSleepAnalysisResponse'] | ResolversTypes['updateSleepAnalysisError'],
+  updateSleepAnalysisResponse: ResolverTypeWrapper<UpdateSleepAnalysisResponse>,
+  updateSleepAnalysisError: ResolverTypeWrapper<UpdateSleepAnalysisError>,
+  updateSleepAnalysisErrorErrorCodesType: UpdateSleepAnalysisErrorErrorCodesType,
+  addSwimmingDistanceUnion: ResolversTypes['addSwimmingDistanceResponse'] | ResolversTypes['addSwimmingDistanceError'],
+  addSwimmingDistanceResponse: ResolverTypeWrapper<AddSwimmingDistanceResponse>,
+  addSwimmingDistanceError: ResolverTypeWrapper<AddSwimmingDistanceError>,
+  addSwimmingDistanceErrorErrorCodesType: AddSwimmingDistanceErrorErrorCodesType,
+  updateSwimmingDistanceUnion: ResolversTypes['updateSwimmingDistanceResponse'] | ResolversTypes['updateSwimmingDistanceError'],
+  updateSwimmingDistanceResponse: ResolverTypeWrapper<UpdateSwimmingDistanceResponse>,
+  updateSwimmingDistanceError: ResolverTypeWrapper<UpdateSwimmingDistanceError>,
+  updateSwimmingDistanceErrorErrorCodesType: UpdateSwimmingDistanceErrorErrorCodesType,
+  addWalkingHeartRateAverageUnion: ResolversTypes['addWalkingHeartRateAverageResponse'] | ResolversTypes['addWalkingHeartRateAverageError'],
+  addWalkingHeartRateAverageResponse: ResolverTypeWrapper<AddWalkingHeartRateAverageResponse>,
+  addWalkingHeartRateAverageError: ResolverTypeWrapper<AddWalkingHeartRateAverageError>,
+  addWalkingHeartRateAverageErrorErrorCodesType: AddWalkingHeartRateAverageErrorErrorCodesType,
+  updateWalkingHeartRateAverageUnion: ResolversTypes['updateWalkingHeartRateAverageResponse'] | ResolversTypes['updateWalkingHeartRateAverageError'],
+  updateWalkingHeartRateAverageResponse: ResolverTypeWrapper<UpdateWalkingHeartRateAverageResponse>,
+  updateWalkingHeartRateAverageError: ResolverTypeWrapper<UpdateWalkingHeartRateAverageError>,
+  updateWalkingHeartRateAverageErrorErrorCodesType: UpdateWalkingHeartRateAverageErrorErrorCodesType,
+  addWalkingRunningDistanceUnion: ResolversTypes['addWalkingRunningDistanceResponse'] | ResolversTypes['addWalkingRunningDistanceError'],
+  addWalkingRunningDistanceResponse: ResolverTypeWrapper<AddWalkingRunningDistanceResponse>,
+  addWalkingRunningDistanceError: ResolverTypeWrapper<AddWalkingRunningDistanceError>,
+  addWalkingRunningDistanceErrorErrorCodesType: AddWalkingRunningDistanceErrorErrorCodesType,
+  updateWalkingRunningDistanceUnion: ResolversTypes['updateWalkingRunningDistanceResponse'] | ResolversTypes['updateWalkingRunningDistanceError'],
+  updateWalkingRunningDistanceResponse: ResolverTypeWrapper<UpdateWalkingRunningDistanceResponse>,
+  updateWalkingRunningDistanceError: ResolverTypeWrapper<UpdateWalkingRunningDistanceError>,
+  updateWalkingRunningDistanceErrorErrorCodesType: UpdateWalkingRunningDistanceErrorErrorCodesType,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
   RootQueryType: ResolverTypeWrapper<RootQueryType>,
   Date: ResolverTypeWrapper<Scalars['Date']>,
@@ -565,6 +1201,70 @@ export type ResolversParentTypes = {
   addHealthKitResponse: AddHealthKitResponse,
   addHealthKitError: AddHealthKitError,
   addHealthKitErrorErrorCodesType: AddHealthKitErrorErrorCodesType,
+  addActiveEnergyUnion: ResolversTypes['addActiveEnergyResponse'] | ResolversTypes['addActiveEnergyError'],
+  addActiveEnergyResponse: AddActiveEnergyResponse,
+  addActiveEnergyError: AddActiveEnergyError,
+  addActiveEnergyErrorErrorCodesType: AddActiveEnergyErrorErrorCodesType,
+  updateActiveEnergyUnion: ResolversTypes['updateActiveEnergyResponse'] | ResolversTypes['updateActiveEnergyError'],
+  updateActiveEnergyResponse: UpdateActiveEnergyResponse,
+  updateActiveEnergyError: UpdateActiveEnergyError,
+  updateActiveEnergyErrorErrorCodesType: UpdateActiveEnergyErrorErrorCodesType,
+  addCaffeineUnion: ResolversTypes['addCaffeineResponse'] | ResolversTypes['addCaffeineError'],
+  addCaffeineResponse: AddCaffeineResponse,
+  addCaffeineError: AddCaffeineError,
+  addCaffeineErrorErrorCodesType: AddCaffeineErrorErrorCodesType,
+  updateCaffeineUnion: ResolversTypes['updateCaffeineResponse'] | ResolversTypes['updateCaffeineError'],
+  updateCaffeineResponse: UpdateCaffeineResponse,
+  updateCaffeineError: UpdateCaffeineError,
+  updateCaffeineErrorErrorCodesType: UpdateCaffeineErrorErrorCodesType,
+  addRestingEnergyUnion: ResolversTypes['addRestingEnergyResponse'] | ResolversTypes['addRestingEnergyError'],
+  addRestingEnergyResponse: AddRestingEnergyResponse,
+  addRestingEnergyError: AddRestingEnergyError,
+  addRestingEnergyErrorErrorCodesType: AddRestingEnergyErrorErrorCodesType,
+  updateRestingEnergyUnion: ResolversTypes['updateRestingEnergyResponse'] | ResolversTypes['updateRestingEnergyError'],
+  updateRestingEnergyResponse: UpdateRestingEnergyResponse,
+  updateRestingEnergyError: UpdateRestingEnergyError,
+  updateRestingEnergyErrorErrorCodesType: UpdateRestingEnergyErrorErrorCodesType,
+  addRestingHeartRateUnion: ResolversTypes['addRestingHeartRateResponse'] | ResolversTypes['addRestingHeartRateError'],
+  addRestingHeartRateResponse: AddRestingHeartRateResponse,
+  addRestingHeartRateError: AddRestingHeartRateError,
+  addRestingHeartRateErrorErrorCodesType: AddRestingHeartRateErrorErrorCodesType,
+  updateRestingHeartRateUnion: ResolversTypes['updateRestingHeartRateResponse'] | ResolversTypes['updateRestingHeartRateError'],
+  updateRestingHeartRateResponse: UpdateRestingHeartRateResponse,
+  updateRestingHeartRateError: UpdateRestingHeartRateError,
+  updateRestingHeartRateErrorErrorCodesType: UpdateRestingHeartRateErrorErrorCodesType,
+  addSleepAnalysisUnion: ResolversTypes['addSleepAnalysisResponse'] | ResolversTypes['addSleepAnalysisError'],
+  addSleepAnalysisResponse: AddSleepAnalysisResponse,
+  addSleepAnalysisError: AddSleepAnalysisError,
+  addSleepAnalysisErrorErrorCodesType: AddSleepAnalysisErrorErrorCodesType,
+  updateSleepAnalysisUnion: ResolversTypes['updateSleepAnalysisResponse'] | ResolversTypes['updateSleepAnalysisError'],
+  updateSleepAnalysisResponse: UpdateSleepAnalysisResponse,
+  updateSleepAnalysisError: UpdateSleepAnalysisError,
+  updateSleepAnalysisErrorErrorCodesType: UpdateSleepAnalysisErrorErrorCodesType,
+  addSwimmingDistanceUnion: ResolversTypes['addSwimmingDistanceResponse'] | ResolversTypes['addSwimmingDistanceError'],
+  addSwimmingDistanceResponse: AddSwimmingDistanceResponse,
+  addSwimmingDistanceError: AddSwimmingDistanceError,
+  addSwimmingDistanceErrorErrorCodesType: AddSwimmingDistanceErrorErrorCodesType,
+  updateSwimmingDistanceUnion: ResolversTypes['updateSwimmingDistanceResponse'] | ResolversTypes['updateSwimmingDistanceError'],
+  updateSwimmingDistanceResponse: UpdateSwimmingDistanceResponse,
+  updateSwimmingDistanceError: UpdateSwimmingDistanceError,
+  updateSwimmingDistanceErrorErrorCodesType: UpdateSwimmingDistanceErrorErrorCodesType,
+  addWalkingHeartRateAverageUnion: ResolversTypes['addWalkingHeartRateAverageResponse'] | ResolversTypes['addWalkingHeartRateAverageError'],
+  addWalkingHeartRateAverageResponse: AddWalkingHeartRateAverageResponse,
+  addWalkingHeartRateAverageError: AddWalkingHeartRateAverageError,
+  addWalkingHeartRateAverageErrorErrorCodesType: AddWalkingHeartRateAverageErrorErrorCodesType,
+  updateWalkingHeartRateAverageUnion: ResolversTypes['updateWalkingHeartRateAverageResponse'] | ResolversTypes['updateWalkingHeartRateAverageError'],
+  updateWalkingHeartRateAverageResponse: UpdateWalkingHeartRateAverageResponse,
+  updateWalkingHeartRateAverageError: UpdateWalkingHeartRateAverageError,
+  updateWalkingHeartRateAverageErrorErrorCodesType: UpdateWalkingHeartRateAverageErrorErrorCodesType,
+  addWalkingRunningDistanceUnion: ResolversTypes['addWalkingRunningDistanceResponse'] | ResolversTypes['addWalkingRunningDistanceError'],
+  addWalkingRunningDistanceResponse: AddWalkingRunningDistanceResponse,
+  addWalkingRunningDistanceError: AddWalkingRunningDistanceError,
+  addWalkingRunningDistanceErrorErrorCodesType: AddWalkingRunningDistanceErrorErrorCodesType,
+  updateWalkingRunningDistanceUnion: ResolversTypes['updateWalkingRunningDistanceResponse'] | ResolversTypes['updateWalkingRunningDistanceError'],
+  updateWalkingRunningDistanceResponse: UpdateWalkingRunningDistanceResponse,
+  updateWalkingRunningDistanceError: UpdateWalkingRunningDistanceError,
+  updateWalkingRunningDistanceErrorErrorCodesType: UpdateWalkingRunningDistanceErrorErrorCodesType,
   Boolean: Scalars['Boolean'],
   RootQueryType: RootQueryType,
   Date: Scalars['Date'],
@@ -589,6 +1289,32 @@ export type LinkDirectiveResolver<Result, Parent, ContextType = any, Args = {   
 export type EmbeddedDirectiveResolver<Result, Parent, ContextType = any, Args = {  }> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
 
 export type MapDirectiveResolver<Result, Parent, ContextType = any, Args = {   path?: Maybe<Scalars['String']> }> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
+
+export type AddActiveEnergyErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addActiveEnergyError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addActiveEnergyErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddActiveEnergyResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addActiveEnergyResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type AddActiveEnergyUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addActiveEnergyUnion']> = {
+  __resolveType: TypeResolveFn<'addActiveEnergyResponse' | 'addActiveEnergyError', ParentType, ContextType>
+};
+
+export type AddCaffeineErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addCaffeineError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addCaffeineErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddCaffeineResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addCaffeineResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type AddCaffeineUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addCaffeineUnion']> = {
+  __resolveType: TypeResolveFn<'addCaffeineResponse' | 'addCaffeineError', ParentType, ContextType>
+};
 
 export type AddFlightsClimbedErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addFlightsClimbedError']> = {
   errorCode?: Resolver<Maybe<ResolversTypes['addFlightsClimbedErrorErrorCodesType']>, ParentType, ContextType>,
@@ -642,6 +1368,45 @@ export type AddHeartRateVariabilityUnionResolvers<ContextType = any, ParentType 
   __resolveType: TypeResolveFn<'addHeartRateVariabilityResponse' | 'addHeartRateVariabilityError', ParentType, ContextType>
 };
 
+export type AddRestingEnergyErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addRestingEnergyError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addRestingEnergyErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddRestingEnergyResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addRestingEnergyResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type AddRestingEnergyUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addRestingEnergyUnion']> = {
+  __resolveType: TypeResolveFn<'addRestingEnergyResponse' | 'addRestingEnergyError', ParentType, ContextType>
+};
+
+export type AddRestingHeartRateErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addRestingHeartRateError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addRestingHeartRateErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddRestingHeartRateResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addRestingHeartRateResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type AddRestingHeartRateUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addRestingHeartRateUnion']> = {
+  __resolveType: TypeResolveFn<'addRestingHeartRateResponse' | 'addRestingHeartRateError', ParentType, ContextType>
+};
+
+export type AddSleepAnalysisErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addSleepAnalysisError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addSleepAnalysisErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddSleepAnalysisResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addSleepAnalysisResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type AddSleepAnalysisUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addSleepAnalysisUnion']> = {
+  __resolveType: TypeResolveFn<'addSleepAnalysisResponse' | 'addSleepAnalysisError', ParentType, ContextType>
+};
+
 export type AddStepErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addStepError']> = {
   errorCode?: Resolver<Maybe<ResolversTypes['addStepErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
@@ -653,6 +1418,45 @@ export type AddStepResponseResolvers<ContextType = any, ParentType = ResolversPa
 
 export type AddStepUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addStepUnion']> = {
   __resolveType: TypeResolveFn<'addStepResponse' | 'addStepError', ParentType, ContextType>
+};
+
+export type AddSwimmingDistanceErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addSwimmingDistanceError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addSwimmingDistanceErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddSwimmingDistanceResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addSwimmingDistanceResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type AddSwimmingDistanceUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addSwimmingDistanceUnion']> = {
+  __resolveType: TypeResolveFn<'addSwimmingDistanceResponse' | 'addSwimmingDistanceError', ParentType, ContextType>
+};
+
+export type AddWalkingHeartRateAverageErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addWalkingHeartRateAverageError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addWalkingHeartRateAverageErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddWalkingHeartRateAverageResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addWalkingHeartRateAverageResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type AddWalkingHeartRateAverageUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addWalkingHeartRateAverageUnion']> = {
+  __resolveType: TypeResolveFn<'addWalkingHeartRateAverageResponse' | 'addWalkingHeartRateAverageError', ParentType, ContextType>
+};
+
+export type AddWalkingRunningDistanceErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addWalkingRunningDistanceError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addWalkingRunningDistanceErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddWalkingRunningDistanceResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addWalkingRunningDistanceResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type AddWalkingRunningDistanceUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addWalkingRunningDistanceUnion']> = {
+  __resolveType: TypeResolveFn<'addWalkingRunningDistanceResponse' | 'addWalkingRunningDistanceError', ParentType, ContextType>
 };
 
 export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Date'], any> {
@@ -685,12 +1489,63 @@ export type MutationResolvers<ContextType = any, ParentType = ResolversParentTyp
   addHeartRateVariability?: Resolver<Maybe<ResolversTypes['addHeartRateVariabilityUnion']>, ParentType, ContextType, MutationAddHeartRateVariabilityArgs>,
   updateHeartRateVariability?: Resolver<Maybe<ResolversTypes['updateHeartRateVariabilityUnion']>, ParentType, ContextType, MutationUpdateHeartRateVariabilityArgs>,
   addHealthKit?: Resolver<Maybe<ResolversTypes['addHealthKitUnion']>, ParentType, ContextType, MutationAddHealthKitArgs>,
+  addActiveEnergy?: Resolver<Maybe<ResolversTypes['addActiveEnergyUnion']>, ParentType, ContextType, MutationAddActiveEnergyArgs>,
+  updateActiveEnergy?: Resolver<Maybe<ResolversTypes['updateActiveEnergyUnion']>, ParentType, ContextType, MutationUpdateActiveEnergyArgs>,
+  addCaffeine?: Resolver<Maybe<ResolversTypes['addCaffeineUnion']>, ParentType, ContextType, MutationAddCaffeineArgs>,
+  updateCaffeine?: Resolver<Maybe<ResolversTypes['updateCaffeineUnion']>, ParentType, ContextType, MutationUpdateCaffeineArgs>,
+  addRestingEnergy?: Resolver<Maybe<ResolversTypes['addRestingEnergyUnion']>, ParentType, ContextType, MutationAddRestingEnergyArgs>,
+  updateRestingEnergy?: Resolver<Maybe<ResolversTypes['updateRestingEnergyUnion']>, ParentType, ContextType, MutationUpdateRestingEnergyArgs>,
+  addRestingHeartRate?: Resolver<Maybe<ResolversTypes['addRestingHeartRateUnion']>, ParentType, ContextType, MutationAddRestingHeartRateArgs>,
+  updateRestingHeartRate?: Resolver<Maybe<ResolversTypes['updateRestingHeartRateUnion']>, ParentType, ContextType, MutationUpdateRestingHeartRateArgs>,
+  addSleepAnalysis?: Resolver<Maybe<ResolversTypes['addSleepAnalysisUnion']>, ParentType, ContextType, MutationAddSleepAnalysisArgs>,
+  updateSleepAnalysis?: Resolver<Maybe<ResolversTypes['updateSleepAnalysisUnion']>, ParentType, ContextType, MutationUpdateSleepAnalysisArgs>,
+  addSwimmingDistance?: Resolver<Maybe<ResolversTypes['addSwimmingDistanceUnion']>, ParentType, ContextType, MutationAddSwimmingDistanceArgs>,
+  updateSwimmingDistance?: Resolver<Maybe<ResolversTypes['updateSwimmingDistanceUnion']>, ParentType, ContextType, MutationUpdateSwimmingDistanceArgs>,
+  addWalkingHeartRateAverage?: Resolver<Maybe<ResolversTypes['addWalkingHeartRateAverageUnion']>, ParentType, ContextType, MutationAddWalkingHeartRateAverageArgs>,
+  updateWalkingHeartRateAverage?: Resolver<Maybe<ResolversTypes['updateWalkingHeartRateAverageUnion']>, ParentType, ContextType, MutationUpdateWalkingHeartRateAverageArgs>,
+  addWalkingRunningDistance?: Resolver<Maybe<ResolversTypes['addWalkingRunningDistanceUnion']>, ParentType, ContextType, MutationAddWalkingRunningDistanceArgs>,
+  updateWalkingRunningDistance?: Resolver<Maybe<ResolversTypes['updateWalkingRunningDistanceUnion']>, ParentType, ContextType, MutationUpdateWalkingRunningDistanceArgs>,
 };
 
 export type RootQueryTypeResolvers<ContextType = any, ParentType = ResolversParentTypes['RootQueryType']> = {
   step?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeStepArgs>,
   flightsClimbed?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeFlightsClimbedArgs>,
   heartrate?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeHeartrateArgs>,
+  heartrateVariability?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeHeartrateVariabilityArgs>,
+  activeEnergy?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeActiveEnergyArgs>,
+  caffeine?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeCaffeineArgs>,
+  restingEnergy?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeRestingEnergyArgs>,
+  restingHeartrate?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeRestingHeartrateArgs>,
+  sleepAnalysis?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeSleepAnalysisArgs>,
+  swimmingDistance?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeSwimmingDistanceArgs>,
+  walkingHeartrateAverage?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeWalkingHeartrateAverageArgs>,
+  walkingRunningDistance?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeWalkingRunningDistanceArgs>,
+};
+
+export type UpdateActiveEnergyErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateActiveEnergyError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateActiveEnergyErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateActiveEnergyResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateActiveEnergyResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type UpdateActiveEnergyUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateActiveEnergyUnion']> = {
+  __resolveType: TypeResolveFn<'updateActiveEnergyResponse' | 'updateActiveEnergyError', ParentType, ContextType>
+};
+
+export type UpdateCaffeineErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCaffeineError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateCaffeineErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateCaffeineResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCaffeineResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type UpdateCaffeineUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCaffeineUnion']> = {
+  __resolveType: TypeResolveFn<'updateCaffeineResponse' | 'updateCaffeineError', ParentType, ContextType>
 };
 
 export type UpdateFlightsClimbedErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateFlightsClimbedError']> = {
@@ -732,6 +1587,45 @@ export type UpdateHeartRateVariabilityUnionResolvers<ContextType = any, ParentTy
   __resolveType: TypeResolveFn<'updateHeartRateVariabilityResponse' | 'updateHeartRateVariabilityError', ParentType, ContextType>
 };
 
+export type UpdateRestingEnergyErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateRestingEnergyError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateRestingEnergyErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateRestingEnergyResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateRestingEnergyResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type UpdateRestingEnergyUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateRestingEnergyUnion']> = {
+  __resolveType: TypeResolveFn<'updateRestingEnergyResponse' | 'updateRestingEnergyError', ParentType, ContextType>
+};
+
+export type UpdateRestingHeartRateErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateRestingHeartRateError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateRestingHeartRateErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateRestingHeartRateResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateRestingHeartRateResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type UpdateRestingHeartRateUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateRestingHeartRateUnion']> = {
+  __resolveType: TypeResolveFn<'updateRestingHeartRateResponse' | 'updateRestingHeartRateError', ParentType, ContextType>
+};
+
+export type UpdateSleepAnalysisErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSleepAnalysisError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateSleepAnalysisErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateSleepAnalysisResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSleepAnalysisResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type UpdateSleepAnalysisUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSleepAnalysisUnion']> = {
+  __resolveType: TypeResolveFn<'updateSleepAnalysisResponse' | 'updateSleepAnalysisError', ParentType, ContextType>
+};
+
 export type UpdateStepErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateStepError']> = {
   errorCode?: Resolver<Maybe<ResolversTypes['updateStepErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
@@ -745,7 +1639,52 @@ export type UpdateStepUnionResolvers<ContextType = any, ParentType = ResolversPa
   __resolveType: TypeResolveFn<'updateStepResponse' | 'updateStepError', ParentType, ContextType>
 };
 
+export type UpdateSwimmingDistanceErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSwimmingDistanceError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateSwimmingDistanceErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateSwimmingDistanceResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSwimmingDistanceResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type UpdateSwimmingDistanceUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSwimmingDistanceUnion']> = {
+  __resolveType: TypeResolveFn<'updateSwimmingDistanceResponse' | 'updateSwimmingDistanceError', ParentType, ContextType>
+};
+
+export type UpdateWalkingHeartRateAverageErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateWalkingHeartRateAverageError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateWalkingHeartRateAverageErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateWalkingHeartRateAverageResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateWalkingHeartRateAverageResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type UpdateWalkingHeartRateAverageUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateWalkingHeartRateAverageUnion']> = {
+  __resolveType: TypeResolveFn<'updateWalkingHeartRateAverageResponse' | 'updateWalkingHeartRateAverageError', ParentType, ContextType>
+};
+
+export type UpdateWalkingRunningDistanceErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateWalkingRunningDistanceError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateWalkingRunningDistanceErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateWalkingRunningDistanceResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateWalkingRunningDistanceResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type UpdateWalkingRunningDistanceUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateWalkingRunningDistanceUnion']> = {
+  __resolveType: TypeResolveFn<'updateWalkingRunningDistanceResponse' | 'updateWalkingRunningDistanceError', ParentType, ContextType>
+};
+
 export type Resolvers<ContextType = any> = {
+  addActiveEnergyError?: AddActiveEnergyErrorResolvers<ContextType>,
+  addActiveEnergyResponse?: AddActiveEnergyResponseResolvers<ContextType>,
+  addActiveEnergyUnion?: AddActiveEnergyUnionResolvers,
+  addCaffeineError?: AddCaffeineErrorResolvers<ContextType>,
+  addCaffeineResponse?: AddCaffeineResponseResolvers<ContextType>,
+  addCaffeineUnion?: AddCaffeineUnionResolvers,
   addFlightsClimbedError?: AddFlightsClimbedErrorResolvers<ContextType>,
   addFlightsClimbedResponse?: AddFlightsClimbedResponseResolvers<ContextType>,
   addFlightsClimbedUnion?: AddFlightsClimbedUnionResolvers,
@@ -758,13 +1697,37 @@ export type Resolvers<ContextType = any> = {
   addHeartRateVariabilityError?: AddHeartRateVariabilityErrorResolvers<ContextType>,
   addHeartRateVariabilityResponse?: AddHeartRateVariabilityResponseResolvers<ContextType>,
   addHeartRateVariabilityUnion?: AddHeartRateVariabilityUnionResolvers,
+  addRestingEnergyError?: AddRestingEnergyErrorResolvers<ContextType>,
+  addRestingEnergyResponse?: AddRestingEnergyResponseResolvers<ContextType>,
+  addRestingEnergyUnion?: AddRestingEnergyUnionResolvers,
+  addRestingHeartRateError?: AddRestingHeartRateErrorResolvers<ContextType>,
+  addRestingHeartRateResponse?: AddRestingHeartRateResponseResolvers<ContextType>,
+  addRestingHeartRateUnion?: AddRestingHeartRateUnionResolvers,
+  addSleepAnalysisError?: AddSleepAnalysisErrorResolvers<ContextType>,
+  addSleepAnalysisResponse?: AddSleepAnalysisResponseResolvers<ContextType>,
+  addSleepAnalysisUnion?: AddSleepAnalysisUnionResolvers,
   addStepError?: AddStepErrorResolvers<ContextType>,
   addStepResponse?: AddStepResponseResolvers<ContextType>,
   addStepUnion?: AddStepUnionResolvers,
+  addSwimmingDistanceError?: AddSwimmingDistanceErrorResolvers<ContextType>,
+  addSwimmingDistanceResponse?: AddSwimmingDistanceResponseResolvers<ContextType>,
+  addSwimmingDistanceUnion?: AddSwimmingDistanceUnionResolvers,
+  addWalkingHeartRateAverageError?: AddWalkingHeartRateAverageErrorResolvers<ContextType>,
+  addWalkingHeartRateAverageResponse?: AddWalkingHeartRateAverageResponseResolvers<ContextType>,
+  addWalkingHeartRateAverageUnion?: AddWalkingHeartRateAverageUnionResolvers,
+  addWalkingRunningDistanceError?: AddWalkingRunningDistanceErrorResolvers<ContextType>,
+  addWalkingRunningDistanceResponse?: AddWalkingRunningDistanceResponseResolvers<ContextType>,
+  addWalkingRunningDistanceUnion?: AddWalkingRunningDistanceUnionResolvers,
   Date?: GraphQLScalarType,
   HealthType?: HealthTypeResolvers<ContextType>,
   Mutation?: MutationResolvers<ContextType>,
   RootQueryType?: RootQueryTypeResolvers<ContextType>,
+  updateActiveEnergyError?: UpdateActiveEnergyErrorResolvers<ContextType>,
+  updateActiveEnergyResponse?: UpdateActiveEnergyResponseResolvers<ContextType>,
+  updateActiveEnergyUnion?: UpdateActiveEnergyUnionResolvers,
+  updateCaffeineError?: UpdateCaffeineErrorResolvers<ContextType>,
+  updateCaffeineResponse?: UpdateCaffeineResponseResolvers<ContextType>,
+  updateCaffeineUnion?: UpdateCaffeineUnionResolvers,
   updateFlightsClimbedError?: UpdateFlightsClimbedErrorResolvers<ContextType>,
   updateFlightsClimbedResponse?: UpdateFlightsClimbedResponseResolvers<ContextType>,
   updateFlightsClimbedUnion?: UpdateFlightsClimbedUnionResolvers,
@@ -774,9 +1737,27 @@ export type Resolvers<ContextType = any> = {
   updateHeartRateVariabilityError?: UpdateHeartRateVariabilityErrorResolvers<ContextType>,
   updateHeartRateVariabilityResponse?: UpdateHeartRateVariabilityResponseResolvers<ContextType>,
   updateHeartRateVariabilityUnion?: UpdateHeartRateVariabilityUnionResolvers,
+  updateRestingEnergyError?: UpdateRestingEnergyErrorResolvers<ContextType>,
+  updateRestingEnergyResponse?: UpdateRestingEnergyResponseResolvers<ContextType>,
+  updateRestingEnergyUnion?: UpdateRestingEnergyUnionResolvers,
+  updateRestingHeartRateError?: UpdateRestingHeartRateErrorResolvers<ContextType>,
+  updateRestingHeartRateResponse?: UpdateRestingHeartRateResponseResolvers<ContextType>,
+  updateRestingHeartRateUnion?: UpdateRestingHeartRateUnionResolvers,
+  updateSleepAnalysisError?: UpdateSleepAnalysisErrorResolvers<ContextType>,
+  updateSleepAnalysisResponse?: UpdateSleepAnalysisResponseResolvers<ContextType>,
+  updateSleepAnalysisUnion?: UpdateSleepAnalysisUnionResolvers,
   updateStepError?: UpdateStepErrorResolvers<ContextType>,
   updateStepResponse?: UpdateStepResponseResolvers<ContextType>,
   updateStepUnion?: UpdateStepUnionResolvers,
+  updateSwimmingDistanceError?: UpdateSwimmingDistanceErrorResolvers<ContextType>,
+  updateSwimmingDistanceResponse?: UpdateSwimmingDistanceResponseResolvers<ContextType>,
+  updateSwimmingDistanceUnion?: UpdateSwimmingDistanceUnionResolvers,
+  updateWalkingHeartRateAverageError?: UpdateWalkingHeartRateAverageErrorResolvers<ContextType>,
+  updateWalkingHeartRateAverageResponse?: UpdateWalkingHeartRateAverageResponseResolvers<ContextType>,
+  updateWalkingHeartRateAverageUnion?: UpdateWalkingHeartRateAverageUnionResolvers,
+  updateWalkingRunningDistanceError?: UpdateWalkingRunningDistanceErrorResolvers<ContextType>,
+  updateWalkingRunningDistanceResponse?: UpdateWalkingRunningDistanceResponseResolvers<ContextType>,
+  updateWalkingRunningDistanceUnion?: UpdateWalkingRunningDistanceUnionResolvers,
 };
 
 
@@ -802,4 +1783,3 @@ export type DirectiveResolvers<ContextType = any> = {
 * Use "DirectiveResolvers" root object instead. If you wish to get "IDirectiveResolvers", add "typesPrefix: I" to your config.
 */
 export type IDirectiveResolvers<ContextType = any> = DirectiveResolvers<ContextType>;
-import { ObjectID } from 'mongodb';
