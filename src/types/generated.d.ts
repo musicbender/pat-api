@@ -25,22 +25,33 @@ export type AddActiveEnergyError = {
 };
 
 export enum AddActiveEnergyErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for addActiveEnergy */
 export type AddActiveEnergyResponse = {
   __typename?: 'addActiveEnergyResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for addActiveEnergy */
 export type AddActiveEnergyUnion = AddActiveEnergyResponse | AddActiveEnergyError;
 
 export type AddCaffeineError = {
@@ -50,22 +61,33 @@ export type AddCaffeineError = {
 };
 
 export enum AddCaffeineErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for addCaffeine */
 export type AddCaffeineResponse = {
   __typename?: 'addCaffeineResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for addCaffeine */
 export type AddCaffeineUnion = AddCaffeineResponse | AddCaffeineError;
 
 export type AddFlightsClimbedError = {
@@ -75,22 +97,33 @@ export type AddFlightsClimbedError = {
 };
 
 export enum AddFlightsClimbedErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for addFlightsClimbed */
 export type AddFlightsClimbedResponse = {
   __typename?: 'addFlightsClimbedResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for addFlightsClimbed */
 export type AddFlightsClimbedUnion = AddFlightsClimbedResponse | AddFlightsClimbedError;
 
 export type AddHealthKitError = {
@@ -100,22 +133,33 @@ export type AddHealthKitError = {
 };
 
 export enum AddHealthKitErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for addHealthKit */
 export type AddHealthKitResponse = {
   __typename?: 'addHealthKitResponse',
   response?: Maybe<Array<Maybe<HealthType>>>,
 };
 
+/** Return either be response data or error data for addHealthKit */
 export type AddHealthKitUnion = AddHealthKitResponse | AddHealthKitError;
 
 export type AddHeartRateError = {
@@ -125,22 +169,33 @@ export type AddHeartRateError = {
 };
 
 export enum AddHeartRateErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for addHeartRate */
 export type AddHeartRateResponse = {
   __typename?: 'addHeartRateResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for addHeartRate */
 export type AddHeartRateUnion = AddHeartRateResponse | AddHeartRateError;
 
 export type AddHeartRateVariabilityError = {
@@ -150,22 +205,33 @@ export type AddHeartRateVariabilityError = {
 };
 
 export enum AddHeartRateVariabilityErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for addHeartRateVariability */
 export type AddHeartRateVariabilityResponse = {
   __typename?: 'addHeartRateVariabilityResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for addHeartRateVariability */
 export type AddHeartRateVariabilityUnion = AddHeartRateVariabilityResponse | AddHeartRateVariabilityError;
 
 export type AdditionalEntityFields = {
@@ -180,22 +246,33 @@ export type AddRestingEnergyError = {
 };
 
 export enum AddRestingEnergyErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for addRestingEnergy */
 export type AddRestingEnergyResponse = {
   __typename?: 'addRestingEnergyResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for addRestingEnergy */
 export type AddRestingEnergyUnion = AddRestingEnergyResponse | AddRestingEnergyError;
 
 export type AddRestingHeartRateError = {
@@ -205,22 +282,33 @@ export type AddRestingHeartRateError = {
 };
 
 export enum AddRestingHeartRateErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for addRestingHeartRate */
 export type AddRestingHeartRateResponse = {
   __typename?: 'addRestingHeartRateResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for addRestingHeartRate */
 export type AddRestingHeartRateUnion = AddRestingHeartRateResponse | AddRestingHeartRateError;
 
 export type AddSleepAnalysisError = {
@@ -230,22 +318,33 @@ export type AddSleepAnalysisError = {
 };
 
 export enum AddSleepAnalysisErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for addSleepAnalysis */
 export type AddSleepAnalysisResponse = {
   __typename?: 'addSleepAnalysisResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for addSleepAnalysis */
 export type AddSleepAnalysisUnion = AddSleepAnalysisResponse | AddSleepAnalysisError;
 
 export type AddStepError = {
@@ -255,22 +354,33 @@ export type AddStepError = {
 };
 
 export enum AddStepErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for addStep */
 export type AddStepResponse = {
   __typename?: 'addStepResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for addStep */
 export type AddStepUnion = AddStepResponse | AddStepError;
 
 export type AddSwimmingDistanceError = {
@@ -280,22 +390,33 @@ export type AddSwimmingDistanceError = {
 };
 
 export enum AddSwimmingDistanceErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for addSwimmingDistance */
 export type AddSwimmingDistanceResponse = {
   __typename?: 'addSwimmingDistanceResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for addSwimmingDistance */
 export type AddSwimmingDistanceUnion = AddSwimmingDistanceResponse | AddSwimmingDistanceError;
 
 export type AddWalkingHeartRateAverageError = {
@@ -305,22 +426,33 @@ export type AddWalkingHeartRateAverageError = {
 };
 
 export enum AddWalkingHeartRateAverageErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for addWalkingHeartRateAverage */
 export type AddWalkingHeartRateAverageResponse = {
   __typename?: 'addWalkingHeartRateAverageResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for addWalkingHeartRateAverage */
 export type AddWalkingHeartRateAverageUnion = AddWalkingHeartRateAverageResponse | AddWalkingHeartRateAverageError;
 
 export type AddWalkingRunningDistanceError = {
@@ -330,25 +462,37 @@ export type AddWalkingRunningDistanceError = {
 };
 
 export enum AddWalkingRunningDistanceErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for addWalkingRunningDistance */
 export type AddWalkingRunningDistanceResponse = {
   __typename?: 'addWalkingRunningDistanceResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for addWalkingRunningDistance */
 export type AddWalkingRunningDistanceUnion = AddWalkingRunningDistanceResponse | AddWalkingRunningDistanceError;
 
 
+/** Sample item in health data */
 export type HealthInputSampleType = {
   date?: Maybe<Scalars['String']>,
   source?: Maybe<Scalars['String']>,
@@ -356,6 +500,7 @@ export type HealthInputSampleType = {
   duration?: Maybe<Scalars['String']>,
 };
 
+/** Health data input */
 export type HealthInputType = {
   type: Scalars['String'],
   unit?: Maybe<UnitType>,
@@ -365,6 +510,7 @@ export type HealthInputType = {
   validSources?: Maybe<Array<Maybe<Scalars['String']>>>,
 };
 
+/** Health data input for updating */
 export type HealthInputUpdateType = {
   value?: Maybe<Scalars['Int']>,
   valueType?: Maybe<Scalars['String']>,
@@ -379,6 +525,7 @@ export type HealthInputUpdateType = {
   totalDuration?: Maybe<Scalars['String']>,
 };
 
+/** Health data */
 export type HealthType = {
   __typename?: 'HealthType',
   id?: Maybe<Scalars['String']>,
@@ -398,30 +545,55 @@ export type HealthType = {
 
 export type Mutation = {
   __typename?: 'Mutation',
+  /** Add a Step node */
   addStep?: Maybe<AddStepUnion>,
+  /** Update a Step node */
   updateStep?: Maybe<UpdateStepUnion>,
+  /** Add a FlightsClimbed node */
   addFlightsClimbed?: Maybe<AddFlightsClimbedUnion>,
+  /** Update a FlightsClimbed node */
   updateFlightsClimbed?: Maybe<UpdateFlightsClimbedUnion>,
+  /** Add a HeartRate node */
   addHeartRate?: Maybe<AddHeartRateUnion>,
+  /** Update a HeartRate node */
   updateHeartRate?: Maybe<UpdateHeartRateUnion>,
+  /** Add a HeartRateVariability node */
   addHeartRateVariability?: Maybe<AddHeartRateVariabilityUnion>,
+  /** Update a HeartRateVariability node */
   updateHeartRateVariability?: Maybe<UpdateHeartRateVariabilityUnion>,
+  /** Add multiple HealthKit data types */
   addHealthKit?: Maybe<AddHealthKitUnion>,
+  /** Add a ActiveEnergy node */
   addActiveEnergy?: Maybe<AddActiveEnergyUnion>,
+  /** Update a ActiveEnergy node */
   updateActiveEnergy?: Maybe<UpdateActiveEnergyUnion>,
+  /** Add a Caffeine node */
   addCaffeine?: Maybe<AddCaffeineUnion>,
+  /** Update a Caffeine node */
   updateCaffeine?: Maybe<UpdateCaffeineUnion>,
+  /** Add a RestingEnergy node */
   addRestingEnergy?: Maybe<AddRestingEnergyUnion>,
+  /** Update a RestingEnergy node */
   updateRestingEnergy?: Maybe<UpdateRestingEnergyUnion>,
+  /** Add a RestingHeartRate node */
   addRestingHeartRate?: Maybe<AddRestingHeartRateUnion>,
+  /** Update a RestingHeartRate node */
   updateRestingHeartRate?: Maybe<UpdateRestingHeartRateUnion>,
+  /** Add a SleepAnalysis node */
   addSleepAnalysis?: Maybe<AddSleepAnalysisUnion>,
+  /** Update a SleepAnalysis node */
   updateSleepAnalysis?: Maybe<UpdateSleepAnalysisUnion>,
+  /** Add a SwimmingDistance node */
   addSwimmingDistance?: Maybe<AddSwimmingDistanceUnion>,
+  /** Update a SwimmingDistance node */
   updateSwimmingDistance?: Maybe<UpdateSwimmingDistanceUnion>,
+  /** Add a WalkingHeartRateAverage node */
   addWalkingHeartRateAverage?: Maybe<AddWalkingHeartRateAverageUnion>,
+  /** Update a WalkingHeartRateAverage node */
   updateWalkingHeartRateAverage?: Maybe<UpdateWalkingHeartRateAverageUnion>,
+  /** Add a WalkingRunningDistance node */
   addWalkingRunningDistance?: Maybe<AddWalkingRunningDistanceUnion>,
+  /** Update a WalkingRunningDistance node */
   updateWalkingRunningDistance?: Maybe<UpdateWalkingRunningDistanceUnion>,
 };
 
@@ -564,17 +736,29 @@ export type MutationUpdateWalkingRunningDistanceArgs = {
 
 export type RootQueryType = {
   __typename?: 'RootQueryType',
+  /** Get a single step count by either _id or date, _id taking priority */
   step?: Maybe<HealthType>,
+  /** Get a single flights climbed count by either _id or date, _id taking priority */
   flightsClimbed?: Maybe<HealthType>,
+  /** Get a single heartrate average by either _id or date, _id taking priority */
   heartrate?: Maybe<HealthType>,
+  /** Get a single heartrate-variability average by either _id or date, _id taking priority */
   heartrateVariability?: Maybe<HealthType>,
+  /** Get a single active energy count by either _id or date, _id taking priority */
   activeEnergy?: Maybe<HealthType>,
+  /** Get a single caffeine count by either _id or date, _id taking priority */
   caffeine?: Maybe<HealthType>,
+  /** Get a single resting energy count by either _id or date, _id taking priority */
   restingEnergy?: Maybe<HealthType>,
+  /** Get a single resting-heartrate count by either _id or date, _id taking priority */
   restingHeartrate?: Maybe<HealthType>,
+  /** Get a single sleep-analysis count by either _id or date, _id taking priority */
   sleepAnalysis?: Maybe<HealthType>,
+  /** Get a single swimming-distance count by either _id or date, _id taking priority */
   swimmingDistance?: Maybe<HealthType>,
+  /** Get a single walking heartrate average by either _id or date, _id taking priority */
   walkingHeartrateAverage?: Maybe<HealthType>,
+  /** Get a single walking-running-distance count by either _id or date, _id taking priority */
   walkingRunningDistance?: Maybe<HealthType>,
 };
 
@@ -650,6 +834,7 @@ export type RootQueryTypeWalkingRunningDistanceArgs = {
   date?: Maybe<Scalars['Date']>
 };
 
+/** Acceptable units of measurment */
 export enum UnitType {
   Cm = 'cm',
   Kg = 'kg',
@@ -684,22 +869,33 @@ export type UpdateActiveEnergyError = {
 };
 
 export enum UpdateActiveEnergyErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for updateActiveEnergy */
 export type UpdateActiveEnergyResponse = {
   __typename?: 'updateActiveEnergyResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for updateActiveEnergy */
 export type UpdateActiveEnergyUnion = UpdateActiveEnergyResponse | UpdateActiveEnergyError;
 
 export type UpdateCaffeineError = {
@@ -709,22 +905,33 @@ export type UpdateCaffeineError = {
 };
 
 export enum UpdateCaffeineErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for updateCaffeine */
 export type UpdateCaffeineResponse = {
   __typename?: 'updateCaffeineResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for updateCaffeine */
 export type UpdateCaffeineUnion = UpdateCaffeineResponse | UpdateCaffeineError;
 
 export type UpdateFlightsClimbedError = {
@@ -734,22 +941,33 @@ export type UpdateFlightsClimbedError = {
 };
 
 export enum UpdateFlightsClimbedErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for updateFlightsClimbed */
 export type UpdateFlightsClimbedResponse = {
   __typename?: 'updateFlightsClimbedResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for updateFlightsClimbed */
 export type UpdateFlightsClimbedUnion = UpdateFlightsClimbedResponse | UpdateFlightsClimbedError;
 
 export type UpdateHeartRateError = {
@@ -759,22 +977,33 @@ export type UpdateHeartRateError = {
 };
 
 export enum UpdateHeartRateErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for updateHeartRate */
 export type UpdateHeartRateResponse = {
   __typename?: 'updateHeartRateResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for updateHeartRate */
 export type UpdateHeartRateUnion = UpdateHeartRateResponse | UpdateHeartRateError;
 
 export type UpdateHeartRateVariabilityError = {
@@ -784,22 +1013,33 @@ export type UpdateHeartRateVariabilityError = {
 };
 
 export enum UpdateHeartRateVariabilityErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for updateHeartRateVariability */
 export type UpdateHeartRateVariabilityResponse = {
   __typename?: 'updateHeartRateVariabilityResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for updateHeartRateVariability */
 export type UpdateHeartRateVariabilityUnion = UpdateHeartRateVariabilityResponse | UpdateHeartRateVariabilityError;
 
 export type UpdateRestingEnergyError = {
@@ -809,22 +1049,33 @@ export type UpdateRestingEnergyError = {
 };
 
 export enum UpdateRestingEnergyErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for updateRestingEnergy */
 export type UpdateRestingEnergyResponse = {
   __typename?: 'updateRestingEnergyResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for updateRestingEnergy */
 export type UpdateRestingEnergyUnion = UpdateRestingEnergyResponse | UpdateRestingEnergyError;
 
 export type UpdateRestingHeartRateError = {
@@ -834,22 +1085,33 @@ export type UpdateRestingHeartRateError = {
 };
 
 export enum UpdateRestingHeartRateErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for updateRestingHeartRate */
 export type UpdateRestingHeartRateResponse = {
   __typename?: 'updateRestingHeartRateResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for updateRestingHeartRate */
 export type UpdateRestingHeartRateUnion = UpdateRestingHeartRateResponse | UpdateRestingHeartRateError;
 
 export type UpdateSleepAnalysisError = {
@@ -859,22 +1121,33 @@ export type UpdateSleepAnalysisError = {
 };
 
 export enum UpdateSleepAnalysisErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for updateSleepAnalysis */
 export type UpdateSleepAnalysisResponse = {
   __typename?: 'updateSleepAnalysisResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for updateSleepAnalysis */
 export type UpdateSleepAnalysisUnion = UpdateSleepAnalysisResponse | UpdateSleepAnalysisError;
 
 export type UpdateStepError = {
@@ -884,22 +1157,33 @@ export type UpdateStepError = {
 };
 
 export enum UpdateStepErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for updateStep */
 export type UpdateStepResponse = {
   __typename?: 'updateStepResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for updateStep */
 export type UpdateStepUnion = UpdateStepResponse | UpdateStepError;
 
 export type UpdateSwimmingDistanceError = {
@@ -909,22 +1193,33 @@ export type UpdateSwimmingDistanceError = {
 };
 
 export enum UpdateSwimmingDistanceErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for updateSwimmingDistance */
 export type UpdateSwimmingDistanceResponse = {
   __typename?: 'updateSwimmingDistanceResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for updateSwimmingDistance */
 export type UpdateSwimmingDistanceUnion = UpdateSwimmingDistanceResponse | UpdateSwimmingDistanceError;
 
 export type UpdateWalkingHeartRateAverageError = {
@@ -934,22 +1229,33 @@ export type UpdateWalkingHeartRateAverageError = {
 };
 
 export enum UpdateWalkingHeartRateAverageErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for updateWalkingHeartRateAverage */
 export type UpdateWalkingHeartRateAverageResponse = {
   __typename?: 'updateWalkingHeartRateAverageResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for updateWalkingHeartRateAverage */
 export type UpdateWalkingHeartRateAverageUnion = UpdateWalkingHeartRateAverageResponse | UpdateWalkingHeartRateAverageError;
 
 export type UpdateWalkingRunningDistanceError = {
@@ -959,22 +1265,33 @@ export type UpdateWalkingRunningDistanceError = {
 };
 
 export enum UpdateWalkingRunningDistanceErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
   ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
   InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
 }
 
+/** Response data for updateWalkingRunningDistance */
 export type UpdateWalkingRunningDistanceResponse = {
   __typename?: 'updateWalkingRunningDistanceResponse',
   response?: Maybe<HealthType>,
 };
 
+/** Return either be response data or error data for updateWalkingRunningDistance */
 export type UpdateWalkingRunningDistanceUnion = UpdateWalkingRunningDistanceResponse | UpdateWalkingRunningDistanceError;
 
 
@@ -1039,15 +1356,17 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
+  RootQueryType: ResolverTypeWrapper<{}>,
+  String: ResolverTypeWrapper<Scalars['String']>,
+  Date: ResolverTypeWrapper<Scalars['Date']>,
+  HealthType: ResolverTypeWrapper<HealthType>,
+  Int: ResolverTypeWrapper<Scalars['Int']>,
+  UnitType: UnitType,
   Mutation: ResolverTypeWrapper<{}>,
   HealthInputType: HealthInputType,
-  String: ResolverTypeWrapper<Scalars['String']>,
-  UnitType: UnitType,
   HealthInputSampleType: HealthInputSampleType,
   addStepUnion: ResolversTypes['addStepResponse'] | ResolversTypes['addStepError'],
   addStepResponse: ResolverTypeWrapper<AddStepResponse>,
-  HealthType: ResolverTypeWrapper<HealthType>,
-  Int: ResolverTypeWrapper<Scalars['Int']>,
   addStepError: ResolverTypeWrapper<AddStepError>,
   addStepErrorErrorCodesType: AddStepErrorErrorCodesType,
   ID: ResolverTypeWrapper<Scalars['ID']>,
@@ -1149,22 +1468,22 @@ export type ResolversTypes = {
   updateWalkingRunningDistanceError: ResolverTypeWrapper<UpdateWalkingRunningDistanceError>,
   updateWalkingRunningDistanceErrorErrorCodesType: UpdateWalkingRunningDistanceErrorErrorCodesType,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
-  RootQueryType: ResolverTypeWrapper<RootQueryType>,
-  Date: ResolverTypeWrapper<Scalars['Date']>,
   AdditionalEntityFields: AdditionalEntityFields,
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
+  RootQueryType: {},
+  String: Scalars['String'],
+  Date: Scalars['Date'],
+  HealthType: HealthType,
+  Int: Scalars['Int'],
+  UnitType: UnitType,
   Mutation: {},
   HealthInputType: HealthInputType,
-  String: Scalars['String'],
-  UnitType: UnitType,
   HealthInputSampleType: HealthInputSampleType,
   addStepUnion: ResolversTypes['addStepResponse'] | ResolversTypes['addStepError'],
   addStepResponse: AddStepResponse,
-  HealthType: HealthType,
-  Int: Scalars['Int'],
   addStepError: AddStepError,
   addStepErrorErrorCodesType: AddStepErrorErrorCodesType,
   ID: Scalars['ID'],
@@ -1266,8 +1585,6 @@ export type ResolversParentTypes = {
   updateWalkingRunningDistanceError: UpdateWalkingRunningDistanceError,
   updateWalkingRunningDistanceErrorErrorCodesType: UpdateWalkingRunningDistanceErrorErrorCodesType,
   Boolean: Scalars['Boolean'],
-  RootQueryType: RootQueryType,
-  Date: Scalars['Date'],
   AdditionalEntityFields: AdditionalEntityFields,
 };
 
@@ -1783,3 +2100,4 @@ export type DirectiveResolvers<ContextType = any> = {
 * Use "DirectiveResolvers" root object instead. If you wish to get "IDirectiveResolvers", add "typesPrefix: I" to your config.
 */
 export type IDirectiveResolvers<ContextType = any> = DirectiveResolvers<ContextType>;
+import { ObjectID } from 'mongodb';
