@@ -1,7 +1,7 @@
-export const addRestingEnergy = `
-  mutation addRestingEnergy ($input: HealthInputType!) {
-    addRestingEnergy(input: $input) {
-      ... on addRestingEnergyResponse {
+export const addWalkingRunningDistance = `
+  mutation addWalkingRunningDistance ($input: HealthInputType!) {
+    addWalkingRunningDistance(input: $input) {
+      ... on addWalkingRunningDistanceResponse {
           response {
             id
             value
@@ -18,7 +18,7 @@ export const addRestingEnergy = `
             totalDuration
           }
       }
-      ... on addRestingEnergyError {
+      ... on addWalkingRunningDistanceError {
         errorCode
         errorDesc
       }
@@ -26,10 +26,10 @@ export const addRestingEnergy = `
   }
 `;
 
-export const updateRestingEnergy = `
-  mutation updateRestingEnergy ($input: HealthInputType!) {
-    updateRestingEnergy(input: $input) {
-      ... on updateRestingEnergyResponse {
+export const updateWalkingRunningDistance = `
+  mutation updateWalkingRunningDistance ($input: HealthInputUpdateType!, $id: ID!) {
+    updateWalkingRunningDistance(input: $input, id: $id) {
+      ... on updateWalkingRunningDistanceResponse {
           response {
             id
             value
@@ -46,7 +46,7 @@ export const updateRestingEnergy = `
             totalDuration
           }
       }
-      ... on updateRestingEnergyError {
+      ... on updateWalkingRunningDistanceError {
         errorCode
         errorDesc
       }
