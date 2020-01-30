@@ -1,5 +1,4 @@
 import * as moment from 'moment';
-const { weight } = require('../../configs/health.json');
 import { 
   Model, 
   IsUUID, 
@@ -8,7 +7,7 @@ import {
   Default,
 } from 'sequelize-typescript';
 
-export default class Weight<T = any, T2 = any> extends Model<Weight> {
+export default class BasicHealth<T = any, T2 = any> extends Model<BasicHealth> {
   @IsUUID(4)
   @PrimaryKey
   @Column
@@ -30,7 +29,6 @@ export default class Weight<T = any, T2 = any> extends Model<Weight> {
   @Column
   sampledOn: Date
 
-  @Default(weight.unit)
   @Column
   unit: string;
 }
