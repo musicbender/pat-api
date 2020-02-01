@@ -5,6 +5,7 @@ import {
   PrimaryKey, 
   Column, 
   Default,
+  DataType
 } from 'sequelize-typescript';
 
 export default class BasicHealth<T = any, T2 = any> extends Model<BasicHealth> {
@@ -14,7 +15,7 @@ export default class BasicHealth<T = any, T2 = any> extends Model<BasicHealth> {
   id: string;;
 
   @Default(0)
-  @Column
+  @Column({ type: DataType.FLOAT })
   value: number;
 
   @Default(moment().toISOString())

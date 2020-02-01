@@ -1,6 +1,7 @@
 import * as GraphQLDate from 'graphql-date';
 import { GraphQLString, GraphQLNonNull, GraphQLID } from 'graphql';
-import { findHealthById, findHealthByDate, addHealthItem, updateHealthItem } from '../../controllers/health';
+import { findHealthById, findHealthByDate } from '../../controllers/health';
+import { addHealthKitItem, updateHealthKitItem } from '../../controllers/healthkit';
 import { ExpectedError } from '../../utils/errors';
 import { HealthType, HealthInputType, ResponseUnionType, HealthInputUpdateType } from '../types';
 import { HealthConfigType } from '../../types';
@@ -57,7 +58,7 @@ export const composeHealthkitAdd = (options: AddOptions) => {
       }
     },
     resolve(parentValue, { input }) {
-      return { response: addHealthItem(input, healthTypes[options.type]) };
+      return { response: addHealthKitItem(input, healthTypes[options.type]) };
     }
   }
 }
@@ -86,7 +87,7 @@ export const composeHealthkitUpdate = (options: UpdateOptions) => {
       }
     },
     resolve(parentValue, { id, input }) {
-      return { response: updateHealthItem(id, input, healthTypes[options.type]) };
+      return { response: updateHealthKitItem(id, input, healthTypes[options.type]) };
     }
   }
 }

@@ -1,5 +1,13 @@
 import * as moment from 'moment';
-import { FindOutterValuesTypes } from '../types';
+import { addToDuration } from './date';
+import { 
+  FindOutterValuesTypes, 
+  ValidSampleOptionsType, 
+  HealthType, 
+  HealthInputSampleType, 
+  HealthInputType, 
+  HealthConfigType 
+} from '../types';
 
 export const isWithinInterval = (interval: moment.unitOfTime.StartOf, date: string, sampledOn: string): boolean => {
     if (!interval) return true;
@@ -54,5 +62,110 @@ export const findOutterValues = (values: number[] = [], type: keyof typeof FindO
   });
 
   return output;
+}
+
+export const isValidSample = (options: ValidSampleOptionsType): boolean => {
+  const { config, input, sample, validSources } = options;
+  
+  // not within defined interval
+  if (config.interval && !isWithinInterval(config.interval, sample.date, input.sampledOn)) {
+    return false;
+  }
+
+  // no valid sources
+  if (!validSources) {
+    return false;
+  }
+  
+  // not from valid source
+  if (validSources.indexOf(sample.source) < 0 && validSources.indexOf('*') < 0) {
+    return false;
+  }
+
+  return true;
+}
+
+export const getOutputValue = (valueType: string = 'totalSampleValue', output: HealthType): number => {
+  switch(valueType) {
+    case 'totalSampleValue':
+      return output.totalSampleValue;
+    case 'averageSampleValue':
+      return output.averageSampleValue;
+    default:
+      return output.totalSampleValue || 0;
+  }
+}
+
+// reduce all samples into a single output object
+export const reduceSampleData = (
+  samples: HealthInputSampleType[], 
+  input: HealthInputType, 
+  initialOutput: HealthType, 
+  config: HealthConfigType
+): HealthType => {
+  let output: HealthType = initialOutput;
+  const validSources: string[] = getValidSources(input.validSources, config.defaultValidSource);
+  let valueArr: number[] = [];
+  
+  samples.forEach((sample: HealthInputSampleType) => {
+    if (!isValidSample({ sample, input, config, validSources })) {
+      return;
+    }
+
+    if (config.valueType === 'totalSampleValue') {
+      output.totalSampleValue += Number(sample.value);
+    }
+   
+    if (!output.sampledOn) {
+      output.sampledOn = sample.date;
+    }
+
+    if (output.sources.indexOf(sample.source) === -1) {
+      output.sources.push(sample.source);
+    }
+
+    if (sample.duration) {
+      output.totalDuration = addToDuration(`${sample.duration}`, output.totalDuration);
+    }
+
+    valueArr = [ ...valueArr, +sample.value ];
+  });
+
+  if (output.totalSampleValue) {
+    output.totalSampleValue = +output.totalSampleValue.toFixed(2);
+  }
+
+  output.averageSampleValue = getAverage(valueArr);
+  output.highestSampleValue = findOutterValues(valueArr, 'highest');
+  output.lowestSampleValue = findOutterValues(valueArr, 'lowest');
+  output.value = getOutputValue(config.valueType, output);
+
+  return output;
+}
+
+// aggregate health data based on config
+export const aggregateHealthData = (input: HealthInputType, config: HealthConfigType): HealthType => {
+  const sampledOn = !!input.sampledOn && moment(input.sampledOn).isValid() ? input.sampledOn : null;
+  const samples: HealthInputSampleType[] = input.hasOwnProperty('sampleList')
+    ? input.sampleList
+    : input.sample
+    ? [input.sample]
+    : [];
+
+  const initialOutput: HealthType = {
+    unit: input.unit || config.defaultUnit,
+    value: null,
+    valueType: config.valueType || 'totalSampleValue',
+    totalSampleValue: null,
+    averageSampleValue: null,
+    highestSampleValue: null, 
+    lowestSampleValue: null,
+    sampledOn,
+    sources: [],
+    totalDuration: '0.00:00:00',
+    updatedOn: moment().toISOString()
+  };
+
+  return reduceSampleData(samples, input, initialOutput, config);
 }
 

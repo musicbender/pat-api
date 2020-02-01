@@ -1,1 +1,7 @@
-export { default as healthModels } from './healthkit';
+import healthkit from './healthkit';
+import health from './health';
+
+export default { 
+  ...health, 
+  ...healthkit 
+};

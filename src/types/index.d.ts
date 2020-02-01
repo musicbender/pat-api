@@ -1,6 +1,9 @@
 import * as moment from 'moment';
 import { HealthType, HealthInputType, HealthInputSampleType, UnitType } from '../types/generated';
 
+// generated types
+export * from './generated';
+
 // enums
 export enum HealthInterval {
   'days',
