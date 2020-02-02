@@ -10,14 +10,6 @@ export type Scalars = {
   Date: any,
 };
 
-
-
-
-
-
-
-
-
 export type AddActiveEnergyError = {
   __typename?: 'addActiveEnergyError',
   errorCode?: Maybe<AddActiveEnergyErrorErrorCodesType>,
@@ -233,11 +225,6 @@ export type AddHeartRateVariabilityResponse = {
 
 /** Return either be response data or error data for addHeartRateVariability */
 export type AddHeartRateVariabilityUnion = AddHeartRateVariabilityResponse | AddHeartRateVariabilityError;
-
-export type AdditionalEntityFields = {
-  path?: Maybe<Scalars['String']>,
-  type?: Maybe<Scalars['String']>,
-};
 
 export type AddRestingEnergyError = {
   __typename?: 'addRestingEnergyError',
@@ -1468,7 +1455,6 @@ export type ResolversTypes = {
   updateWalkingRunningDistanceError: ResolverTypeWrapper<UpdateWalkingRunningDistanceError>,
   updateWalkingRunningDistanceErrorErrorCodesType: UpdateWalkingRunningDistanceErrorErrorCodesType,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
-  AdditionalEntityFields: AdditionalEntityFields,
 };
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -1585,27 +1571,7 @@ export type ResolversParentTypes = {
   updateWalkingRunningDistanceError: UpdateWalkingRunningDistanceError,
   updateWalkingRunningDistanceErrorErrorCodesType: UpdateWalkingRunningDistanceErrorErrorCodesType,
   Boolean: Scalars['Boolean'],
-  AdditionalEntityFields: AdditionalEntityFields,
 };
-
-export type UnionDirectiveResolver<Result, Parent, ContextType = any, Args = {   discriminatorField?: Maybe<Maybe<Scalars['String']>>,
-  additionalFields?: Maybe<Maybe<Array<Maybe<AdditionalEntityFields>>>> }> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
-
-export type AbstractEntityDirectiveResolver<Result, Parent, ContextType = any, Args = {   discriminatorField?: Maybe<Scalars['String']>,
-  additionalFields?: Maybe<Maybe<Array<Maybe<AdditionalEntityFields>>>> }> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
-
-export type EntityDirectiveResolver<Result, Parent, ContextType = any, Args = {   embedded?: Maybe<Maybe<Scalars['Boolean']>>,
-  additionalFields?: Maybe<Maybe<Array<Maybe<AdditionalEntityFields>>>> }> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
-
-export type ColumnDirectiveResolver<Result, Parent, ContextType = any, Args = {   overrideType?: Maybe<Maybe<Scalars['String']>> }> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
-
-export type IdDirectiveResolver<Result, Parent, ContextType = any, Args = {  }> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
-
-export type LinkDirectiveResolver<Result, Parent, ContextType = any, Args = {   overrideType?: Maybe<Maybe<Scalars['String']>> }> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
-
-export type EmbeddedDirectiveResolver<Result, Parent, ContextType = any, Args = {  }> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
-
-export type MapDirectiveResolver<Result, Parent, ContextType = any, Args = {   path?: Maybe<Scalars['String']> }> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
 
 export type AddActiveEnergyErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addActiveEnergyError']> = {
   errorCode?: Resolver<Maybe<ResolversTypes['addActiveEnergyErrorErrorCodesType']>, ParentType, ContextType>,
@@ -2083,20 +2049,4 @@ export type Resolvers<ContextType = any> = {
  * Use "Resolvers" root object instead. If you wish to get "IResolvers", add "typesPrefix: I" to your config.
 */
 export type IResolvers<ContextType = any> = Resolvers<ContextType>;
-export type DirectiveResolvers<ContextType = any> = {
-  union?: UnionDirectiveResolver<any, any, ContextType>,
-  abstractEntity?: AbstractEntityDirectiveResolver<any, any, ContextType>,
-  entity?: EntityDirectiveResolver<any, any, ContextType>,
-  column?: ColumnDirectiveResolver<any, any, ContextType>,
-  id?: IdDirectiveResolver<any, any, ContextType>,
-  link?: LinkDirectiveResolver<any, any, ContextType>,
-  embedded?: EmbeddedDirectiveResolver<any, any, ContextType>,
-  map?: MapDirectiveResolver<any, any, ContextType>,
-};
 
-
-/**
-* @deprecated
-* Use "DirectiveResolvers" root object instead. If you wish to get "IDirectiveResolvers", add "typesPrefix: I" to your config.
-*/
-export type IDirectiveResolvers<ContextType = any> = DirectiveResolvers<ContextType>;

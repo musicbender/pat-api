@@ -1,0 +1,41 @@
+import {
+  GraphQLObjectType,
+  GraphQLInputObjectType,
+  GraphQLInt,
+  GraphQLString
+} from 'graphql';
+import { UnitType } from '../types/unit-type';
+
+export const HealthInputType = new GraphQLInputObjectType({
+  name: 'HealthInputType',
+  description: 'Health data input',
+  fields: () => ({
+    value: { type: GraphQLInt },
+    sampledOn: { type: GraphQLString },
+  })
+});
+
+export const HealthInputUpdateType = new GraphQLInputObjectType({
+  name: 'HealthInputUpdateType',
+  description: 'Health data input for updating',
+  fields: () => ({
+    value: { type: GraphQLInt },
+    sampledOn: { type: GraphQLString },
+    createdOn: { type: GraphQLString },
+    unit: { type: UnitType }
+  })
+});
+
+export const HealthType = new GraphQLObjectType({
+  name: 'HealthType',
+  description: 'Health data',
+  fields: () => ({
+    id: { type: GraphQLString },
+    value: { type: GraphQLInt },
+    sampledOn: { type: GraphQLString },
+    createdOn: { type: GraphQLString },
+    updatedOn: { type: GraphQLString },
+    unit: { type: UnitType }
+  })
+});
+

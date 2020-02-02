@@ -32,7 +32,7 @@ export const HealthKitInputType = new GraphQLInputObjectType({
   })
 });
 
-export const HealthInputUpdateType = new GraphQLInputObjectType({
+export const HealthKitInputUpdateType = new GraphQLInputObjectType({
   name: 'HealthKitInputUpdateType',
   description: 'Health data input for updating',
   fields: () => ({
