@@ -3,9 +3,9 @@ import { addToDuration } from './date';
 import { 
   FindOutterValuesTypes, 
   ValidSampleOptionsType, 
-  HealthType, 
-  HealthInputSampleType, 
-  HealthInputType, 
+  HealthKitType, 
+  HealthKitInputSampleType, 
+  HealthKitInputType, 
   HealthConfigType 
 } from '../types';
 
@@ -85,7 +85,7 @@ export const isValidSample = (options: ValidSampleOptionsType): boolean => {
   return true;
 }
 
-export const getOutputValue = (valueType: string = 'totalSampleValue', output: HealthType): number => {
+export const getOutputValue = (valueType: string = 'totalSampleValue', output: HealthKitType): number => {
   switch(valueType) {
     case 'totalSampleValue':
       return output.totalSampleValue;
@@ -98,16 +98,16 @@ export const getOutputValue = (valueType: string = 'totalSampleValue', output: H
 
 // reduce all samples into a single output object
 export const reduceSampleData = (
-  samples: HealthInputSampleType[], 
-  input: HealthInputType, 
-  initialOutput: HealthType, 
+  samples: HealthKitInputSampleType[], 
+  input: HealthKitInputType, 
+  initialOutput: HealthKitType, 
   config: HealthConfigType
-): HealthType => {
-  let output: HealthType = initialOutput;
+): HealthKitType => {
+  let output: HealthKitType = initialOutput;
   const validSources: string[] = getValidSources(input.validSources, config.defaultValidSource);
   let valueArr: number[] = [];
   
-  samples.forEach((sample: HealthInputSampleType) => {
+  samples.forEach((sample: HealthKitInputSampleType) => {
     if (!isValidSample({ sample, input, config, validSources })) {
       return;
     }
@@ -144,15 +144,15 @@ export const reduceSampleData = (
 }
 
 // aggregate health data based on config
-export const aggregateHealthData = (input: HealthInputType, config: HealthConfigType): HealthType => {
+export const aggregateHealthData = (input: HealthKitInputType, config: HealthConfigType): HealthKitType => {
   const sampledOn = !!input.sampledOn && moment(input.sampledOn).isValid() ? input.sampledOn : null;
-  const samples: HealthInputSampleType[] = input.hasOwnProperty('sampleList')
+  const samples: HealthKitInputSampleType[] = input.hasOwnProperty('sampleList')
     ? input.sampleList
     : input.sample
     ? [input.sample]
     : [];
 
-  const initialOutput: HealthType = {
+  const initialOutput: HealthKitType = {
     unit: input.unit || config.defaultUnit,
     value: null,
     valueType: config.valueType || 'totalSampleValue',

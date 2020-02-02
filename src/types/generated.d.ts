@@ -48,7 +48,7 @@ export enum AddActiveEnergyErrorErrorCodesType {
 /** Response data for addActiveEnergy */
 export type AddActiveEnergyResponse = {
   __typename?: 'addActiveEnergyResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for addActiveEnergy */
@@ -84,7 +84,7 @@ export enum AddCaffeineErrorErrorCodesType {
 /** Response data for addCaffeine */
 export type AddCaffeineResponse = {
   __typename?: 'addCaffeineResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for addCaffeine */
@@ -120,7 +120,7 @@ export enum AddFlightsClimbedErrorErrorCodesType {
 /** Response data for addFlightsClimbed */
 export type AddFlightsClimbedResponse = {
   __typename?: 'addFlightsClimbedResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for addFlightsClimbed */
@@ -156,7 +156,7 @@ export enum AddHealthKitErrorErrorCodesType {
 /** Response data for addHealthKit */
 export type AddHealthKitResponse = {
   __typename?: 'addHealthKitResponse',
-  response?: Maybe<Array<Maybe<HealthType>>>,
+  response?: Maybe<Array<Maybe<HealthKitType>>>,
 };
 
 /** Return either be response data or error data for addHealthKit */
@@ -192,7 +192,7 @@ export enum AddHeartRateErrorErrorCodesType {
 /** Response data for addHeartRate */
 export type AddHeartRateResponse = {
   __typename?: 'addHeartRateResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for addHeartRate */
@@ -228,7 +228,7 @@ export enum AddHeartRateVariabilityErrorErrorCodesType {
 /** Response data for addHeartRateVariability */
 export type AddHeartRateVariabilityResponse = {
   __typename?: 'addHeartRateVariabilityResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for addHeartRateVariability */
@@ -269,7 +269,7 @@ export enum AddRestingEnergyErrorErrorCodesType {
 /** Response data for addRestingEnergy */
 export type AddRestingEnergyResponse = {
   __typename?: 'addRestingEnergyResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for addRestingEnergy */
@@ -305,7 +305,7 @@ export enum AddRestingHeartRateErrorErrorCodesType {
 /** Response data for addRestingHeartRate */
 export type AddRestingHeartRateResponse = {
   __typename?: 'addRestingHeartRateResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for addRestingHeartRate */
@@ -341,7 +341,7 @@ export enum AddSleepAnalysisErrorErrorCodesType {
 /** Response data for addSleepAnalysis */
 export type AddSleepAnalysisResponse = {
   __typename?: 'addSleepAnalysisResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for addSleepAnalysis */
@@ -377,7 +377,7 @@ export enum AddStepErrorErrorCodesType {
 /** Response data for addStep */
 export type AddStepResponse = {
   __typename?: 'addStepResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for addStep */
@@ -413,7 +413,7 @@ export enum AddSwimmingDistanceErrorErrorCodesType {
 /** Response data for addSwimmingDistance */
 export type AddSwimmingDistanceResponse = {
   __typename?: 'addSwimmingDistanceResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for addSwimmingDistance */
@@ -449,7 +449,7 @@ export enum AddWalkingHeartRateAverageErrorErrorCodesType {
 /** Response data for addWalkingHeartRateAverage */
 export type AddWalkingHeartRateAverageResponse = {
   __typename?: 'addWalkingHeartRateAverageResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for addWalkingHeartRateAverage */
@@ -485,7 +485,7 @@ export enum AddWalkingRunningDistanceErrorErrorCodesType {
 /** Response data for addWalkingRunningDistance */
 export type AddWalkingRunningDistanceResponse = {
   __typename?: 'addWalkingRunningDistanceResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for addWalkingRunningDistance */
@@ -493,7 +493,7 @@ export type AddWalkingRunningDistanceUnion = AddWalkingRunningDistanceResponse |
 
 
 /** Sample item in health data */
-export type HealthInputSampleType = {
+export type HealthKitInputSampleType = {
   date?: Maybe<Scalars['String']>,
   source?: Maybe<Scalars['String']>,
   value: Scalars['String'],
@@ -501,23 +501,23 @@ export type HealthInputSampleType = {
 };
 
 /** Health data input */
-export type HealthInputType = {
+export type HealthKitInputType = {
   type: Scalars['String'],
   unit?: Maybe<UnitType>,
-  sampleList?: Maybe<Array<Maybe<HealthInputSampleType>>>,
-  sample?: Maybe<HealthInputSampleType>,
+  sampleList?: Maybe<Array<Maybe<HealthKitInputSampleType>>>,
+  sample?: Maybe<HealthKitInputSampleType>,
   sampledOn?: Maybe<Scalars['String']>,
   validSources?: Maybe<Array<Maybe<Scalars['String']>>>,
 };
 
 /** Health data input for updating */
-export type HealthInputUpdateType = {
-  value?: Maybe<Scalars['Int']>,
+export type HealthKitInputUpdateType = {
+  value?: Maybe<Scalars['Float']>,
   valueType?: Maybe<Scalars['String']>,
-  totalSampleValue?: Maybe<Scalars['Int']>,
-  averageSampleValue?: Maybe<Scalars['Int']>,
-  highestSampleValue?: Maybe<Scalars['Int']>,
-  lowestSampleValue?: Maybe<Scalars['Int']>,
+  totalSampleValue?: Maybe<Scalars['Float']>,
+  averageSampleValue?: Maybe<Scalars['Float']>,
+  highestSampleValue?: Maybe<Scalars['Float']>,
+  lowestSampleValue?: Maybe<Scalars['Float']>,
   sampledOn?: Maybe<Scalars['String']>,
   createdOn?: Maybe<Scalars['String']>,
   sources?: Maybe<Array<Maybe<Scalars['String']>>>,
@@ -526,15 +526,15 @@ export type HealthInputUpdateType = {
 };
 
 /** Health data */
-export type HealthType = {
-  __typename?: 'HealthType',
+export type HealthKitType = {
+  __typename?: 'HealthKitType',
   id?: Maybe<Scalars['String']>,
-  value?: Maybe<Scalars['Int']>,
+  value?: Maybe<Scalars['Float']>,
   valueType?: Maybe<Scalars['String']>,
-  totalSampleValue?: Maybe<Scalars['Int']>,
-  averageSampleValue?: Maybe<Scalars['Int']>,
-  highestSampleValue?: Maybe<Scalars['Int']>,
-  lowestSampleValue?: Maybe<Scalars['Int']>,
+  totalSampleValue?: Maybe<Scalars['Float']>,
+  averageSampleValue?: Maybe<Scalars['Float']>,
+  highestSampleValue?: Maybe<Scalars['Float']>,
+  lowestSampleValue?: Maybe<Scalars['Float']>,
   sampledOn?: Maybe<Scalars['String']>,
   createdOn?: Maybe<Scalars['String']>,
   updatedOn?: Maybe<Scalars['String']>,
@@ -599,167 +599,167 @@ export type Mutation = {
 
 
 export type MutationAddStepArgs = {
-  input: HealthInputType
+  input: HealthKitInputType
 };
 
 
 export type MutationUpdateStepArgs = {
   id: Scalars['ID'],
-  input: HealthInputUpdateType
+  input: HealthKitInputUpdateType
 };
 
 
 export type MutationAddFlightsClimbedArgs = {
-  input: HealthInputType
+  input: HealthKitInputType
 };
 
 
 export type MutationUpdateFlightsClimbedArgs = {
   id: Scalars['ID'],
-  input: HealthInputUpdateType
+  input: HealthKitInputUpdateType
 };
 
 
 export type MutationAddHeartRateArgs = {
-  input: HealthInputType
+  input: HealthKitInputType
 };
 
 
 export type MutationUpdateHeartRateArgs = {
   id: Scalars['ID'],
-  input: HealthInputUpdateType
+  input: HealthKitInputUpdateType
 };
 
 
 export type MutationAddHeartRateVariabilityArgs = {
-  input: HealthInputType
+  input: HealthKitInputType
 };
 
 
 export type MutationUpdateHeartRateVariabilityArgs = {
   id: Scalars['ID'],
-  input: HealthInputUpdateType
+  input: HealthKitInputUpdateType
 };
 
 
 export type MutationAddHealthKitArgs = {
-  input?: Maybe<Array<Maybe<HealthInputType>>>
+  input?: Maybe<Array<Maybe<HealthKitInputType>>>
 };
 
 
 export type MutationAddActiveEnergyArgs = {
-  input: HealthInputType
+  input: HealthKitInputType
 };
 
 
 export type MutationUpdateActiveEnergyArgs = {
   id: Scalars['ID'],
-  input: HealthInputUpdateType
+  input: HealthKitInputUpdateType
 };
 
 
 export type MutationAddCaffeineArgs = {
-  input: HealthInputType
+  input: HealthKitInputType
 };
 
 
 export type MutationUpdateCaffeineArgs = {
   id: Scalars['ID'],
-  input: HealthInputUpdateType
+  input: HealthKitInputUpdateType
 };
 
 
 export type MutationAddRestingEnergyArgs = {
-  input: HealthInputType
+  input: HealthKitInputType
 };
 
 
 export type MutationUpdateRestingEnergyArgs = {
   id: Scalars['ID'],
-  input: HealthInputUpdateType
+  input: HealthKitInputUpdateType
 };
 
 
 export type MutationAddRestingHeartRateArgs = {
-  input: HealthInputType
+  input: HealthKitInputType
 };
 
 
 export type MutationUpdateRestingHeartRateArgs = {
   id: Scalars['ID'],
-  input: HealthInputUpdateType
+  input: HealthKitInputUpdateType
 };
 
 
 export type MutationAddSleepAnalysisArgs = {
-  input: HealthInputType
+  input: HealthKitInputType
 };
 
 
 export type MutationUpdateSleepAnalysisArgs = {
   id: Scalars['ID'],
-  input: HealthInputUpdateType
+  input: HealthKitInputUpdateType
 };
 
 
 export type MutationAddSwimmingDistanceArgs = {
-  input: HealthInputType
+  input: HealthKitInputType
 };
 
 
 export type MutationUpdateSwimmingDistanceArgs = {
   id: Scalars['ID'],
-  input: HealthInputUpdateType
+  input: HealthKitInputUpdateType
 };
 
 
 export type MutationAddWalkingHeartRateAverageArgs = {
-  input: HealthInputType
+  input: HealthKitInputType
 };
 
 
 export type MutationUpdateWalkingHeartRateAverageArgs = {
   id: Scalars['ID'],
-  input: HealthInputUpdateType
+  input: HealthKitInputUpdateType
 };
 
 
 export type MutationAddWalkingRunningDistanceArgs = {
-  input: HealthInputType
+  input: HealthKitInputType
 };
 
 
 export type MutationUpdateWalkingRunningDistanceArgs = {
   id: Scalars['ID'],
-  input: HealthInputUpdateType
+  input: HealthKitInputUpdateType
 };
 
 export type RootQueryType = {
   __typename?: 'RootQueryType',
   /** Get a single step count by either _id or date, _id taking priority */
-  step?: Maybe<HealthType>,
+  step?: Maybe<HealthKitType>,
   /** Get a single flights climbed count by either _id or date, _id taking priority */
-  flightsClimbed?: Maybe<HealthType>,
+  flightsClimbed?: Maybe<HealthKitType>,
   /** Get a single heartrate average by either _id or date, _id taking priority */
-  heartrate?: Maybe<HealthType>,
+  heartrate?: Maybe<HealthKitType>,
   /** Get a single heartrate-variability average by either _id or date, _id taking priority */
-  heartrateVariability?: Maybe<HealthType>,
+  heartrateVariability?: Maybe<HealthKitType>,
   /** Get a single active energy count by either _id or date, _id taking priority */
-  activeEnergy?: Maybe<HealthType>,
+  activeEnergy?: Maybe<HealthKitType>,
   /** Get a single caffeine count by either _id or date, _id taking priority */
-  caffeine?: Maybe<HealthType>,
+  caffeine?: Maybe<HealthKitType>,
   /** Get a single resting energy count by either _id or date, _id taking priority */
-  restingEnergy?: Maybe<HealthType>,
+  restingEnergy?: Maybe<HealthKitType>,
   /** Get a single resting-heartrate count by either _id or date, _id taking priority */
-  restingHeartrate?: Maybe<HealthType>,
+  restingHeartrate?: Maybe<HealthKitType>,
   /** Get a single sleep-analysis count by either _id or date, _id taking priority */
-  sleepAnalysis?: Maybe<HealthType>,
+  sleepAnalysis?: Maybe<HealthKitType>,
   /** Get a single swimming-distance count by either _id or date, _id taking priority */
-  swimmingDistance?: Maybe<HealthType>,
+  swimmingDistance?: Maybe<HealthKitType>,
   /** Get a single walking heartrate average by either _id or date, _id taking priority */
-  walkingHeartrateAverage?: Maybe<HealthType>,
+  walkingHeartrateAverage?: Maybe<HealthKitType>,
   /** Get a single walking-running-distance count by either _id or date, _id taking priority */
-  walkingRunningDistance?: Maybe<HealthType>,
+  walkingRunningDistance?: Maybe<HealthKitType>,
 };
 
 
@@ -892,7 +892,7 @@ export enum UpdateActiveEnergyErrorErrorCodesType {
 /** Response data for updateActiveEnergy */
 export type UpdateActiveEnergyResponse = {
   __typename?: 'updateActiveEnergyResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for updateActiveEnergy */
@@ -928,7 +928,7 @@ export enum UpdateCaffeineErrorErrorCodesType {
 /** Response data for updateCaffeine */
 export type UpdateCaffeineResponse = {
   __typename?: 'updateCaffeineResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for updateCaffeine */
@@ -964,7 +964,7 @@ export enum UpdateFlightsClimbedErrorErrorCodesType {
 /** Response data for updateFlightsClimbed */
 export type UpdateFlightsClimbedResponse = {
   __typename?: 'updateFlightsClimbedResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for updateFlightsClimbed */
@@ -1000,7 +1000,7 @@ export enum UpdateHeartRateErrorErrorCodesType {
 /** Response data for updateHeartRate */
 export type UpdateHeartRateResponse = {
   __typename?: 'updateHeartRateResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for updateHeartRate */
@@ -1036,7 +1036,7 @@ export enum UpdateHeartRateVariabilityErrorErrorCodesType {
 /** Response data for updateHeartRateVariability */
 export type UpdateHeartRateVariabilityResponse = {
   __typename?: 'updateHeartRateVariabilityResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for updateHeartRateVariability */
@@ -1072,7 +1072,7 @@ export enum UpdateRestingEnergyErrorErrorCodesType {
 /** Response data for updateRestingEnergy */
 export type UpdateRestingEnergyResponse = {
   __typename?: 'updateRestingEnergyResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for updateRestingEnergy */
@@ -1108,7 +1108,7 @@ export enum UpdateRestingHeartRateErrorErrorCodesType {
 /** Response data for updateRestingHeartRate */
 export type UpdateRestingHeartRateResponse = {
   __typename?: 'updateRestingHeartRateResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for updateRestingHeartRate */
@@ -1144,7 +1144,7 @@ export enum UpdateSleepAnalysisErrorErrorCodesType {
 /** Response data for updateSleepAnalysis */
 export type UpdateSleepAnalysisResponse = {
   __typename?: 'updateSleepAnalysisResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for updateSleepAnalysis */
@@ -1180,7 +1180,7 @@ export enum UpdateStepErrorErrorCodesType {
 /** Response data for updateStep */
 export type UpdateStepResponse = {
   __typename?: 'updateStepResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for updateStep */
@@ -1216,7 +1216,7 @@ export enum UpdateSwimmingDistanceErrorErrorCodesType {
 /** Response data for updateSwimmingDistance */
 export type UpdateSwimmingDistanceResponse = {
   __typename?: 'updateSwimmingDistanceResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for updateSwimmingDistance */
@@ -1252,7 +1252,7 @@ export enum UpdateWalkingHeartRateAverageErrorErrorCodesType {
 /** Response data for updateWalkingHeartRateAverage */
 export type UpdateWalkingHeartRateAverageResponse = {
   __typename?: 'updateWalkingHeartRateAverageResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for updateWalkingHeartRateAverage */
@@ -1288,7 +1288,7 @@ export enum UpdateWalkingRunningDistanceErrorErrorCodesType {
 /** Response data for updateWalkingRunningDistance */
 export type UpdateWalkingRunningDistanceResponse = {
   __typename?: 'updateWalkingRunningDistanceResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<HealthKitType>,
 };
 
 /** Return either be response data or error data for updateWalkingRunningDistance */
@@ -1359,18 +1359,18 @@ export type ResolversTypes = {
   RootQueryType: ResolverTypeWrapper<{}>,
   String: ResolverTypeWrapper<Scalars['String']>,
   Date: ResolverTypeWrapper<Scalars['Date']>,
-  HealthType: ResolverTypeWrapper<HealthType>,
-  Int: ResolverTypeWrapper<Scalars['Int']>,
+  HealthKitType: ResolverTypeWrapper<HealthKitType>,
+  Float: ResolverTypeWrapper<Scalars['Float']>,
   UnitType: UnitType,
   Mutation: ResolverTypeWrapper<{}>,
-  HealthInputType: HealthInputType,
-  HealthInputSampleType: HealthInputSampleType,
+  HealthKitInputType: HealthKitInputType,
+  HealthKitInputSampleType: HealthKitInputSampleType,
   addStepUnion: ResolversTypes['addStepResponse'] | ResolversTypes['addStepError'],
   addStepResponse: ResolverTypeWrapper<AddStepResponse>,
   addStepError: ResolverTypeWrapper<AddStepError>,
   addStepErrorErrorCodesType: AddStepErrorErrorCodesType,
   ID: ResolverTypeWrapper<Scalars['ID']>,
-  HealthInputUpdateType: HealthInputUpdateType,
+  HealthKitInputUpdateType: HealthKitInputUpdateType,
   updateStepUnion: ResolversTypes['updateStepResponse'] | ResolversTypes['updateStepError'],
   updateStepResponse: ResolverTypeWrapper<UpdateStepResponse>,
   updateStepError: ResolverTypeWrapper<UpdateStepError>,
@@ -1476,18 +1476,18 @@ export type ResolversParentTypes = {
   RootQueryType: {},
   String: Scalars['String'],
   Date: Scalars['Date'],
-  HealthType: HealthType,
-  Int: Scalars['Int'],
+  HealthKitType: HealthKitType,
+  Float: Scalars['Float'],
   UnitType: UnitType,
   Mutation: {},
-  HealthInputType: HealthInputType,
-  HealthInputSampleType: HealthInputSampleType,
+  HealthKitInputType: HealthKitInputType,
+  HealthKitInputSampleType: HealthKitInputSampleType,
   addStepUnion: ResolversTypes['addStepResponse'] | ResolversTypes['addStepError'],
   addStepResponse: AddStepResponse,
   addStepError: AddStepError,
   addStepErrorErrorCodesType: AddStepErrorErrorCodesType,
   ID: Scalars['ID'],
-  HealthInputUpdateType: HealthInputUpdateType,
+  HealthKitInputUpdateType: HealthKitInputUpdateType,
   updateStepUnion: ResolversTypes['updateStepResponse'] | ResolversTypes['updateStepError'],
   updateStepResponse: UpdateStepResponse,
   updateStepError: UpdateStepError,
@@ -1613,7 +1613,7 @@ export type AddActiveEnergyErrorResolvers<ContextType = any, ParentType = Resolv
 };
 
 export type AddActiveEnergyResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addActiveEnergyResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type AddActiveEnergyUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addActiveEnergyUnion']> = {
@@ -1626,7 +1626,7 @@ export type AddCaffeineErrorResolvers<ContextType = any, ParentType = ResolversP
 };
 
 export type AddCaffeineResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addCaffeineResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type AddCaffeineUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addCaffeineUnion']> = {
@@ -1639,7 +1639,7 @@ export type AddFlightsClimbedErrorResolvers<ContextType = any, ParentType = Reso
 };
 
 export type AddFlightsClimbedResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addFlightsClimbedResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type AddFlightsClimbedUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addFlightsClimbedUnion']> = {
@@ -1652,7 +1652,7 @@ export type AddHealthKitErrorResolvers<ContextType = any, ParentType = Resolvers
 };
 
 export type AddHealthKitResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addHealthKitResponse']> = {
-  response?: Resolver<Maybe<Array<Maybe<ResolversTypes['HealthType']>>>, ParentType, ContextType>,
+  response?: Resolver<Maybe<Array<Maybe<ResolversTypes['HealthKitType']>>>, ParentType, ContextType>,
 };
 
 export type AddHealthKitUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addHealthKitUnion']> = {
@@ -1665,7 +1665,7 @@ export type AddHeartRateErrorResolvers<ContextType = any, ParentType = Resolvers
 };
 
 export type AddHeartRateResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addHeartRateResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type AddHeartRateUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addHeartRateUnion']> = {
@@ -1678,7 +1678,7 @@ export type AddHeartRateVariabilityErrorResolvers<ContextType = any, ParentType 
 };
 
 export type AddHeartRateVariabilityResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addHeartRateVariabilityResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type AddHeartRateVariabilityUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addHeartRateVariabilityUnion']> = {
@@ -1691,7 +1691,7 @@ export type AddRestingEnergyErrorResolvers<ContextType = any, ParentType = Resol
 };
 
 export type AddRestingEnergyResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addRestingEnergyResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type AddRestingEnergyUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addRestingEnergyUnion']> = {
@@ -1704,7 +1704,7 @@ export type AddRestingHeartRateErrorResolvers<ContextType = any, ParentType = Re
 };
 
 export type AddRestingHeartRateResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addRestingHeartRateResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type AddRestingHeartRateUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addRestingHeartRateUnion']> = {
@@ -1717,7 +1717,7 @@ export type AddSleepAnalysisErrorResolvers<ContextType = any, ParentType = Resol
 };
 
 export type AddSleepAnalysisResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addSleepAnalysisResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type AddSleepAnalysisUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addSleepAnalysisUnion']> = {
@@ -1730,7 +1730,7 @@ export type AddStepErrorResolvers<ContextType = any, ParentType = ResolversParen
 };
 
 export type AddStepResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addStepResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type AddStepUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addStepUnion']> = {
@@ -1743,7 +1743,7 @@ export type AddSwimmingDistanceErrorResolvers<ContextType = any, ParentType = Re
 };
 
 export type AddSwimmingDistanceResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addSwimmingDistanceResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type AddSwimmingDistanceUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addSwimmingDistanceUnion']> = {
@@ -1756,7 +1756,7 @@ export type AddWalkingHeartRateAverageErrorResolvers<ContextType = any, ParentTy
 };
 
 export type AddWalkingHeartRateAverageResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addWalkingHeartRateAverageResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type AddWalkingHeartRateAverageUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addWalkingHeartRateAverageUnion']> = {
@@ -1769,7 +1769,7 @@ export type AddWalkingRunningDistanceErrorResolvers<ContextType = any, ParentTyp
 };
 
 export type AddWalkingRunningDistanceResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addWalkingRunningDistanceResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type AddWalkingRunningDistanceUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addWalkingRunningDistanceUnion']> = {
@@ -1780,14 +1780,14 @@ export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes
   name: 'Date'
 }
 
-export type HealthTypeResolvers<ContextType = any, ParentType = ResolversParentTypes['HealthType']> = {
+export type HealthKitTypeResolvers<ContextType = any, ParentType = ResolversParentTypes['HealthKitType']> = {
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
-  value?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>,
+  value?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
   valueType?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
-  totalSampleValue?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>,
-  averageSampleValue?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>,
-  highestSampleValue?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>,
-  lowestSampleValue?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>,
+  totalSampleValue?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  averageSampleValue?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  highestSampleValue?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  lowestSampleValue?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
   sampledOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   createdOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   updatedOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
@@ -1825,18 +1825,18 @@ export type MutationResolvers<ContextType = any, ParentType = ResolversParentTyp
 };
 
 export type RootQueryTypeResolvers<ContextType = any, ParentType = ResolversParentTypes['RootQueryType']> = {
-  step?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeStepArgs>,
-  flightsClimbed?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeFlightsClimbedArgs>,
-  heartrate?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeHeartrateArgs>,
-  heartrateVariability?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeHeartrateVariabilityArgs>,
-  activeEnergy?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeActiveEnergyArgs>,
-  caffeine?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeCaffeineArgs>,
-  restingEnergy?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeRestingEnergyArgs>,
-  restingHeartrate?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeRestingHeartrateArgs>,
-  sleepAnalysis?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeSleepAnalysisArgs>,
-  swimmingDistance?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeSwimmingDistanceArgs>,
-  walkingHeartrateAverage?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeWalkingHeartrateAverageArgs>,
-  walkingRunningDistance?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeWalkingRunningDistanceArgs>,
+  step?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType, RootQueryTypeStepArgs>,
+  flightsClimbed?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType, RootQueryTypeFlightsClimbedArgs>,
+  heartrate?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType, RootQueryTypeHeartrateArgs>,
+  heartrateVariability?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType, RootQueryTypeHeartrateVariabilityArgs>,
+  activeEnergy?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType, RootQueryTypeActiveEnergyArgs>,
+  caffeine?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType, RootQueryTypeCaffeineArgs>,
+  restingEnergy?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType, RootQueryTypeRestingEnergyArgs>,
+  restingHeartrate?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType, RootQueryTypeRestingHeartrateArgs>,
+  sleepAnalysis?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType, RootQueryTypeSleepAnalysisArgs>,
+  swimmingDistance?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType, RootQueryTypeSwimmingDistanceArgs>,
+  walkingHeartrateAverage?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType, RootQueryTypeWalkingHeartrateAverageArgs>,
+  walkingRunningDistance?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType, RootQueryTypeWalkingRunningDistanceArgs>,
 };
 
 export type UpdateActiveEnergyErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateActiveEnergyError']> = {
@@ -1845,7 +1845,7 @@ export type UpdateActiveEnergyErrorResolvers<ContextType = any, ParentType = Res
 };
 
 export type UpdateActiveEnergyResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateActiveEnergyResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type UpdateActiveEnergyUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateActiveEnergyUnion']> = {
@@ -1858,7 +1858,7 @@ export type UpdateCaffeineErrorResolvers<ContextType = any, ParentType = Resolve
 };
 
 export type UpdateCaffeineResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCaffeineResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type UpdateCaffeineUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCaffeineUnion']> = {
@@ -1871,7 +1871,7 @@ export type UpdateFlightsClimbedErrorResolvers<ContextType = any, ParentType = R
 };
 
 export type UpdateFlightsClimbedResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateFlightsClimbedResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type UpdateFlightsClimbedUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateFlightsClimbedUnion']> = {
@@ -1884,7 +1884,7 @@ export type UpdateHeartRateErrorResolvers<ContextType = any, ParentType = Resolv
 };
 
 export type UpdateHeartRateResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateHeartRateResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type UpdateHeartRateUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateHeartRateUnion']> = {
@@ -1897,7 +1897,7 @@ export type UpdateHeartRateVariabilityErrorResolvers<ContextType = any, ParentTy
 };
 
 export type UpdateHeartRateVariabilityResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateHeartRateVariabilityResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type UpdateHeartRateVariabilityUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateHeartRateVariabilityUnion']> = {
@@ -1910,7 +1910,7 @@ export type UpdateRestingEnergyErrorResolvers<ContextType = any, ParentType = Re
 };
 
 export type UpdateRestingEnergyResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateRestingEnergyResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type UpdateRestingEnergyUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateRestingEnergyUnion']> = {
@@ -1923,7 +1923,7 @@ export type UpdateRestingHeartRateErrorResolvers<ContextType = any, ParentType =
 };
 
 export type UpdateRestingHeartRateResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateRestingHeartRateResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type UpdateRestingHeartRateUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateRestingHeartRateUnion']> = {
@@ -1936,7 +1936,7 @@ export type UpdateSleepAnalysisErrorResolvers<ContextType = any, ParentType = Re
 };
 
 export type UpdateSleepAnalysisResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSleepAnalysisResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type UpdateSleepAnalysisUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSleepAnalysisUnion']> = {
@@ -1949,7 +1949,7 @@ export type UpdateStepErrorResolvers<ContextType = any, ParentType = ResolversPa
 };
 
 export type UpdateStepResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateStepResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type UpdateStepUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateStepUnion']> = {
@@ -1962,7 +1962,7 @@ export type UpdateSwimmingDistanceErrorResolvers<ContextType = any, ParentType =
 };
 
 export type UpdateSwimmingDistanceResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSwimmingDistanceResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type UpdateSwimmingDistanceUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSwimmingDistanceUnion']> = {
@@ -1975,7 +1975,7 @@ export type UpdateWalkingHeartRateAverageErrorResolvers<ContextType = any, Paren
 };
 
 export type UpdateWalkingHeartRateAverageResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateWalkingHeartRateAverageResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type UpdateWalkingHeartRateAverageUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateWalkingHeartRateAverageUnion']> = {
@@ -1988,7 +1988,7 @@ export type UpdateWalkingRunningDistanceErrorResolvers<ContextType = any, Parent
 };
 
 export type UpdateWalkingRunningDistanceResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateWalkingRunningDistanceResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>,
 };
 
 export type UpdateWalkingRunningDistanceUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateWalkingRunningDistanceUnion']> = {
@@ -2036,7 +2036,7 @@ export type Resolvers<ContextType = any> = {
   addWalkingRunningDistanceResponse?: AddWalkingRunningDistanceResponseResolvers<ContextType>,
   addWalkingRunningDistanceUnion?: AddWalkingRunningDistanceUnionResolvers,
   Date?: GraphQLScalarType,
-  HealthType?: HealthTypeResolvers<ContextType>,
+  HealthKitType?: HealthKitTypeResolvers<ContextType>,
   Mutation?: MutationResolvers<ContextType>,
   RootQueryType?: RootQueryTypeResolvers<ContextType>,
   updateActiveEnergyError?: UpdateActiveEnergyErrorResolvers<ContextType>,
@@ -2100,4 +2100,3 @@ export type DirectiveResolvers<ContextType = any> = {
 * Use "DirectiveResolvers" root object instead. If you wish to get "IDirectiveResolvers", add "typesPrefix: I" to your config.
 */
 export type IDirectiveResolvers<ContextType = any> = DirectiveResolvers<ContextType>;
-import { ObjectID } from 'mongodb';

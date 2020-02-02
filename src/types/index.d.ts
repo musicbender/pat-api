@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import { HealthType, HealthInputType, HealthInputSampleType, UnitType } from '../types/generated';
+import { HealthKitType, HealthKitInputType, HealthKitInputSampleType, UnitType } from '../types/generated';
 
 // generated types
 export * from './generated';
@@ -38,8 +38,8 @@ export type HealthConfigType = {
 }
 
 export type ValidSampleOptionsType = {
-  sample: HealthInputSampleType, 
-  input: HealthInputType, 
+  sample: HealthKitInputSampleType, 
+  input: HealthKitInputType, 
   config: HealthConfigType,
   validSources: string[]
 }

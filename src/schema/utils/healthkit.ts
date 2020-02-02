@@ -3,7 +3,7 @@ import { GraphQLString, GraphQLNonNull, GraphQLID } from 'graphql';
 import { findHealthById, findHealthByDate } from '../../controllers/health';
 import { addHealthKitItem, updateHealthKitItem } from '../../controllers/healthkit';
 import { ExpectedError } from '../../utils/errors';
-import { HealthType, HealthInputType, ResponseUnionType, HealthInputUpdateType } from '../types';
+import { HealthKitType, HealthKitInputType, ResponseUnionType, HealthInputUpdateType } from '../types';
 import { HealthConfigType } from '../../types';
 const { healthTypes } = require('../../configs/healthkit.json');
 
@@ -14,7 +14,7 @@ type QueryOptions = {
 
 export const composeHealthkitQuery = (options: QueryOptions) => {
   return {
-    type: HealthType,
+    type: HealthKitType,
     description: options.description || 'HealthKit query',
     args: {
       id: {
@@ -50,11 +50,11 @@ export const composeHealthkitAdd = (options: AddOptions) => {
     description: options.description || `Add a ${options.name} node`,
     type: ResponseUnionType({
       name,
-      responseType: HealthType
+      responseType: HealthKitType
     }),
     args: {
       input: {
-        type: new GraphQLNonNull(HealthInputType)
+        type: new GraphQLNonNull(HealthKitInputType)
       }
     },
     resolve(parentValue, { input }) {
@@ -76,7 +76,7 @@ export const composeHealthkitUpdate = (options: UpdateOptions) => {
     description: options.description || `Update a ${options.name} node`,
     type: ResponseUnionType({
       name,
-      responseType: HealthType
+      responseType: HealthKitType
     }),
     args: {
       id: {

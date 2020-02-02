@@ -2,14 +2,14 @@ import * as moment from 'moment';
 import * as uuid from 'uuid';
 import { ExpectedError } from '../utils/errors';
 const { healthTypes } = require('../configs/healthkit.json');
-import { HealthType, HealthInputType, HealthInputUpdateType, HealthConfigType } from '../types';
+import { HealthKitType, HealthKitInputType, HealthKitInputUpdateType, HealthConfigType } from '../types';
 import { aggregateHealthData } from '../utils/sample';
 import { findHealthByDate } from './health';
 import models from '../models';
 import { Model } from 'sequelize-typescript';
 
 // add health item
-export const addHealthKitItem = async (input: HealthInputType, config: HealthConfigType): Promise<HealthType> => {
+export const addHealthKitItem = async (input: HealthKitInputType, config: HealthConfigType): Promise<HealthKitType> => {
   // if type is not valid
   if (!input.type || input.type !== config.healthkitID) {
     throw new ExpectedError('INVALID_HEALTH_TYPE');
@@ -32,7 +32,7 @@ export const addHealthKitItem = async (input: HealthInputType, config: HealthCon
     if (dupeItem) return replaceHealthKitItem(id, input, config);
   }
 
-  let data: HealthType = aggregateHealthData(input, config);
+  let data: HealthKitType = aggregateHealthData(input, config);
   
   data.id = uuid();
   data.createdOn = moment().toISOString();
@@ -53,7 +53,7 @@ export const addHealthKitItem = async (input: HealthInputType, config: HealthCon
 }
 
 // replace health item
-export const replaceHealthKitItem = async (id: string, input: HealthInputType, config: HealthConfigType): Promise<Model> => {
+export const replaceHealthKitItem = async (id: string, input: HealthKitInputType, config: HealthConfigType): Promise<Model> => {
   if (!input.type || input.type !== config.healthkitID) {
     throw new ExpectedError('INVALID_HEALTH_TYPE'); 
   }
@@ -62,7 +62,7 @@ export const replaceHealthKitItem = async (id: string, input: HealthInputType, c
     throw new ExpectedError('DISABLED_HEALTH_TYPE');
   }
 
-  const data: HealthType = aggregateHealthData(input, config);
+  const data: HealthKitType = aggregateHealthData(input, config);
   const HealthItem = models[config.modelID];
 
   try {
@@ -74,7 +74,7 @@ export const replaceHealthKitItem = async (id: string, input: HealthInputType, c
 }
 
 // update health item
-export const updateHealthKitItem = async (id: string, input: HealthInputUpdateType, config: HealthConfigType): Promise<Model> => {
+export const updateHealthKitItem = async (id: string, input: HealthKitInputUpdateType, config: HealthConfigType): Promise<Model> => {
   if (config.disabled) {
     throw new ExpectedError('DISABLED_HEALTH_TYPE');
   }
@@ -90,10 +90,10 @@ export const updateHealthKitItem = async (id: string, input: HealthInputUpdateTy
   }
 }
 
-export const addHealthKitItems = async (input: HealthInputType[]) => {
+export const addHealthKitItems = async (input: HealthKitInputType[]) => {
   if (!input) throw new ExpectedError('INVALID_HEALTHKIT_INPUT');
 
-  const allItems = input.map(async (healthItem: HealthInputType): Promise<HealthType> => {
+  const allItems = input.map(async (healthItem: HealthKitInputType): Promise<HealthKitType> => {
     const { type } = healthItem;
     const config = healthTypes[Object.keys(healthTypes).find(c => healthTypes[c].healthkitID === type)];
 

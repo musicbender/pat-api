@@ -8,8 +8,8 @@ import {
 } from 'graphql';
 import { UnitType } from './unit-type';
 
-export const HealthInputSampleType = new GraphQLInputObjectType({
-  name: 'HealthInputSampleType',
+export const HealthKitInputSampleType = new GraphQLInputObjectType({
+  name: 'HealthKitInputSampleType',
   description: 'Sample item in health data',
   fields: () => ({
     date: { type: GraphQLString },
@@ -19,21 +19,21 @@ export const HealthInputSampleType = new GraphQLInputObjectType({
   })
 });
 
-export const HealthInputType = new GraphQLInputObjectType({
-  name: 'HealthInputType',
+export const HealthKitInputType = new GraphQLInputObjectType({
+  name: 'HealthKitInputType',
   description: 'Health data input',
   fields: () => ({
     type: { type: new GraphQLNonNull(GraphQLString) },
     unit: { type: UnitType },
-    sampleList: { type: new GraphQLList(HealthInputSampleType) },
-    sample: { type: HealthInputSampleType },
+    sampleList: { type: new GraphQLList(HealthKitInputSampleType) },
+    sample: { type: HealthKitInputSampleType },
     sampledOn: { type: GraphQLString },
     validSources: { type: new GraphQLList(GraphQLString) }
   })
 });
 
 export const HealthInputUpdateType = new GraphQLInputObjectType({
-  name: 'HealthInputUpdateType',
+  name: 'HealthKitInputUpdateType',
   description: 'Health data input for updating',
   fields: () => ({
     value: { type: GraphQLFloat },
@@ -50,8 +50,8 @@ export const HealthInputUpdateType = new GraphQLInputObjectType({
   })
 });
 
-export const HealthType = new GraphQLObjectType({
-  name: 'HealthType',
+export const HealthKitType = new GraphQLObjectType({
+  name: 'HealthKitType',
   description: 'Health data',
   fields: () => ({
     id: { type: GraphQLString },

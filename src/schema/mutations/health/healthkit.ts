@@ -1,5 +1,5 @@
 import { GraphQLList } from 'graphql';
-import { ResponseUnionType, HealthType, HealthInputType } from '../../types';
+import { ResponseUnionType, HealthKitType, HealthKitInputType } from '../../types';
 import { addHealthKitItems } from '../../../controllers/healthkit';
 import { ExpectedError } from '../../../utils/errors';
 
@@ -8,11 +8,11 @@ export const addHealthKit = {
   description: 'Add multiple HealthKit data types',
   type: ResponseUnionType({
     name: 'addHealthKit',
-    responseType: new GraphQLList(HealthType)
+    responseType: new GraphQLList(HealthKitType)
   }),
   args: {
     input: {
-      type: new GraphQLList(HealthInputType)
+      type: new GraphQLList(HealthKitInputType)
     }
   },
   resolve: async (parentValue, { input }, ctx) => {
