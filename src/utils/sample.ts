@@ -6,7 +6,7 @@ import {
   HealthKitType, 
   HealthKitInputSampleType, 
   HealthKitInputType, 
-  HealthConfigType 
+  HealthKitConfigType 
 } from '../types';
 
 export const isWithinInterval = (interval: moment.unitOfTime.StartOf, date: string, sampledOn: string): boolean => {
@@ -101,7 +101,7 @@ export const reduceSampleData = (
   samples: HealthKitInputSampleType[], 
   input: HealthKitInputType, 
   initialOutput: HealthKitType, 
-  config: HealthConfigType
+  config: HealthKitConfigType
 ): HealthKitType => {
   let output: HealthKitType = initialOutput;
   const validSources: string[] = getValidSources(input.validSources, config.defaultValidSource);
@@ -144,7 +144,7 @@ export const reduceSampleData = (
 }
 
 // aggregate health data based on config
-export const aggregateHealthData = (input: HealthKitInputType, config: HealthConfigType): HealthKitType => {
+export const aggregateHealthData = (input: HealthKitInputType, config: HealthKitConfigType): HealthKitType => {
   const sampledOn = !!input.sampledOn && moment(input.sampledOn).isValid() ? input.sampledOn : null;
   const samples: HealthKitInputSampleType[] = input.hasOwnProperty('sampleList')
     ? input.sampleList

@@ -3,7 +3,7 @@ import { GraphQLString, GraphQLNonNull, GraphQLID } from 'graphql';
 import { findHealthById, findHealthByDate, addHealthItem, updateHealthItem } from '../../controllers/health';
 import { ExpectedError } from '../../utils/errors';
 import { HealthType, HealthInputType, ResponseUnionType, HealthInputUpdateType } from '../types';
-import { HealthConfigType } from '../../types';
+import { HealthKitConfigType } from '../../types';
 const healthTypes = require('../../configs/health.json');
 
 type QueryOptions = {
@@ -24,7 +24,7 @@ export const composeHealthQuery = (options: QueryOptions) => {
       }
     },
     resolve(parentValue, args) {
-      const config: HealthConfigType = healthTypes[options.type];
+      const config: HealthKitConfigType = healthTypes[options.type];
       if (args.id) {
         return findHealthById(args.id, config);
       } else if (args.date) {

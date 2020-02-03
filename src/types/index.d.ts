@@ -26,7 +26,7 @@ export type SampleType = {
   unit?: string
 }
 
-export type HealthConfigType = {
+export type HealthKitConfigType = {
   id: string,
   healthkitID?: string,
   modelID: string,
@@ -40,8 +40,16 @@ export type HealthConfigType = {
 export type ValidSampleOptionsType = {
   sample: HealthKitInputSampleType, 
   input: HealthKitInputType, 
-  config: HealthConfigType,
+  config: HealthKitConfigType,
   validSources: string[]
+}
+
+export type HealthConfigType = {
+  id: string,
+  modelID: string,
+  unit: UnitType,
+  interval?: moment.unitOfTime.StartOf,
+  disabled?: boolean
 }
 
 export type DatabaseConfigOptions = {

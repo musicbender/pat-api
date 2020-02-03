@@ -4,15 +4,15 @@ import { Op } from 'sequelize';
 import models from '../models';
 import { Model } from 'sequelize-typescript';
 import { ExpectedError } from '../utils/errors';
-// import { HealthType, HealthInputType, HealthInputUpdateType, HealthConfigType } from '../types';
+import { HealthType, HealthInputType, HealthInputUpdateType, HealthConfigType, HealthKitConfigType } from '../types';
 
 // find by id
-export const findHealthById = (id: string, config: HealthConfigType): Promise<Model> => {
+export const findHealthById = (id: string, config: HealthConfigType | HealthKitConfigType): Promise<Model> => {
   return models[config.modelID].findOne({ where: { id } });
 }
 
 // find by date
-export const findHealthByDate = (date: Date | string, config: any): Promise<Model> => {
+export const findHealthByDate = (date: Date | string, config: HealthConfigType | HealthKitConfigType): Promise<Model> => {
   const start = moment(date).startOf('day').toDate();
   const end = moment(date).endOf('day').toDate();
 
@@ -24,16 +24,14 @@ export const findHealthByDate = (date: Date | string, config: any): Promise<Mode
 }
 
 // add health item
-export const addHealthItem = async (input, config) => {
-  // if type is not valid
-  if (!input.type || input.type !== config.healthkitID) {
-    throw new ExpectedError('INVALID_HEALTH_TYPE');
-  }
-
+export const addHealthItem = async (input: HealthInputType, config: HealthConfigType): Promise<HealthType> => {
   // if type has been disabled in config
   if (config.disabled) {
     throw new ExpectedError('DISABLED_HEALTH_TYPE');
   }
+
+   // do not create row if there is no value or type is disabled
+   if (input.value === null) return null;
 
   if (config.interval && config.interval === 'day') {
     const dupeItem: any = await findHealthByDate(input.sampledOn, config);
@@ -47,14 +45,11 @@ export const addHealthItem = async (input, config) => {
     if (dupeItem) return replaceHealthItem(id, input, config);
   }
 
-  let data: HealthType = input;
-  
-  data.id = uuid();
-  data.createdOn = moment().toISOString();
-
-  // do not create row if there is no value or type is disabled
-  if (data.value === null) {
-    return null;
+  let data: HealthType = {
+    ...input,
+    id: uuid(),
+    unit: config.unit,
+    createdOn: moment().toISOString(),
   };
 
   const HealthItem = models[config.modelID];
@@ -66,15 +61,37 @@ export const addHealthItem = async (input, config) => {
     throw new ExpectedError('ADD_HEALTH_ERROR');
   }
 }
-// TODO: update health item
-export const updateHealthItem = (id, input, config) => {
-  return;
+
+// replace health item
+export const replaceHealthItem = async (id: string, input: HealthInputType, config: HealthConfigType): Promise<Model> => {
+  if (config.disabled) {
+    throw new ExpectedError('DISABLED_HEALTH_TYPE');
+  }
+
+  const data: HealthType = input;
+  const HealthItem = models[config.modelID];
+
+  try {
+    const [rows, [ updatedItem ]]: any = await HealthItem.update({ ...data }, { where: { id }, returning: true });
+    return updatedItem;
+  } catch (err) {
+    throw new ExpectedError('REPLACE_HEALTH_ERROR');
+  }
 }
-// TODO: replace health item
-export const replaceHealthItem = (id, input, config) => {
-  return;
-}
-// TODO: delete health item
-export const deleteHealthItem = (id) => {
-  return;
+
+// update health item
+export const updateHealthItem = async (id: string, input: HealthInputUpdateType, config: HealthConfigType): Promise<Model> => {
+  if (config.disabled) {
+    throw new ExpectedError('DISABLED_HEALTH_TYPE');
+  }
+
+  const HealthItem = models[config.modelID];
+  let data = { ...input, updatedOn: moment().toISOString() }
+
+  try {
+    const [rows, [ updatedItem ]]: any = await HealthItem.update({ ...data }, { where: { id }, returning: true });
+    return updatedItem;
+  } catch (err) {
+    throw new ExpectedError('UPDATE_HEALTH_ERROR');
+  }
 }

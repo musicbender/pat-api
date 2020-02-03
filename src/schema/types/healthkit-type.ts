@@ -23,7 +23,7 @@ export const HealthKitInputType = new GraphQLInputObjectType({
   name: 'HealthKitInputType',
   description: 'Health data input',
   fields: () => ({
-    type: { type: new GraphQLNonNull(GraphQLString) },
+    type: { type: GraphQLString },
     unit: { type: UnitType },
     sampleList: { type: new GraphQLList(HealthKitInputSampleType) },
     sample: { type: HealthKitInputSampleType },

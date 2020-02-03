@@ -478,6 +478,56 @@ export type AddWalkingRunningDistanceResponse = {
 /** Return either be response data or error data for addWalkingRunningDistance */
 export type AddWalkingRunningDistanceUnion = AddWalkingRunningDistanceResponse | AddWalkingRunningDistanceError;
 
+export type AddWeightError = {
+  __typename?: 'addWeightError',
+  errorCode?: Maybe<AddWeightErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddWeightErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Response data for addWeight */
+export type AddWeightResponse = {
+  __typename?: 'addWeightResponse',
+  response?: Maybe<HealthType>,
+};
+
+/** Return either be response data or error data for addWeight */
+export type AddWeightUnion = AddWeightResponse | AddWeightError;
+
+
+/** Health data input */
+export type HealthInputType = {
+  value?: Maybe<Scalars['Int']>,
+  sampledOn?: Maybe<Scalars['String']>,
+};
+
+/** Health data input for updating */
+export type HealthInputUpdateType = {
+  value?: Maybe<Scalars['Int']>,
+  sampledOn?: Maybe<Scalars['String']>,
+  createdOn?: Maybe<Scalars['String']>,
+  unit?: Maybe<UnitType>,
+};
 
 /** Sample item in health data */
 export type HealthKitInputSampleType = {
@@ -528,6 +578,17 @@ export type HealthKitType = {
   sources?: Maybe<Array<Maybe<Scalars['String']>>>,
   unit?: Maybe<UnitType>,
   totalDuration?: Maybe<Scalars['String']>,
+};
+
+/** Health data */
+export type HealthType = {
+  __typename?: 'HealthType',
+  id?: Maybe<Scalars['String']>,
+  value?: Maybe<Scalars['Int']>,
+  sampledOn?: Maybe<Scalars['String']>,
+  createdOn?: Maybe<Scalars['String']>,
+  updatedOn?: Maybe<Scalars['String']>,
+  unit?: Maybe<UnitType>,
 };
 
 export type Mutation = {
@@ -582,6 +643,10 @@ export type Mutation = {
   addWalkingRunningDistance?: Maybe<AddWalkingRunningDistanceUnion>,
   /** Update a WalkingRunningDistance node */
   updateWalkingRunningDistance?: Maybe<UpdateWalkingRunningDistanceUnion>,
+  /** Add a Weight node */
+  addWeight?: Maybe<AddWeightUnion>,
+  /** Update a Weight node */
+  updateWeight?: Maybe<UpdateWeightUnion>,
 };
 
 
@@ -721,6 +786,17 @@ export type MutationUpdateWalkingRunningDistanceArgs = {
   input: HealthKitInputUpdateType
 };
 
+
+export type MutationAddWeightArgs = {
+  input: HealthInputType
+};
+
+
+export type MutationUpdateWeightArgs = {
+  id: Scalars['ID'],
+  input: HealthInputUpdateType
+};
+
 export type RootQueryType = {
   __typename?: 'RootQueryType',
   /** Get a single step count by either _id or date, _id taking priority */
@@ -747,6 +823,8 @@ export type RootQueryType = {
   walkingHeartrateAverage?: Maybe<HealthKitType>,
   /** Get a single walking-running-distance count by either _id or date, _id taking priority */
   walkingRunningDistance?: Maybe<HealthKitType>,
+  /** Get a single weight entry by either _id or date, _id taking priority */
+  weight?: Maybe<HealthType>,
 };
 
 
@@ -817,6 +895,12 @@ export type RootQueryTypeWalkingHeartrateAverageArgs = {
 
 
 export type RootQueryTypeWalkingRunningDistanceArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeWeightArgs = {
   id?: Maybe<Scalars['String']>,
   date?: Maybe<Scalars['Date']>
 };
@@ -1281,6 +1365,42 @@ export type UpdateWalkingRunningDistanceResponse = {
 /** Return either be response data or error data for updateWalkingRunningDistance */
 export type UpdateWalkingRunningDistanceUnion = UpdateWalkingRunningDistanceResponse | UpdateWalkingRunningDistanceError;
 
+export type UpdateWeightError = {
+  __typename?: 'updateWeightError',
+  errorCode?: Maybe<UpdateWeightErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateWeightErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Not a valid health type */
+  InvalidHealthType = 'INVALID_HEALTH_TYPE',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Response data for updateWeight */
+export type UpdateWeightResponse = {
+  __typename?: 'updateWeightResponse',
+  response?: Maybe<HealthType>,
+};
+
+/** Return either be response data or error data for updateWeight */
+export type UpdateWeightUnion = UpdateWeightResponse | UpdateWeightError;
+
 
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
@@ -1349,6 +1469,8 @@ export type ResolversTypes = {
   HealthKitType: ResolverTypeWrapper<HealthKitType>,
   Float: ResolverTypeWrapper<Scalars['Float']>,
   UnitType: UnitType,
+  HealthType: ResolverTypeWrapper<HealthType>,
+  Int: ResolverTypeWrapper<Scalars['Int']>,
   Mutation: ResolverTypeWrapper<{}>,
   HealthKitInputType: HealthKitInputType,
   HealthKitInputSampleType: HealthKitInputSampleType,
@@ -1454,6 +1576,16 @@ export type ResolversTypes = {
   updateWalkingRunningDistanceResponse: ResolverTypeWrapper<UpdateWalkingRunningDistanceResponse>,
   updateWalkingRunningDistanceError: ResolverTypeWrapper<UpdateWalkingRunningDistanceError>,
   updateWalkingRunningDistanceErrorErrorCodesType: UpdateWalkingRunningDistanceErrorErrorCodesType,
+  HealthInputType: HealthInputType,
+  addWeightUnion: ResolversTypes['addWeightResponse'] | ResolversTypes['addWeightError'],
+  addWeightResponse: ResolverTypeWrapper<AddWeightResponse>,
+  addWeightError: ResolverTypeWrapper<AddWeightError>,
+  addWeightErrorErrorCodesType: AddWeightErrorErrorCodesType,
+  HealthInputUpdateType: HealthInputUpdateType,
+  updateWeightUnion: ResolversTypes['updateWeightResponse'] | ResolversTypes['updateWeightError'],
+  updateWeightResponse: ResolverTypeWrapper<UpdateWeightResponse>,
+  updateWeightError: ResolverTypeWrapper<UpdateWeightError>,
+  updateWeightErrorErrorCodesType: UpdateWeightErrorErrorCodesType,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
 };
 
@@ -1465,6 +1597,8 @@ export type ResolversParentTypes = {
   HealthKitType: HealthKitType,
   Float: Scalars['Float'],
   UnitType: UnitType,
+  HealthType: HealthType,
+  Int: Scalars['Int'],
   Mutation: {},
   HealthKitInputType: HealthKitInputType,
   HealthKitInputSampleType: HealthKitInputSampleType,
@@ -1570,6 +1704,16 @@ export type ResolversParentTypes = {
   updateWalkingRunningDistanceResponse: UpdateWalkingRunningDistanceResponse,
   updateWalkingRunningDistanceError: UpdateWalkingRunningDistanceError,
   updateWalkingRunningDistanceErrorErrorCodesType: UpdateWalkingRunningDistanceErrorErrorCodesType,
+  HealthInputType: HealthInputType,
+  addWeightUnion: ResolversTypes['addWeightResponse'] | ResolversTypes['addWeightError'],
+  addWeightResponse: AddWeightResponse,
+  addWeightError: AddWeightError,
+  addWeightErrorErrorCodesType: AddWeightErrorErrorCodesType,
+  HealthInputUpdateType: HealthInputUpdateType,
+  updateWeightUnion: ResolversTypes['updateWeightResponse'] | ResolversTypes['updateWeightError'],
+  updateWeightResponse: UpdateWeightResponse,
+  updateWeightError: UpdateWeightError,
+  updateWeightErrorErrorCodesType: UpdateWeightErrorErrorCodesType,
   Boolean: Scalars['Boolean'],
 };
 
@@ -1742,6 +1886,19 @@ export type AddWalkingRunningDistanceUnionResolvers<ContextType = any, ParentTyp
   __resolveType: TypeResolveFn<'addWalkingRunningDistanceResponse' | 'addWalkingRunningDistanceError', ParentType, ContextType>
 };
 
+export type AddWeightErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addWeightError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addWeightErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddWeightResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addWeightResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type AddWeightUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addWeightUnion']> = {
+  __resolveType: TypeResolveFn<'addWeightResponse' | 'addWeightError', ParentType, ContextType>
+};
+
 export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Date'], any> {
   name: 'Date'
 }
@@ -1760,6 +1917,15 @@ export type HealthKitTypeResolvers<ContextType = any, ParentType = ResolversPare
   sources?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>,
   unit?: Resolver<Maybe<ResolversTypes['UnitType']>, ParentType, ContextType>,
   totalDuration?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type HealthTypeResolvers<ContextType = any, ParentType = ResolversParentTypes['HealthType']> = {
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  value?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>,
+  sampledOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  createdOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  updatedOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  unit?: Resolver<Maybe<ResolversTypes['UnitType']>, ParentType, ContextType>,
 };
 
 export type MutationResolvers<ContextType = any, ParentType = ResolversParentTypes['Mutation']> = {
@@ -1788,6 +1954,8 @@ export type MutationResolvers<ContextType = any, ParentType = ResolversParentTyp
   updateWalkingHeartRateAverage?: Resolver<Maybe<ResolversTypes['updateWalkingHeartRateAverageUnion']>, ParentType, ContextType, MutationUpdateWalkingHeartRateAverageArgs>,
   addWalkingRunningDistance?: Resolver<Maybe<ResolversTypes['addWalkingRunningDistanceUnion']>, ParentType, ContextType, MutationAddWalkingRunningDistanceArgs>,
   updateWalkingRunningDistance?: Resolver<Maybe<ResolversTypes['updateWalkingRunningDistanceUnion']>, ParentType, ContextType, MutationUpdateWalkingRunningDistanceArgs>,
+  addWeight?: Resolver<Maybe<ResolversTypes['addWeightUnion']>, ParentType, ContextType, MutationAddWeightArgs>,
+  updateWeight?: Resolver<Maybe<ResolversTypes['updateWeightUnion']>, ParentType, ContextType, MutationUpdateWeightArgs>,
 };
 
 export type RootQueryTypeResolvers<ContextType = any, ParentType = ResolversParentTypes['RootQueryType']> = {
@@ -1803,6 +1971,7 @@ export type RootQueryTypeResolvers<ContextType = any, ParentType = ResolversPare
   swimmingDistance?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType, RootQueryTypeSwimmingDistanceArgs>,
   walkingHeartrateAverage?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType, RootQueryTypeWalkingHeartrateAverageArgs>,
   walkingRunningDistance?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType, RootQueryTypeWalkingRunningDistanceArgs>,
+  weight?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeWeightArgs>,
 };
 
 export type UpdateActiveEnergyErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateActiveEnergyError']> = {
@@ -1961,6 +2130,19 @@ export type UpdateWalkingRunningDistanceUnionResolvers<ContextType = any, Parent
   __resolveType: TypeResolveFn<'updateWalkingRunningDistanceResponse' | 'updateWalkingRunningDistanceError', ParentType, ContextType>
 };
 
+export type UpdateWeightErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateWeightError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateWeightErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateWeightResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateWeightResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type UpdateWeightUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateWeightUnion']> = {
+  __resolveType: TypeResolveFn<'updateWeightResponse' | 'updateWeightError', ParentType, ContextType>
+};
+
 export type Resolvers<ContextType = any> = {
   addActiveEnergyError?: AddActiveEnergyErrorResolvers<ContextType>,
   addActiveEnergyResponse?: AddActiveEnergyResponseResolvers<ContextType>,
@@ -2001,8 +2183,12 @@ export type Resolvers<ContextType = any> = {
   addWalkingRunningDistanceError?: AddWalkingRunningDistanceErrorResolvers<ContextType>,
   addWalkingRunningDistanceResponse?: AddWalkingRunningDistanceResponseResolvers<ContextType>,
   addWalkingRunningDistanceUnion?: AddWalkingRunningDistanceUnionResolvers,
+  addWeightError?: AddWeightErrorResolvers<ContextType>,
+  addWeightResponse?: AddWeightResponseResolvers<ContextType>,
+  addWeightUnion?: AddWeightUnionResolvers,
   Date?: GraphQLScalarType,
   HealthKitType?: HealthKitTypeResolvers<ContextType>,
+  HealthType?: HealthTypeResolvers<ContextType>,
   Mutation?: MutationResolvers<ContextType>,
   RootQueryType?: RootQueryTypeResolvers<ContextType>,
   updateActiveEnergyError?: UpdateActiveEnergyErrorResolvers<ContextType>,
@@ -2041,6 +2227,9 @@ export type Resolvers<ContextType = any> = {
   updateWalkingRunningDistanceError?: UpdateWalkingRunningDistanceErrorResolvers<ContextType>,
   updateWalkingRunningDistanceResponse?: UpdateWalkingRunningDistanceResponseResolvers<ContextType>,
   updateWalkingRunningDistanceUnion?: UpdateWalkingRunningDistanceUnionResolvers,
+  updateWeightError?: UpdateWeightErrorResolvers<ContextType>,
+  updateWeightResponse?: UpdateWeightResponseResolvers<ContextType>,
+  updateWeightUnion?: UpdateWeightUnionResolvers,
 };
 
 

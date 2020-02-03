@@ -4,7 +4,7 @@ import { findHealthById, findHealthByDate } from '../../controllers/health';
 import { addHealthKitItem, updateHealthKitItem } from '../../controllers/healthkit';
 import { ExpectedError } from '../../utils/errors';
 import { HealthKitType, HealthKitInputType, ResponseUnionType, HealthKitInputUpdateType } from '../types';
-import { HealthConfigType } from '../../types';
+import { HealthKitConfigType } from '../../types';
 const { healthTypes } = require('../../configs/healthkit.json');
 
 type QueryOptions = {
@@ -25,7 +25,7 @@ export const composeHealthkitQuery = (options: QueryOptions) => {
       }
     },
     resolve(parentValue, args) {
-      const config: HealthConfigType = healthTypes[options.type];
+      const config: HealthKitConfigType = healthTypes[options.type];
       if (args.id) {
         return findHealthById(args.id, config);
       } else if (args.date) {
