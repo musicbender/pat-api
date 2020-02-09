@@ -1,6 +1,6 @@
 import * as GraphQLDate from 'graphql-date';
 import { GraphQLString, GraphQLNonNull, GraphQLID } from 'graphql';
-import { findHealthById, findHealthByDate } from '../../controllers/health';
+import { findItemById, findItemByDate } from '../../controllers/global';
 import { addHealthKitItem, updateHealthKitItem } from '../../controllers/healthkit';
 import { ExpectedError } from '../../utils/errors';
 const { healthTypes } = require('../../configs/healthkit.json');
@@ -43,10 +43,10 @@ export const composeHealthkitQuery = (options: HealthKitQueryOptions) => {
 
       try {
         if (args.id) {
-          response = await findHealthById(args.id, config);
+          response = await findItemById(args.id, config.modelID);
         } else if (args.date) {
-          response = await findHealthByDate(args.date, config);
-        } 
+          response = await findItemByDate(args.date, config.modelID);
+        }
 
         return { response };
       } catch (err) {

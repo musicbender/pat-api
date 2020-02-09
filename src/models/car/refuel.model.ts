@@ -43,6 +43,4 @@ export default class Refuel extends Model<Refuel> {
   @Default(moment().toISOString())
   @Column
   sampledOn: Date;
-
-
 }

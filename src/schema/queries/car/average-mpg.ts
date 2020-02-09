@@ -1,21 +1,9 @@
 import * as GraphQLDate from 'graphql-date';
 import { GraphQLString, GraphQLNonNull, GraphQLID } from 'graphql';
-import { findItemById, findItemByDate } from '../../controllers/global';
-import { addHealthItem, updateHealthItem } from '../../controllers/health';
-import { ExpectedError } from '../../utils/errors';
+import { findHealthById, findHealthByDate, addHealthItem, updateHealthItem } from '../../../controllers/health';
+import { ExpectedError } from '../../../utils/errors';
 const healthTypes = require('../../configs/health.json');
-import { 
-  HealthType, 
-  HealthInputType, 
-  ResponseUnionType, 
-  HealthInputUpdateType 
-} from '../types';
-import { 
-  HealthConfigType,
-  HealthQueryOptions,
-  HealthAddOptions,
-  HealthUpdateOptions,
-} from '../../types';
+import { AverageMPGType, AverageMPGInputType, ResponseUnionType, AverageMPGInputUpdateType } from '../../types';
 
 export const composeHealthQuery = (options: HealthQueryOptions) => {
   const name = options.name || options.type.replace('-', '') || HealthType.name;
@@ -43,9 +31,9 @@ export const composeHealthQuery = (options: HealthQueryOptions) => {
 
       try {
         if (args.id) {
-          response = await findItemById(args.id, config.modelID);
+          response = await findHealthById(args.id, config);
         } else if (args.date) {
-          response = await findItemByDate(args.date, config.modelID);
+          response = await findHealthByDate(args.date, config);
         }
         
         return { response };
