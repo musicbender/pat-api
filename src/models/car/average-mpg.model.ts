@@ -1,5 +1,6 @@
 import * as moment from 'moment';
 import { 
+  Table,
   Model, 
   IsUUID, 
   PrimaryKey, 
@@ -8,6 +9,11 @@ import {
   DataType,
 } from 'sequelize-typescript';
 
+@Table({
+  tableName: 'car-average-mpg',
+  createdAt: false, 
+  updatedAt: false
+})
 export default class AverageMPG extends Model<AverageMPG> {
   @IsUUID(4)
   @PrimaryKey

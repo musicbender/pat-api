@@ -1,5 +1,6 @@
 import * as moment from 'moment';
 import { 
+  Table,
   Model, 
   IsUUID, 
   PrimaryKey, 
@@ -8,6 +9,11 @@ import {
   DataType
 } from 'sequelize-typescript';
 
+@Table({
+  tableName: 'car-refuel',
+  createdAt: false, 
+  updatedAt: false
+})
 export default class Refuel extends Model<Refuel> {
   @IsUUID(4)
   @PrimaryKey

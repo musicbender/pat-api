@@ -4,7 +4,7 @@ import {
   GraphQLFloat,
   GraphQLString
 } from 'graphql';
-import { UnitType } from '../types/unit-type';
+import { UnitType } from './unit-type';
 
 export const HealthInputType = new GraphQLInputObjectType({
   name: 'HealthInputType',
