@@ -37,7 +37,7 @@ export const composeHealthkitQuery = (options: QueryOptions) => {
           response = await findHealthByDate(args.date, config);
         } 
 
-        return { response };
+        return response;
       } catch (err) {
         throw err;
       }

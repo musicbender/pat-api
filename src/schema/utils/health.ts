@@ -29,6 +29,7 @@ export const composeHealthQuery = (options: QueryOptions) => {
       const config: HealthConfigType = healthTypes[options.type];
       let response;
 
+
       try {
         if (args.id) {
           response = await findHealthById(args.id, config);
@@ -36,7 +37,7 @@ export const composeHealthQuery = (options: QueryOptions) => {
           response = await findHealthByDate(args.date, config);
         }
         
-        return { response };
+        return response;
       } catch (err) {
         throw err;
       }
