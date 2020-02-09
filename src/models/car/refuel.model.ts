@@ -8,7 +8,7 @@ import {
   DataType
 } from 'sequelize-typescript';
 
-export default class BasicHealth<T = any, T2 = any> extends Model<BasicHealth> {
+export default class Refuel extends Model<Refuel> {
   @IsUUID(4)
   @PrimaryKey
   @Column
@@ -16,7 +16,15 @@ export default class BasicHealth<T = any, T2 = any> extends Model<BasicHealth> {
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  value: number;
+  gallons: number;
+
+  @Default(0)
+  @Column({ type: DataType.FLOAT })
+  cost: number;
+
+  @Default('prius prime')
+  @Column
+  vehicle: string;
 
   @Default(moment().toISOString())
   @Column
@@ -24,12 +32,11 @@ export default class BasicHealth<T = any, T2 = any> extends Model<BasicHealth> {
 
   @Default(moment().toISOString())
   @Column
-  updatedOn: Date
+  updatedOn: Date;
 
   @Default(moment().toISOString())
   @Column
-  sampledOn: Date
+  sampledOn: Date;
 
-  @Column
-  unit: string;
+
 }

@@ -12,7 +12,7 @@ export default class Healthkit<T = any, T2 = any> extends Model<Healthkit> {
   @IsUUID(4)
   @PrimaryKey
   @Column
-  id: string;;
+  id: string;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
