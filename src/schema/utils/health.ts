@@ -2,17 +2,21 @@ import * as GraphQLDate from 'graphql-date';
 import { GraphQLString, GraphQLNonNull, GraphQLID } from 'graphql';
 import { findHealthById, findHealthByDate, addHealthItem, updateHealthItem } from '../../controllers/health';
 import { ExpectedError } from '../../utils/errors';
-import { HealthType, HealthInputType, ResponseUnionType, HealthInputUpdateType } from '../types';
-import { HealthConfigType } from '../../types';
 const healthTypes = require('../../configs/health.json');
+import { 
+  HealthType, 
+  HealthInputType, 
+  ResponseUnionType, 
+  HealthInputUpdateType 
+} from '../types';
+import { 
+  HealthConfigType,
+  HealthQueryOptions,
+  HealthAddOptions,
+  HealthUpdateOptions,
+} from '../../types';
 
-type QueryOptions = {
-  type: string, 
-  name?: string,
-  description?: string
-}
-
-export const composeHealthQuery = (options: QueryOptions) => {
+export const composeHealthQuery = (options: HealthQueryOptions) => {
   const name = options.name || options.type.replace('-', '') || HealthType.name;
   const description = `Get a single ${name} entry by either _id or date, _id taking priority`;
   return {
@@ -51,13 +55,7 @@ export const composeHealthQuery = (options: QueryOptions) => {
   }
 }
 
-type AddOptions = {
-  type: string, 
-  name: string,
-  description?: string
-}
-
-export const composeHealthAdd = (options: AddOptions) => {
+export const composeHealthAdd = (options: HealthAddOptions) => {
   const name = `add${options.name}`;
   return {
     name,
@@ -82,13 +80,7 @@ export const composeHealthAdd = (options: AddOptions) => {
   }
 }
 
-type UpdateOptions = {
-  type: string, 
-  name: string,
-  description?: string
-}
-
-export const composeHealthUpdate = (options: UpdateOptions) => {
+export const composeHealthUpdate = (options: HealthUpdateOptions) => {
   const name = `update${options.name}`;
   return {
     name,

@@ -3,17 +3,21 @@ import { GraphQLString, GraphQLNonNull, GraphQLID } from 'graphql';
 import { findHealthById, findHealthByDate } from '../../controllers/health';
 import { addHealthKitItem, updateHealthKitItem } from '../../controllers/healthkit';
 import { ExpectedError } from '../../utils/errors';
-import { HealthKitType, HealthKitInputType, ResponseUnionType, HealthKitInputUpdateType } from '../types';
-import { HealthKitConfigType } from '../../types';
 const { healthTypes } = require('../../configs/healthkit.json');
+import { 
+  HealthKitType, 
+  HealthKitInputType, 
+  ResponseUnionType, 
+  HealthKitInputUpdateType,
+} from '../types';
+import { 
+  HealthKitConfigType, 
+  HealthKitQueryOptions,
+  HealthKitAddOptions,
+  HealthKitUpdateOptions,
+} from '../../types';
 
-type QueryOptions = {
-  type: string, 
-  name?: string,
-  description?: string,
-}
-
-export const composeHealthkitQuery = (options: QueryOptions) => {
+export const composeHealthkitQuery = (options: HealthKitQueryOptions) => {
   const name = options.name || options.type.replace('-', '') || HealthKitType.name;
   const description = `Get a single ${name} entry by either _id or date, _id taking priority`;
   return {
@@ -52,13 +56,7 @@ export const composeHealthkitQuery = (options: QueryOptions) => {
   }
 }
 
-type AddOptions = {
-  type: string, 
-  name: string,
-  description?: string
-}
-
-export const composeHealthkitAdd = (options: AddOptions) => {
+export const composeHealthkitAdd = (options: HealthKitAddOptions) => {
   const name = `add${options.name}`;
   return {
     name,
@@ -83,13 +81,7 @@ export const composeHealthkitAdd = (options: AddOptions) => {
   }
 }
 
-type UpdateOptions = {
-  type: string, 
-  name: string,
-  description?: string
-}
-
-export const composeHealthkitUpdate = (options: UpdateOptions) => {
+export const composeHealthkitUpdate = (options: HealthKitUpdateOptions) => {
   const name = `update${options.name}`;
   return {
     name,
