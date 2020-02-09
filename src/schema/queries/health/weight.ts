@@ -1,6 +1,7 @@
 import { composeHealthQuery } from '../../utils/health';
+const healthTypes = require('../../../configs/health.json');
 
 export const weight = composeHealthQuery({
-  type: 'weight',
-  description: 'Get a single weight entry by either _id or date, _id taking priority',
+  type: healthTypes.weight.id,
+  name: 'weight',
 });

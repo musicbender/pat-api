@@ -1,6 +1,7 @@
 import { composeHealthQuery } from '../../utils/health';
+const healthTypes = require('../../../configs/health.json');
 
 export const waistCircumference = composeHealthQuery({
-  type: 'waist-circumference',
-  description: 'Get a single waist circumference entry by either _id or date, _id taking priority',
+  type: healthTypes.waistCircumference.id,
+  name: 'waistCircumference',
 });

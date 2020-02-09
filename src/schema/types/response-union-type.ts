@@ -9,10 +9,7 @@ const ResponseUnionType = (options: any) => {
     description: `Return either be response data or error data for ${options.name}`,
     types: [ responseType, errorType ],
     resolveType: (value) => {
-      if (Object.prototype.hasOwnProperty.call(value, 'errorCode')) {
-        return errorType;
-      }
-
+      if (Object.prototype.hasOwnProperty.call(value, 'errorCode')) return errorType;
       return responseType;
     }
   });

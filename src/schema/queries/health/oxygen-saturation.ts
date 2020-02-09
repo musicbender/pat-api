@@ -1,6 +1,7 @@
 import { composeHealthQuery } from '../../utils/health';
+const healthTypes = require('../../../configs/health.json');
 
 export const oxygenSaturation = composeHealthQuery({
-  type: 'oxygen-saturation',
-  description: 'Get a single oxygen saturation entry by either _id or date, _id taking priority',
+  type: healthTypes.oxygenSaturation.id,
+  name: 'oxygenSaturation',
 });

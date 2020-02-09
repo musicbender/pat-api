@@ -1,6 +1,7 @@
 import { composeHealthQuery } from '../../utils/health';
+const healthTypes = require('../../../configs/health.json');
 
 export const bodyTemperature = composeHealthQuery({
-  type: 'body-temperature',
-  description: 'Get a single body temperature entry by either _id or date, _id taking priority',
+  type: healthTypes.bodyTemperature.id,
+  name: 'bodyTemperature',
 });

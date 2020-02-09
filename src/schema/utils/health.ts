@@ -8,27 +8,33 @@ const healthTypes = require('../../configs/health.json');
 
 type QueryOptions = {
   type: string, 
+  name?: string,
   description?: string
 }
 
 export const composeHealthQuery = (options: QueryOptions) => {
+  const name = options.name || options.type.replace('-', '') || HealthType.name;
+  const description = `Get a single ${name} entry by either _id or date, _id taking priority`;
   return {
-    type: HealthType,
-    description: options.description || 'Health query',
+    name,
+    type: ResponseUnionType({
+      name,
+      responseType: HealthType,
+    }),
+    description: options.description || description || `${HealthType.name} query`,
     args: {
       id: {
         type: GraphQLString
       },
       date: {
         type: GraphQLDate
-      }
+      },
     },
     async resolve(parentValue, args) {
       if (!args.id && !args.date) throw new ExpectedError('INVALID_ARGUMENTS');
 
       const config: HealthConfigType = healthTypes[options.type];
       let response;
-
 
       try {
         if (args.id) {
@@ -37,7 +43,7 @@ export const composeHealthQuery = (options: QueryOptions) => {
           response = await findHealthByDate(args.date, config);
         }
         
-        return response;
+        return { response };
       } catch (err) {
         throw err;
       }
