@@ -1,6 +1,7 @@
 import { composeHealthkitQuery } from '../../utils/healthkit';
+const { healthTypes } = require('../../../configs/healthkit.json');
 
 export const caffeine = composeHealthkitQuery({
-  type: 'caffeine',
-  description: 'Get a single caffeine count by either _id or date, _id taking priority',
+  type: healthTypes.caffeine.id,
+  name: 'caffeine'
 });

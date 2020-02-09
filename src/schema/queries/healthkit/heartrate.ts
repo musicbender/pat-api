@@ -1,6 +1,7 @@
 import { composeHealthkitQuery } from '../../utils/healthkit';
+const { healthTypes } = require('../../../configs/healthkit.json');
 
 export const heartrate = composeHealthkitQuery({
-  type: 'heartRate',
-  description: 'Get a single heartrate average by either _id or date, _id taking priority',
+  type: healthTypes.heartRate.id,
+  name: 'heartrate'
 });

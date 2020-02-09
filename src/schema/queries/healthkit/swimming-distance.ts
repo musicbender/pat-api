@@ -1,6 +1,7 @@
 import { composeHealthkitQuery } from '../../utils/healthkit';
+const { healthTypes } = require('../../../configs/healthkit.json');
 
 export const swimmingDistance = composeHealthkitQuery({
-  type: 'swimming-distance',
-  description: 'Get a single swimming-distance count by either _id or date, _id taking priority',
+  type: healthTypes.swimmingDistance.id,
+  name: 'swimmingDistance'
 });

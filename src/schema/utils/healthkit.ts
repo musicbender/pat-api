@@ -9,13 +9,20 @@ const { healthTypes } = require('../../configs/healthkit.json');
 
 type QueryOptions = {
   type: string, 
-  description?: string
+  name?: string,
+  description?: string,
 }
 
 export const composeHealthkitQuery = (options: QueryOptions) => {
+  const name = options.name || options.type.replace('-', '') || HealthKitType.name;
+  const description = `Get a single ${name} entry by either _id or date, _id taking priority`;
   return {
-    type: HealthKitType,
-    description: options.description || 'HealthKit query',
+    name,
+    type: ResponseUnionType({
+      name,
+      responseType: HealthKitType,
+    }),
+    description: options.description || description || `${HealthKitType.name} query`,
     args: {
       id: {
         type: GraphQLString
@@ -37,7 +44,7 @@ export const composeHealthkitQuery = (options: QueryOptions) => {
           response = await findHealthByDate(args.date, config);
         } 
 
-        return response;
+        return { response };
       } catch (err) {
         throw err;
       }

@@ -1,7 +1,8 @@
 import { composeHealthkitQuery } from '../../utils/healthkit';
+const { healthTypes } = require('../../../configs/healthkit.json');
 
 export const flightsClimbed = composeHealthkitQuery({
-  type: 'flightsClimbed',
-  description: 'Get a single flights climbed count by either _id or date, _id taking priority',
+  type: healthTypes.flightsClimbed.id,
+  name: 'flightsClimbed'
 });
 

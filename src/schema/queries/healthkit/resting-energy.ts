@@ -1,6 +1,7 @@
 import { composeHealthkitQuery } from '../../utils/healthkit';
+const { healthTypes } = require('../../../configs/healthkit.json');
 
 export const restingEnergy = composeHealthkitQuery({
-  type: 'resting-energy',
-  description: 'Get a single resting energy count by either _id or date, _id taking priority',
+  type: healthTypes.restingEnergy.id,
+  name: 'restingEnergy'
 });
