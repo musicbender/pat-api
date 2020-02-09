@@ -23,14 +23,22 @@ export const composeHealthQuery = (options: QueryOptions) => {
         type: GraphQLDate
       }
     },
-    resolve(parentValue, args) {
+    async resolve(parentValue, args) {
+      if (!args.id && !args.date) throw new ExpectedError('INVALID_ARGUMENTS');
+
       const config: HealthConfigType = healthTypes[options.type];
-      if (args.id) {
-        return findHealthById(args.id, config);
-      } else if (args.date) {
-        return findHealthByDate(args.date, config);
-      } else {
-        throw new ExpectedError('INVALID_ARGUMENTS');
+      let response;
+
+      try {
+        if (args.id) {
+          response = await findHealthById(args.id, config);
+        } else if (args.date) {
+          response = await findHealthByDate(args.date, config);
+        }
+        
+        return { response };
+      } catch (err) {
+        throw err;
       }
     }
   }
@@ -56,8 +64,13 @@ export const composeHealthAdd = (options: AddOptions) => {
         type: new GraphQLNonNull(HealthInputType)
       }
     },
-    resolve(parentValue, { input }) {
-      return { response: addHealthItem(input, healthTypes[options.type]) };
+    async resolve(parentValue, { input }) {
+      try {
+        const response = await addHealthItem(input, healthTypes[options.type]);
+        return { response };
+      } catch (err) {
+        throw err;
+      }
     }
   }
 }
@@ -85,8 +98,13 @@ export const composeHealthUpdate = (options: UpdateOptions) => {
         type: new GraphQLNonNull(HealthInputUpdateType)
       }
     },
-    resolve(parentValue, { id, input }) {
-      return { response: updateHealthItem(id, input, healthTypes[options.type]) };
+    async resolve(parentValue, { id, input }) {
+      try {
+        const response = await updateHealthItem(id, input, healthTypes[options.type]);
+        return { response };
+      } catch (err) {
+        throw err;
+      }
     }
   }
 }

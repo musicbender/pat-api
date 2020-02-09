@@ -18,8 +18,8 @@
     "disabled": false
   },
   "bloodPressure": {
-    "id": "systolic-blood-pressure",
-    "modelID": "SystolicBloodPressure",
+    "id": "blood-pressure",
+    "modelID": "BloodPressure",
     "unit": "mmHG",
     "disabled": true
   },
@@ -27,12 +27,12 @@
     "id": "oxygen-saturation",
     "modelID": "OxygenSaturation",
     "unit": "%",
-    "disabled": true
+    "disabled": false
   },
   "bodyTemperature": {
     "id": "body-temperature",
     "modelID": "BodyTemperature",
-    "unit": "°F",
-    "disabled": true
+    "unit": "degreesF",
+    "disabled": false
   }
 }

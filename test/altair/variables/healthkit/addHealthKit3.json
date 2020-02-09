@@ -49,18 +49,6 @@
           "duration": "12"
         }
       ]
-    },
-    {
-      "type": "Weight",
-      "unit": "lbs",
-      "sampledOn": "2019-12-10T12:03:11-07:00",
-      "sampleList": [
-        {
-          "date": "2019-12-10T18:00:59-07:00",
-          "source": "pat-apple-watch",
-          "value": "150"
-        }
-      ]
     }
   ]
 }

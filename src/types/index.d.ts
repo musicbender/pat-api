@@ -1,5 +1,6 @@
 import * as moment from 'moment';
-import { HealthKitType, HealthKitInputType, HealthKitInputSampleType, UnitType } from '../types/generated';
+import { HealthType, HealthKitType, HealthKitInputType, HealthKitInputSampleType, UnitType } from '../types/generated';
+import { Model } from 'sequelize-typescript';
 
 // generated types
 export * from './generated';

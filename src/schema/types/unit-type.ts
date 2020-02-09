@@ -27,6 +27,7 @@ export const UnitType = new GraphQLEnumType({
     "ms": { value: "ms" },
     "bpm": { value: "bpm" },
     "min": { value: "min" },
-    "hrs": { value: "hrs" }
+    "hrs": { value: "hrs" },
+    "degreesF": { value: "degreesF" }
   }
 });

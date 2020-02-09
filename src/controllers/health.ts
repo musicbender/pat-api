@@ -26,16 +26,13 @@ export const findHealthByDate = (date: Date | string, config: HealthConfigType |
 // add health item
 export const addHealthItem = async (input: HealthInputType, config: HealthConfigType): Promise<HealthType> => {
   // if type has been disabled in config
-  if (config.disabled) {
-    throw new ExpectedError('DISABLED_HEALTH_TYPE');
-  }
+  if (config.disabled) throw new ExpectedError('DISABLED_HEALTH_TYPE');
 
    // do not create row if there is no value or type is disabled
-   if (input.value === null) return null;
+  if (input.value === null) return null;
 
   if (config.interval && config.interval === 'day') {
     const dupeItem: any = await findHealthByDate(input.sampledOn, config);
-
     const id = dupeItem && dupeItem.id 
       ? dupeItem.id
       : dupeItem && dupeItem.dataValues 
@@ -64,9 +61,7 @@ export const addHealthItem = async (input: HealthInputType, config: HealthConfig
 
 // replace health item
 export const replaceHealthItem = async (id: string, input: HealthInputType, config: HealthConfigType): Promise<Model> => {
-  if (config.disabled) {
-    throw new ExpectedError('DISABLED_HEALTH_TYPE');
-  }
+  if (config.disabled) throw new ExpectedError('DISABLED_HEALTH_TYPE');
 
   const data: HealthType = input;
   const HealthItem = models[config.modelID];

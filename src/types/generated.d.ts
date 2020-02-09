@@ -23,14 +23,22 @@ export enum AddActiveEnergyErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -46,6 +54,50 @@ export type AddActiveEnergyResponse = {
 /** Return either be response data or error data for addActiveEnergy */
 export type AddActiveEnergyUnion = AddActiveEnergyResponse | AddActiveEnergyError;
 
+export type AddBodyTemperatureError = {
+  __typename?: 'addBodyTemperatureError',
+  errorCode?: Maybe<AddBodyTemperatureErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddBodyTemperatureErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Response data for addBodyTemperature */
+export type AddBodyTemperatureResponse = {
+  __typename?: 'addBodyTemperatureResponse',
+  response?: Maybe<HealthType>,
+};
+
+/** Return either be response data or error data for addBodyTemperature */
+export type AddBodyTemperatureUnion = AddBodyTemperatureResponse | AddBodyTemperatureError;
+
 export type AddCaffeineError = {
   __typename?: 'addCaffeineError',
   errorCode?: Maybe<AddCaffeineErrorErrorCodesType>,
@@ -59,14 +111,22 @@ export enum AddCaffeineErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -95,14 +155,22 @@ export enum AddFlightsClimbedErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -131,14 +199,22 @@ export enum AddHealthKitErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -167,14 +243,22 @@ export enum AddHeartRateErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -203,14 +287,22 @@ export enum AddHeartRateVariabilityErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -226,6 +318,94 @@ export type AddHeartRateVariabilityResponse = {
 /** Return either be response data or error data for addHeartRateVariability */
 export type AddHeartRateVariabilityUnion = AddHeartRateVariabilityResponse | AddHeartRateVariabilityError;
 
+export type AddHeightError = {
+  __typename?: 'addHeightError',
+  errorCode?: Maybe<AddHeightErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddHeightErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Response data for addHeight */
+export type AddHeightResponse = {
+  __typename?: 'addHeightResponse',
+  response?: Maybe<HealthType>,
+};
+
+/** Return either be response data or error data for addHeight */
+export type AddHeightUnion = AddHeightResponse | AddHeightError;
+
+export type AddOxygenSaturationError = {
+  __typename?: 'addOxygenSaturationError',
+  errorCode?: Maybe<AddOxygenSaturationErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddOxygenSaturationErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Response data for addOxygenSaturation */
+export type AddOxygenSaturationResponse = {
+  __typename?: 'addOxygenSaturationResponse',
+  response?: Maybe<HealthType>,
+};
+
+/** Return either be response data or error data for addOxygenSaturation */
+export type AddOxygenSaturationUnion = AddOxygenSaturationResponse | AddOxygenSaturationError;
+
 export type AddRestingEnergyError = {
   __typename?: 'addRestingEnergyError',
   errorCode?: Maybe<AddRestingEnergyErrorErrorCodesType>,
@@ -239,14 +419,22 @@ export enum AddRestingEnergyErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -275,14 +463,22 @@ export enum AddRestingHeartRateErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -311,14 +507,22 @@ export enum AddSleepAnalysisErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -347,14 +551,22 @@ export enum AddStepErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -383,14 +595,22 @@ export enum AddSwimmingDistanceErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -406,6 +626,50 @@ export type AddSwimmingDistanceResponse = {
 /** Return either be response data or error data for addSwimmingDistance */
 export type AddSwimmingDistanceUnion = AddSwimmingDistanceResponse | AddSwimmingDistanceError;
 
+export type AddWaistCircumferenceError = {
+  __typename?: 'addWaistCircumferenceError',
+  errorCode?: Maybe<AddWaistCircumferenceErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddWaistCircumferenceErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Response data for addWaistCircumference */
+export type AddWaistCircumferenceResponse = {
+  __typename?: 'addWaistCircumferenceResponse',
+  response?: Maybe<HealthType>,
+};
+
+/** Return either be response data or error data for addWaistCircumference */
+export type AddWaistCircumferenceUnion = AddWaistCircumferenceResponse | AddWaistCircumferenceError;
+
 export type AddWalkingHeartRateAverageError = {
   __typename?: 'addWalkingHeartRateAverageError',
   errorCode?: Maybe<AddWalkingHeartRateAverageErrorErrorCodesType>,
@@ -419,14 +683,22 @@ export enum AddWalkingHeartRateAverageErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -455,14 +727,22 @@ export enum AddWalkingRunningDistanceErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -491,14 +771,22 @@ export enum AddWeightErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -517,13 +805,13 @@ export type AddWeightUnion = AddWeightResponse | AddWeightError;
 
 /** Health data input */
 export type HealthInputType = {
-  value?: Maybe<Scalars['Int']>,
+  value?: Maybe<Scalars['Float']>,
   sampledOn?: Maybe<Scalars['String']>,
 };
 
 /** Health data input for updating */
 export type HealthInputUpdateType = {
-  value?: Maybe<Scalars['Int']>,
+  value?: Maybe<Scalars['Float']>,
   sampledOn?: Maybe<Scalars['String']>,
   createdOn?: Maybe<Scalars['String']>,
   unit?: Maybe<UnitType>,
@@ -539,7 +827,7 @@ export type HealthKitInputSampleType = {
 
 /** Health data input */
 export type HealthKitInputType = {
-  type: Scalars['String'],
+  type?: Maybe<Scalars['String']>,
   unit?: Maybe<UnitType>,
   sampleList?: Maybe<Array<Maybe<HealthKitInputSampleType>>>,
   sample?: Maybe<HealthKitInputSampleType>,
@@ -584,7 +872,7 @@ export type HealthKitType = {
 export type HealthType = {
   __typename?: 'HealthType',
   id?: Maybe<Scalars['String']>,
-  value?: Maybe<Scalars['Int']>,
+  value?: Maybe<Scalars['Float']>,
   sampledOn?: Maybe<Scalars['String']>,
   createdOn?: Maybe<Scalars['String']>,
   updatedOn?: Maybe<Scalars['String']>,
@@ -647,6 +935,22 @@ export type Mutation = {
   addWeight?: Maybe<AddWeightUnion>,
   /** Update a Weight node */
   updateWeight?: Maybe<UpdateWeightUnion>,
+  /** Add a Height node */
+  addHeight?: Maybe<AddHeightUnion>,
+  /** Update a Height node */
+  updateHeight?: Maybe<UpdateHeightUnion>,
+  /** Add a BodyTemperature node */
+  addBodyTemperature?: Maybe<AddBodyTemperatureUnion>,
+  /** Update a BodyTemperature node */
+  updateBodyTemperature?: Maybe<UpdateBodyTemperatureUnion>,
+  /** Add a OxygenSaturation node */
+  addOxygenSaturation?: Maybe<AddOxygenSaturationUnion>,
+  /** Update a OxygenSaturation node */
+  updateOxygenSaturation?: Maybe<UpdateOxygenSaturationUnion>,
+  /** Add a WaistCircumference node */
+  addWaistCircumference?: Maybe<AddWaistCircumferenceUnion>,
+  /** Update a WaistCircumference node */
+  updateWaistCircumference?: Maybe<UpdateWaistCircumferenceUnion>,
 };
 
 
@@ -797,6 +1101,50 @@ export type MutationUpdateWeightArgs = {
   input: HealthInputUpdateType
 };
 
+
+export type MutationAddHeightArgs = {
+  input: HealthInputType
+};
+
+
+export type MutationUpdateHeightArgs = {
+  id: Scalars['ID'],
+  input: HealthInputUpdateType
+};
+
+
+export type MutationAddBodyTemperatureArgs = {
+  input: HealthInputType
+};
+
+
+export type MutationUpdateBodyTemperatureArgs = {
+  id: Scalars['ID'],
+  input: HealthInputUpdateType
+};
+
+
+export type MutationAddOxygenSaturationArgs = {
+  input: HealthInputType
+};
+
+
+export type MutationUpdateOxygenSaturationArgs = {
+  id: Scalars['ID'],
+  input: HealthInputUpdateType
+};
+
+
+export type MutationAddWaistCircumferenceArgs = {
+  input: HealthInputType
+};
+
+
+export type MutationUpdateWaistCircumferenceArgs = {
+  id: Scalars['ID'],
+  input: HealthInputUpdateType
+};
+
 export type RootQueryType = {
   __typename?: 'RootQueryType',
   /** Get a single step count by either _id or date, _id taking priority */
@@ -825,6 +1173,14 @@ export type RootQueryType = {
   walkingRunningDistance?: Maybe<HealthKitType>,
   /** Get a single weight entry by either _id or date, _id taking priority */
   weight?: Maybe<HealthType>,
+  /** Get a single height entry by either _id or date, _id taking priority */
+  height?: Maybe<HealthType>,
+  /** Get a single body temperature entry by either _id or date, _id taking priority */
+  bodyTemperature?: Maybe<HealthType>,
+  /** Get a single oxygen saturation entry by either _id or date, _id taking priority */
+  oxygenSaturation?: Maybe<HealthType>,
+  /** Get a single waist circumference entry by either _id or date, _id taking priority */
+  waistCircumference?: Maybe<HealthType>,
 };
 
 
@@ -905,6 +1261,30 @@ export type RootQueryTypeWeightArgs = {
   date?: Maybe<Scalars['Date']>
 };
 
+
+export type RootQueryTypeHeightArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeBodyTemperatureArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeOxygenSaturationArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeWaistCircumferenceArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
 /** Acceptable units of measurment */
 export enum UnitType {
   Cm = 'cm',
@@ -946,14 +1326,22 @@ export enum UpdateActiveEnergyErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -969,6 +1357,50 @@ export type UpdateActiveEnergyResponse = {
 /** Return either be response data or error data for updateActiveEnergy */
 export type UpdateActiveEnergyUnion = UpdateActiveEnergyResponse | UpdateActiveEnergyError;
 
+export type UpdateBodyTemperatureError = {
+  __typename?: 'updateBodyTemperatureError',
+  errorCode?: Maybe<UpdateBodyTemperatureErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateBodyTemperatureErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Response data for updateBodyTemperature */
+export type UpdateBodyTemperatureResponse = {
+  __typename?: 'updateBodyTemperatureResponse',
+  response?: Maybe<HealthType>,
+};
+
+/** Return either be response data or error data for updateBodyTemperature */
+export type UpdateBodyTemperatureUnion = UpdateBodyTemperatureResponse | UpdateBodyTemperatureError;
+
 export type UpdateCaffeineError = {
   __typename?: 'updateCaffeineError',
   errorCode?: Maybe<UpdateCaffeineErrorErrorCodesType>,
@@ -982,14 +1414,22 @@ export enum UpdateCaffeineErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -1018,14 +1458,22 @@ export enum UpdateFlightsClimbedErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -1054,14 +1502,22 @@ export enum UpdateHeartRateErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -1090,14 +1546,22 @@ export enum UpdateHeartRateVariabilityErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -1113,6 +1577,94 @@ export type UpdateHeartRateVariabilityResponse = {
 /** Return either be response data or error data for updateHeartRateVariability */
 export type UpdateHeartRateVariabilityUnion = UpdateHeartRateVariabilityResponse | UpdateHeartRateVariabilityError;
 
+export type UpdateHeightError = {
+  __typename?: 'updateHeightError',
+  errorCode?: Maybe<UpdateHeightErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateHeightErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Response data for updateHeight */
+export type UpdateHeightResponse = {
+  __typename?: 'updateHeightResponse',
+  response?: Maybe<HealthType>,
+};
+
+/** Return either be response data or error data for updateHeight */
+export type UpdateHeightUnion = UpdateHeightResponse | UpdateHeightError;
+
+export type UpdateOxygenSaturationError = {
+  __typename?: 'updateOxygenSaturationError',
+  errorCode?: Maybe<UpdateOxygenSaturationErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateOxygenSaturationErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Response data for updateOxygenSaturation */
+export type UpdateOxygenSaturationResponse = {
+  __typename?: 'updateOxygenSaturationResponse',
+  response?: Maybe<HealthType>,
+};
+
+/** Return either be response data or error data for updateOxygenSaturation */
+export type UpdateOxygenSaturationUnion = UpdateOxygenSaturationResponse | UpdateOxygenSaturationError;
+
 export type UpdateRestingEnergyError = {
   __typename?: 'updateRestingEnergyError',
   errorCode?: Maybe<UpdateRestingEnergyErrorErrorCodesType>,
@@ -1126,14 +1678,22 @@ export enum UpdateRestingEnergyErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -1162,14 +1722,22 @@ export enum UpdateRestingHeartRateErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -1198,14 +1766,22 @@ export enum UpdateSleepAnalysisErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -1234,14 +1810,22 @@ export enum UpdateStepErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -1270,14 +1854,22 @@ export enum UpdateSwimmingDistanceErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -1293,6 +1885,50 @@ export type UpdateSwimmingDistanceResponse = {
 /** Return either be response data or error data for updateSwimmingDistance */
 export type UpdateSwimmingDistanceUnion = UpdateSwimmingDistanceResponse | UpdateSwimmingDistanceError;
 
+export type UpdateWaistCircumferenceError = {
+  __typename?: 'updateWaistCircumferenceError',
+  errorCode?: Maybe<UpdateWaistCircumferenceErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateWaistCircumferenceErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Response data for updateWaistCircumference */
+export type UpdateWaistCircumferenceResponse = {
+  __typename?: 'updateWaistCircumferenceResponse',
+  response?: Maybe<HealthType>,
+};
+
+/** Return either be response data or error data for updateWaistCircumference */
+export type UpdateWaistCircumferenceUnion = UpdateWaistCircumferenceResponse | UpdateWaistCircumferenceError;
+
 export type UpdateWalkingHeartRateAverageError = {
   __typename?: 'updateWalkingHeartRateAverageError',
   errorCode?: Maybe<UpdateWalkingHeartRateAverageErrorErrorCodesType>,
@@ -1306,14 +1942,22 @@ export enum UpdateWalkingHeartRateAverageErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -1342,14 +1986,22 @@ export enum UpdateWalkingRunningDistanceErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -1378,14 +2030,22 @@ export enum UpdateWeightErrorErrorCodesType {
   ServerTimeout = 'SERVER_TIMEOUT',
   /** Authorization failed. */
   Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
   /** An error occured trying to add health item */
   AddHealthError = 'ADD_HEALTH_ERROR',
   /** An error occured trying to replace a health item */
   ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
   /** An error occured trying to update a health item */
   UpdateHealthError = 'UPDATE_HEALTH_ERROR',
-  /** Not a valid health type */
-  InvalidHealthType = 'INVALID_HEALTH_TYPE',
   /** Health type has been disabled */
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
@@ -1470,7 +2130,6 @@ export type ResolversTypes = {
   Float: ResolverTypeWrapper<Scalars['Float']>,
   UnitType: UnitType,
   HealthType: ResolverTypeWrapper<HealthType>,
-  Int: ResolverTypeWrapper<Scalars['Int']>,
   Mutation: ResolverTypeWrapper<{}>,
   HealthKitInputType: HealthKitInputType,
   HealthKitInputSampleType: HealthKitInputSampleType,
@@ -1586,6 +2245,38 @@ export type ResolversTypes = {
   updateWeightResponse: ResolverTypeWrapper<UpdateWeightResponse>,
   updateWeightError: ResolverTypeWrapper<UpdateWeightError>,
   updateWeightErrorErrorCodesType: UpdateWeightErrorErrorCodesType,
+  addHeightUnion: ResolversTypes['addHeightResponse'] | ResolversTypes['addHeightError'],
+  addHeightResponse: ResolverTypeWrapper<AddHeightResponse>,
+  addHeightError: ResolverTypeWrapper<AddHeightError>,
+  addHeightErrorErrorCodesType: AddHeightErrorErrorCodesType,
+  updateHeightUnion: ResolversTypes['updateHeightResponse'] | ResolversTypes['updateHeightError'],
+  updateHeightResponse: ResolverTypeWrapper<UpdateHeightResponse>,
+  updateHeightError: ResolverTypeWrapper<UpdateHeightError>,
+  updateHeightErrorErrorCodesType: UpdateHeightErrorErrorCodesType,
+  addBodyTemperatureUnion: ResolversTypes['addBodyTemperatureResponse'] | ResolversTypes['addBodyTemperatureError'],
+  addBodyTemperatureResponse: ResolverTypeWrapper<AddBodyTemperatureResponse>,
+  addBodyTemperatureError: ResolverTypeWrapper<AddBodyTemperatureError>,
+  addBodyTemperatureErrorErrorCodesType: AddBodyTemperatureErrorErrorCodesType,
+  updateBodyTemperatureUnion: ResolversTypes['updateBodyTemperatureResponse'] | ResolversTypes['updateBodyTemperatureError'],
+  updateBodyTemperatureResponse: ResolverTypeWrapper<UpdateBodyTemperatureResponse>,
+  updateBodyTemperatureError: ResolverTypeWrapper<UpdateBodyTemperatureError>,
+  updateBodyTemperatureErrorErrorCodesType: UpdateBodyTemperatureErrorErrorCodesType,
+  addOxygenSaturationUnion: ResolversTypes['addOxygenSaturationResponse'] | ResolversTypes['addOxygenSaturationError'],
+  addOxygenSaturationResponse: ResolverTypeWrapper<AddOxygenSaturationResponse>,
+  addOxygenSaturationError: ResolverTypeWrapper<AddOxygenSaturationError>,
+  addOxygenSaturationErrorErrorCodesType: AddOxygenSaturationErrorErrorCodesType,
+  updateOxygenSaturationUnion: ResolversTypes['updateOxygenSaturationResponse'] | ResolversTypes['updateOxygenSaturationError'],
+  updateOxygenSaturationResponse: ResolverTypeWrapper<UpdateOxygenSaturationResponse>,
+  updateOxygenSaturationError: ResolverTypeWrapper<UpdateOxygenSaturationError>,
+  updateOxygenSaturationErrorErrorCodesType: UpdateOxygenSaturationErrorErrorCodesType,
+  addWaistCircumferenceUnion: ResolversTypes['addWaistCircumferenceResponse'] | ResolversTypes['addWaistCircumferenceError'],
+  addWaistCircumferenceResponse: ResolverTypeWrapper<AddWaistCircumferenceResponse>,
+  addWaistCircumferenceError: ResolverTypeWrapper<AddWaistCircumferenceError>,
+  addWaistCircumferenceErrorErrorCodesType: AddWaistCircumferenceErrorErrorCodesType,
+  updateWaistCircumferenceUnion: ResolversTypes['updateWaistCircumferenceResponse'] | ResolversTypes['updateWaistCircumferenceError'],
+  updateWaistCircumferenceResponse: ResolverTypeWrapper<UpdateWaistCircumferenceResponse>,
+  updateWaistCircumferenceError: ResolverTypeWrapper<UpdateWaistCircumferenceError>,
+  updateWaistCircumferenceErrorErrorCodesType: UpdateWaistCircumferenceErrorErrorCodesType,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
 };
 
@@ -1598,7 +2289,6 @@ export type ResolversParentTypes = {
   Float: Scalars['Float'],
   UnitType: UnitType,
   HealthType: HealthType,
-  Int: Scalars['Int'],
   Mutation: {},
   HealthKitInputType: HealthKitInputType,
   HealthKitInputSampleType: HealthKitInputSampleType,
@@ -1714,6 +2404,38 @@ export type ResolversParentTypes = {
   updateWeightResponse: UpdateWeightResponse,
   updateWeightError: UpdateWeightError,
   updateWeightErrorErrorCodesType: UpdateWeightErrorErrorCodesType,
+  addHeightUnion: ResolversTypes['addHeightResponse'] | ResolversTypes['addHeightError'],
+  addHeightResponse: AddHeightResponse,
+  addHeightError: AddHeightError,
+  addHeightErrorErrorCodesType: AddHeightErrorErrorCodesType,
+  updateHeightUnion: ResolversTypes['updateHeightResponse'] | ResolversTypes['updateHeightError'],
+  updateHeightResponse: UpdateHeightResponse,
+  updateHeightError: UpdateHeightError,
+  updateHeightErrorErrorCodesType: UpdateHeightErrorErrorCodesType,
+  addBodyTemperatureUnion: ResolversTypes['addBodyTemperatureResponse'] | ResolversTypes['addBodyTemperatureError'],
+  addBodyTemperatureResponse: AddBodyTemperatureResponse,
+  addBodyTemperatureError: AddBodyTemperatureError,
+  addBodyTemperatureErrorErrorCodesType: AddBodyTemperatureErrorErrorCodesType,
+  updateBodyTemperatureUnion: ResolversTypes['updateBodyTemperatureResponse'] | ResolversTypes['updateBodyTemperatureError'],
+  updateBodyTemperatureResponse: UpdateBodyTemperatureResponse,
+  updateBodyTemperatureError: UpdateBodyTemperatureError,
+  updateBodyTemperatureErrorErrorCodesType: UpdateBodyTemperatureErrorErrorCodesType,
+  addOxygenSaturationUnion: ResolversTypes['addOxygenSaturationResponse'] | ResolversTypes['addOxygenSaturationError'],
+  addOxygenSaturationResponse: AddOxygenSaturationResponse,
+  addOxygenSaturationError: AddOxygenSaturationError,
+  addOxygenSaturationErrorErrorCodesType: AddOxygenSaturationErrorErrorCodesType,
+  updateOxygenSaturationUnion: ResolversTypes['updateOxygenSaturationResponse'] | ResolversTypes['updateOxygenSaturationError'],
+  updateOxygenSaturationResponse: UpdateOxygenSaturationResponse,
+  updateOxygenSaturationError: UpdateOxygenSaturationError,
+  updateOxygenSaturationErrorErrorCodesType: UpdateOxygenSaturationErrorErrorCodesType,
+  addWaistCircumferenceUnion: ResolversTypes['addWaistCircumferenceResponse'] | ResolversTypes['addWaistCircumferenceError'],
+  addWaistCircumferenceResponse: AddWaistCircumferenceResponse,
+  addWaistCircumferenceError: AddWaistCircumferenceError,
+  addWaistCircumferenceErrorErrorCodesType: AddWaistCircumferenceErrorErrorCodesType,
+  updateWaistCircumferenceUnion: ResolversTypes['updateWaistCircumferenceResponse'] | ResolversTypes['updateWaistCircumferenceError'],
+  updateWaistCircumferenceResponse: UpdateWaistCircumferenceResponse,
+  updateWaistCircumferenceError: UpdateWaistCircumferenceError,
+  updateWaistCircumferenceErrorErrorCodesType: UpdateWaistCircumferenceErrorErrorCodesType,
   Boolean: Scalars['Boolean'],
 };
 
@@ -1728,6 +2450,19 @@ export type AddActiveEnergyResponseResolvers<ContextType = any, ParentType = Res
 
 export type AddActiveEnergyUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addActiveEnergyUnion']> = {
   __resolveType: TypeResolveFn<'addActiveEnergyResponse' | 'addActiveEnergyError', ParentType, ContextType>
+};
+
+export type AddBodyTemperatureErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addBodyTemperatureError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addBodyTemperatureErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddBodyTemperatureResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addBodyTemperatureResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type AddBodyTemperatureUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addBodyTemperatureUnion']> = {
+  __resolveType: TypeResolveFn<'addBodyTemperatureResponse' | 'addBodyTemperatureError', ParentType, ContextType>
 };
 
 export type AddCaffeineErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addCaffeineError']> = {
@@ -1795,6 +2530,32 @@ export type AddHeartRateVariabilityUnionResolvers<ContextType = any, ParentType 
   __resolveType: TypeResolveFn<'addHeartRateVariabilityResponse' | 'addHeartRateVariabilityError', ParentType, ContextType>
 };
 
+export type AddHeightErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addHeightError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addHeightErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddHeightResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addHeightResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type AddHeightUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addHeightUnion']> = {
+  __resolveType: TypeResolveFn<'addHeightResponse' | 'addHeightError', ParentType, ContextType>
+};
+
+export type AddOxygenSaturationErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addOxygenSaturationError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addOxygenSaturationErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddOxygenSaturationResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addOxygenSaturationResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type AddOxygenSaturationUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addOxygenSaturationUnion']> = {
+  __resolveType: TypeResolveFn<'addOxygenSaturationResponse' | 'addOxygenSaturationError', ParentType, ContextType>
+};
+
 export type AddRestingEnergyErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addRestingEnergyError']> = {
   errorCode?: Resolver<Maybe<ResolversTypes['addRestingEnergyErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
@@ -1860,6 +2621,19 @@ export type AddSwimmingDistanceUnionResolvers<ContextType = any, ParentType = Re
   __resolveType: TypeResolveFn<'addSwimmingDistanceResponse' | 'addSwimmingDistanceError', ParentType, ContextType>
 };
 
+export type AddWaistCircumferenceErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addWaistCircumferenceError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addWaistCircumferenceErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddWaistCircumferenceResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addWaistCircumferenceResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type AddWaistCircumferenceUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addWaistCircumferenceUnion']> = {
+  __resolveType: TypeResolveFn<'addWaistCircumferenceResponse' | 'addWaistCircumferenceError', ParentType, ContextType>
+};
+
 export type AddWalkingHeartRateAverageErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addWalkingHeartRateAverageError']> = {
   errorCode?: Resolver<Maybe<ResolversTypes['addWalkingHeartRateAverageErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
@@ -1921,7 +2695,7 @@ export type HealthKitTypeResolvers<ContextType = any, ParentType = ResolversPare
 
 export type HealthTypeResolvers<ContextType = any, ParentType = ResolversParentTypes['HealthType']> = {
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
-  value?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>,
+  value?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
   sampledOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   createdOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   updatedOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
@@ -1956,6 +2730,14 @@ export type MutationResolvers<ContextType = any, ParentType = ResolversParentTyp
   updateWalkingRunningDistance?: Resolver<Maybe<ResolversTypes['updateWalkingRunningDistanceUnion']>, ParentType, ContextType, MutationUpdateWalkingRunningDistanceArgs>,
   addWeight?: Resolver<Maybe<ResolversTypes['addWeightUnion']>, ParentType, ContextType, MutationAddWeightArgs>,
   updateWeight?: Resolver<Maybe<ResolversTypes['updateWeightUnion']>, ParentType, ContextType, MutationUpdateWeightArgs>,
+  addHeight?: Resolver<Maybe<ResolversTypes['addHeightUnion']>, ParentType, ContextType, MutationAddHeightArgs>,
+  updateHeight?: Resolver<Maybe<ResolversTypes['updateHeightUnion']>, ParentType, ContextType, MutationUpdateHeightArgs>,
+  addBodyTemperature?: Resolver<Maybe<ResolversTypes['addBodyTemperatureUnion']>, ParentType, ContextType, MutationAddBodyTemperatureArgs>,
+  updateBodyTemperature?: Resolver<Maybe<ResolversTypes['updateBodyTemperatureUnion']>, ParentType, ContextType, MutationUpdateBodyTemperatureArgs>,
+  addOxygenSaturation?: Resolver<Maybe<ResolversTypes['addOxygenSaturationUnion']>, ParentType, ContextType, MutationAddOxygenSaturationArgs>,
+  updateOxygenSaturation?: Resolver<Maybe<ResolversTypes['updateOxygenSaturationUnion']>, ParentType, ContextType, MutationUpdateOxygenSaturationArgs>,
+  addWaistCircumference?: Resolver<Maybe<ResolversTypes['addWaistCircumferenceUnion']>, ParentType, ContextType, MutationAddWaistCircumferenceArgs>,
+  updateWaistCircumference?: Resolver<Maybe<ResolversTypes['updateWaistCircumferenceUnion']>, ParentType, ContextType, MutationUpdateWaistCircumferenceArgs>,
 };
 
 export type RootQueryTypeResolvers<ContextType = any, ParentType = ResolversParentTypes['RootQueryType']> = {
@@ -1972,6 +2754,10 @@ export type RootQueryTypeResolvers<ContextType = any, ParentType = ResolversPare
   walkingHeartrateAverage?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType, RootQueryTypeWalkingHeartrateAverageArgs>,
   walkingRunningDistance?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType, RootQueryTypeWalkingRunningDistanceArgs>,
   weight?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeWeightArgs>,
+  height?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeHeightArgs>,
+  bodyTemperature?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeBodyTemperatureArgs>,
+  oxygenSaturation?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeOxygenSaturationArgs>,
+  waistCircumference?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType, RootQueryTypeWaistCircumferenceArgs>,
 };
 
 export type UpdateActiveEnergyErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateActiveEnergyError']> = {
@@ -1985,6 +2771,19 @@ export type UpdateActiveEnergyResponseResolvers<ContextType = any, ParentType = 
 
 export type UpdateActiveEnergyUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateActiveEnergyUnion']> = {
   __resolveType: TypeResolveFn<'updateActiveEnergyResponse' | 'updateActiveEnergyError', ParentType, ContextType>
+};
+
+export type UpdateBodyTemperatureErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateBodyTemperatureError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateBodyTemperatureErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateBodyTemperatureResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateBodyTemperatureResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type UpdateBodyTemperatureUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateBodyTemperatureUnion']> = {
+  __resolveType: TypeResolveFn<'updateBodyTemperatureResponse' | 'updateBodyTemperatureError', ParentType, ContextType>
 };
 
 export type UpdateCaffeineErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCaffeineError']> = {
@@ -2037,6 +2836,32 @@ export type UpdateHeartRateVariabilityResponseResolvers<ContextType = any, Paren
 
 export type UpdateHeartRateVariabilityUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateHeartRateVariabilityUnion']> = {
   __resolveType: TypeResolveFn<'updateHeartRateVariabilityResponse' | 'updateHeartRateVariabilityError', ParentType, ContextType>
+};
+
+export type UpdateHeightErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateHeightError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateHeightErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateHeightResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateHeightResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type UpdateHeightUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateHeightUnion']> = {
+  __resolveType: TypeResolveFn<'updateHeightResponse' | 'updateHeightError', ParentType, ContextType>
+};
+
+export type UpdateOxygenSaturationErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateOxygenSaturationError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateOxygenSaturationErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateOxygenSaturationResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateOxygenSaturationResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type UpdateOxygenSaturationUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateOxygenSaturationUnion']> = {
+  __resolveType: TypeResolveFn<'updateOxygenSaturationResponse' | 'updateOxygenSaturationError', ParentType, ContextType>
 };
 
 export type UpdateRestingEnergyErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateRestingEnergyError']> = {
@@ -2104,6 +2929,19 @@ export type UpdateSwimmingDistanceUnionResolvers<ContextType = any, ParentType =
   __resolveType: TypeResolveFn<'updateSwimmingDistanceResponse' | 'updateSwimmingDistanceError', ParentType, ContextType>
 };
 
+export type UpdateWaistCircumferenceErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateWaistCircumferenceError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateWaistCircumferenceErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateWaistCircumferenceResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateWaistCircumferenceResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type UpdateWaistCircumferenceUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateWaistCircumferenceUnion']> = {
+  __resolveType: TypeResolveFn<'updateWaistCircumferenceResponse' | 'updateWaistCircumferenceError', ParentType, ContextType>
+};
+
 export type UpdateWalkingHeartRateAverageErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateWalkingHeartRateAverageError']> = {
   errorCode?: Resolver<Maybe<ResolversTypes['updateWalkingHeartRateAverageErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
@@ -2147,6 +2985,9 @@ export type Resolvers<ContextType = any> = {
   addActiveEnergyError?: AddActiveEnergyErrorResolvers<ContextType>,
   addActiveEnergyResponse?: AddActiveEnergyResponseResolvers<ContextType>,
   addActiveEnergyUnion?: AddActiveEnergyUnionResolvers,
+  addBodyTemperatureError?: AddBodyTemperatureErrorResolvers<ContextType>,
+  addBodyTemperatureResponse?: AddBodyTemperatureResponseResolvers<ContextType>,
+  addBodyTemperatureUnion?: AddBodyTemperatureUnionResolvers,
   addCaffeineError?: AddCaffeineErrorResolvers<ContextType>,
   addCaffeineResponse?: AddCaffeineResponseResolvers<ContextType>,
   addCaffeineUnion?: AddCaffeineUnionResolvers,
@@ -2162,6 +3003,12 @@ export type Resolvers<ContextType = any> = {
   addHeartRateVariabilityError?: AddHeartRateVariabilityErrorResolvers<ContextType>,
   addHeartRateVariabilityResponse?: AddHeartRateVariabilityResponseResolvers<ContextType>,
   addHeartRateVariabilityUnion?: AddHeartRateVariabilityUnionResolvers,
+  addHeightError?: AddHeightErrorResolvers<ContextType>,
+  addHeightResponse?: AddHeightResponseResolvers<ContextType>,
+  addHeightUnion?: AddHeightUnionResolvers,
+  addOxygenSaturationError?: AddOxygenSaturationErrorResolvers<ContextType>,
+  addOxygenSaturationResponse?: AddOxygenSaturationResponseResolvers<ContextType>,
+  addOxygenSaturationUnion?: AddOxygenSaturationUnionResolvers,
   addRestingEnergyError?: AddRestingEnergyErrorResolvers<ContextType>,
   addRestingEnergyResponse?: AddRestingEnergyResponseResolvers<ContextType>,
   addRestingEnergyUnion?: AddRestingEnergyUnionResolvers,
@@ -2177,6 +3024,9 @@ export type Resolvers<ContextType = any> = {
   addSwimmingDistanceError?: AddSwimmingDistanceErrorResolvers<ContextType>,
   addSwimmingDistanceResponse?: AddSwimmingDistanceResponseResolvers<ContextType>,
   addSwimmingDistanceUnion?: AddSwimmingDistanceUnionResolvers,
+  addWaistCircumferenceError?: AddWaistCircumferenceErrorResolvers<ContextType>,
+  addWaistCircumferenceResponse?: AddWaistCircumferenceResponseResolvers<ContextType>,
+  addWaistCircumferenceUnion?: AddWaistCircumferenceUnionResolvers,
   addWalkingHeartRateAverageError?: AddWalkingHeartRateAverageErrorResolvers<ContextType>,
   addWalkingHeartRateAverageResponse?: AddWalkingHeartRateAverageResponseResolvers<ContextType>,
   addWalkingHeartRateAverageUnion?: AddWalkingHeartRateAverageUnionResolvers,
@@ -2194,6 +3044,9 @@ export type Resolvers<ContextType = any> = {
   updateActiveEnergyError?: UpdateActiveEnergyErrorResolvers<ContextType>,
   updateActiveEnergyResponse?: UpdateActiveEnergyResponseResolvers<ContextType>,
   updateActiveEnergyUnion?: UpdateActiveEnergyUnionResolvers,
+  updateBodyTemperatureError?: UpdateBodyTemperatureErrorResolvers<ContextType>,
+  updateBodyTemperatureResponse?: UpdateBodyTemperatureResponseResolvers<ContextType>,
+  updateBodyTemperatureUnion?: UpdateBodyTemperatureUnionResolvers,
   updateCaffeineError?: UpdateCaffeineErrorResolvers<ContextType>,
   updateCaffeineResponse?: UpdateCaffeineResponseResolvers<ContextType>,
   updateCaffeineUnion?: UpdateCaffeineUnionResolvers,
@@ -2206,6 +3059,12 @@ export type Resolvers<ContextType = any> = {
   updateHeartRateVariabilityError?: UpdateHeartRateVariabilityErrorResolvers<ContextType>,
   updateHeartRateVariabilityResponse?: UpdateHeartRateVariabilityResponseResolvers<ContextType>,
   updateHeartRateVariabilityUnion?: UpdateHeartRateVariabilityUnionResolvers,
+  updateHeightError?: UpdateHeightErrorResolvers<ContextType>,
+  updateHeightResponse?: UpdateHeightResponseResolvers<ContextType>,
+  updateHeightUnion?: UpdateHeightUnionResolvers,
+  updateOxygenSaturationError?: UpdateOxygenSaturationErrorResolvers<ContextType>,
+  updateOxygenSaturationResponse?: UpdateOxygenSaturationResponseResolvers<ContextType>,
+  updateOxygenSaturationUnion?: UpdateOxygenSaturationUnionResolvers,
   updateRestingEnergyError?: UpdateRestingEnergyErrorResolvers<ContextType>,
   updateRestingEnergyResponse?: UpdateRestingEnergyResponseResolvers<ContextType>,
   updateRestingEnergyUnion?: UpdateRestingEnergyUnionResolvers,
@@ -2221,6 +3080,9 @@ export type Resolvers<ContextType = any> = {
   updateSwimmingDistanceError?: UpdateSwimmingDistanceErrorResolvers<ContextType>,
   updateSwimmingDistanceResponse?: UpdateSwimmingDistanceResponseResolvers<ContextType>,
   updateSwimmingDistanceUnion?: UpdateSwimmingDistanceUnionResolvers,
+  updateWaistCircumferenceError?: UpdateWaistCircumferenceErrorResolvers<ContextType>,
+  updateWaistCircumferenceResponse?: UpdateWaistCircumferenceResponseResolvers<ContextType>,
+  updateWaistCircumferenceUnion?: UpdateWaistCircumferenceUnionResolvers,
   updateWalkingHeartRateAverageError?: UpdateWalkingHeartRateAverageErrorResolvers<ContextType>,
   updateWalkingHeartRateAverageResponse?: UpdateWalkingHeartRateAverageResponseResolvers<ContextType>,
   updateWalkingHeartRateAverageUnion?: UpdateWalkingHeartRateAverageUnionResolvers,

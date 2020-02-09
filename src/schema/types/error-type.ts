@@ -12,7 +12,7 @@ const ErrorType = (name: string): GraphQLObjectType => {
     fields: {
       errorCode: {
         type: errorCodesType,
-      },
+      }, 
       errorDesc: {
         type: GraphQLString,
       }
