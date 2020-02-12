@@ -1,0 +1,17 @@
+{
+  "averageMPG": {
+    "id": "car-average-mpg",
+    "modelID": "AverageMPG",
+    "disabled": false
+  },
+  "drivingScore": {
+    "id": "car-driving-score",
+    "modelID": "DrivingScore",
+    "disabled": false
+  },
+  "refuel": {
+    "id": "car-refuel",
+    "modelID": "Refuel",
+    "disabled": false
+  }
+}

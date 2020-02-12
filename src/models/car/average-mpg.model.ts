@@ -24,7 +24,7 @@ export default class AverageMPG extends Model<AverageMPG> {
   @Column({ type: DataType.FLOAT })
   value: number;
 
-  @Default('prius prime')
+  @Default('prius-prime')
   @Column
   vehicle: string;
 

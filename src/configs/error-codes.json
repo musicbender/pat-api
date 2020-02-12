@@ -37,6 +37,27 @@
     },
     "INVALID_HEALTHKIT_INPUT": {
       "description": "Input is invalid or empty"
+    },
+    "DISABLED_CAR_TYPE": {
+      "description": "Health type has been disabled"
+    },
+    "ADD_AVERAGE_MPG_ERROR": {
+      "description": "An error occured trying to add car average mpg"
+    },
+    "UPDATE_AVERAGE_MPG_ERROR": {
+      "description": "An error occured trying to update a car average mpg item"
+    },
+    "ADD_REFUEL_ERROR": {
+      "description": "An error occured trying to add car average mpg"
+    },
+    "UPDATE_REFUEL_ERROR": {
+      "description": "An error occured trying to update a car average mpg item"
+    },
+    "ADD_DRIVING_SCORE_ERROR": {
+      "description": "An error occured trying to add car average mpg"
+    },
+    "UPDATE_DRIVING_SCORE_ERROR": {
+      "description": "An error occured trying to update a car average mpg item"
     }
 }
   

@@ -4,7 +4,7 @@ import { ExpectedError } from '../utils/errors';
 const { healthTypes } = require('../configs/healthkit.json');
 import { HealthKitType, HealthKitInputType, HealthKitInputUpdateType, HealthKitConfigType } from '../types';
 import { aggregateHealthData } from '../utils/sample';
-import { findHealthByDate } from './health';
+import { findItemByDate } from './global';
 import models from '../models';
 import { Model } from 'sequelize-typescript';
 
@@ -21,7 +21,7 @@ export const addHealthKitItem = async (input: HealthKitInputType, config: Health
   }
 
   if (config.interval) {
-    const dupeItem: any = await findHealthByDate(input.sampledOn, config);
+    const dupeItem: any = await findItemByDate(input.sampledOn, config.modelID);
 
     const id = dupeItem && dupeItem.id 
       ? dupeItem.id

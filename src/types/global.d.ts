@@ -1,3 +1,12 @@
+import { GraphQLObjectType } from 'graphql';
+
+export type QueryOptions = {
+  type: GraphQLObjectType,
+  name?: string,
+  modelID?: string,
+  description?: string,
+}
+
 export type DatabaseConfigOptions = {
   externalAccess?: boolean
 }

@@ -98,6 +98,50 @@ export type AddActiveEnergyResponse = {
 /** Return either be response data or error data for addActiveEnergy */
 export type AddActiveEnergyUnion = AddActiveEnergyResponse | AddActiveEnergyError;
 
+export type AddAverageMpgError = {
+  __typename?: 'addAverageMPGError',
+  errorCode?: Maybe<AddAverageMpgErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddAverageMpgErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Response data for addAverageMPG */
+export type AddAverageMpgResponse = {
+  __typename?: 'addAverageMPGResponse',
+  response?: Maybe<AverageMpgType>,
+};
+
+/** Return either be response data or error data for addAverageMPG */
+export type AddAverageMpgUnion = AddAverageMpgResponse | AddAverageMpgError;
+
 export type AddBodyTemperatureError = {
   __typename?: 'addBodyTemperatureError',
   errorCode?: Maybe<AddBodyTemperatureErrorErrorCodesType>,
@@ -846,6 +890,76 @@ export type AddWeightResponse = {
 /** Return either be response data or error data for addWeight */
 export type AddWeightUnion = AddWeightResponse | AddWeightError;
 
+export type AverageMpgError = {
+  __typename?: 'AverageMPGError',
+  errorCode?: Maybe<AverageMpgErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AverageMpgErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Average MPG data input */
+export type AverageMpgInputType = {
+  value: Scalars['Float'],
+  vehicle?: Maybe<VehicleType>,
+  sampledOn?: Maybe<Scalars['String']>,
+};
+
+/** Average MPG data update input */
+export type AverageMpgInputUpdateType = {
+  value: Scalars['Float'],
+  vehicle?: Maybe<VehicleType>,
+  sampledOn?: Maybe<Scalars['String']>,
+  updatedOn?: Maybe<Scalars['String']>,
+};
+
+/** Response data for AverageMPG */
+export type AverageMpgResponse = {
+  __typename?: 'AverageMPGResponse',
+  response?: Maybe<AverageMpgType>,
+};
+
+/** Average MPG sample for car */
+export type AverageMpgType = {
+  __typename?: 'AverageMPGType',
+  id?: Maybe<Scalars['String']>,
+  value?: Maybe<Scalars['Float']>,
+  vehicle?: Maybe<VehicleType>,
+  sampledOn?: Maybe<Scalars['String']>,
+  createdOn?: Maybe<Scalars['String']>,
+  updatedOn?: Maybe<Scalars['String']>,
+};
+
+/** Return either be response data or error data for AverageMPG */
+export type AverageMpgUnion = AverageMpgResponse | AverageMpgError;
+
 export type BodyTemperatureError = {
   __typename?: 'bodyTemperatureError',
   errorCode?: Maybe<BodyTemperatureErrorErrorCodesType>,
@@ -1259,6 +1373,10 @@ export type Mutation = {
   addWaistCircumference?: Maybe<AddWaistCircumferenceUnion>,
   /** Update a WaistCircumference node */
   updateWaistCircumference?: Maybe<UpdateWaistCircumferenceUnion>,
+  /** Add a AverageMPG node */
+  addAverageMPG?: Maybe<AddAverageMpgUnion>,
+  /** Update a AverageMPG node */
+  updateAverageMPG?: Maybe<UpdateAverageMpgUnion>,
 };
 
 
@@ -1453,6 +1571,17 @@ export type MutationUpdateWaistCircumferenceArgs = {
   input: HealthInputUpdateType
 };
 
+
+export type MutationAddAverageMpgArgs = {
+  input: AverageMpgInputType
+};
+
+
+export type MutationUpdateAverageMpgArgs = {
+  id: Scalars['ID'],
+  input: AverageMpgInputUpdateType
+};
+
 export type OxygenSaturationError = {
   __typename?: 'oxygenSaturationError',
   errorCode?: Maybe<OxygenSaturationErrorErrorCodesType>,
@@ -1621,6 +1750,8 @@ export type RootQueryType = {
   oxygenSaturation?: Maybe<OxygenSaturationUnion>,
   /** Get a single waistCircumference entry by either _id or date, _id taking priority */
   waistCircumference?: Maybe<WaistCircumferenceUnion>,
+  /** Get a single AverageMPG entry by either _id or date, _id taking priority */
+  averageMPG?: Maybe<AverageMpgUnion>,
 };
 
 
@@ -1721,6 +1852,12 @@ export type RootQueryTypeOxygenSaturationArgs = {
 
 
 export type RootQueryTypeWaistCircumferenceArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeAverageMpgArgs = {
   id?: Maybe<Scalars['String']>,
   date?: Maybe<Scalars['Date']>
 };
@@ -1929,6 +2066,50 @@ export type UpdateActiveEnergyResponse = {
 
 /** Return either be response data or error data for updateActiveEnergy */
 export type UpdateActiveEnergyUnion = UpdateActiveEnergyResponse | UpdateActiveEnergyError;
+
+export type UpdateAverageMpgError = {
+  __typename?: 'updateAverageMPGError',
+  errorCode?: Maybe<UpdateAverageMpgErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateAverageMpgErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT'
+}
+
+/** Response data for updateAverageMPG */
+export type UpdateAverageMpgResponse = {
+  __typename?: 'updateAverageMPGResponse',
+  response?: Maybe<AverageMpgType>,
+};
+
+/** Return either be response data or error data for updateAverageMPG */
+export type UpdateAverageMpgUnion = UpdateAverageMpgResponse | UpdateAverageMpgError;
 
 export type UpdateBodyTemperatureError = {
   __typename?: 'updateBodyTemperatureError',
@@ -2634,6 +2815,11 @@ export type UpdateWeightResponse = {
 /** Return either be response data or error data for updateWeight */
 export type UpdateWeightUnion = UpdateWeightResponse | UpdateWeightError;
 
+/** Acceptable vehicles for car data */
+export enum VehicleType {
+  PriusPrime = 'priusPrime'
+}
+
 export type WaistCircumferenceError = {
   __typename?: 'waistCircumferenceError',
   errorCode?: Maybe<WaistCircumferenceErrorErrorCodesType>,
@@ -2947,6 +3133,12 @@ export type ResolversTypes = {
   waistCircumferenceResponse: ResolverTypeWrapper<WaistCircumferenceResponse>,
   waistCircumferenceError: ResolverTypeWrapper<WaistCircumferenceError>,
   waistCircumferenceErrorErrorCodesType: WaistCircumferenceErrorErrorCodesType,
+  AverageMPGUnion: ResolversTypes['AverageMPGResponse'] | ResolversTypes['AverageMPGError'],
+  AverageMPGResponse: ResolverTypeWrapper<AverageMpgResponse>,
+  AverageMPGType: ResolverTypeWrapper<AverageMpgType>,
+  VehicleType: VehicleType,
+  AverageMPGError: ResolverTypeWrapper<AverageMpgError>,
+  AverageMPGErrorErrorCodesType: AverageMpgErrorErrorCodesType,
   Mutation: ResolverTypeWrapper<{}>,
   HealthKitInputType: HealthKitInputType,
   HealthKitInputSampleType: HealthKitInputSampleType,
@@ -3094,6 +3286,16 @@ export type ResolversTypes = {
   updateWaistCircumferenceResponse: ResolverTypeWrapper<UpdateWaistCircumferenceResponse>,
   updateWaistCircumferenceError: ResolverTypeWrapper<UpdateWaistCircumferenceError>,
   updateWaistCircumferenceErrorErrorCodesType: UpdateWaistCircumferenceErrorErrorCodesType,
+  AverageMPGInputType: AverageMpgInputType,
+  addAverageMPGUnion: ResolversTypes['addAverageMPGResponse'] | ResolversTypes['addAverageMPGError'],
+  addAverageMPGResponse: ResolverTypeWrapper<AddAverageMpgResponse>,
+  addAverageMPGError: ResolverTypeWrapper<AddAverageMpgError>,
+  addAverageMPGErrorErrorCodesType: AddAverageMpgErrorErrorCodesType,
+  AverageMPGInputUpdateType: AverageMpgInputUpdateType,
+  updateAverageMPGUnion: ResolversTypes['updateAverageMPGResponse'] | ResolversTypes['updateAverageMPGError'],
+  updateAverageMPGResponse: ResolverTypeWrapper<UpdateAverageMpgResponse>,
+  updateAverageMPGError: ResolverTypeWrapper<UpdateAverageMpgError>,
+  updateAverageMPGErrorErrorCodesType: UpdateAverageMpgErrorErrorCodesType,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
 };
 
@@ -3174,6 +3376,12 @@ export type ResolversParentTypes = {
   waistCircumferenceResponse: WaistCircumferenceResponse,
   waistCircumferenceError: WaistCircumferenceError,
   waistCircumferenceErrorErrorCodesType: WaistCircumferenceErrorErrorCodesType,
+  AverageMPGUnion: ResolversTypes['AverageMPGResponse'] | ResolversTypes['AverageMPGError'],
+  AverageMPGResponse: AverageMpgResponse,
+  AverageMPGType: AverageMpgType,
+  VehicleType: VehicleType,
+  AverageMPGError: AverageMpgError,
+  AverageMPGErrorErrorCodesType: AverageMpgErrorErrorCodesType,
   Mutation: {},
   HealthKitInputType: HealthKitInputType,
   HealthKitInputSampleType: HealthKitInputSampleType,
@@ -3321,6 +3529,16 @@ export type ResolversParentTypes = {
   updateWaistCircumferenceResponse: UpdateWaistCircumferenceResponse,
   updateWaistCircumferenceError: UpdateWaistCircumferenceError,
   updateWaistCircumferenceErrorErrorCodesType: UpdateWaistCircumferenceErrorErrorCodesType,
+  AverageMPGInputType: AverageMpgInputType,
+  addAverageMPGUnion: ResolversTypes['addAverageMPGResponse'] | ResolversTypes['addAverageMPGError'],
+  addAverageMPGResponse: AddAverageMpgResponse,
+  addAverageMPGError: AddAverageMpgError,
+  addAverageMPGErrorErrorCodesType: AddAverageMpgErrorErrorCodesType,
+  AverageMPGInputUpdateType: AverageMpgInputUpdateType,
+  updateAverageMPGUnion: ResolversTypes['updateAverageMPGResponse'] | ResolversTypes['updateAverageMPGError'],
+  updateAverageMPGResponse: UpdateAverageMpgResponse,
+  updateAverageMPGError: UpdateAverageMpgError,
+  updateAverageMPGErrorErrorCodesType: UpdateAverageMpgErrorErrorCodesType,
   Boolean: Scalars['Boolean'],
 };
 
@@ -3348,6 +3566,19 @@ export type AddActiveEnergyResponseResolvers<ContextType = any, ParentType = Res
 
 export type AddActiveEnergyUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addActiveEnergyUnion']> = {
   __resolveType: TypeResolveFn<'addActiveEnergyResponse' | 'addActiveEnergyError', ParentType, ContextType>
+};
+
+export type AddAverageMpgErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addAverageMPGError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addAverageMPGErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddAverageMpgResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addAverageMPGResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['AverageMPGType']>, ParentType, ContextType>,
+};
+
+export type AddAverageMpgUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addAverageMPGUnion']> = {
+  __resolveType: TypeResolveFn<'addAverageMPGResponse' | 'addAverageMPGError', ParentType, ContextType>
 };
 
 export type AddBodyTemperatureErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addBodyTemperatureError']> = {
@@ -3571,6 +3802,28 @@ export type AddWeightUnionResolvers<ContextType = any, ParentType = ResolversPar
   __resolveType: TypeResolveFn<'addWeightResponse' | 'addWeightError', ParentType, ContextType>
 };
 
+export type AverageMpgErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['AverageMPGError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['AverageMPGErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AverageMpgResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['AverageMPGResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['AverageMPGType']>, ParentType, ContextType>,
+};
+
+export type AverageMpgTypeResolvers<ContextType = any, ParentType = ResolversParentTypes['AverageMPGType']> = {
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  value?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  vehicle?: Resolver<Maybe<ResolversTypes['VehicleType']>, ParentType, ContextType>,
+  sampledOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  createdOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  updatedOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AverageMpgUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['AverageMPGUnion']> = {
+  __resolveType: TypeResolveFn<'AverageMPGResponse' | 'AverageMPGError', ParentType, ContextType>
+};
+
 export type BodyTemperatureErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['bodyTemperatureError']> = {
   errorCode?: Resolver<Maybe<ResolversTypes['bodyTemperatureErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
@@ -3714,6 +3967,8 @@ export type MutationResolvers<ContextType = any, ParentType = ResolversParentTyp
   updateOxygenSaturation?: Resolver<Maybe<ResolversTypes['updateOxygenSaturationUnion']>, ParentType, ContextType, MutationUpdateOxygenSaturationArgs>,
   addWaistCircumference?: Resolver<Maybe<ResolversTypes['addWaistCircumferenceUnion']>, ParentType, ContextType, MutationAddWaistCircumferenceArgs>,
   updateWaistCircumference?: Resolver<Maybe<ResolversTypes['updateWaistCircumferenceUnion']>, ParentType, ContextType, MutationUpdateWaistCircumferenceArgs>,
+  addAverageMPG?: Resolver<Maybe<ResolversTypes['addAverageMPGUnion']>, ParentType, ContextType, MutationAddAverageMpgArgs>,
+  updateAverageMPG?: Resolver<Maybe<ResolversTypes['updateAverageMPGUnion']>, ParentType, ContextType, MutationUpdateAverageMpgArgs>,
 };
 
 export type OxygenSaturationErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['oxygenSaturationError']> = {
@@ -3773,6 +4028,7 @@ export type RootQueryTypeResolvers<ContextType = any, ParentType = ResolversPare
   bodyTemperature?: Resolver<Maybe<ResolversTypes['bodyTemperatureUnion']>, ParentType, ContextType, RootQueryTypeBodyTemperatureArgs>,
   oxygenSaturation?: Resolver<Maybe<ResolversTypes['oxygenSaturationUnion']>, ParentType, ContextType, RootQueryTypeOxygenSaturationArgs>,
   waistCircumference?: Resolver<Maybe<ResolversTypes['waistCircumferenceUnion']>, ParentType, ContextType, RootQueryTypeWaistCircumferenceArgs>,
+  averageMPG?: Resolver<Maybe<ResolversTypes['AverageMPGUnion']>, ParentType, ContextType, RootQueryTypeAverageMpgArgs>,
 };
 
 export type SleepAnalysisErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['sleepAnalysisError']> = {
@@ -3825,6 +4081,19 @@ export type UpdateActiveEnergyResponseResolvers<ContextType = any, ParentType = 
 
 export type UpdateActiveEnergyUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateActiveEnergyUnion']> = {
   __resolveType: TypeResolveFn<'updateActiveEnergyResponse' | 'updateActiveEnergyError', ParentType, ContextType>
+};
+
+export type UpdateAverageMpgErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateAverageMPGError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateAverageMPGErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateAverageMpgResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateAverageMPGResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['AverageMPGType']>, ParentType, ContextType>,
+};
+
+export type UpdateAverageMpgUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateAverageMPGUnion']> = {
+  __resolveType: TypeResolveFn<'updateAverageMPGResponse' | 'updateAverageMPGError', ParentType, ContextType>
 };
 
 export type UpdateBodyTemperatureErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateBodyTemperatureError']> = {
@@ -4094,6 +4363,9 @@ export type Resolvers<ContextType = any> = {
   addActiveEnergyError?: AddActiveEnergyErrorResolvers<ContextType>,
   addActiveEnergyResponse?: AddActiveEnergyResponseResolvers<ContextType>,
   addActiveEnergyUnion?: AddActiveEnergyUnionResolvers,
+  addAverageMPGError?: AddAverageMpgErrorResolvers<ContextType>,
+  addAverageMPGResponse?: AddAverageMpgResponseResolvers<ContextType>,
+  addAverageMPGUnion?: AddAverageMpgUnionResolvers,
   addBodyTemperatureError?: AddBodyTemperatureErrorResolvers<ContextType>,
   addBodyTemperatureResponse?: AddBodyTemperatureResponseResolvers<ContextType>,
   addBodyTemperatureUnion?: AddBodyTemperatureUnionResolvers,
@@ -4145,6 +4417,10 @@ export type Resolvers<ContextType = any> = {
   addWeightError?: AddWeightErrorResolvers<ContextType>,
   addWeightResponse?: AddWeightResponseResolvers<ContextType>,
   addWeightUnion?: AddWeightUnionResolvers,
+  AverageMPGError?: AverageMpgErrorResolvers<ContextType>,
+  AverageMPGResponse?: AverageMpgResponseResolvers<ContextType>,
+  AverageMPGType?: AverageMpgTypeResolvers<ContextType>,
+  AverageMPGUnion?: AverageMpgUnionResolvers,
   bodyTemperatureError?: BodyTemperatureErrorResolvers<ContextType>,
   bodyTemperatureResponse?: BodyTemperatureResponseResolvers<ContextType>,
   bodyTemperatureUnion?: BodyTemperatureUnionResolvers,
@@ -4189,6 +4465,9 @@ export type Resolvers<ContextType = any> = {
   updateActiveEnergyError?: UpdateActiveEnergyErrorResolvers<ContextType>,
   updateActiveEnergyResponse?: UpdateActiveEnergyResponseResolvers<ContextType>,
   updateActiveEnergyUnion?: UpdateActiveEnergyUnionResolvers,
+  updateAverageMPGError?: UpdateAverageMpgErrorResolvers<ContextType>,
+  updateAverageMPGResponse?: UpdateAverageMpgResponseResolvers<ContextType>,
+  updateAverageMPGUnion?: UpdateAverageMpgUnionResolvers,
   updateBodyTemperatureError?: UpdateBodyTemperatureErrorResolvers<ContextType>,
   updateBodyTemperatureResponse?: UpdateBodyTemperatureResponseResolvers<ContextType>,
   updateBodyTemperatureUnion?: UpdateBodyTemperatureUnionResolvers,
