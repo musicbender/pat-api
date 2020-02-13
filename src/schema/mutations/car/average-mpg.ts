@@ -1,5 +1,5 @@
 import { GraphQLNonNull, GraphQLID } from 'graphql';
-import { addAverageMpgItem, updateAverageMpgItem } from '../../../controllers/car';
+import { addCarItem, updateCarItem } from '../../../controllers/car';
 import { AverageMPGType, AverageMPGInputType, ResponseUnionType, AverageMPGInputUpdateType } from '../../types';
 const carConf = require('../../../configs/cars.json');
 
@@ -19,7 +19,7 @@ export const addAverageMPG = {
   },
   async resolve(parentValue, { input }) {
     try {
-      const response = await addAverageMpgItem(input, carConf.averageMPG);
+      const response = await addCarItem(input, carConf.averageMPG);
       return { response };
     } catch (err) {
       throw err;
@@ -44,7 +44,7 @@ export const updateAverageMPG = {
     },
     async resolve(parentValue, { id, input }) {
       try {
-        const response = await updateAverageMpgItem(id, input, carConf.averageMPG);
+        const response = await updateCarItem(id, input, carConf.averageMPG);
         return { response };
       } catch (err) {
         throw err;
