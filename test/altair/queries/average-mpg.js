@@ -1,5 +1,5 @@
 export const addAverageMPG = `
-  mutation AddAverageMPG ($input: CarInputType!) {
+  mutation AddAverageMPG ($input: AverageMPGInputType!) {
     addAverageMPG(input: $input){
       ... on addAverageMPGResponse {
           response {

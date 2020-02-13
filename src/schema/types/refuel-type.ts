@@ -18,6 +18,18 @@ export const RefuelInputType = new GraphQLInputObjectType({
   })
 });
 
+export const RefuelInputUpdateType = new GraphQLInputObjectType({
+  name: 'RefuelInputUpdaetType',
+  description: 'Car gas refuel input for updating',
+  fields: () => ({
+    gallons: { type: GraphQLFloat },
+    cost: { type: GraphQLFloat },
+    vehicle: { type: VehicleType },
+    sampledOn: { type: GraphQLString },
+    updatedOn: { type: GraphQLString },
+  })
+});
+
 export const RefuelType = new GraphQLObjectType({
   name: 'RefuelType',
   description: 'Car gas refuel sample for car',
