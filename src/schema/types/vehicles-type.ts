@@ -5,5 +5,6 @@ export const VehicleType = new GraphQLEnumType({
   description: 'Acceptable vehicles for car data',
   values: {
     "priusPrime": { value: "priusPrime" },
+    "crv": { value: "crv" },
   }
 });

@@ -18,3 +18,24 @@ export const addAverageMPG = `
     }
   }
 `;
+
+export const updateAverageMPG = `
+  mutation UpdateAverageMPG ($input: AverageMPGInputUpdateType!, $id: ID!) {
+    updateAverageMPG(input: $input, id: $id) {
+      ... on updateAverageMPGResponse {
+          response {
+            id
+            value
+            vehicle
+            sampledOn
+            createdOn
+            updatedOn
+          }
+      }
+      ... on updateAverageMPGError {
+        errorCode
+        errorDesc
+      }
+    }
+  }
+`
