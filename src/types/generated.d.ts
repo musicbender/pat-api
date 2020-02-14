@@ -46,17 +46,9 @@ export enum ActiveEnergyErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for activeEnergy */
@@ -104,17 +96,9 @@ export enum AddActiveEnergyErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addActiveEnergy */
@@ -162,17 +146,9 @@ export enum AddAverageMpgErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addAverageMPG */
@@ -220,17 +196,9 @@ export enum AddBodyTemperatureErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addBodyTemperature */
@@ -278,17 +246,9 @@ export enum AddCaffeineErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addCaffeine */
@@ -299,6 +259,56 @@ export type AddCaffeineResponse = {
 
 /** Return either be response data or error data for addCaffeine */
 export type AddCaffeineUnion = AddCaffeineResponse | AddCaffeineError;
+
+export type AddDrivingScoreError = {
+  __typename?: 'addDrivingScoreError',
+  errorCode?: Maybe<AddDrivingScoreErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddDrivingScoreErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Health type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR'
+}
+
+/** Response data for addDrivingScore */
+export type AddDrivingScoreResponse = {
+  __typename?: 'addDrivingScoreResponse',
+  response?: Maybe<DrivingScoreType>,
+};
+
+/** Return either be response data or error data for addDrivingScore */
+export type AddDrivingScoreUnion = AddDrivingScoreResponse | AddDrivingScoreError;
 
 export type AddFlightsClimbedError = {
   __typename?: 'addFlightsClimbedError',
@@ -336,17 +346,9 @@ export enum AddFlightsClimbedErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addFlightsClimbed */
@@ -394,17 +396,9 @@ export enum AddHealthKitErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addHealthKit */
@@ -452,17 +446,9 @@ export enum AddHeartRateErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addHeartRate */
@@ -510,17 +496,9 @@ export enum AddHeartRateVariabilityErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addHeartRateVariability */
@@ -568,17 +546,9 @@ export enum AddHeightErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addHeight */
@@ -626,17 +596,9 @@ export enum AddOxygenSaturationErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addOxygenSaturation */
@@ -647,6 +609,56 @@ export type AddOxygenSaturationResponse = {
 
 /** Return either be response data or error data for addOxygenSaturation */
 export type AddOxygenSaturationUnion = AddOxygenSaturationResponse | AddOxygenSaturationError;
+
+export type AddRefuelError = {
+  __typename?: 'addRefuelError',
+  errorCode?: Maybe<AddRefuelErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddRefuelErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Health type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR'
+}
+
+/** Response data for addRefuel */
+export type AddRefuelResponse = {
+  __typename?: 'addRefuelResponse',
+  response?: Maybe<RefuelType>,
+};
+
+/** Return either be response data or error data for addRefuel */
+export type AddRefuelUnion = AddRefuelResponse | AddRefuelError;
 
 export type AddRestingEnergyError = {
   __typename?: 'addRestingEnergyError',
@@ -684,17 +696,9 @@ export enum AddRestingEnergyErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addRestingEnergy */
@@ -742,17 +746,9 @@ export enum AddRestingHeartRateErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addRestingHeartRate */
@@ -800,17 +796,9 @@ export enum AddSleepAnalysisErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addSleepAnalysis */
@@ -858,17 +846,9 @@ export enum AddStepErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addStep */
@@ -916,17 +896,9 @@ export enum AddSwimmingDistanceErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addSwimmingDistance */
@@ -974,17 +946,9 @@ export enum AddWaistCircumferenceErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addWaistCircumference */
@@ -1032,17 +996,9 @@ export enum AddWalkingHeartRateAverageErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addWalkingHeartRateAverage */
@@ -1090,17 +1046,9 @@ export enum AddWalkingRunningDistanceErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addWalkingRunningDistance */
@@ -1148,17 +1096,9 @@ export enum AddWeightErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for addWeight */
@@ -1206,17 +1146,9 @@ export enum AverageMpgErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Average MPG data input */
@@ -1290,17 +1222,9 @@ export enum BodyTemperatureErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for bodyTemperature */
@@ -1348,17 +1272,9 @@ export enum CaffeineErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for caffeine */
@@ -1407,18 +1323,31 @@ export enum DrivingScoreErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
+
+/** Driving score data input */
+export type DrivingScoreInputType = {
+  accelerationScore?: Maybe<Scalars['Int']>,
+  coastingScore?: Maybe<Scalars['Int']>,
+  breakingScore?: Maybe<Scalars['Int']>,
+  totalScore: Scalars['Int'],
+  vehicle?: Maybe<VehicleType>,
+  sampledOn?: Maybe<Scalars['String']>,
+};
+
+/** Driving score input for update */
+export type DrivingScoreInputUpdateType = {
+  accelerationScore?: Maybe<Scalars['Int']>,
+  coastingScore?: Maybe<Scalars['Int']>,
+  breakingScore?: Maybe<Scalars['Int']>,
+  totalScore?: Maybe<Scalars['Int']>,
+  vehicle?: Maybe<VehicleType>,
+  sampledOn?: Maybe<Scalars['String']>,
+  updatedOn?: Maybe<Scalars['String']>,
+};
 
 /** Response data for DrivingScore */
 export type DrivingScoreResponse = {
@@ -1479,17 +1408,9 @@ export enum FlightsClimbedErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for flightsClimbed */
@@ -1613,17 +1534,9 @@ export enum HeartrateErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for heartrate */
@@ -1671,17 +1584,9 @@ export enum HeartrateVariabilityErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for heartrateVariability */
@@ -1729,17 +1634,9 @@ export enum HeightErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for height */
@@ -1827,6 +1724,14 @@ export type Mutation = {
   addAverageMPG?: Maybe<AddAverageMpgUnion>,
   /** Update a AverageMPG node */
   updateAverageMPG?: Maybe<UpdateAverageMpgUnion>,
+  /** Add a DrivingScore node */
+  addDrivingScore?: Maybe<AddDrivingScoreUnion>,
+  /** Update a DrivingScore node */
+  updateDrivingScore?: Maybe<UpdateDrivingScoreUnion>,
+  /** Add a Refuel node */
+  addRefuel?: Maybe<AddRefuelUnion>,
+  /** Update a Refuel node */
+  updateRefuel?: Maybe<UpdateRefuelUnion>,
 };
 
 
@@ -2032,6 +1937,28 @@ export type MutationUpdateAverageMpgArgs = {
   input: AverageMpgInputUpdateType
 };
 
+
+export type MutationAddDrivingScoreArgs = {
+  input: DrivingScoreInputType
+};
+
+
+export type MutationUpdateDrivingScoreArgs = {
+  id: Scalars['ID'],
+  input: DrivingScoreInputUpdateType
+};
+
+
+export type MutationAddRefuelArgs = {
+  input: RefuelInputType
+};
+
+
+export type MutationUpdateRefuelArgs = {
+  id: Scalars['ID'],
+  input: RefuelInputUpdaetType
+};
+
 export type OxygenSaturationError = {
   __typename?: 'oxygenSaturationError',
   errorCode?: Maybe<OxygenSaturationErrorErrorCodesType>,
@@ -2068,17 +1995,9 @@ export enum OxygenSaturationErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for oxygenSaturation */
@@ -2126,18 +2045,27 @@ export enum RefuelErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
+
+/** Car gas refuel data input */
+export type RefuelInputType = {
+  gallons: Scalars['Float'],
+  cost?: Maybe<Scalars['Float']>,
+  vehicle?: Maybe<VehicleType>,
+  sampledOn?: Maybe<Scalars['String']>,
+};
+
+/** Car gas refuel input for updating */
+export type RefuelInputUpdaetType = {
+  gallons?: Maybe<Scalars['Float']>,
+  cost?: Maybe<Scalars['Float']>,
+  vehicle?: Maybe<VehicleType>,
+  sampledOn?: Maybe<Scalars['String']>,
+  updatedOn?: Maybe<Scalars['String']>,
+};
 
 /** Response data for Refuel */
 export type RefuelResponse = {
@@ -2196,17 +2124,9 @@ export enum RestingEnergyErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for restingEnergy */
@@ -2254,17 +2174,9 @@ export enum RestingHeartrateErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for restingHeartrate */
@@ -2476,17 +2388,9 @@ export enum SleepAnalysisErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for sleepAnalysis */
@@ -2534,17 +2438,9 @@ export enum StepsErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for steps */
@@ -2592,17 +2488,9 @@ export enum SwimmingDistanceErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for swimmingDistance */
@@ -2679,17 +2567,9 @@ export enum UpdateActiveEnergyErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for updateActiveEnergy */
@@ -2737,17 +2617,9 @@ export enum UpdateAverageMpgErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for updateAverageMPG */
@@ -2795,17 +2667,9 @@ export enum UpdateBodyTemperatureErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for updateBodyTemperature */
@@ -2853,17 +2717,9 @@ export enum UpdateCaffeineErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for updateCaffeine */
@@ -2874,6 +2730,56 @@ export type UpdateCaffeineResponse = {
 
 /** Return either be response data or error data for updateCaffeine */
 export type UpdateCaffeineUnion = UpdateCaffeineResponse | UpdateCaffeineError;
+
+export type UpdateDrivingScoreError = {
+  __typename?: 'updateDrivingScoreError',
+  errorCode?: Maybe<UpdateDrivingScoreErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateDrivingScoreErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Health type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR'
+}
+
+/** Response data for updateDrivingScore */
+export type UpdateDrivingScoreResponse = {
+  __typename?: 'updateDrivingScoreResponse',
+  response?: Maybe<DrivingScoreType>,
+};
+
+/** Return either be response data or error data for updateDrivingScore */
+export type UpdateDrivingScoreUnion = UpdateDrivingScoreResponse | UpdateDrivingScoreError;
 
 export type UpdateFlightsClimbedError = {
   __typename?: 'updateFlightsClimbedError',
@@ -2911,17 +2817,9 @@ export enum UpdateFlightsClimbedErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for updateFlightsClimbed */
@@ -2969,17 +2867,9 @@ export enum UpdateHeartRateErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for updateHeartRate */
@@ -3027,17 +2917,9 @@ export enum UpdateHeartRateVariabilityErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for updateHeartRateVariability */
@@ -3085,17 +2967,9 @@ export enum UpdateHeightErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for updateHeight */
@@ -3143,17 +3017,9 @@ export enum UpdateOxygenSaturationErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for updateOxygenSaturation */
@@ -3164,6 +3030,56 @@ export type UpdateOxygenSaturationResponse = {
 
 /** Return either be response data or error data for updateOxygenSaturation */
 export type UpdateOxygenSaturationUnion = UpdateOxygenSaturationResponse | UpdateOxygenSaturationError;
+
+export type UpdateRefuelError = {
+  __typename?: 'updateRefuelError',
+  errorCode?: Maybe<UpdateRefuelErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateRefuelErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Health type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR'
+}
+
+/** Response data for updateRefuel */
+export type UpdateRefuelResponse = {
+  __typename?: 'updateRefuelResponse',
+  response?: Maybe<RefuelType>,
+};
+
+/** Return either be response data or error data for updateRefuel */
+export type UpdateRefuelUnion = UpdateRefuelResponse | UpdateRefuelError;
 
 export type UpdateRestingEnergyError = {
   __typename?: 'updateRestingEnergyError',
@@ -3201,17 +3117,9 @@ export enum UpdateRestingEnergyErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for updateRestingEnergy */
@@ -3259,17 +3167,9 @@ export enum UpdateRestingHeartRateErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for updateRestingHeartRate */
@@ -3317,17 +3217,9 @@ export enum UpdateSleepAnalysisErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for updateSleepAnalysis */
@@ -3375,17 +3267,9 @@ export enum UpdateStepErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for updateStep */
@@ -3433,17 +3317,9 @@ export enum UpdateSwimmingDistanceErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for updateSwimmingDistance */
@@ -3491,17 +3367,9 @@ export enum UpdateWaistCircumferenceErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for updateWaistCircumference */
@@ -3549,17 +3417,9 @@ export enum UpdateWalkingHeartRateAverageErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for updateWalkingHeartRateAverage */
@@ -3607,17 +3467,9 @@ export enum UpdateWalkingRunningDistanceErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for updateWalkingRunningDistance */
@@ -3665,17 +3517,9 @@ export enum UpdateWeightErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for updateWeight */
@@ -3689,7 +3533,8 @@ export type UpdateWeightUnion = UpdateWeightResponse | UpdateWeightError;
 
 /** Acceptable vehicles for car data */
 export enum VehicleType {
-  PriusPrime = 'priusPrime'
+  PriusPrime = 'priusPrime',
+  Crv = 'crv'
 }
 
 export type WaistCircumferenceError = {
@@ -3728,17 +3573,9 @@ export enum WaistCircumferenceErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for waistCircumference */
@@ -3786,17 +3623,9 @@ export enum WalkingHeartrateAverageErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for walkingHeartrateAverage */
@@ -3844,17 +3673,9 @@ export enum WalkingRunningDistanceErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for walkingRunningDistance */
@@ -3902,17 +3723,9 @@ export enum WeightErrorErrorCodesType {
   /** Health type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
-  AddAverageMpgError = 'ADD_AVERAGE_MPG_ERROR',
+  AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateAverageMpgError = 'UPDATE_AVERAGE_MPG_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddRefuelError = 'ADD_REFUEL_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateRefuelError = 'UPDATE_REFUEL_ERROR',
-  /** An error occured trying to add car average mpg */
-  AddDrivingScoreError = 'ADD_DRIVING_SCORE_ERROR',
-  /** An error occured trying to update a car average mpg item */
-  UpdateDrivingScoreError = 'UPDATE_DRIVING_SCORE_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR'
 }
 
 /** Response data for weight */
@@ -4235,6 +4048,26 @@ export type ResolversTypes = {
   updateAverageMPGResponse: ResolverTypeWrapper<UpdateAverageMpgResponse>,
   updateAverageMPGError: ResolverTypeWrapper<UpdateAverageMpgError>,
   updateAverageMPGErrorErrorCodesType: UpdateAverageMpgErrorErrorCodesType,
+  DrivingScoreInputType: DrivingScoreInputType,
+  addDrivingScoreUnion: ResolversTypes['addDrivingScoreResponse'] | ResolversTypes['addDrivingScoreError'],
+  addDrivingScoreResponse: ResolverTypeWrapper<AddDrivingScoreResponse>,
+  addDrivingScoreError: ResolverTypeWrapper<AddDrivingScoreError>,
+  addDrivingScoreErrorErrorCodesType: AddDrivingScoreErrorErrorCodesType,
+  DrivingScoreInputUpdateType: DrivingScoreInputUpdateType,
+  updateDrivingScoreUnion: ResolversTypes['updateDrivingScoreResponse'] | ResolversTypes['updateDrivingScoreError'],
+  updateDrivingScoreResponse: ResolverTypeWrapper<UpdateDrivingScoreResponse>,
+  updateDrivingScoreError: ResolverTypeWrapper<UpdateDrivingScoreError>,
+  updateDrivingScoreErrorErrorCodesType: UpdateDrivingScoreErrorErrorCodesType,
+  RefuelInputType: RefuelInputType,
+  addRefuelUnion: ResolversTypes['addRefuelResponse'] | ResolversTypes['addRefuelError'],
+  addRefuelResponse: ResolverTypeWrapper<AddRefuelResponse>,
+  addRefuelError: ResolverTypeWrapper<AddRefuelError>,
+  addRefuelErrorErrorCodesType: AddRefuelErrorErrorCodesType,
+  RefuelInputUpdaetType: RefuelInputUpdaetType,
+  updateRefuelUnion: ResolversTypes['updateRefuelResponse'] | ResolversTypes['updateRefuelError'],
+  updateRefuelResponse: ResolverTypeWrapper<UpdateRefuelResponse>,
+  updateRefuelError: ResolverTypeWrapper<UpdateRefuelError>,
+  updateRefuelErrorErrorCodesType: UpdateRefuelErrorErrorCodesType,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
 };
 
@@ -4489,6 +4322,26 @@ export type ResolversParentTypes = {
   updateAverageMPGResponse: UpdateAverageMpgResponse,
   updateAverageMPGError: UpdateAverageMpgError,
   updateAverageMPGErrorErrorCodesType: UpdateAverageMpgErrorErrorCodesType,
+  DrivingScoreInputType: DrivingScoreInputType,
+  addDrivingScoreUnion: ResolversTypes['addDrivingScoreResponse'] | ResolversTypes['addDrivingScoreError'],
+  addDrivingScoreResponse: AddDrivingScoreResponse,
+  addDrivingScoreError: AddDrivingScoreError,
+  addDrivingScoreErrorErrorCodesType: AddDrivingScoreErrorErrorCodesType,
+  DrivingScoreInputUpdateType: DrivingScoreInputUpdateType,
+  updateDrivingScoreUnion: ResolversTypes['updateDrivingScoreResponse'] | ResolversTypes['updateDrivingScoreError'],
+  updateDrivingScoreResponse: UpdateDrivingScoreResponse,
+  updateDrivingScoreError: UpdateDrivingScoreError,
+  updateDrivingScoreErrorErrorCodesType: UpdateDrivingScoreErrorErrorCodesType,
+  RefuelInputType: RefuelInputType,
+  addRefuelUnion: ResolversTypes['addRefuelResponse'] | ResolversTypes['addRefuelError'],
+  addRefuelResponse: AddRefuelResponse,
+  addRefuelError: AddRefuelError,
+  addRefuelErrorErrorCodesType: AddRefuelErrorErrorCodesType,
+  RefuelInputUpdaetType: RefuelInputUpdaetType,
+  updateRefuelUnion: ResolversTypes['updateRefuelResponse'] | ResolversTypes['updateRefuelError'],
+  updateRefuelResponse: UpdateRefuelResponse,
+  updateRefuelError: UpdateRefuelError,
+  updateRefuelErrorErrorCodesType: UpdateRefuelErrorErrorCodesType,
   Boolean: Scalars['Boolean'],
 };
 
@@ -4555,6 +4408,19 @@ export type AddCaffeineResponseResolvers<ContextType = any, ParentType = Resolve
 
 export type AddCaffeineUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addCaffeineUnion']> = {
   __resolveType: TypeResolveFn<'addCaffeineResponse' | 'addCaffeineError', ParentType, ContextType>
+};
+
+export type AddDrivingScoreErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addDrivingScoreError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addDrivingScoreErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddDrivingScoreResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addDrivingScoreResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['DrivingScoreType']>, ParentType, ContextType>,
+};
+
+export type AddDrivingScoreUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addDrivingScoreUnion']> = {
+  __resolveType: TypeResolveFn<'addDrivingScoreResponse' | 'addDrivingScoreError', ParentType, ContextType>
 };
 
 export type AddFlightsClimbedErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addFlightsClimbedError']> = {
@@ -4633,6 +4499,19 @@ export type AddOxygenSaturationResponseResolvers<ContextType = any, ParentType =
 
 export type AddOxygenSaturationUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addOxygenSaturationUnion']> = {
   __resolveType: TypeResolveFn<'addOxygenSaturationResponse' | 'addOxygenSaturationError', ParentType, ContextType>
+};
+
+export type AddRefuelErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addRefuelError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addRefuelErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddRefuelResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addRefuelResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['RefuelType']>, ParentType, ContextType>,
+};
+
+export type AddRefuelUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addRefuelUnion']> = {
+  __resolveType: TypeResolveFn<'addRefuelResponse' | 'addRefuelError', ParentType, ContextType>
 };
 
 export type AddRestingEnergyErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addRestingEnergyError']> = {
@@ -4944,6 +4823,10 @@ export type MutationResolvers<ContextType = any, ParentType = ResolversParentTyp
   updateWaistCircumference?: Resolver<Maybe<ResolversTypes['updateWaistCircumferenceUnion']>, ParentType, ContextType, MutationUpdateWaistCircumferenceArgs>,
   addAverageMPG?: Resolver<Maybe<ResolversTypes['addAverageMPGUnion']>, ParentType, ContextType, MutationAddAverageMpgArgs>,
   updateAverageMPG?: Resolver<Maybe<ResolversTypes['updateAverageMPGUnion']>, ParentType, ContextType, MutationUpdateAverageMpgArgs>,
+  addDrivingScore?: Resolver<Maybe<ResolversTypes['addDrivingScoreUnion']>, ParentType, ContextType, MutationAddDrivingScoreArgs>,
+  updateDrivingScore?: Resolver<Maybe<ResolversTypes['updateDrivingScoreUnion']>, ParentType, ContextType, MutationUpdateDrivingScoreArgs>,
+  addRefuel?: Resolver<Maybe<ResolversTypes['addRefuelUnion']>, ParentType, ContextType, MutationAddRefuelArgs>,
+  updateRefuel?: Resolver<Maybe<ResolversTypes['updateRefuelUnion']>, ParentType, ContextType, MutationUpdateRefuelArgs>,
 };
 
 export type OxygenSaturationErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['oxygenSaturationError']> = {
@@ -5122,6 +5005,19 @@ export type UpdateCaffeineUnionResolvers<ContextType = any, ParentType = Resolve
   __resolveType: TypeResolveFn<'updateCaffeineResponse' | 'updateCaffeineError', ParentType, ContextType>
 };
 
+export type UpdateDrivingScoreErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateDrivingScoreError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateDrivingScoreErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateDrivingScoreResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateDrivingScoreResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['DrivingScoreType']>, ParentType, ContextType>,
+};
+
+export type UpdateDrivingScoreUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateDrivingScoreUnion']> = {
+  __resolveType: TypeResolveFn<'updateDrivingScoreResponse' | 'updateDrivingScoreError', ParentType, ContextType>
+};
+
 export type UpdateFlightsClimbedErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateFlightsClimbedError']> = {
   errorCode?: Resolver<Maybe<ResolversTypes['updateFlightsClimbedErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
@@ -5185,6 +5081,19 @@ export type UpdateOxygenSaturationResponseResolvers<ContextType = any, ParentTyp
 
 export type UpdateOxygenSaturationUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateOxygenSaturationUnion']> = {
   __resolveType: TypeResolveFn<'updateOxygenSaturationResponse' | 'updateOxygenSaturationError', ParentType, ContextType>
+};
+
+export type UpdateRefuelErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateRefuelError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateRefuelErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateRefuelResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateRefuelResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['RefuelType']>, ParentType, ContextType>,
+};
+
+export type UpdateRefuelUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateRefuelUnion']> = {
+  __resolveType: TypeResolveFn<'updateRefuelResponse' | 'updateRefuelError', ParentType, ContextType>
 };
 
 export type UpdateRestingEnergyErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateRestingEnergyError']> = {
@@ -5372,6 +5281,9 @@ export type Resolvers<ContextType = any> = {
   addCaffeineError?: AddCaffeineErrorResolvers<ContextType>,
   addCaffeineResponse?: AddCaffeineResponseResolvers<ContextType>,
   addCaffeineUnion?: AddCaffeineUnionResolvers,
+  addDrivingScoreError?: AddDrivingScoreErrorResolvers<ContextType>,
+  addDrivingScoreResponse?: AddDrivingScoreResponseResolvers<ContextType>,
+  addDrivingScoreUnion?: AddDrivingScoreUnionResolvers,
   addFlightsClimbedError?: AddFlightsClimbedErrorResolvers<ContextType>,
   addFlightsClimbedResponse?: AddFlightsClimbedResponseResolvers<ContextType>,
   addFlightsClimbedUnion?: AddFlightsClimbedUnionResolvers,
@@ -5390,6 +5302,9 @@ export type Resolvers<ContextType = any> = {
   addOxygenSaturationError?: AddOxygenSaturationErrorResolvers<ContextType>,
   addOxygenSaturationResponse?: AddOxygenSaturationResponseResolvers<ContextType>,
   addOxygenSaturationUnion?: AddOxygenSaturationUnionResolvers,
+  addRefuelError?: AddRefuelErrorResolvers<ContextType>,
+  addRefuelResponse?: AddRefuelResponseResolvers<ContextType>,
+  addRefuelUnion?: AddRefuelUnionResolvers,
   addRestingEnergyError?: AddRestingEnergyErrorResolvers<ContextType>,
   addRestingEnergyResponse?: AddRestingEnergyResponseResolvers<ContextType>,
   addRestingEnergyUnion?: AddRestingEnergyUnionResolvers,
@@ -5482,6 +5397,9 @@ export type Resolvers<ContextType = any> = {
   updateCaffeineError?: UpdateCaffeineErrorResolvers<ContextType>,
   updateCaffeineResponse?: UpdateCaffeineResponseResolvers<ContextType>,
   updateCaffeineUnion?: UpdateCaffeineUnionResolvers,
+  updateDrivingScoreError?: UpdateDrivingScoreErrorResolvers<ContextType>,
+  updateDrivingScoreResponse?: UpdateDrivingScoreResponseResolvers<ContextType>,
+  updateDrivingScoreUnion?: UpdateDrivingScoreUnionResolvers,
   updateFlightsClimbedError?: UpdateFlightsClimbedErrorResolvers<ContextType>,
   updateFlightsClimbedResponse?: UpdateFlightsClimbedResponseResolvers<ContextType>,
   updateFlightsClimbedUnion?: UpdateFlightsClimbedUnionResolvers,
@@ -5497,6 +5415,9 @@ export type Resolvers<ContextType = any> = {
   updateOxygenSaturationError?: UpdateOxygenSaturationErrorResolvers<ContextType>,
   updateOxygenSaturationResponse?: UpdateOxygenSaturationResponseResolvers<ContextType>,
   updateOxygenSaturationUnion?: UpdateOxygenSaturationUnionResolvers,
+  updateRefuelError?: UpdateRefuelErrorResolvers<ContextType>,
+  updateRefuelResponse?: UpdateRefuelResponseResolvers<ContextType>,
+  updateRefuelUnion?: UpdateRefuelUnionResolvers,
   updateRestingEnergyError?: UpdateRestingEnergyErrorResolvers<ContextType>,
   updateRestingEnergyResponse?: UpdateRestingEnergyResponseResolvers<ContextType>,
   updateRestingEnergyUnion?: UpdateRestingEnergyUnionResolvers,
