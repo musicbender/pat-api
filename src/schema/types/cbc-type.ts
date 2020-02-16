@@ -24,7 +24,6 @@ export const CbcInputType = new GraphQLInputObjectType({
     granulocytes: { type: GraphQLFloat },
     lymphocytes: { type: GraphQLFloat },
     neutrophil: { type: GraphQLFloat },
-    lymphocyte: { type: GraphQLFloat },
     monocyte: { type: GraphQLFloat },
   })
 });

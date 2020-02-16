@@ -34,5 +34,11 @@
     "modelID": "BodyTemperature",
     "unit": "degreesF",
     "disabled": false
+  },
+  "platelets": {
+    "id": "platelets",
+    "modelID": "Platelets",
+    "unit": "Thousand/uL",
+    "disabled": false
   }
 }
