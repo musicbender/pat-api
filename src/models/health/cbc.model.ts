@@ -48,9 +48,8 @@ export default class Cbc extends Model<Cbc> {
   @Column({ type: DataType.FLOAT })
   redCellDistributionWidth: number;
 
-  @Default(0)
   @HasOne(() => Platelets)
-  plateletCount: Platelets;
+  platelets: Platelets;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })

@@ -10,9 +10,7 @@ const healthTypes = require('../../configs/health.json');
 })
 export default class Platelets<T = any, T2 = any> extends BasicHealth<Platelets> {
   @BelongsTo(() => Cbc)
-  @Default(0)
-  @Column({ type: DataType.FLOAT })
-  value: number;
+  cbc: Cbc;
 
   @ForeignKey(() => Cbc)
   @IsUUID(4)
