@@ -1,7 +1,7 @@
 import * as GraphQLDate from 'graphql-date';
-import { GraphQLString } from 'graphql';
+import { GraphQLID, GraphQLString, GraphQLNonNull } from 'graphql';
 import { findItemById, findItemByDate } from '../../controllers/global';
-import { QueryOptions } from '../../types';
+import { QueryOptions, ComposeAddMutationOptions } from '../../types';
 import { ResponseUnionType } from '../types';
 import { ExpectedError } from '../../utils/errors';
 
@@ -36,6 +36,59 @@ export const composeQuery = (options: QueryOptions) => {
           response = await findItemByDate(args.date, modelID);
         }
         
+        return { response };
+      } catch (err) {
+        throw err;
+      }
+    }
+  }
+}
+
+export const composeAddMutation = (options: ComposeAddMutationOptions) => {
+  const name = `add${options.name}`;
+  return {
+    name,
+    description: options.description || `Add a ${options.name} node`,
+    type: ResponseUnionType({
+      name,
+      responseType: options.type
+    }),
+    args: {
+      input: {
+        type: new GraphQLNonNull(options.inputType)
+      }
+    },
+    async resolve(parentValue, { input }) {
+      try {
+        const response = await options.controllerFunc(input, options.config || {});
+        return { response };
+      } catch (err) {
+        throw err;
+      }
+    }
+  }
+}
+
+export const composeUpdateMutation = (options: ComposeAddMutationOptions) => {
+  const name = `update${options.name}`;
+  return {
+    name,
+    description: options.description || `Update a ${options.name} node`,
+    type: ResponseUnionType({
+      name,
+      responseType: options.type
+    }),
+    args: {
+      id: {
+        type: new GraphQLNonNull(GraphQLID)
+      },
+      input: {
+        type: new GraphQLNonNull(options.inputType)
+      }
+    },
+    async resolve(parentValue, { id, input }) {
+      try {
+        const response = await options.controllerFunc(id, input, options.config || {});
         return { response };
       } catch (err) {
         throw err;
