@@ -1,9 +1,11 @@
-import { composeHealthkitAdd, composeHealthkitUpdate } from '../../utils/healthkit';
+import { composeAddMutation, composeUpdateMutation } from '../../utils/global';
+import { baseAddHealthkitOptions, baseUpdateHealthkitOptions } from '../../utils/healthkit';
+const { healthTypes } = require('../../../configs/healthkit.json');
 
 const options = {
-  type: 'steps',
   name: 'Step',
+  config: healthTypes.steps,
 }
 
-export const addStep = composeHealthkitAdd(options);
-export const updateStep = composeHealthkitUpdate(options);
+export const addStep = composeAddMutation({ ...baseAddHealthkitOptions, ...options });
+export const updateStep = composeUpdateMutation({ ...baseUpdateHealthkitOptions, ...options });

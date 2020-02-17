@@ -1,19 +1,19 @@
 import { GraphQLObjectType, GraphQLInputObjectType } from 'graphql';
 
-export type QueryOptions = {
+export type ComposeQueryOptions = {
   type: GraphQLObjectType,
   name?: string,
   modelID?: string,
   description?: string,
 }
 
-export type ComposeAddMutationOptions = {
+export type ComposeMutationOptions = {
   type: GraphQLObjectType,
   inputType: GraphQLInputObjectType
   name?: string,
   description?: string,
-  config: any,
-  controllerFunc?: any,
+  config?: any,
+  controller?: any,
 }
 
 export type DatabaseConfigOptions = {

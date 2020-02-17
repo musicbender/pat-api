@@ -1,7 +1,9 @@
-import { composeHealthkitQuery } from '../../utils/healthkit';
+import { composeQuery } from '../../utils/global';
+import { HealthKitType } from '../../types';
 const { healthTypes } = require('../../../configs/healthkit.json');
 
-export const restingHeartrate = composeHealthkitQuery({
-  type: healthTypes.restingHeartRate.id,
-  name: 'restingHeartrate'
+export const restingHeartrate = composeQuery({
+  type: HealthKitType,
+  name: 'restingHeartrate',
+  modelID: healthTypes.restingHeartRate.modelID,
 });

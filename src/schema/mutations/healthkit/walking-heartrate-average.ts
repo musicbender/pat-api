@@ -1,9 +1,11 @@
-import { composeHealthkitAdd, composeHealthkitUpdate } from '../../utils/healthkit';
+import { composeAddMutation, composeUpdateMutation } from '../../utils/global';
+import { baseAddHealthkitOptions, baseUpdateHealthkitOptions } from '../../utils/healthkit';
+const { healthTypes } = require('../../../configs/healthkit.json');
 
 const options = {
-  type: 'walkingHeartRateAverage',
   name: 'WalkingHeartRateAverage',
+  config: healthTypes.walkingHeartRateAverage,
 }
 
-export const addWalkingHeartRateAverage = composeHealthkitAdd(options);
-export const updateWalkingHeartRateAverage = composeHealthkitUpdate(options);
+export const addWalkingHeartRateAverage = composeAddMutation({ ...baseAddHealthkitOptions, ...options });
+export const updateWalkingHeartRateAverage= composeUpdateMutation({ ...baseUpdateHealthkitOptions, ...options });

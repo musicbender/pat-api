@@ -1,9 +1,11 @@
-import { composeHealthAdd, composeHealthUpdate } from '../../utils/health';
+import { composeAddMutation, composeUpdateMutation } from '../../utils/global';
+import { baseAddHealthOptions, baseUpdateHealthOptions } from '../../utils/health';
+const healthTypes = require('../../../configs/health.json');
 
 const options = {
-  type: 'height',
   name: 'Height',
+  config: healthTypes.height,
 }
 
-export const addHeight = composeHealthAdd(options);
-export const updateHeight= composeHealthUpdate(options);
+export const addHeight = composeAddMutation({ ...baseAddHealthOptions, ...options });
+export const updateHeight= composeUpdateMutation({ ...baseUpdateHealthOptions, ...options });

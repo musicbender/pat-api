@@ -1,11 +1,11 @@
 import * as GraphQLDate from 'graphql-date';
 import { GraphQLID, GraphQLString, GraphQLNonNull } from 'graphql';
 import { findItemById, findItemByDate } from '../../controllers/global';
-import { QueryOptions, ComposeAddMutationOptions } from '../../types';
-import { ResponseUnionType } from '../types';
 import { ExpectedError } from '../../utils/errors';
+import { ComposeQueryOptions, ComposeMutationOptions } from '../../types';
+import { ResponseUnionType } from '../types';
 
-export const composeQuery = (options: QueryOptions) => {
+export const composeQuery = (options: ComposeQueryOptions) => {
   const name = options.name || options.type.name;
   const description = `Get a single ${name} entry by either _id or date, _id taking priority`;
   return {
@@ -44,7 +44,7 @@ export const composeQuery = (options: QueryOptions) => {
   }
 }
 
-export const composeAddMutation = (options: ComposeAddMutationOptions) => {
+export const composeAddMutation = (options: ComposeMutationOptions) => {
   const name = `add${options.name}`;
   return {
     name,
@@ -60,7 +60,7 @@ export const composeAddMutation = (options: ComposeAddMutationOptions) => {
     },
     async resolve(parentValue, { input }) {
       try {
-        const response = await options.controllerFunc(input, options.config || {});
+        const response = await options.controller(input, options.config || {});
         return { response };
       } catch (err) {
         throw err;
@@ -69,7 +69,7 @@ export const composeAddMutation = (options: ComposeAddMutationOptions) => {
   }
 }
 
-export const composeUpdateMutation = (options: ComposeAddMutationOptions) => {
+export const composeUpdateMutation = (options: ComposeMutationOptions) => {
   const name = `update${options.name}`;
   return {
     name,
@@ -88,7 +88,7 @@ export const composeUpdateMutation = (options: ComposeAddMutationOptions) => {
     },
     async resolve(parentValue, { id, input }) {
       try {
-        const response = await options.controllerFunc(id, input, options.config || {});
+        const response = await options.controller(id, input, options.config || {});
         return { response };
       } catch (err) {
         throw err;

@@ -1,7 +1,9 @@
-import { composeHealthkitQuery } from '../../utils/healthkit';
+import { composeQuery } from '../../utils/global';
+import { HealthKitType } from '../../types';
 const { healthTypes } = require('../../../configs/healthkit.json');
 
-export const swimmingDistance = composeHealthkitQuery({
-  type: healthTypes.swimmingDistance.id,
-  name: 'swimmingDistance'
+export const swimmingDistance = composeQuery({
+  type: HealthKitType,
+  name: 'swimmingDistance',
+  modelID: healthTypes.swimmingDistance.modelID,
 });

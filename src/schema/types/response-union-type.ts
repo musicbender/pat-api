@@ -1,5 +1,5 @@
 import { GraphQLUnionType } from 'graphql';
-import { ErrorType, ResponseType } from '.';
+import { ErrorType, ResponseType } from '../types';
 
 const ResponseUnionType = (options: any) => {
   const errorType = ErrorType(`${options.name}Error`);

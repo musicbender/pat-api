@@ -1,9 +1,11 @@
-import { composeHealthAdd, composeHealthUpdate } from '../../utils/health';
+import { composeAddMutation, composeUpdateMutation } from '../../utils/global';
+import { baseAddHealthOptions, baseUpdateHealthOptions } from '../../utils/health';
+const healthTypes = require('../../../configs/health.json');
 
 const options = {
-  type: 'bodyTemperature',
   name: 'BodyTemperature',
+  config: healthTypes.bodyTemperature,
 }
 
-export const addBodyTemperature = composeHealthAdd(options);
-export const updateBodyTemperature= composeHealthUpdate(options);
+export const addBodyTemperature = composeAddMutation({ ...baseAddHealthOptions, ...options });
+export const updateBodyTemperature= composeUpdateMutation({ ...baseUpdateHealthOptions, ...options });

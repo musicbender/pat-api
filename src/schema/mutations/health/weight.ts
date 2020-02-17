@@ -1,9 +1,11 @@
-import { composeHealthAdd, composeHealthUpdate } from '../../utils/health';
+import { composeAddMutation, composeUpdateMutation } from '../../utils/global';
+import { baseAddHealthOptions, baseUpdateHealthOptions } from '../../utils/health';
+const healthTypes = require('../../../configs/health.json');
 
 const options = {
-  type: 'weight',
   name: 'Weight',
+  config: healthTypes.weight,
 }
 
-export const addWeight = composeHealthAdd(options);
-export const updateWeight= composeHealthUpdate(options);
+export const addWeight = composeAddMutation({ ...baseAddHealthOptions, ...options });
+export const updateWeight= composeUpdateMutation({ ...baseUpdateHealthOptions, ...options });

@@ -1,6 +1,7 @@
 import * as moment from 'moment';
 import { 
   Model, 
+  Table,
   IsUUID, 
   PrimaryKey, 
   Column, 
@@ -10,6 +11,11 @@ import {
 } from 'sequelize-typescript';
 import Platelets from './platelets.model';
 
+@Table({
+  tableName: 'cbc',
+  createdAt: false, 
+  updatedAt: false
+})
 export default class Cbc extends Model<Cbc> {
   @IsUUID(4)
   @PrimaryKey

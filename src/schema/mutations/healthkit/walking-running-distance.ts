@@ -1,9 +1,11 @@
-import { composeHealthkitAdd, composeHealthkitUpdate } from '../../utils/healthkit';
+import { composeAddMutation, composeUpdateMutation } from '../../utils/global';
+import { baseAddHealthkitOptions, baseUpdateHealthkitOptions } from '../../utils/healthkit';
+const { healthTypes } = require('../../../configs/healthkit.json');
 
 const options = {
-  type: 'walkingRunningDistance',
   name: 'WalkingRunningDistance',
+  config: healthTypes.walkingRunningDistance,
 }
 
-export const addWalkingRunningDistance = composeHealthkitAdd(options);
-export const updateWalkingRunningDistance = composeHealthkitUpdate(options);
+export const addWalkingRunningDistance = composeAddMutation({ ...baseAddHealthkitOptions, ...options });
+export const updateWalkingRunningDistance = composeUpdateMutation({ ...baseUpdateHealthkitOptions, ...options });

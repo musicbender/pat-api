@@ -1,9 +1,11 @@
-import { composeHealthkitAdd, composeHealthkitUpdate } from '../../utils/healthkit';
+import { composeAddMutation, composeUpdateMutation } from '../../utils/global';
+import { baseAddHealthkitOptions, baseUpdateHealthkitOptions } from '../../utils/healthkit';
+const { healthTypes } = require('../../../configs/healthkit.json');
 
 const options = {
-  type: 'swimmingDistance',
   name: 'SwimmingDistance',
+  config: healthTypes.swimmingDistance,
 }
 
-export const addSwimmingDistance = composeHealthkitAdd(options);
-export const updateSwimmingDistance = composeHealthkitUpdate(options);
+export const addSwimmingDistance = composeAddMutation({ ...baseAddHealthkitOptions, ...options });
+export const updateSwimmingDistance = composeUpdateMutation({ ...baseUpdateHealthkitOptions, ...options });

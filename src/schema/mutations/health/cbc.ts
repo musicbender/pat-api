@@ -1,9 +1,20 @@
-import { composeHealthAdd, composeHealthUpdate } from '../../utils/health';
+import { composeAddMutation, composeUpdateMutation } from '../../utils/global';
+import { CbcType, CbcInputType, CbcInputUpdateType } from 'schema/types';
+import { addCbcItem, updateCbcItem } from 'controllers/cbc';
 
 const options = {
-  type: 'height',
-  name: 'Height',
+  name: 'Cbc',
+  type: CbcType
 }
 
-export const addHeight = composeHealthAdd(options);
-export const updateHeight= composeHealthUpdate(options);
+export const addHeight = composeAddMutation({
+  ...options,
+  inputType: CbcInputType,
+  controller: addCbcItem,
+});
+
+export const updateHeight= composeUpdateMutation({
+  ...options,
+  inputType: CbcInputUpdateType,
+  controller: updateCbcItem,
+});

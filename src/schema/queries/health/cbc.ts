@@ -1,6 +1,8 @@
-import { composeHealthQuery } from '../../utils/health';
+import { composeQuery } from '../../utils/global';
+import { CbcType } from '../../types';
 
-export const cbc = composeHealthQuery({
-  type: 'cbc',
+export const cbc = composeQuery({
+  type: CbcType,
   name: 'cbc',
+  modelID: 'Cbc'
 });

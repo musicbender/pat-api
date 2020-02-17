@@ -1,7 +1,9 @@
-import { composeHealthkitQuery } from '../../utils/healthkit';
+import { composeQuery } from '../../utils/global';
+import { HealthKitType } from '../../types';
 const { healthTypes } = require('../../../configs/healthkit.json');
 
-export const caffeine = composeHealthkitQuery({
-  type: healthTypes.caffeine.id,
-  name: 'caffeine'
+export const caffeine = composeQuery({
+  type: HealthKitType,
+  name: 'caffeine',
+  modelID: healthTypes.caffeine.modelID,
 });

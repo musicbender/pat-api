@@ -1,9 +1,11 @@
-import { composeHealthAdd, composeHealthUpdate } from '../../utils/health';
+import { composeAddMutation, composeUpdateMutation } from '../../utils/global';
+import { baseAddHealthOptions, baseUpdateHealthOptions } from '../../utils/health';
+const healthTypes = require('../../../configs/health.json');
 
 const options = {
-  type: 'waistCircumference',
   name: 'WaistCircumference',
+  config: healthTypes.waistCircumference,
 }
 
-export const addWaistCircumference = composeHealthAdd(options);
-export const updateWaistCircumference= composeHealthUpdate(options);
+export const addWaistCircumference = composeAddMutation({ ...baseAddHealthOptions, ...options });
+export const updateWaistCircumference= composeUpdateMutation({ ...baseUpdateHealthOptions, ...options });
