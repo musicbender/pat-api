@@ -71,11 +71,19 @@ export default class Cbc extends Model<Cbc> {
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
+  monocytes: number;
+ 
+  @Default(0)
+  @Column({ type: DataType.FLOAT })
   neutrophil: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  monocyte: number;
+  lymphocytePercent: number;
+
+  @Default(0)
+  @Column({ type: DataType.FLOAT })
+  monocytePercent: number;
 
   @Default(moment().toISOString())
   @Column

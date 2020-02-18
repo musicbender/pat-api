@@ -23,8 +23,10 @@ export const CbcInputType = new GraphQLInputObjectType({
     meanPlateletVolume: { type: GraphQLFloat },
     granulocytes: { type: GraphQLFloat },
     lymphocytes: { type: GraphQLFloat },
+    monocytes: { type: GraphQLFloat },
     neutrophil: { type: GraphQLFloat },
-    monocyte: { type: GraphQLFloat },
+    lymphocytePercent: { type: GraphQLFloat },
+    monocytePercent: { type: GraphQLFloat },
   })
 });
 
@@ -46,9 +48,10 @@ export const CbcInputUpdateType = new GraphQLInputObjectType({
     meanPlateletVolume: { type: GraphQLFloat },
     granulocytes: { type: GraphQLFloat },
     lymphocytes: { type: GraphQLFloat },
+    monocytes: { type: GraphQLFloat },
     neutrophil: { type: GraphQLFloat },
-    lymphocyte: { type: GraphQLFloat },
-    monocyte: { type: GraphQLFloat },
+    lymphocytePercent: { type: GraphQLFloat },
+    monocytePercent: { type: GraphQLFloat },
   })
 });
 
@@ -68,12 +71,13 @@ export const CbcType = new GraphQLObjectType({
     mch: { type: GraphQLFloat },
     mchc: { type: GraphQLFloat },
     redCellDistributionWidth: { type: GraphQLFloat },
-    plateletCount: { type: PlateletType },
+    platelets: { type: PlateletType },
     meanPlateletVolume: { type: GraphQLFloat },
     granulocytes: { type: GraphQLFloat },
     lymphocytes: { type: GraphQLFloat },
+    monocytes: { type: GraphQLFloat },
     neutrophil: { type: GraphQLFloat },
-    lymphocyte: { type: GraphQLFloat },
-    monocyte: { type: GraphQLFloat },
+    lymphocytePercent: { type: GraphQLFloat },
+    monocytePercent: { type: GraphQLFloat },
   })
 });
