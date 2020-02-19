@@ -1,30 +1,39 @@
 import * as uuid from 'uuid';
 import * as moment from 'moment';
-// import { CbcType, CbcInputType, CbcInputUpdateType, CbcConfigType } from '../types';
-// import models from '../models';
+import { CbcType, CbcInputType, CbcInputUpdateType, HealthConfigType } from '../types';
+import models from '../models';
 import { Model } from 'sequelize-typescript';
 import { ExpectedError } from '../utils/errors';
+const healthConfig = require('../configs/health.json');
 
-// add average mpg item
-export const addCbcItem = async (input: any): Promise<any> => {
-  // // if type has been disabled in config
-  // if (config.disabled) throw new ExpectedError('DISABLED_CAR_TYPE');
+// add cbc item
+export const addCbcItem = async (input: CbcInputType): Promise<any> => {
+  // if type has been disabled in config
+  if (healthConfig.cbc.disabled) throw new ExpectedError('DISABLED_HEALTH_TYPE');
 
-  // let data: CbcType = {
-  //   ...input,
-  //   id: uuid(),
-  //   createdOn: moment().toISOString(),
-  // };
+  const currentDate = moment().toISOString();
 
-  // const item = models[config.modelID];
+  let data: CbcType = {
+    ...input,
+    id: uuid(),
+    createdOn: currentDate,
+    platelets: {
+      id: uuid(),
+      value: input.plateletCount,
+      sampledOn: input.sampledOn,
+      createdOn: currentDate,
+      unit: healthConfig.platelets.unit
+    }
+  };
 
-  // try {
-  //   const res: any = await item.create(data);
-  //   return res.dataValues;
-  // } catch (err) {
-  //   throw new ExpectedError('ADD_CAR_ERROR');
-  // }
-  return;
+  const item = models[healthConfig.cbc.modelID];
+
+  try {
+    const res: any = await item.create(data, { include: models[healthConfig.platelets.modelID] });
+    return res.dataValues;
+  } catch (err) {
+    throw new ExpectedError('ADD_HEALTH_ERROR');
+  }
 }
 
 // update health item

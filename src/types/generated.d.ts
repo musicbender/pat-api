@@ -260,6 +260,56 @@ export type AddCaffeineResponse = {
 /** Return either be response data or error data for addCaffeine */
 export type AddCaffeineUnion = AddCaffeineResponse | AddCaffeineError;
 
+export type AddCbcError = {
+  __typename?: 'addCbcError',
+  errorCode?: Maybe<AddCbcErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddCbcErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Health type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR'
+}
+
+/** Response data for addCbc */
+export type AddCbcResponse = {
+  __typename?: 'addCbcResponse',
+  response?: Maybe<CbcType>,
+};
+
+/** Return either be response data or error data for addCbc */
+export type AddCbcUnion = AddCbcResponse | AddCbcError;
+
 export type AddDrivingScoreError = {
   __typename?: 'addDrivingScoreError',
   errorCode?: Maybe<AddDrivingScoreErrorErrorCodesType>,
@@ -609,6 +659,56 @@ export type AddOxygenSaturationResponse = {
 
 /** Return either be response data or error data for addOxygenSaturation */
 export type AddOxygenSaturationUnion = AddOxygenSaturationResponse | AddOxygenSaturationError;
+
+export type AddPlateletsError = {
+  __typename?: 'addPlateletsError',
+  errorCode?: Maybe<AddPlateletsErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddPlateletsErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Health type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR'
+}
+
+/** Response data for addPlatelets */
+export type AddPlateletsResponse = {
+  __typename?: 'addPlateletsResponse',
+  response?: Maybe<PlateletType>,
+};
+
+/** Return either be response data or error data for addPlatelets */
+export type AddPlateletsUnion = AddPlateletsResponse | AddPlateletsError;
 
 export type AddRefuelError = {
   __typename?: 'addRefuelError',
@@ -1286,6 +1386,124 @@ export type CaffeineResponse = {
 /** Return either be response data or error data for caffeine */
 export type CaffeineUnion = CaffeineResponse | CaffeineError;
 
+export type CbcError = {
+  __typename?: 'cbcError',
+  errorCode?: Maybe<CbcErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum CbcErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Health type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR'
+}
+
+/** Complete blood count data input */
+export type CbcInputType = {
+  sampledOn?: Maybe<Scalars['String']>,
+  wbcCount?: Maybe<Scalars['Float']>,
+  rbcCount?: Maybe<Scalars['Float']>,
+  hematrocrit?: Maybe<Scalars['Float']>,
+  hgb?: Maybe<Scalars['Float']>,
+  mvc?: Maybe<Scalars['Float']>,
+  mch?: Maybe<Scalars['Float']>,
+  mchc?: Maybe<Scalars['Float']>,
+  redCellDistributionWidth?: Maybe<Scalars['Float']>,
+  plateletCount?: Maybe<Scalars['Float']>,
+  meanPlateletVolume?: Maybe<Scalars['Float']>,
+  granulocytes?: Maybe<Scalars['Float']>,
+  lymphocytes?: Maybe<Scalars['Float']>,
+  monocytes?: Maybe<Scalars['Float']>,
+  neutrophil?: Maybe<Scalars['Float']>,
+  lymphocytePercent?: Maybe<Scalars['Float']>,
+  monocytePercent?: Maybe<Scalars['Float']>,
+};
+
+/** Complete blood count data update input */
+export type CbcInputUpdateType = {
+  sampledOn?: Maybe<Scalars['String']>,
+  updatedOn?: Maybe<Scalars['String']>,
+  wbcCount?: Maybe<Scalars['Float']>,
+  rbcCount?: Maybe<Scalars['Float']>,
+  hematrocrit?: Maybe<Scalars['Float']>,
+  hgb?: Maybe<Scalars['Float']>,
+  mvc?: Maybe<Scalars['Float']>,
+  mch?: Maybe<Scalars['Float']>,
+  mchc?: Maybe<Scalars['Float']>,
+  redCellDistributionWidth?: Maybe<Scalars['Float']>,
+  plateletCount?: Maybe<Scalars['Float']>,
+  meanPlateletVolume?: Maybe<Scalars['Float']>,
+  granulocytes?: Maybe<Scalars['Float']>,
+  lymphocytes?: Maybe<Scalars['Float']>,
+  monocytes?: Maybe<Scalars['Float']>,
+  neutrophil?: Maybe<Scalars['Float']>,
+  lymphocytePercent?: Maybe<Scalars['Float']>,
+  monocytePercent?: Maybe<Scalars['Float']>,
+};
+
+/** Response data for cbc */
+export type CbcResponse = {
+  __typename?: 'cbcResponse',
+  response?: Maybe<CbcType>,
+};
+
+/** Complete blood count data sample */
+export type CbcType = {
+  __typename?: 'CbcType',
+  id?: Maybe<Scalars['String']>,
+  sampledOn?: Maybe<Scalars['String']>,
+  createdOn?: Maybe<Scalars['String']>,
+  updatedOn?: Maybe<Scalars['String']>,
+  wbcCount?: Maybe<Scalars['Float']>,
+  rbcCount?: Maybe<Scalars['Float']>,
+  hematrocrit?: Maybe<Scalars['Float']>,
+  hgb?: Maybe<Scalars['Float']>,
+  mvc?: Maybe<Scalars['Float']>,
+  mch?: Maybe<Scalars['Float']>,
+  mchc?: Maybe<Scalars['Float']>,
+  redCellDistributionWidth?: Maybe<Scalars['Float']>,
+  platelets?: Maybe<PlateletType>,
+  meanPlateletVolume?: Maybe<Scalars['Float']>,
+  granulocytes?: Maybe<Scalars['Float']>,
+  lymphocytes?: Maybe<Scalars['Float']>,
+  monocytes?: Maybe<Scalars['Float']>,
+  neutrophil?: Maybe<Scalars['Float']>,
+  lymphocytePercent?: Maybe<Scalars['Float']>,
+  monocytePercent?: Maybe<Scalars['Float']>,
+};
+
+/** Return either be response data or error data for cbc */
+export type CbcUnion = CbcResponse | CbcError;
+
 
 export type DrivingScoreError = {
   __typename?: 'DrivingScoreError',
@@ -1720,6 +1938,14 @@ export type Mutation = {
   addWaistCircumference?: Maybe<AddWaistCircumferenceUnion>,
   /** Update a WaistCircumference node */
   updateWaistCircumference?: Maybe<UpdateWaistCircumferenceUnion>,
+  /** Add a Cbc node */
+  addCbc?: Maybe<AddCbcUnion>,
+  /** Update a Cbc node */
+  updateCbc?: Maybe<UpdateCbcUnion>,
+  /** Add a Platelets node */
+  addPlatelets?: Maybe<AddPlateletsUnion>,
+  /** Update a Platelets node */
+  updatePlatelets?: Maybe<UpdatePlateletsUnion>,
   /** Add a AverageMPG node */
   addAverageMPG?: Maybe<AddAverageMpgUnion>,
   /** Update a AverageMPG node */
@@ -1927,6 +2153,28 @@ export type MutationUpdateWaistCircumferenceArgs = {
 };
 
 
+export type MutationAddCbcArgs = {
+  input: CbcInputType
+};
+
+
+export type MutationUpdateCbcArgs = {
+  id: Scalars['ID'],
+  input: CbcInputUpdateType
+};
+
+
+export type MutationAddPlateletsArgs = {
+  input: PlateletInputType
+};
+
+
+export type MutationUpdatePlateletsArgs = {
+  id: Scalars['ID'],
+  input: PlateletInputUpdateType
+};
+
+
 export type MutationAddAverageMpgArgs = {
   input: AverageMpgInputType
 };
@@ -2008,6 +2256,82 @@ export type OxygenSaturationResponse = {
 
 /** Return either be response data or error data for oxygenSaturation */
 export type OxygenSaturationUnion = OxygenSaturationResponse | OxygenSaturationError;
+
+/** Health data input */
+export type PlateletInputType = {
+  value: Scalars['Float'],
+  sampledOn?: Maybe<Scalars['String']>,
+};
+
+/** Health data input for updating */
+export type PlateletInputUpdateType = {
+  value?: Maybe<Scalars['Float']>,
+  unit?: Maybe<UnitType>,
+  sampledOn?: Maybe<Scalars['String']>,
+  createdOn?: Maybe<Scalars['String']>,
+};
+
+export type PlateletsError = {
+  __typename?: 'plateletsError',
+  errorCode?: Maybe<PlateletsErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum PlateletsErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Health type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR'
+}
+
+/** Response data for platelets */
+export type PlateletsResponse = {
+  __typename?: 'plateletsResponse',
+  response?: Maybe<HealthType>,
+};
+
+/** Return either be response data or error data for platelets */
+export type PlateletsUnion = PlateletsResponse | PlateletsError;
+
+/** Health data */
+export type PlateletType = {
+  __typename?: 'PlateletType',
+  id?: Maybe<Scalars['String']>,
+  value?: Maybe<Scalars['Float']>,
+  unit?: Maybe<UnitType>,
+  cbcId?: Maybe<CbcType>,
+  sampledOn?: Maybe<Scalars['String']>,
+  createdOn?: Maybe<Scalars['String']>,
+  updatedOn?: Maybe<Scalars['String']>,
+};
 
 export type RefuelError = {
   __typename?: 'RefuelError',
@@ -2211,7 +2535,7 @@ export type RootQueryType = {
   /** Get a single swimmingDistance entry by either _id or date, _id taking priority */
   swimmingDistance?: Maybe<SwimmingDistanceUnion>,
   /** Get a single walkingHeartrateAverage entry by either _id or date, _id taking priority */
-  walkingHeartRateAverage?: Maybe<WalkingHeartrateAverageUnion>,
+  walkingHeartrateAverage?: Maybe<WalkingHeartrateAverageUnion>,
   /** Get a single walkingRunningDistance entry by either _id or date, _id taking priority */
   walkingRunningDistance?: Maybe<WalkingRunningDistanceUnion>,
   /** Get a single weight entry by either _id or date, _id taking priority */
@@ -2224,6 +2548,10 @@ export type RootQueryType = {
   oxygenSaturation?: Maybe<OxygenSaturationUnion>,
   /** Get a single waistCircumference entry by either _id or date, _id taking priority */
   waistCircumference?: Maybe<WaistCircumferenceUnion>,
+  /** Get a single cbc entry by either _id or date, _id taking priority */
+  cbc?: Maybe<CbcUnion>,
+  /** Get a single platelets entry by either _id or date, _id taking priority */
+  platelets?: Maybe<PlateletsUnion>,
   /** Get a single AverageMPG entry by either _id or date, _id taking priority */
   averageMPG?: Maybe<AverageMpgUnion>,
   /** Get a single DrivingScore entry by either _id or date, _id taking priority */
@@ -2293,7 +2621,7 @@ export type RootQueryTypeSwimmingDistanceArgs = {
 };
 
 
-export type RootQueryTypeWalkingHeartRateAverageArgs = {
+export type RootQueryTypeWalkingHeartrateAverageArgs = {
   id?: Maybe<Scalars['String']>,
   date?: Maybe<Scalars['Date']>
 };
@@ -2330,6 +2658,18 @@ export type RootQueryTypeOxygenSaturationArgs = {
 
 
 export type RootQueryTypeWaistCircumferenceArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeCbcArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypePlateletsArgs = {
   id?: Maybe<Scalars['String']>,
   date?: Maybe<Scalars['Date']>
 };
@@ -2731,6 +3071,56 @@ export type UpdateCaffeineResponse = {
 /** Return either be response data or error data for updateCaffeine */
 export type UpdateCaffeineUnion = UpdateCaffeineResponse | UpdateCaffeineError;
 
+export type UpdateCbcError = {
+  __typename?: 'updateCbcError',
+  errorCode?: Maybe<UpdateCbcErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateCbcErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Health type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR'
+}
+
+/** Response data for updateCbc */
+export type UpdateCbcResponse = {
+  __typename?: 'updateCbcResponse',
+  response?: Maybe<CbcType>,
+};
+
+/** Return either be response data or error data for updateCbc */
+export type UpdateCbcUnion = UpdateCbcResponse | UpdateCbcError;
+
 export type UpdateDrivingScoreError = {
   __typename?: 'updateDrivingScoreError',
   errorCode?: Maybe<UpdateDrivingScoreErrorErrorCodesType>,
@@ -3030,6 +3420,56 @@ export type UpdateOxygenSaturationResponse = {
 
 /** Return either be response data or error data for updateOxygenSaturation */
 export type UpdateOxygenSaturationUnion = UpdateOxygenSaturationResponse | UpdateOxygenSaturationError;
+
+export type UpdatePlateletsError = {
+  __typename?: 'updatePlateletsError',
+  errorCode?: Maybe<UpdatePlateletsErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdatePlateletsErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Health type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR'
+}
+
+/** Response data for updatePlatelets */
+export type UpdatePlateletsResponse = {
+  __typename?: 'updatePlateletsResponse',
+  response?: Maybe<PlateletType>,
+};
+
+/** Return either be response data or error data for updatePlatelets */
+export type UpdatePlateletsUnion = UpdatePlateletsResponse | UpdatePlateletsError;
 
 export type UpdateRefuelError = {
   __typename?: 'updateRefuelError',
@@ -3874,6 +4314,16 @@ export type ResolversTypes = {
   waistCircumferenceResponse: ResolverTypeWrapper<WaistCircumferenceResponse>,
   waistCircumferenceError: ResolverTypeWrapper<WaistCircumferenceError>,
   waistCircumferenceErrorErrorCodesType: WaistCircumferenceErrorErrorCodesType,
+  cbcUnion: ResolversTypes['cbcResponse'] | ResolversTypes['cbcError'],
+  cbcResponse: ResolverTypeWrapper<CbcResponse>,
+  CbcType: ResolverTypeWrapper<CbcType>,
+  PlateletType: ResolverTypeWrapper<PlateletType>,
+  cbcError: ResolverTypeWrapper<CbcError>,
+  cbcErrorErrorCodesType: CbcErrorErrorCodesType,
+  plateletsUnion: ResolversTypes['plateletsResponse'] | ResolversTypes['plateletsError'],
+  plateletsResponse: ResolverTypeWrapper<PlateletsResponse>,
+  plateletsError: ResolverTypeWrapper<PlateletsError>,
+  plateletsErrorErrorCodesType: PlateletsErrorErrorCodesType,
   AverageMPGUnion: ResolversTypes['AverageMPGResponse'] | ResolversTypes['AverageMPGError'],
   AverageMPGResponse: ResolverTypeWrapper<AverageMpgResponse>,
   AverageMPGType: ResolverTypeWrapper<AverageMpgType>,
@@ -4038,6 +4488,26 @@ export type ResolversTypes = {
   updateWaistCircumferenceResponse: ResolverTypeWrapper<UpdateWaistCircumferenceResponse>,
   updateWaistCircumferenceError: ResolverTypeWrapper<UpdateWaistCircumferenceError>,
   updateWaistCircumferenceErrorErrorCodesType: UpdateWaistCircumferenceErrorErrorCodesType,
+  CbcInputType: CbcInputType,
+  addCbcUnion: ResolversTypes['addCbcResponse'] | ResolversTypes['addCbcError'],
+  addCbcResponse: ResolverTypeWrapper<AddCbcResponse>,
+  addCbcError: ResolverTypeWrapper<AddCbcError>,
+  addCbcErrorErrorCodesType: AddCbcErrorErrorCodesType,
+  CbcInputUpdateType: CbcInputUpdateType,
+  updateCbcUnion: ResolversTypes['updateCbcResponse'] | ResolversTypes['updateCbcError'],
+  updateCbcResponse: ResolverTypeWrapper<UpdateCbcResponse>,
+  updateCbcError: ResolverTypeWrapper<UpdateCbcError>,
+  updateCbcErrorErrorCodesType: UpdateCbcErrorErrorCodesType,
+  PlateletInputType: PlateletInputType,
+  addPlateletsUnion: ResolversTypes['addPlateletsResponse'] | ResolversTypes['addPlateletsError'],
+  addPlateletsResponse: ResolverTypeWrapper<AddPlateletsResponse>,
+  addPlateletsError: ResolverTypeWrapper<AddPlateletsError>,
+  addPlateletsErrorErrorCodesType: AddPlateletsErrorErrorCodesType,
+  PlateletInputUpdateType: PlateletInputUpdateType,
+  updatePlateletsUnion: ResolversTypes['updatePlateletsResponse'] | ResolversTypes['updatePlateletsError'],
+  updatePlateletsResponse: ResolverTypeWrapper<UpdatePlateletsResponse>,
+  updatePlateletsError: ResolverTypeWrapper<UpdatePlateletsError>,
+  updatePlateletsErrorErrorCodesType: UpdatePlateletsErrorErrorCodesType,
   AverageMPGInputType: AverageMpgInputType,
   addAverageMPGUnion: ResolversTypes['addAverageMPGResponse'] | ResolversTypes['addAverageMPGError'],
   addAverageMPGResponse: ResolverTypeWrapper<AddAverageMpgResponse>,
@@ -4148,6 +4618,16 @@ export type ResolversParentTypes = {
   waistCircumferenceResponse: WaistCircumferenceResponse,
   waistCircumferenceError: WaistCircumferenceError,
   waistCircumferenceErrorErrorCodesType: WaistCircumferenceErrorErrorCodesType,
+  cbcUnion: ResolversTypes['cbcResponse'] | ResolversTypes['cbcError'],
+  cbcResponse: CbcResponse,
+  CbcType: CbcType,
+  PlateletType: PlateletType,
+  cbcError: CbcError,
+  cbcErrorErrorCodesType: CbcErrorErrorCodesType,
+  plateletsUnion: ResolversTypes['plateletsResponse'] | ResolversTypes['plateletsError'],
+  plateletsResponse: PlateletsResponse,
+  plateletsError: PlateletsError,
+  plateletsErrorErrorCodesType: PlateletsErrorErrorCodesType,
   AverageMPGUnion: ResolversTypes['AverageMPGResponse'] | ResolversTypes['AverageMPGError'],
   AverageMPGResponse: AverageMpgResponse,
   AverageMPGType: AverageMpgType,
@@ -4312,6 +4792,26 @@ export type ResolversParentTypes = {
   updateWaistCircumferenceResponse: UpdateWaistCircumferenceResponse,
   updateWaistCircumferenceError: UpdateWaistCircumferenceError,
   updateWaistCircumferenceErrorErrorCodesType: UpdateWaistCircumferenceErrorErrorCodesType,
+  CbcInputType: CbcInputType,
+  addCbcUnion: ResolversTypes['addCbcResponse'] | ResolversTypes['addCbcError'],
+  addCbcResponse: AddCbcResponse,
+  addCbcError: AddCbcError,
+  addCbcErrorErrorCodesType: AddCbcErrorErrorCodesType,
+  CbcInputUpdateType: CbcInputUpdateType,
+  updateCbcUnion: ResolversTypes['updateCbcResponse'] | ResolversTypes['updateCbcError'],
+  updateCbcResponse: UpdateCbcResponse,
+  updateCbcError: UpdateCbcError,
+  updateCbcErrorErrorCodesType: UpdateCbcErrorErrorCodesType,
+  PlateletInputType: PlateletInputType,
+  addPlateletsUnion: ResolversTypes['addPlateletsResponse'] | ResolversTypes['addPlateletsError'],
+  addPlateletsResponse: AddPlateletsResponse,
+  addPlateletsError: AddPlateletsError,
+  addPlateletsErrorErrorCodesType: AddPlateletsErrorErrorCodesType,
+  PlateletInputUpdateType: PlateletInputUpdateType,
+  updatePlateletsUnion: ResolversTypes['updatePlateletsResponse'] | ResolversTypes['updatePlateletsError'],
+  updatePlateletsResponse: UpdatePlateletsResponse,
+  updatePlateletsError: UpdatePlateletsError,
+  updatePlateletsErrorErrorCodesType: UpdatePlateletsErrorErrorCodesType,
   AverageMPGInputType: AverageMpgInputType,
   addAverageMPGUnion: ResolversTypes['addAverageMPGResponse'] | ResolversTypes['addAverageMPGError'],
   addAverageMPGResponse: AddAverageMpgResponse,
@@ -4410,6 +4910,19 @@ export type AddCaffeineUnionResolvers<ContextType = any, ParentType = ResolversP
   __resolveType: TypeResolveFn<'addCaffeineResponse' | 'addCaffeineError', ParentType, ContextType>
 };
 
+export type AddCbcErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addCbcError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addCbcErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddCbcResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addCbcResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['CbcType']>, ParentType, ContextType>,
+};
+
+export type AddCbcUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addCbcUnion']> = {
+  __resolveType: TypeResolveFn<'addCbcResponse' | 'addCbcError', ParentType, ContextType>
+};
+
 export type AddDrivingScoreErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addDrivingScoreError']> = {
   errorCode?: Resolver<Maybe<ResolversTypes['addDrivingScoreErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
@@ -4499,6 +5012,19 @@ export type AddOxygenSaturationResponseResolvers<ContextType = any, ParentType =
 
 export type AddOxygenSaturationUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addOxygenSaturationUnion']> = {
   __resolveType: TypeResolveFn<'addOxygenSaturationResponse' | 'addOxygenSaturationError', ParentType, ContextType>
+};
+
+export type AddPlateletsErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addPlateletsError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addPlateletsErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddPlateletsResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addPlateletsResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['PlateletType']>, ParentType, ContextType>,
+};
+
+export type AddPlateletsUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addPlateletsUnion']> = {
+  __resolveType: TypeResolveFn<'addPlateletsResponse' | 'addPlateletsError', ParentType, ContextType>
 };
 
 export type AddRefuelErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addRefuelError']> = {
@@ -4679,6 +5205,42 @@ export type CaffeineUnionResolvers<ContextType = any, ParentType = ResolversPare
   __resolveType: TypeResolveFn<'caffeineResponse' | 'caffeineError', ParentType, ContextType>
 };
 
+export type CbcErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['cbcError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['cbcErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type CbcResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['cbcResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['CbcType']>, ParentType, ContextType>,
+};
+
+export type CbcTypeResolvers<ContextType = any, ParentType = ResolversParentTypes['CbcType']> = {
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  sampledOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  createdOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  updatedOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  wbcCount?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  rbcCount?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  hematrocrit?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  hgb?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  mvc?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  mch?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  mchc?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  redCellDistributionWidth?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  platelets?: Resolver<Maybe<ResolversTypes['PlateletType']>, ParentType, ContextType>,
+  meanPlateletVolume?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  granulocytes?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  lymphocytes?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  monocytes?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  neutrophil?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  lymphocytePercent?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  monocytePercent?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+};
+
+export type CbcUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['cbcUnion']> = {
+  __resolveType: TypeResolveFn<'cbcResponse' | 'cbcError', ParentType, ContextType>
+};
+
 export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Date'], any> {
   name: 'Date'
 }
@@ -4821,6 +5383,10 @@ export type MutationResolvers<ContextType = any, ParentType = ResolversParentTyp
   updateOxygenSaturation?: Resolver<Maybe<ResolversTypes['updateOxygenSaturationUnion']>, ParentType, ContextType, MutationUpdateOxygenSaturationArgs>,
   addWaistCircumference?: Resolver<Maybe<ResolversTypes['addWaistCircumferenceUnion']>, ParentType, ContextType, MutationAddWaistCircumferenceArgs>,
   updateWaistCircumference?: Resolver<Maybe<ResolversTypes['updateWaistCircumferenceUnion']>, ParentType, ContextType, MutationUpdateWaistCircumferenceArgs>,
+  addCbc?: Resolver<Maybe<ResolversTypes['addCbcUnion']>, ParentType, ContextType, MutationAddCbcArgs>,
+  updateCbc?: Resolver<Maybe<ResolversTypes['updateCbcUnion']>, ParentType, ContextType, MutationUpdateCbcArgs>,
+  addPlatelets?: Resolver<Maybe<ResolversTypes['addPlateletsUnion']>, ParentType, ContextType, MutationAddPlateletsArgs>,
+  updatePlatelets?: Resolver<Maybe<ResolversTypes['updatePlateletsUnion']>, ParentType, ContextType, MutationUpdatePlateletsArgs>,
   addAverageMPG?: Resolver<Maybe<ResolversTypes['addAverageMPGUnion']>, ParentType, ContextType, MutationAddAverageMpgArgs>,
   updateAverageMPG?: Resolver<Maybe<ResolversTypes['updateAverageMPGUnion']>, ParentType, ContextType, MutationUpdateAverageMpgArgs>,
   addDrivingScore?: Resolver<Maybe<ResolversTypes['addDrivingScoreUnion']>, ParentType, ContextType, MutationAddDrivingScoreArgs>,
@@ -4840,6 +5406,29 @@ export type OxygenSaturationResponseResolvers<ContextType = any, ParentType = Re
 
 export type OxygenSaturationUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['oxygenSaturationUnion']> = {
   __resolveType: TypeResolveFn<'oxygenSaturationResponse' | 'oxygenSaturationError', ParentType, ContextType>
+};
+
+export type PlateletsErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['plateletsError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['plateletsErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type PlateletsResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['plateletsResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+};
+
+export type PlateletsUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['plateletsUnion']> = {
+  __resolveType: TypeResolveFn<'plateletsResponse' | 'plateletsError', ParentType, ContextType>
+};
+
+export type PlateletTypeResolvers<ContextType = any, ParentType = ResolversParentTypes['PlateletType']> = {
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  value?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  unit?: Resolver<Maybe<ResolversTypes['UnitType']>, ParentType, ContextType>,
+  cbcId?: Resolver<Maybe<ResolversTypes['CbcType']>, ParentType, ContextType>,
+  sampledOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  createdOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  updatedOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
 };
 
 export type RefuelErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['RefuelError']> = {
@@ -4902,13 +5491,15 @@ export type RootQueryTypeResolvers<ContextType = any, ParentType = ResolversPare
   restingHeartrate?: Resolver<Maybe<ResolversTypes['restingHeartrateUnion']>, ParentType, ContextType, RootQueryTypeRestingHeartrateArgs>,
   sleepAnalysis?: Resolver<Maybe<ResolversTypes['sleepAnalysisUnion']>, ParentType, ContextType, RootQueryTypeSleepAnalysisArgs>,
   swimmingDistance?: Resolver<Maybe<ResolversTypes['swimmingDistanceUnion']>, ParentType, ContextType, RootQueryTypeSwimmingDistanceArgs>,
-  walkingHeartRateAverage?: Resolver<Maybe<ResolversTypes['walkingHeartrateAverageUnion']>, ParentType, ContextType, RootQueryTypeWalkingHeartRateAverageArgs>,
+  walkingHeartrateAverage?: Resolver<Maybe<ResolversTypes['walkingHeartrateAverageUnion']>, ParentType, ContextType, RootQueryTypeWalkingHeartrateAverageArgs>,
   walkingRunningDistance?: Resolver<Maybe<ResolversTypes['walkingRunningDistanceUnion']>, ParentType, ContextType, RootQueryTypeWalkingRunningDistanceArgs>,
   weight?: Resolver<Maybe<ResolversTypes['weightUnion']>, ParentType, ContextType, RootQueryTypeWeightArgs>,
   height?: Resolver<Maybe<ResolversTypes['heightUnion']>, ParentType, ContextType, RootQueryTypeHeightArgs>,
   bodyTemperature?: Resolver<Maybe<ResolversTypes['bodyTemperatureUnion']>, ParentType, ContextType, RootQueryTypeBodyTemperatureArgs>,
   oxygenSaturation?: Resolver<Maybe<ResolversTypes['oxygenSaturationUnion']>, ParentType, ContextType, RootQueryTypeOxygenSaturationArgs>,
   waistCircumference?: Resolver<Maybe<ResolversTypes['waistCircumferenceUnion']>, ParentType, ContextType, RootQueryTypeWaistCircumferenceArgs>,
+  cbc?: Resolver<Maybe<ResolversTypes['cbcUnion']>, ParentType, ContextType, RootQueryTypeCbcArgs>,
+  platelets?: Resolver<Maybe<ResolversTypes['plateletsUnion']>, ParentType, ContextType, RootQueryTypePlateletsArgs>,
   averageMPG?: Resolver<Maybe<ResolversTypes['AverageMPGUnion']>, ParentType, ContextType, RootQueryTypeAverageMpgArgs>,
   drivingScore?: Resolver<Maybe<ResolversTypes['DrivingScoreUnion']>, ParentType, ContextType, RootQueryTypeDrivingScoreArgs>,
   refuel?: Resolver<Maybe<ResolversTypes['RefuelUnion']>, ParentType, ContextType, RootQueryTypeRefuelArgs>,
@@ -5005,6 +5596,19 @@ export type UpdateCaffeineUnionResolvers<ContextType = any, ParentType = Resolve
   __resolveType: TypeResolveFn<'updateCaffeineResponse' | 'updateCaffeineError', ParentType, ContextType>
 };
 
+export type UpdateCbcErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCbcError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateCbcErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateCbcResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCbcResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['CbcType']>, ParentType, ContextType>,
+};
+
+export type UpdateCbcUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCbcUnion']> = {
+  __resolveType: TypeResolveFn<'updateCbcResponse' | 'updateCbcError', ParentType, ContextType>
+};
+
 export type UpdateDrivingScoreErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateDrivingScoreError']> = {
   errorCode?: Resolver<Maybe<ResolversTypes['updateDrivingScoreErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
@@ -5081,6 +5685,19 @@ export type UpdateOxygenSaturationResponseResolvers<ContextType = any, ParentTyp
 
 export type UpdateOxygenSaturationUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateOxygenSaturationUnion']> = {
   __resolveType: TypeResolveFn<'updateOxygenSaturationResponse' | 'updateOxygenSaturationError', ParentType, ContextType>
+};
+
+export type UpdatePlateletsErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updatePlateletsError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updatePlateletsErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdatePlateletsResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updatePlateletsResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['PlateletType']>, ParentType, ContextType>,
+};
+
+export type UpdatePlateletsUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updatePlateletsUnion']> = {
+  __resolveType: TypeResolveFn<'updatePlateletsResponse' | 'updatePlateletsError', ParentType, ContextType>
 };
 
 export type UpdateRefuelErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateRefuelError']> = {
@@ -5281,6 +5898,9 @@ export type Resolvers<ContextType = any> = {
   addCaffeineError?: AddCaffeineErrorResolvers<ContextType>,
   addCaffeineResponse?: AddCaffeineResponseResolvers<ContextType>,
   addCaffeineUnion?: AddCaffeineUnionResolvers,
+  addCbcError?: AddCbcErrorResolvers<ContextType>,
+  addCbcResponse?: AddCbcResponseResolvers<ContextType>,
+  addCbcUnion?: AddCbcUnionResolvers,
   addDrivingScoreError?: AddDrivingScoreErrorResolvers<ContextType>,
   addDrivingScoreResponse?: AddDrivingScoreResponseResolvers<ContextType>,
   addDrivingScoreUnion?: AddDrivingScoreUnionResolvers,
@@ -5302,6 +5922,9 @@ export type Resolvers<ContextType = any> = {
   addOxygenSaturationError?: AddOxygenSaturationErrorResolvers<ContextType>,
   addOxygenSaturationResponse?: AddOxygenSaturationResponseResolvers<ContextType>,
   addOxygenSaturationUnion?: AddOxygenSaturationUnionResolvers,
+  addPlateletsError?: AddPlateletsErrorResolvers<ContextType>,
+  addPlateletsResponse?: AddPlateletsResponseResolvers<ContextType>,
+  addPlateletsUnion?: AddPlateletsUnionResolvers,
   addRefuelError?: AddRefuelErrorResolvers<ContextType>,
   addRefuelResponse?: AddRefuelResponseResolvers<ContextType>,
   addRefuelUnion?: AddRefuelUnionResolvers,
@@ -5342,6 +5965,10 @@ export type Resolvers<ContextType = any> = {
   caffeineError?: CaffeineErrorResolvers<ContextType>,
   caffeineResponse?: CaffeineResponseResolvers<ContextType>,
   caffeineUnion?: CaffeineUnionResolvers,
+  cbcError?: CbcErrorResolvers<ContextType>,
+  cbcResponse?: CbcResponseResolvers<ContextType>,
+  CbcType?: CbcTypeResolvers<ContextType>,
+  cbcUnion?: CbcUnionResolvers,
   Date?: GraphQLScalarType,
   DrivingScoreError?: DrivingScoreErrorResolvers<ContextType>,
   DrivingScoreResponse?: DrivingScoreResponseResolvers<ContextType>,
@@ -5365,6 +5992,10 @@ export type Resolvers<ContextType = any> = {
   oxygenSaturationError?: OxygenSaturationErrorResolvers<ContextType>,
   oxygenSaturationResponse?: OxygenSaturationResponseResolvers<ContextType>,
   oxygenSaturationUnion?: OxygenSaturationUnionResolvers,
+  plateletsError?: PlateletsErrorResolvers<ContextType>,
+  plateletsResponse?: PlateletsResponseResolvers<ContextType>,
+  plateletsUnion?: PlateletsUnionResolvers,
+  PlateletType?: PlateletTypeResolvers<ContextType>,
   RefuelError?: RefuelErrorResolvers<ContextType>,
   RefuelResponse?: RefuelResponseResolvers<ContextType>,
   RefuelType?: RefuelTypeResolvers<ContextType>,
@@ -5397,6 +6028,9 @@ export type Resolvers<ContextType = any> = {
   updateCaffeineError?: UpdateCaffeineErrorResolvers<ContextType>,
   updateCaffeineResponse?: UpdateCaffeineResponseResolvers<ContextType>,
   updateCaffeineUnion?: UpdateCaffeineUnionResolvers,
+  updateCbcError?: UpdateCbcErrorResolvers<ContextType>,
+  updateCbcResponse?: UpdateCbcResponseResolvers<ContextType>,
+  updateCbcUnion?: UpdateCbcUnionResolvers,
   updateDrivingScoreError?: UpdateDrivingScoreErrorResolvers<ContextType>,
   updateDrivingScoreResponse?: UpdateDrivingScoreResponseResolvers<ContextType>,
   updateDrivingScoreUnion?: UpdateDrivingScoreUnionResolvers,
@@ -5415,6 +6049,9 @@ export type Resolvers<ContextType = any> = {
   updateOxygenSaturationError?: UpdateOxygenSaturationErrorResolvers<ContextType>,
   updateOxygenSaturationResponse?: UpdateOxygenSaturationResponseResolvers<ContextType>,
   updateOxygenSaturationUnion?: UpdateOxygenSaturationUnionResolvers,
+  updatePlateletsError?: UpdatePlateletsErrorResolvers<ContextType>,
+  updatePlateletsResponse?: UpdatePlateletsResponseResolvers<ContextType>,
+  updatePlateletsUnion?: UpdatePlateletsUnionResolvers,
   updateRefuelError?: UpdateRefuelErrorResolvers<ContextType>,
   updateRefuelResponse?: UpdateRefuelResponseResolvers<ContextType>,
   updateRefuelUnion?: UpdateRefuelUnionResolvers,

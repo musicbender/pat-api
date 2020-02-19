@@ -40,5 +40,11 @@
     "modelID": "Platelets",
     "unit": "Thousand/uL",
     "disabled": false
+  },
+  "cbc": {
+    "id": "cbc",
+    "modelID": "Cbc",
+    "unit": null,
+    "disabled": false
   }
 }

@@ -6,12 +6,13 @@ import {
   GraphQLNonNull
 } from 'graphql';
 import { CbcType } from './cbc-type';
+import { UnitType } from './unit-type';
 
 export const PlateletInputType = new GraphQLInputObjectType({
   name: 'PlateletInputType',
   description: 'Health data input',
   fields: () => ({
-    count: { type: new GraphQLNonNull(GraphQLFloat) },
+    value: { type: new GraphQLNonNull(GraphQLFloat) },
     sampledOn: { type: GraphQLString },
   })
 });
@@ -20,7 +21,8 @@ export const PlateletInputUpdateType = new GraphQLInputObjectType({
   name: 'PlateletInputUpdateType',
   description: 'Health data input for updating',
   fields: () => ({
-    count: { type: GraphQLFloat },
+    value: { type: GraphQLFloat },
+    unit: { type: UnitType },
     sampledOn: { type: GraphQLString },
     createdOn: { type: GraphQLString }
   })
@@ -31,7 +33,8 @@ export const PlateletType = new GraphQLObjectType({
   description: 'Health data',
   fields: () => ({
     id: { type: GraphQLString },
-    count: { type: GraphQLFloat },
+    value: { type: GraphQLFloat },
+    unit: { type: UnitType },
     cbcId: { type: CbcType },
     sampledOn: { type: GraphQLString },
     createdOn: { type: GraphQLString },
