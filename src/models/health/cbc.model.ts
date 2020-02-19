@@ -4,6 +4,7 @@ import {
   Table,
   IsUUID, 
   PrimaryKey, 
+  ForeignKey,
   Column, 
   Default,
   DataType,
@@ -56,6 +57,11 @@ export default class Cbc extends Model<Cbc> {
 
   @HasOne(() => Platelets)
   platelets: Platelets;
+
+  @ForeignKey(() => Platelets)
+  @IsUUID(4)
+  @Column
+  plateletsId: string;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })

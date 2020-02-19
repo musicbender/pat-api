@@ -12,16 +12,18 @@ export const addCbcItem = async (input: CbcInputType): Promise<any> => {
   if (healthConfig.cbc.disabled) throw new ExpectedError('DISABLED_HEALTH_TYPE');
 
   const currentDate = moment().toISOString();
+  const plateletId = uuid();
 
   let data: CbcType = {
     ...input,
     id: uuid(),
     createdOn: currentDate,
+    plateletsId: plateletId,
     platelets: {
-      id: uuid(),
+      id: plateletId,
       value: input.plateletCount,
       sampledOn: input.sampledOn,
-      createdOn: currentDate,
+      createdOn: currentDate, 
       unit: healthConfig.platelets.unit
     }
   };

@@ -1492,6 +1492,7 @@ export type CbcType = {
   mchc?: Maybe<Scalars['Float']>,
   redCellDistributionWidth?: Maybe<Scalars['Float']>,
   platelets?: Maybe<PlateletType>,
+  plateletsId?: Maybe<Scalars['String']>,
   meanPlateletVolume?: Maybe<Scalars['Float']>,
   granulocytes?: Maybe<Scalars['Float']>,
   lymphocytes?: Maybe<Scalars['Float']>,
@@ -2327,7 +2328,8 @@ export type PlateletType = {
   id?: Maybe<Scalars['String']>,
   value?: Maybe<Scalars['Float']>,
   unit?: Maybe<UnitType>,
-  cbcId?: Maybe<CbcType>,
+  cbc?: Maybe<CbcType>,
+  cbcId?: Maybe<Scalars['String']>,
   sampledOn?: Maybe<Scalars['String']>,
   createdOn?: Maybe<Scalars['String']>,
   updatedOn?: Maybe<Scalars['String']>,
@@ -2868,7 +2870,8 @@ export enum UnitType {
   Bpm = 'bpm',
   Min = 'min',
   Hrs = 'hrs',
-  DegreesF = 'degreesF'
+  DegreesF = 'degreesF',
+  ThousandUL = 'Thousand_uL'
 }
 
 export type UpdateActiveEnergyError = {
@@ -5228,6 +5231,7 @@ export type CbcTypeResolvers<ContextType = any, ParentType = ResolversParentType
   mchc?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
   redCellDistributionWidth?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
   platelets?: Resolver<Maybe<ResolversTypes['PlateletType']>, ParentType, ContextType>,
+  plateletsId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   meanPlateletVolume?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
   granulocytes?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
   lymphocytes?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
@@ -5425,7 +5429,8 @@ export type PlateletTypeResolvers<ContextType = any, ParentType = ResolversParen
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   value?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
   unit?: Resolver<Maybe<ResolversTypes['UnitType']>, ParentType, ContextType>,
-  cbcId?: Resolver<Maybe<ResolversTypes['CbcType']>, ParentType, ContextType>,
+  cbc?: Resolver<Maybe<ResolversTypes['CbcType']>, ParentType, ContextType>,
+  cbcId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   sampledOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   createdOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   updatedOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
