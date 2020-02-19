@@ -9,7 +9,7 @@ const healthConfig = require('../configs/health.json');
 // add cbc item
 export const addCbcItem = async (input: CbcInputType): Promise<any> => {
   // if type has been disabled in config
-  if (healthConfig.cbc.disabled) throw new ExpectedError('DISABLED_HEALTH_TYPE');
+  if (healthConfig.cbc.disabled) throw new ExpectedError('DISABLED_CBC_TYPE');
 
   const currentDate = moment().toISOString();
   const plateletId = uuid();
@@ -34,22 +34,23 @@ export const addCbcItem = async (input: CbcInputType): Promise<any> => {
     const res: any = await item.create(data, { include: models[healthConfig.platelets.modelID] });
     return res.dataValues;
   } catch (err) {
-    throw new ExpectedError('ADD_HEALTH_ERROR');
+    throw new ExpectedError('ADD_CBC_ERROR');
   }
 }
 
 // update health item
 export const updateCbcItem = async (id: string, input: any): Promise<Model> => {
-  // if (config.disabled) throw new ExpectedError('DISABLED_CAR_TYPE');
+  if (healthConfig.cbc.disabled) throw new ExpectedError('DISABLED_CBC_TYPE');
 
-  // const item = models[config.modelID];
-  // let data = { ...input, updatedOn: moment().toISOString() }
+  const item = models[healthConfig.cbc.modelID];
+  let data = { ...input, updatedOn: moment().toISOString() }
 
-  // try {
-  //   const [rows, [ updatedItem ]]: any = await item.update({ ...data }, { where: { id }, returning: true });
-  //   return updatedItem;
-  // } catch (err) {
-  //   throw new ExpectedError('UPDATE_CAR_ERROR');
-  // }
-  return;
+  try {
+    let [rows, [ updatedItem ]]: any = await item.update({ ...data }, { where: { id }, returning: true });
+    const platelets = await models[healthConfig.platelets.modelID].findOne({ where: { id: updatedItem.plateletsId } })
+    updatedItem.platelets = platelets;
+    return updatedItem
+  } catch (err) {
+    throw new ExpectedError('UPDATE_CBC_ERROR');
+  }
 }
