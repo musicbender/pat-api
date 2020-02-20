@@ -4,10 +4,26 @@ import { CbcType, CbcInputType, CbcInputUpdateType, HealthConfigType } from '../
 import models from '../models';
 import { Model } from 'sequelize-typescript';
 import { ExpectedError } from '../utils/errors';
+import { findItemById, findItemByDate } from './global';
 const healthConfig = require('../configs/health.json');
 
-// add cbc item
-export const addCbcItem = async (input: CbcInputType): Promise<any> => {
+export const getCbcItem = async (id?: string, date?: Date): Promise<CbcType> => {
+  const modelID = 'Cbc';
+  let response;
+
+  if (id) {
+    response = await findItemById(id, modelID);
+  } else if (date) {
+    response = await findItemByDate(date, modelID);
+  }
+
+  const platelets = await models[healthConfig.platelets.modelID].findOne({ where: { id: response.plateletsId } });
+  response.platelets = platelets;
+
+  return response
+}
+
+export const addCbcItem = async (input: CbcInputType): Promise<CbcType> => {
   // if type has been disabled in config
   if (healthConfig.cbc.disabled) throw new ExpectedError('DISABLED_CBC_TYPE');
 
@@ -38,8 +54,7 @@ export const addCbcItem = async (input: CbcInputType): Promise<any> => {
   }
 }
 
-// update health item
-export const updateCbcItem = async (id: string, input: any): Promise<Model> => {
+export const updateCbcItem = async (id: string, input: any): Promise<CbcType> => {
   if (healthConfig.cbc.disabled) throw new ExpectedError('DISABLED_CBC_TYPE');
 
   const item = models[healthConfig.cbc.modelID];

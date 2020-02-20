@@ -43,12 +43,18 @@ export enum ActiveEnergyErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for activeEnergy */
@@ -93,12 +99,18 @@ export enum AddActiveEnergyErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addActiveEnergy */
@@ -143,12 +155,18 @@ export enum AddAverageMpgErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addAverageMPG */
@@ -193,12 +211,18 @@ export enum AddBodyTemperatureErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addBodyTemperature */
@@ -243,12 +267,18 @@ export enum AddCaffeineErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addCaffeine */
@@ -293,12 +323,18 @@ export enum AddCbcErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addCbc */
@@ -343,12 +379,18 @@ export enum AddDrivingScoreErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addDrivingScore */
@@ -393,12 +435,18 @@ export enum AddFlightsClimbedErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addFlightsClimbed */
@@ -443,12 +491,18 @@ export enum AddHealthKitErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addHealthKit */
@@ -493,12 +547,18 @@ export enum AddHeartRateErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addHeartRate */
@@ -543,12 +603,18 @@ export enum AddHeartRateVariabilityErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addHeartRateVariability */
@@ -593,12 +659,18 @@ export enum AddHeightErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addHeight */
@@ -643,12 +715,18 @@ export enum AddOxygenSaturationErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addOxygenSaturation */
@@ -693,12 +771,18 @@ export enum AddPlateletsErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addPlatelets */
@@ -743,12 +827,18 @@ export enum AddRefuelErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addRefuel */
@@ -793,12 +883,18 @@ export enum AddRestingEnergyErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addRestingEnergy */
@@ -843,12 +939,18 @@ export enum AddRestingHeartRateErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addRestingHeartRate */
@@ -893,12 +995,18 @@ export enum AddSleepAnalysisErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addSleepAnalysis */
@@ -943,12 +1051,18 @@ export enum AddStepErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addStep */
@@ -993,12 +1107,18 @@ export enum AddSwimmingDistanceErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addSwimmingDistance */
@@ -1043,12 +1163,18 @@ export enum AddWaistCircumferenceErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addWaistCircumference */
@@ -1093,12 +1219,18 @@ export enum AddWalkingHeartRateAverageErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addWalkingHeartRateAverage */
@@ -1143,12 +1275,18 @@ export enum AddWalkingRunningDistanceErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addWalkingRunningDistance */
@@ -1193,12 +1331,18 @@ export enum AddWeightErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for addWeight */
@@ -1243,12 +1387,18 @@ export enum AverageMpgErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Average MPG data input */
@@ -1319,12 +1469,18 @@ export enum BodyTemperatureErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for bodyTemperature */
@@ -1369,12 +1525,18 @@ export enum CaffeineErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for caffeine */
@@ -1419,12 +1581,18 @@ export enum CbcErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Complete blood count data input */
@@ -1539,12 +1707,18 @@ export enum DrivingScoreErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Driving score data input */
@@ -1624,12 +1798,18 @@ export enum FlightsClimbedErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for flightsClimbed */
@@ -1750,12 +1930,18 @@ export enum HeartrateErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for heartrate */
@@ -1800,12 +1986,18 @@ export enum HeartrateVariabilityErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for heartrateVariability */
@@ -1850,12 +2042,18 @@ export enum HeightErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for height */
@@ -2241,12 +2439,18 @@ export enum OxygenSaturationErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for oxygenSaturation */
@@ -2305,18 +2509,24 @@ export enum PlateletsErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for platelets */
 export type PlateletsResponse = {
   __typename?: 'plateletsResponse',
-  response?: Maybe<HealthType>,
+  response?: Maybe<PlateletType>,
 };
 
 /** Return either be response data or error data for platelets */
@@ -2368,12 +2578,18 @@ export enum RefuelErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Car gas refuel data input */
@@ -2447,12 +2663,18 @@ export enum RestingEnergyErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for restingEnergy */
@@ -2497,12 +2719,18 @@ export enum RestingHeartrateErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for restingHeartrate */
@@ -2550,7 +2778,7 @@ export type RootQueryType = {
   oxygenSaturation?: Maybe<OxygenSaturationUnion>,
   /** Get a single waistCircumference entry by either _id or date, _id taking priority */
   waistCircumference?: Maybe<WaistCircumferenceUnion>,
-  /** Get a single cbc entry by either _id or date, _id taking priority */
+  /** cbc query */
   cbc?: Maybe<CbcUnion>,
   /** Get a single platelets entry by either _id or date, _id taking priority */
   platelets?: Maybe<PlateletsUnion>,
@@ -2727,12 +2955,18 @@ export enum SleepAnalysisErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for sleepAnalysis */
@@ -2777,12 +3011,18 @@ export enum StepsErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for steps */
@@ -2827,12 +3067,18 @@ export enum SwimmingDistanceErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for swimmingDistance */
@@ -2907,12 +3153,18 @@ export enum UpdateActiveEnergyErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateActiveEnergy */
@@ -2957,12 +3209,18 @@ export enum UpdateAverageMpgErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateAverageMPG */
@@ -3007,12 +3265,18 @@ export enum UpdateBodyTemperatureErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateBodyTemperature */
@@ -3057,12 +3321,18 @@ export enum UpdateCaffeineErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateCaffeine */
@@ -3107,12 +3377,18 @@ export enum UpdateCbcErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateCbc */
@@ -3157,12 +3433,18 @@ export enum UpdateDrivingScoreErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateDrivingScore */
@@ -3207,12 +3489,18 @@ export enum UpdateFlightsClimbedErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateFlightsClimbed */
@@ -3257,12 +3545,18 @@ export enum UpdateHeartRateErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateHeartRate */
@@ -3307,12 +3601,18 @@ export enum UpdateHeartRateVariabilityErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateHeartRateVariability */
@@ -3357,12 +3657,18 @@ export enum UpdateHeightErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateHeight */
@@ -3407,12 +3713,18 @@ export enum UpdateOxygenSaturationErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateOxygenSaturation */
@@ -3457,12 +3769,18 @@ export enum UpdatePlateletsErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updatePlatelets */
@@ -3507,12 +3825,18 @@ export enum UpdateRefuelErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateRefuel */
@@ -3557,12 +3881,18 @@ export enum UpdateRestingEnergyErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateRestingEnergy */
@@ -3607,12 +3937,18 @@ export enum UpdateRestingHeartRateErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateRestingHeartRate */
@@ -3657,12 +3993,18 @@ export enum UpdateSleepAnalysisErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateSleepAnalysis */
@@ -3707,12 +4049,18 @@ export enum UpdateStepErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateStep */
@@ -3757,12 +4105,18 @@ export enum UpdateSwimmingDistanceErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateSwimmingDistance */
@@ -3807,12 +4161,18 @@ export enum UpdateWaistCircumferenceErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateWaistCircumference */
@@ -3857,12 +4217,18 @@ export enum UpdateWalkingHeartRateAverageErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateWalkingHeartRateAverage */
@@ -3907,12 +4273,18 @@ export enum UpdateWalkingRunningDistanceErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateWalkingRunningDistance */
@@ -3957,12 +4329,18 @@ export enum UpdateWeightErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for updateWeight */
@@ -4013,12 +4391,18 @@ export enum WaistCircumferenceErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for waistCircumference */
@@ -4063,12 +4447,18 @@ export enum WalkingHeartrateAverageErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for walkingHeartrateAverage */
@@ -4113,12 +4503,18 @@ export enum WalkingRunningDistanceErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for walkingRunningDistance */
@@ -4163,12 +4559,18 @@ export enum WeightErrorErrorCodesType {
   DisabledHealthType = 'DISABLED_HEALTH_TYPE',
   /** Input is invalid or empty */
   InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
-  /** Health type has been disabled */
+  /** Car type has been disabled */
   DisabledCarType = 'DISABLED_CAR_TYPE',
   /** An error occured trying to add car average mpg */
   AddCarError = 'ADD_CAR_ERROR',
   /** An error occured trying to update a car average mpg item */
-  UpdateCarError = 'UPDATE_CAR_ERROR'
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR'
 }
 
 /** Response data for weight */
@@ -5418,7 +5820,7 @@ export type PlateletsErrorResolvers<ContextType = any, ParentType = ResolversPar
 };
 
 export type PlateletsResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['plateletsResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthType']>, ParentType, ContextType>,
+  response?: Resolver<Maybe<ResolversTypes['PlateletType']>, ParentType, ContextType>,
 };
 
 export type PlateletsUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['plateletsUnion']> = {

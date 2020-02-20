@@ -1,9 +1,9 @@
 import { composeQuery } from '../../utils/global';
-import { HealthType } from '../../types';
+import { PlateletType } from '../../types';
 const healthTypes = require('../../../configs/health.json');
 
 export const platelets = composeQuery({
-  type: HealthType,
+  type: PlateletType,
   name: 'platelets',
   modelID: healthTypes.platelets.modelID,
 });
