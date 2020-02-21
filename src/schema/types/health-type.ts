@@ -39,3 +39,8 @@ export const HealthType = new GraphQLObjectType({
   })
 });
 
+console.log('health type:');
+console.log(typeof HealthType);
+console.log(Object.keys(HealthType));
+console.log(HealthType.getFields());
+
