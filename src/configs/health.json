@@ -21,7 +21,7 @@
     "id": "blood-pressure",
     "modelID": "BloodPressure",
     "unit": "mmHG",
-    "disabled": true
+    "disabled": false
   },
   "oxygenSaturation": {
     "id": "oxygen-saturation",

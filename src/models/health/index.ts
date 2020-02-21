@@ -6,6 +6,7 @@ import Height from './height.model'
 import WaistCircumference from './waist-circumference.model';
 import Cbc from './cbc.model';
 import Platelets from './platelets.model'
+import BloodPressure from './blood-pressure.model';
 
 export default {
   [healthTypes.weight.modelID]: Weight,
@@ -15,4 +16,5 @@ export default {
   [healthTypes.waistCircumference.modelID]: WaistCircumference,
   [healthTypes.cbc.modelID]: Cbc,
   [healthTypes.platelets.modelID]: Platelets,
+  [healthTypes.bloodPressure.modelID]: BloodPressure,
 }
