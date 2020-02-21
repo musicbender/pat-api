@@ -4,15 +4,12 @@ import models from '../models';
 import { Model } from 'sequelize-typescript';
 import { findItemByDate } from './global';
 import { ExpectedError } from '../utils/errors';
-import { HealthType, HealthInputType, HealthInputUpdateType, HealthConfigType } from '../types';
+import { HealthTypes, HealthInputTypes, HealthInputUpdateTypes, HealthConfigType } from '../types';
 
 // add health item
-export const addHealthItem = async (input: HealthInputType, config: HealthConfigType): Promise<HealthType> => {
+export const addHealthItem = async (input: HealthInputTypes, config: HealthConfigType): Promise<HealthTypes> => {
   // if type has been disabled in config
   if (config.disabled) throw new ExpectedError('DISABLED_HEALTH_TYPE');
-
-   // do not create row if there is no value or type is disabled
-  if (input.value === null) return null;
 
   if (config.interval && config.interval === 'day') {
     const dupeItem: any = await findItemByDate(input.sampledOn, config.modelID);
@@ -25,7 +22,7 @@ export const addHealthItem = async (input: HealthInputType, config: HealthConfig
     if (dupeItem) return replaceHealthItem(id, input, config);
   }
 
-  let data: HealthType = {
+  let data: HealthTypes = {
     ...input,
     id: uuid(),
     unit: config.unit,
@@ -43,10 +40,10 @@ export const addHealthItem = async (input: HealthInputType, config: HealthConfig
 }
 
 // replace health item
-export const replaceHealthItem = async (id: string, input: HealthInputType, config: HealthConfigType): Promise<Model> => {
+export const replaceHealthItem = async (id: string, input: HealthInputTypes, config: HealthConfigType): Promise<Model> => {
   if (config.disabled) throw new ExpectedError('DISABLED_HEALTH_TYPE');
 
-  const data: HealthType = input;
+  const data: HealthTypes = input;
   const HealthItem = models[config.modelID];
 
   try {
@@ -58,7 +55,7 @@ export const replaceHealthItem = async (id: string, input: HealthInputType, conf
 }
 
 // update health item
-export const updateHealthItem = async (id: string, input: HealthInputUpdateType, config: HealthConfigType): Promise<Model> => {
+export const updateHealthItem = async (id: string, input: HealthInputUpdateTypes, config: HealthConfigType): Promise<Model> => {
   if (config.disabled) {
     throw new ExpectedError('DISABLED_HEALTH_TYPE');
   }

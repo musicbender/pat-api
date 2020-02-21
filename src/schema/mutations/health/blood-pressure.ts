@@ -1,12 +1,22 @@
 import { composeAddMutation, composeUpdateMutation } from '../../utils/global';
 import { baseAddHealthOptions, baseUpdateHealthOptions } from '../../utils/health';
+import { BloodPressureInputType, BloodPressureInputUpdateType, BloodPressureType } from '../../types';
 const healthTypes = require('../../../configs/health.json');
 
 const options = {
   name: 'BloodPressure',
   config: healthTypes.bloodPressure,
-  controller: () => Promise.resolve()
+  type: BloodPressureType,
 }
 
-export const addBloodPressure = composeAddMutation({ ...baseAddHealthOptions, ...options });
-export const updateBloodPressure= composeUpdateMutation({ ...baseUpdateHealthOptions, ...options });
+export const addBloodPressure = composeAddMutation({ 
+  ...baseAddHealthOptions, 
+  ...options, 
+  inputType: BloodPressureInputType 
+});
+
+export const updateBloodPressure = composeUpdateMutation({ 
+  ...baseUpdateHealthOptions, 
+  ...options, 
+  inputType: BloodPressureInputUpdateType 
+});

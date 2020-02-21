@@ -1,5 +1,13 @@
 import * as moment from 'moment';
-import { UnitType } from '../types/generated';
+import { 
+  UnitType,
+  HealthType,
+  HealthInputType,
+  HealthInputUpdateType,
+  BloodPressureType,
+  BloodPressureInputType,
+  BloodPressureInputUpdateType,
+ } from '.';
 
 // enums
 export enum HealthInterval {
@@ -35,3 +43,9 @@ export type HealthUpdateOptions = {
   name: string,
   description?: string
 }
+
+export type HealthTypes = HealthType | BloodPressureType;
+
+export type HealthInputTypes = HealthInputType | BloodPressureInputType;
+
+export type HealthInputUpdateTypes = HealthInputUpdateType | BloodPressureInputUpdateType;

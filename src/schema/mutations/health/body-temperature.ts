@@ -8,4 +8,4 @@ const options = {
 }
 
 export const addBodyTemperature = composeAddMutation({ ...baseAddHealthOptions, ...options });
-export const updateBodyTemperature= composeUpdateMutation({ ...baseUpdateHealthOptions, ...options });
+export const updateBodyTemperature = composeUpdateMutation({ ...baseUpdateHealthOptions, ...options });
