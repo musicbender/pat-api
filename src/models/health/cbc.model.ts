@@ -1,9 +1,8 @@
 import * as moment from 'moment';
+import BaseModel from '../prototypes/base-model';
 import { 
-  Model, 
   Table,
   IsUUID, 
-  PrimaryKey, 
   ForeignKey,
   Column, 
   Default,
@@ -17,12 +16,7 @@ import Platelets from './platelets.model';
   createdAt: false, 
   updatedAt: false
 })
-export default class Cbc extends Model<Cbc> {
-  @IsUUID(4)
-  @PrimaryKey
-  @Column
-  id: string;
-
+export default class Cbc extends BaseModel<Cbc> {
   @Default(0)
   @Column({ type: DataType.FLOAT })
   wbcCount: number;
@@ -90,14 +84,6 @@ export default class Cbc extends Model<Cbc> {
   @Default(0)
   @Column({ type: DataType.FLOAT })
   monocytePercent: number;
-
-  @Default(moment().toISOString())
-  @Column
-  createdOn: Date;
-
-  @Default(moment().toISOString())
-  @Column
-  updatedOn: Date
 
   @Default(moment().toISOString())
   @Column

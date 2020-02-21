@@ -1,19 +1,12 @@
 import * as moment from 'moment';
+import BaseModel from './base-model';
 import { 
   DataType,
-  Model, 
-  IsUUID, 
-  PrimaryKey, 
   Column, 
   Default,
 } from 'sequelize-typescript';
 
-export default class Healthkit<T = any, T2 = any> extends Model<Healthkit> {
-  @IsUUID(4)
-  @PrimaryKey
-  @Column
-  id: string;
-
+export default class Healthkit<T = any, T2 = any> extends BaseModel<Healthkit> {
   @Default(0)
   @Column({ type: DataType.FLOAT })
   value: number;
@@ -37,14 +30,6 @@ export default class Healthkit<T = any, T2 = any> extends Model<Healthkit> {
   @Default(0)
   @Column({ type: DataType.FLOAT })
   lowestSampleValue: number;
-
-  @Default(moment().toISOString())
-  @Column
-  createdOn: Date;
-
-  @Default(moment().toISOString())
-  @Column
-  updatedOn: Date
 
   @Default(moment().toISOString())
   @Column

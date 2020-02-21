@@ -1,9 +1,7 @@
 import * as moment from 'moment';
+import BaseModel from '../prototypes/base-model';
 import { 
   Table,
-  Model, 
-  IsUUID, 
-  PrimaryKey, 
   Column, 
   Default,
   DataType
@@ -14,12 +12,7 @@ import {
   createdAt: false, 
   updatedAt: false
 })
-export default class Refuel extends Model<Refuel> {
-  @IsUUID(4)
-  @PrimaryKey
-  @Column
-  id: string;
-
+export default class Refuel extends BaseModel<Refuel> {
   @Default(0)
   @Column({ type: DataType.FLOAT })
   gallons: number;
@@ -31,14 +24,6 @@ export default class Refuel extends Model<Refuel> {
   @Default('prius prime')
   @Column
   vehicle: string;
-
-  @Default(moment().toISOString())
-  @Column
-  createdOn: Date;
-
-  @Default(moment().toISOString())
-  @Column
-  updatedOn: Date;
 
   @Default(moment().toISOString())
   @Column

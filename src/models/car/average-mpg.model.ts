@@ -1,9 +1,7 @@
 import * as moment from 'moment';
+import BaseModel from '../prototypes/base-model';
 import { 
   Table,
-  Model, 
-  IsUUID, 
-  PrimaryKey, 
   Column, 
   Default,
   DataType,
@@ -14,12 +12,7 @@ import {
   createdAt: false, 
   updatedAt: false
 })
-export default class AverageMPG extends Model<AverageMPG> {
-  @IsUUID(4)
-  @PrimaryKey
-  @Column
-  id: string;
-
+export default class AverageMPG extends BaseModel<AverageMPG> {
   @Default(0)
   @Column({ type: DataType.FLOAT })
   value: number;
@@ -27,14 +20,6 @@ export default class AverageMPG extends Model<AverageMPG> {
   @Default('prius-prime')
   @Column
   vehicle: string;
-
-  @Default(moment().toISOString())
-  @Column
-  createdOn: Date;
-
-  @Default(moment().toISOString())
-  @Column
-  updatedOn: Date;
 
   @Default(moment().toISOString())
   @Column

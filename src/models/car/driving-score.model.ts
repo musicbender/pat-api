@@ -1,9 +1,7 @@
 import * as moment from 'moment';
+import BaseModel from '../prototypes/base-model';
 import { 
   Table,
-  Model, 
-  IsUUID, 
-  PrimaryKey, 
   Column, 
   Default
 } from 'sequelize-typescript';
@@ -13,12 +11,7 @@ import {
   createdAt: false, 
   updatedAt: false
 })
-export default class DrivingScore extends Model<DrivingScore> {
-  @IsUUID(4)
-  @PrimaryKey
-  @Column
-  id: string;
-
+export default class DrivingScore extends BaseModel<DrivingScore> {
   @Default(0)
   @Column
   accelerationScore: number;
@@ -38,14 +31,6 @@ export default class DrivingScore extends Model<DrivingScore> {
   @Default('prius prime')
   @Column
   vehicle: string;
-
-  @Default(moment().toISOString())
-  @Column
-  createdOn: Date;
-
-  @Default(moment().toISOString())
-  @Column
-  updatedOn: Date;
 
   @Default(moment().toISOString())
   @Column
