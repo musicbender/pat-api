@@ -1,4 +1,5 @@
 import * as moment from 'moment';
+import { baseTable } from '../prototypes/base-table';
 import BaseModel from '../prototypes/base-model';
 import { 
   Table,
@@ -12,9 +13,8 @@ import {
 import Platelets from './platelets.model';
 
 @Table({
-  tableName: 'cbc',
-  createdAt: false, 
-  updatedAt: false
+  ...baseTable,
+  tableName: 'cbc'
 })
 export default class Cbc extends BaseModel<Cbc> {
   @Default(0)

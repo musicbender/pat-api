@@ -1,4 +1,5 @@
 import * as moment from 'moment';
+import { baseTable } from '../prototypes/base-table';
 import BaseModel from '../prototypes/base-model';
 import { 
   Table,
@@ -8,9 +9,8 @@ import {
 } from 'sequelize-typescript';
 
 @Table({
+  ...baseTable,
   tableName: 'car-refuel',
-  createdAt: false, 
-  updatedAt: false
 })
 export default class Refuel extends BaseModel<Refuel> {
   @Default(0)
