@@ -1,0 +1,12 @@
+{
+  "steins": {
+    "id": "collection-steins",
+    "modelID": "Steins",
+    "disabled": false
+  },
+  "collections": {
+    "id": "collections",
+    "modelID": "Collections",
+    "disabled": true
+  }
+}
