@@ -29,6 +29,6 @@ export const UnitType = new GraphQLEnumType({
     "min": { value: "min" },
     "hrs": { value: "hrs" },
     "degreesF": { value: "degreesF" },
-    "Thousand_uL": { value: "Thousand/uL"}
+    "Thousand_uL": { value: "Thousand/uL"},
   }
 });
