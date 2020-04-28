@@ -10,7 +10,6 @@ export const CollectionInputType = new GraphQLInputObjectType({
   name: 'CollectionInputType',
   description: 'Collection data input',
   fields: () => ({
-    shortId: { type: GraphQLString },
     name: { type: GraphQLString },
     description: { type: GraphQLString },
     tags: { type: new GraphQLList(GraphQLString) },
