@@ -4,13 +4,12 @@ import {
   Column, 
   Default,
   Length,
-  AutoIncrement
+  DataType
 } from 'sequelize-typescript';
 
 export default class BaseCollection<T = any, T2 = any> extends BaseModel<BaseCollection> {
-  @AutoIncrement
   @Column
-  collectionId: number;
+  shortId: string;
 
   @Default('Unknown')
   @Length({ min: 1, max: 35 })
@@ -18,13 +17,17 @@ export default class BaseCollection<T = any, T2 = any> extends BaseModel<BaseCol
   name: string;
 
   @Default('')
-  @Length({ min: 0, max: 60 })
+  @Length({ min: 0, max: 120 })
   @Column
   description: string;
 
   @Default(['general'])
-  @Column
+  @Column(DataType.ARRAY(DataType.STRING))
   tags: string[];
+
+  @Default(0)
+  @Column
+  count: number
 
   @Default(moment().toISOString())
   @Column
