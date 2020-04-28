@@ -7,6 +7,6 @@
   "collections": {
     "id": "collections",
     "modelID": "Collections",
-    "disabled": true
+    "disabled": false
   }
 }

@@ -1,4 +1,4 @@
-// import { addCollectionItem, updateCollectionItem } from '../../controllers/health';
+import { addCollectionItem, updateCollectionItem } from '../../controllers/collections';
 import { 
   CollectionType, 
   CollectionInputType, 
@@ -8,13 +8,11 @@ import {
 export const baseAddCollectionOptions = {
   type: CollectionType,
   inputType: CollectionInputType,
-  // controller: addCollectionItem,
-  controller: () => null,
+  controller: addCollectionItem,
 }
 
 export const baseUpdateCollectionOptions = {
   type: CollectionType,
   inputType: CollectionInputUpdateType,
-  // controller: updateCollectionItem,
-  controller: () => null,
+  controller: updateCollectionItem,
 }
