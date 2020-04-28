@@ -54,7 +54,13 @@ export enum ActiveEnergyErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for activeEnergy */
@@ -110,7 +116,13 @@ export enum AddActiveEnergyErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addActiveEnergy */
@@ -166,7 +178,13 @@ export enum AddAverageMpgErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addAverageMPG */
@@ -222,7 +240,13 @@ export enum AddBloodPressureErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addBloodPressure */
@@ -278,7 +302,13 @@ export enum AddBodyTemperatureErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addBodyTemperature */
@@ -334,7 +364,13 @@ export enum AddCaffeineErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addCaffeine */
@@ -390,7 +426,13 @@ export enum AddCbcErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addCbc */
@@ -401,6 +443,68 @@ export type AddCbcResponse = {
 
 /** Return either be response data or error data for addCbc */
 export type AddCbcUnion = AddCbcResponse | AddCbcError;
+
+export type AddCollectionsError = {
+  __typename?: 'addCollectionsError',
+  errorCode?: Maybe<AddCollectionsErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddCollectionsErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Car type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+}
+
+/** Response data for addCollections */
+export type AddCollectionsResponse = {
+  __typename?: 'addCollectionsResponse',
+  response?: Maybe<CollectionType>,
+};
+
+/** Return either be response data or error data for addCollections */
+export type AddCollectionsUnion = AddCollectionsResponse | AddCollectionsError;
 
 export type AddDrivingScoreError = {
   __typename?: 'addDrivingScoreError',
@@ -446,7 +550,13 @@ export enum AddDrivingScoreErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addDrivingScore */
@@ -502,7 +612,13 @@ export enum AddFlightsClimbedErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addFlightsClimbed */
@@ -558,7 +674,13 @@ export enum AddHealthKitErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addHealthKit */
@@ -614,7 +736,13 @@ export enum AddHeartRateErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addHeartRate */
@@ -670,7 +798,13 @@ export enum AddHeartRateVariabilityErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addHeartRateVariability */
@@ -726,7 +860,13 @@ export enum AddHeightErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addHeight */
@@ -782,7 +922,13 @@ export enum AddOxygenSaturationErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addOxygenSaturation */
@@ -838,7 +984,13 @@ export enum AddPlateletsErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addPlatelets */
@@ -894,7 +1046,13 @@ export enum AddRefuelErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addRefuel */
@@ -950,7 +1108,13 @@ export enum AddRestingEnergyErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addRestingEnergy */
@@ -1006,7 +1170,13 @@ export enum AddRestingHeartRateErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addRestingHeartRate */
@@ -1062,7 +1232,13 @@ export enum AddSleepAnalysisErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addSleepAnalysis */
@@ -1073,6 +1249,68 @@ export type AddSleepAnalysisResponse = {
 
 /** Return either be response data or error data for addSleepAnalysis */
 export type AddSleepAnalysisUnion = AddSleepAnalysisResponse | AddSleepAnalysisError;
+
+export type AddSteinsError = {
+  __typename?: 'addSteinsError',
+  errorCode?: Maybe<AddSteinsErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddSteinsErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Car type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+}
+
+/** Response data for addSteins */
+export type AddSteinsResponse = {
+  __typename?: 'addSteinsResponse',
+  response?: Maybe<CollectionType>,
+};
+
+/** Return either be response data or error data for addSteins */
+export type AddSteinsUnion = AddSteinsResponse | AddSteinsError;
 
 export type AddStepError = {
   __typename?: 'addStepError',
@@ -1118,7 +1356,13 @@ export enum AddStepErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addStep */
@@ -1174,7 +1418,13 @@ export enum AddSwimmingDistanceErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addSwimmingDistance */
@@ -1230,7 +1480,13 @@ export enum AddWaistCircumferenceErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addWaistCircumference */
@@ -1286,7 +1542,13 @@ export enum AddWalkingHeartRateAverageErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addWalkingHeartRateAverage */
@@ -1342,7 +1604,13 @@ export enum AddWalkingRunningDistanceErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addWalkingRunningDistance */
@@ -1398,7 +1666,13 @@ export enum AddWeightErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for addWeight */
@@ -1454,7 +1728,13 @@ export enum AverageMpgErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Average MPG data input */
@@ -1536,7 +1816,13 @@ export enum BloodPressureErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** BloodPressure data input */
@@ -1620,7 +1906,13 @@ export enum BodyTemperatureErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for bodyTemperature */
@@ -1676,7 +1968,13 @@ export enum CaffeineErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for caffeine */
@@ -1732,7 +2030,13 @@ export enum CbcErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Complete blood count data input */
@@ -1813,6 +2117,103 @@ export type CbcType = {
 /** Return either be response data or error data for cbc */
 export type CbcUnion = CbcResponse | CbcError;
 
+/** Collection data input */
+export type CollectionInputType = {
+  shortId?: Maybe<Scalars['String']>,
+  name?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>,
+  count?: Maybe<Scalars['Int']>,
+  sampledOn?: Maybe<Scalars['String']>,
+};
+
+/** Collection data input for updating */
+export type CollectionInputUpdateType = {
+  shortId?: Maybe<Scalars['String']>,
+  name?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>,
+  count?: Maybe<Scalars['Int']>,
+  sampledOn?: Maybe<Scalars['String']>,
+  createdOn?: Maybe<Scalars['String']>,
+};
+
+export type CollectionsError = {
+  __typename?: 'CollectionsError',
+  errorCode?: Maybe<CollectionsErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum CollectionsErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Car type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+}
+
+/** Response data for Collections */
+export type CollectionsResponse = {
+  __typename?: 'CollectionsResponse',
+  response?: Maybe<CollectionType>,
+};
+
+/** Return either be response data or error data for Collections */
+export type CollectionsUnion = CollectionsResponse | CollectionsError;
+
+/** Collection data */
+export type CollectionType = {
+  __typename?: 'CollectionType',
+  id?: Maybe<Scalars['String']>,
+  shortId?: Maybe<Scalars['String']>,
+  name?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>,
+  count?: Maybe<Scalars['Int']>,
+  sampledOn?: Maybe<Scalars['String']>,
+  createdOn?: Maybe<Scalars['String']>,
+  updatedOn?: Maybe<Scalars['String']>,
+};
+
 
 export type DrivingScoreError = {
   __typename?: 'DrivingScoreError',
@@ -1858,7 +2259,13 @@ export enum DrivingScoreErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Driving score data input */
@@ -1949,7 +2356,13 @@ export enum FlightsClimbedErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for flightsClimbed */
@@ -2081,7 +2494,13 @@ export enum HeartrateErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for heartrate */
@@ -2137,7 +2556,13 @@ export enum HeartrateVariabilityErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for heartrateVariability */
@@ -2193,7 +2618,13 @@ export enum HeightErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for height */
@@ -2301,6 +2732,14 @@ export type Mutation = {
   addRefuel?: Maybe<AddRefuelUnion>,
   /** Update a Refuel node */
   updateRefuel?: Maybe<UpdateRefuelUnion>,
+  /** Add a Collections node */
+  addCollection?: Maybe<AddCollectionsUnion>,
+  /** Update a Collections node */
+  updateCollection?: Maybe<UpdateCollectionsUnion>,
+  /** Add a Steins node */
+  addStein?: Maybe<AddSteinsUnion>,
+  /** Update a Steins node */
+  updateStein?: Maybe<UpdateSteinsUnion>,
 };
 
 
@@ -2561,6 +3000,28 @@ export type MutationUpdateRefuelArgs = {
   input: RefuelInputUpdaetType
 };
 
+
+export type MutationAddCollectionArgs = {
+  input: CollectionInputType
+};
+
+
+export type MutationUpdateCollectionArgs = {
+  id: Scalars['ID'],
+  input: CollectionInputUpdateType
+};
+
+
+export type MutationAddSteinArgs = {
+  input: CollectionInputType
+};
+
+
+export type MutationUpdateSteinArgs = {
+  id: Scalars['ID'],
+  input: CollectionInputUpdateType
+};
+
 export type OxygenSaturationError = {
   __typename?: 'oxygenSaturationError',
   errorCode?: Maybe<OxygenSaturationErrorErrorCodesType>,
@@ -2605,7 +3066,13 @@ export enum OxygenSaturationErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for oxygenSaturation */
@@ -2675,7 +3142,13 @@ export enum PlateletsErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for platelets */
@@ -2744,7 +3217,13 @@ export enum RefuelErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Car gas refuel data input */
@@ -2829,7 +3308,13 @@ export enum RestingEnergyErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for restingEnergy */
@@ -2885,7 +3370,13 @@ export enum RestingHeartrateErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for restingHeartrate */
@@ -2945,6 +3436,10 @@ export type RootQueryType = {
   drivingScore?: Maybe<DrivingScoreUnion>,
   /** Get a single Refuel entry by either _id or date, _id taking priority */
   refuel?: Maybe<RefuelUnion>,
+  /** Get a single Collections entry by either _id or date, _id taking priority */
+  collections?: Maybe<CollectionsUnion>,
+  /** Get a single Steins entry by either _id or date, _id taking priority */
+  steins?: Maybe<SteinsUnion>,
 };
 
 
@@ -3085,6 +3580,18 @@ export type RootQueryTypeRefuelArgs = {
   date?: Maybe<Scalars['Date']>
 };
 
+
+export type RootQueryTypeCollectionsArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeSteinsArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
 export type SleepAnalysisError = {
   __typename?: 'sleepAnalysisError',
   errorCode?: Maybe<SleepAnalysisErrorErrorCodesType>,
@@ -3129,7 +3636,13 @@ export enum SleepAnalysisErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for sleepAnalysis */
@@ -3140,6 +3653,68 @@ export type SleepAnalysisResponse = {
 
 /** Return either be response data or error data for sleepAnalysis */
 export type SleepAnalysisUnion = SleepAnalysisResponse | SleepAnalysisError;
+
+export type SteinsError = {
+  __typename?: 'SteinsError',
+  errorCode?: Maybe<SteinsErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum SteinsErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Car type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+}
+
+/** Response data for Steins */
+export type SteinsResponse = {
+  __typename?: 'SteinsResponse',
+  response?: Maybe<CollectionType>,
+};
+
+/** Return either be response data or error data for Steins */
+export type SteinsUnion = SteinsResponse | SteinsError;
 
 export type StepsError = {
   __typename?: 'stepsError',
@@ -3185,7 +3760,13 @@ export enum StepsErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for steps */
@@ -3241,7 +3822,13 @@ export enum SwimmingDistanceErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for swimmingDistance */
@@ -3327,7 +3914,13 @@ export enum UpdateActiveEnergyErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateActiveEnergy */
@@ -3383,7 +3976,13 @@ export enum UpdateAverageMpgErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateAverageMPG */
@@ -3439,7 +4038,13 @@ export enum UpdateBloodPressureErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateBloodPressure */
@@ -3495,7 +4100,13 @@ export enum UpdateBodyTemperatureErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateBodyTemperature */
@@ -3551,7 +4162,13 @@ export enum UpdateCaffeineErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateCaffeine */
@@ -3607,7 +4224,13 @@ export enum UpdateCbcErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateCbc */
@@ -3618,6 +4241,68 @@ export type UpdateCbcResponse = {
 
 /** Return either be response data or error data for updateCbc */
 export type UpdateCbcUnion = UpdateCbcResponse | UpdateCbcError;
+
+export type UpdateCollectionsError = {
+  __typename?: 'updateCollectionsError',
+  errorCode?: Maybe<UpdateCollectionsErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateCollectionsErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Car type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+}
+
+/** Response data for updateCollections */
+export type UpdateCollectionsResponse = {
+  __typename?: 'updateCollectionsResponse',
+  response?: Maybe<CollectionType>,
+};
+
+/** Return either be response data or error data for updateCollections */
+export type UpdateCollectionsUnion = UpdateCollectionsResponse | UpdateCollectionsError;
 
 export type UpdateDrivingScoreError = {
   __typename?: 'updateDrivingScoreError',
@@ -3663,7 +4348,13 @@ export enum UpdateDrivingScoreErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateDrivingScore */
@@ -3719,7 +4410,13 @@ export enum UpdateFlightsClimbedErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateFlightsClimbed */
@@ -3775,7 +4472,13 @@ export enum UpdateHeartRateErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateHeartRate */
@@ -3831,7 +4534,13 @@ export enum UpdateHeartRateVariabilityErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateHeartRateVariability */
@@ -3887,7 +4596,13 @@ export enum UpdateHeightErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateHeight */
@@ -3943,7 +4658,13 @@ export enum UpdateOxygenSaturationErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateOxygenSaturation */
@@ -3999,7 +4720,13 @@ export enum UpdatePlateletsErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updatePlatelets */
@@ -4055,7 +4782,13 @@ export enum UpdateRefuelErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateRefuel */
@@ -4111,7 +4844,13 @@ export enum UpdateRestingEnergyErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateRestingEnergy */
@@ -4167,7 +4906,13 @@ export enum UpdateRestingHeartRateErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateRestingHeartRate */
@@ -4223,7 +4968,13 @@ export enum UpdateSleepAnalysisErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateSleepAnalysis */
@@ -4234,6 +4985,68 @@ export type UpdateSleepAnalysisResponse = {
 
 /** Return either be response data or error data for updateSleepAnalysis */
 export type UpdateSleepAnalysisUnion = UpdateSleepAnalysisResponse | UpdateSleepAnalysisError;
+
+export type UpdateSteinsError = {
+  __typename?: 'updateSteinsError',
+  errorCode?: Maybe<UpdateSteinsErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateSteinsErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Car type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+}
+
+/** Response data for updateSteins */
+export type UpdateSteinsResponse = {
+  __typename?: 'updateSteinsResponse',
+  response?: Maybe<CollectionType>,
+};
+
+/** Return either be response data or error data for updateSteins */
+export type UpdateSteinsUnion = UpdateSteinsResponse | UpdateSteinsError;
 
 export type UpdateStepError = {
   __typename?: 'updateStepError',
@@ -4279,7 +5092,13 @@ export enum UpdateStepErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateStep */
@@ -4335,7 +5154,13 @@ export enum UpdateSwimmingDistanceErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateSwimmingDistance */
@@ -4391,7 +5216,13 @@ export enum UpdateWaistCircumferenceErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateWaistCircumference */
@@ -4447,7 +5278,13 @@ export enum UpdateWalkingHeartRateAverageErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateWalkingHeartRateAverage */
@@ -4503,7 +5340,13 @@ export enum UpdateWalkingRunningDistanceErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateWalkingRunningDistance */
@@ -4559,7 +5402,13 @@ export enum UpdateWeightErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for updateWeight */
@@ -4621,7 +5470,13 @@ export enum WaistCircumferenceErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for waistCircumference */
@@ -4677,7 +5532,13 @@ export enum WalkingHeartrateAverageErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for walkingHeartrateAverage */
@@ -4733,7 +5594,13 @@ export enum WalkingRunningDistanceErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for walkingRunningDistance */
@@ -4789,7 +5656,13 @@ export enum WeightErrorErrorCodesType {
   /** An error occured trying to add CBC item */
   AddCbcError = 'ADD_CBC_ERROR',
   /** An error occured trying to update a CBC item */
-  UpdateCbcError = 'UPDATE_CBC_ERROR'
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
 }
 
 /** Response data for weight */
@@ -4970,6 +5843,15 @@ export type ResolversTypes = {
   RefuelType: ResolverTypeWrapper<RefuelType>,
   RefuelError: ResolverTypeWrapper<RefuelError>,
   RefuelErrorErrorCodesType: RefuelErrorErrorCodesType,
+  CollectionsUnion: ResolversTypes['CollectionsResponse'] | ResolversTypes['CollectionsError'],
+  CollectionsResponse: ResolverTypeWrapper<CollectionsResponse>,
+  CollectionType: ResolverTypeWrapper<CollectionType>,
+  CollectionsError: ResolverTypeWrapper<CollectionsError>,
+  CollectionsErrorErrorCodesType: CollectionsErrorErrorCodesType,
+  SteinsUnion: ResolversTypes['SteinsResponse'] | ResolversTypes['SteinsError'],
+  SteinsResponse: ResolverTypeWrapper<SteinsResponse>,
+  SteinsError: ResolverTypeWrapper<SteinsError>,
+  SteinsErrorErrorCodesType: SteinsErrorErrorCodesType,
   Mutation: ResolverTypeWrapper<{}>,
   HealthKitInputType: HealthKitInputType,
   HealthKitInputSampleType: HealthKitInputSampleType,
@@ -5177,6 +6059,24 @@ export type ResolversTypes = {
   updateRefuelResponse: ResolverTypeWrapper<UpdateRefuelResponse>,
   updateRefuelError: ResolverTypeWrapper<UpdateRefuelError>,
   updateRefuelErrorErrorCodesType: UpdateRefuelErrorErrorCodesType,
+  CollectionInputType: CollectionInputType,
+  addCollectionsUnion: ResolversTypes['addCollectionsResponse'] | ResolversTypes['addCollectionsError'],
+  addCollectionsResponse: ResolverTypeWrapper<AddCollectionsResponse>,
+  addCollectionsError: ResolverTypeWrapper<AddCollectionsError>,
+  addCollectionsErrorErrorCodesType: AddCollectionsErrorErrorCodesType,
+  CollectionInputUpdateType: CollectionInputUpdateType,
+  updateCollectionsUnion: ResolversTypes['updateCollectionsResponse'] | ResolversTypes['updateCollectionsError'],
+  updateCollectionsResponse: ResolverTypeWrapper<UpdateCollectionsResponse>,
+  updateCollectionsError: ResolverTypeWrapper<UpdateCollectionsError>,
+  updateCollectionsErrorErrorCodesType: UpdateCollectionsErrorErrorCodesType,
+  addSteinsUnion: ResolversTypes['addSteinsResponse'] | ResolversTypes['addSteinsError'],
+  addSteinsResponse: ResolverTypeWrapper<AddSteinsResponse>,
+  addSteinsError: ResolverTypeWrapper<AddSteinsError>,
+  addSteinsErrorErrorCodesType: AddSteinsErrorErrorCodesType,
+  updateSteinsUnion: ResolversTypes['updateSteinsResponse'] | ResolversTypes['updateSteinsError'],
+  updateSteinsResponse: ResolverTypeWrapper<UpdateSteinsResponse>,
+  updateSteinsError: ResolverTypeWrapper<UpdateSteinsError>,
+  updateSteinsErrorErrorCodesType: UpdateSteinsErrorErrorCodesType,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
 };
 
@@ -5289,6 +6189,15 @@ export type ResolversParentTypes = {
   RefuelType: RefuelType,
   RefuelError: RefuelError,
   RefuelErrorErrorCodesType: RefuelErrorErrorCodesType,
+  CollectionsUnion: ResolversTypes['CollectionsResponse'] | ResolversTypes['CollectionsError'],
+  CollectionsResponse: CollectionsResponse,
+  CollectionType: CollectionType,
+  CollectionsError: CollectionsError,
+  CollectionsErrorErrorCodesType: CollectionsErrorErrorCodesType,
+  SteinsUnion: ResolversTypes['SteinsResponse'] | ResolversTypes['SteinsError'],
+  SteinsResponse: SteinsResponse,
+  SteinsError: SteinsError,
+  SteinsErrorErrorCodesType: SteinsErrorErrorCodesType,
   Mutation: {},
   HealthKitInputType: HealthKitInputType,
   HealthKitInputSampleType: HealthKitInputSampleType,
@@ -5496,6 +6405,24 @@ export type ResolversParentTypes = {
   updateRefuelResponse: UpdateRefuelResponse,
   updateRefuelError: UpdateRefuelError,
   updateRefuelErrorErrorCodesType: UpdateRefuelErrorErrorCodesType,
+  CollectionInputType: CollectionInputType,
+  addCollectionsUnion: ResolversTypes['addCollectionsResponse'] | ResolversTypes['addCollectionsError'],
+  addCollectionsResponse: AddCollectionsResponse,
+  addCollectionsError: AddCollectionsError,
+  addCollectionsErrorErrorCodesType: AddCollectionsErrorErrorCodesType,
+  CollectionInputUpdateType: CollectionInputUpdateType,
+  updateCollectionsUnion: ResolversTypes['updateCollectionsResponse'] | ResolversTypes['updateCollectionsError'],
+  updateCollectionsResponse: UpdateCollectionsResponse,
+  updateCollectionsError: UpdateCollectionsError,
+  updateCollectionsErrorErrorCodesType: UpdateCollectionsErrorErrorCodesType,
+  addSteinsUnion: ResolversTypes['addSteinsResponse'] | ResolversTypes['addSteinsError'],
+  addSteinsResponse: AddSteinsResponse,
+  addSteinsError: AddSteinsError,
+  addSteinsErrorErrorCodesType: AddSteinsErrorErrorCodesType,
+  updateSteinsUnion: ResolversTypes['updateSteinsResponse'] | ResolversTypes['updateSteinsError'],
+  updateSteinsResponse: UpdateSteinsResponse,
+  updateSteinsError: UpdateSteinsError,
+  updateSteinsErrorErrorCodesType: UpdateSteinsErrorErrorCodesType,
   Boolean: Scalars['Boolean'],
 };
 
@@ -5588,6 +6515,19 @@ export type AddCbcResponseResolvers<ContextType = any, ParentType = ResolversPar
 
 export type AddCbcUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addCbcUnion']> = {
   __resolveType: TypeResolveFn<'addCbcResponse' | 'addCbcError', ParentType, ContextType>
+};
+
+export type AddCollectionsErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addCollectionsError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addCollectionsErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddCollectionsResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addCollectionsResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['CollectionType']>, ParentType, ContextType>,
+};
+
+export type AddCollectionsUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addCollectionsUnion']> = {
+  __resolveType: TypeResolveFn<'addCollectionsResponse' | 'addCollectionsError', ParentType, ContextType>
 };
 
 export type AddDrivingScoreErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addDrivingScoreError']> = {
@@ -5744,6 +6684,19 @@ export type AddSleepAnalysisResponseResolvers<ContextType = any, ParentType = Re
 
 export type AddSleepAnalysisUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addSleepAnalysisUnion']> = {
   __resolveType: TypeResolveFn<'addSleepAnalysisResponse' | 'addSleepAnalysisError', ParentType, ContextType>
+};
+
+export type AddSteinsErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addSteinsError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addSteinsErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddSteinsResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addSteinsResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['CollectionType']>, ParentType, ContextType>,
+};
+
+export type AddSteinsUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addSteinsUnion']> = {
+  __resolveType: TypeResolveFn<'addSteinsResponse' | 'addSteinsError', ParentType, ContextType>
 };
 
 export type AddStepErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addStepError']> = {
@@ -5932,6 +6885,31 @@ export type CbcUnionResolvers<ContextType = any, ParentType = ResolversParentTyp
   __resolveType: TypeResolveFn<'cbcResponse' | 'cbcError', ParentType, ContextType>
 };
 
+export type CollectionsErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['CollectionsError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['CollectionsErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type CollectionsResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['CollectionsResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['CollectionType']>, ParentType, ContextType>,
+};
+
+export type CollectionsUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['CollectionsUnion']> = {
+  __resolveType: TypeResolveFn<'CollectionsResponse' | 'CollectionsError', ParentType, ContextType>
+};
+
+export type CollectionTypeResolvers<ContextType = any, ParentType = ResolversParentTypes['CollectionType']> = {
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  shortId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  tags?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>,
+  count?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>,
+  sampledOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  createdOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  updatedOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
 export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Date'], any> {
   name: 'Date'
 }
@@ -6086,6 +7064,10 @@ export type MutationResolvers<ContextType = any, ParentType = ResolversParentTyp
   updateDrivingScore?: Resolver<Maybe<ResolversTypes['updateDrivingScoreUnion']>, ParentType, ContextType, MutationUpdateDrivingScoreArgs>,
   addRefuel?: Resolver<Maybe<ResolversTypes['addRefuelUnion']>, ParentType, ContextType, MutationAddRefuelArgs>,
   updateRefuel?: Resolver<Maybe<ResolversTypes['updateRefuelUnion']>, ParentType, ContextType, MutationUpdateRefuelArgs>,
+  addCollection?: Resolver<Maybe<ResolversTypes['addCollectionsUnion']>, ParentType, ContextType, MutationAddCollectionArgs>,
+  updateCollection?: Resolver<Maybe<ResolversTypes['updateCollectionsUnion']>, ParentType, ContextType, MutationUpdateCollectionArgs>,
+  addStein?: Resolver<Maybe<ResolversTypes['addSteinsUnion']>, ParentType, ContextType, MutationAddSteinArgs>,
+  updateStein?: Resolver<Maybe<ResolversTypes['updateSteinsUnion']>, ParentType, ContextType, MutationUpdateSteinArgs>,
 };
 
 export type OxygenSaturationErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['oxygenSaturationError']> = {
@@ -6198,6 +7180,8 @@ export type RootQueryTypeResolvers<ContextType = any, ParentType = ResolversPare
   averageMPG?: Resolver<Maybe<ResolversTypes['AverageMPGUnion']>, ParentType, ContextType, RootQueryTypeAverageMpgArgs>,
   drivingScore?: Resolver<Maybe<ResolversTypes['DrivingScoreUnion']>, ParentType, ContextType, RootQueryTypeDrivingScoreArgs>,
   refuel?: Resolver<Maybe<ResolversTypes['RefuelUnion']>, ParentType, ContextType, RootQueryTypeRefuelArgs>,
+  collections?: Resolver<Maybe<ResolversTypes['CollectionsUnion']>, ParentType, ContextType, RootQueryTypeCollectionsArgs>,
+  steins?: Resolver<Maybe<ResolversTypes['SteinsUnion']>, ParentType, ContextType, RootQueryTypeSteinsArgs>,
 };
 
 export type SleepAnalysisErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['sleepAnalysisError']> = {
@@ -6211,6 +7195,19 @@ export type SleepAnalysisResponseResolvers<ContextType = any, ParentType = Resol
 
 export type SleepAnalysisUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['sleepAnalysisUnion']> = {
   __resolveType: TypeResolveFn<'sleepAnalysisResponse' | 'sleepAnalysisError', ParentType, ContextType>
+};
+
+export type SteinsErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['SteinsError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['SteinsErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type SteinsResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['SteinsResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['CollectionType']>, ParentType, ContextType>,
+};
+
+export type SteinsUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['SteinsUnion']> = {
+  __resolveType: TypeResolveFn<'SteinsResponse' | 'SteinsError', ParentType, ContextType>
 };
 
 export type StepsErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['stepsError']> = {
@@ -6315,6 +7312,19 @@ export type UpdateCbcResponseResolvers<ContextType = any, ParentType = Resolvers
 
 export type UpdateCbcUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCbcUnion']> = {
   __resolveType: TypeResolveFn<'updateCbcResponse' | 'updateCbcError', ParentType, ContextType>
+};
+
+export type UpdateCollectionsErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCollectionsError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateCollectionsErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateCollectionsResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCollectionsResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['CollectionType']>, ParentType, ContextType>,
+};
+
+export type UpdateCollectionsUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCollectionsUnion']> = {
+  __resolveType: TypeResolveFn<'updateCollectionsResponse' | 'updateCollectionsError', ParentType, ContextType>
 };
 
 export type UpdateDrivingScoreErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateDrivingScoreError']> = {
@@ -6458,6 +7468,19 @@ export type UpdateSleepAnalysisResponseResolvers<ContextType = any, ParentType =
 
 export type UpdateSleepAnalysisUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSleepAnalysisUnion']> = {
   __resolveType: TypeResolveFn<'updateSleepAnalysisResponse' | 'updateSleepAnalysisError', ParentType, ContextType>
+};
+
+export type UpdateSteinsErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSteinsError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateSteinsErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateSteinsResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSteinsResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['CollectionType']>, ParentType, ContextType>,
+};
+
+export type UpdateSteinsUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSteinsUnion']> = {
+  __resolveType: TypeResolveFn<'updateSteinsResponse' | 'updateSteinsError', ParentType, ContextType>
 };
 
 export type UpdateStepErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateStepError']> = {
@@ -6612,6 +7635,9 @@ export type Resolvers<ContextType = any> = {
   addCbcError?: AddCbcErrorResolvers<ContextType>,
   addCbcResponse?: AddCbcResponseResolvers<ContextType>,
   addCbcUnion?: AddCbcUnionResolvers,
+  addCollectionsError?: AddCollectionsErrorResolvers<ContextType>,
+  addCollectionsResponse?: AddCollectionsResponseResolvers<ContextType>,
+  addCollectionsUnion?: AddCollectionsUnionResolvers,
   addDrivingScoreError?: AddDrivingScoreErrorResolvers<ContextType>,
   addDrivingScoreResponse?: AddDrivingScoreResponseResolvers<ContextType>,
   addDrivingScoreUnion?: AddDrivingScoreUnionResolvers,
@@ -6648,6 +7674,9 @@ export type Resolvers<ContextType = any> = {
   addSleepAnalysisError?: AddSleepAnalysisErrorResolvers<ContextType>,
   addSleepAnalysisResponse?: AddSleepAnalysisResponseResolvers<ContextType>,
   addSleepAnalysisUnion?: AddSleepAnalysisUnionResolvers,
+  addSteinsError?: AddSteinsErrorResolvers<ContextType>,
+  addSteinsResponse?: AddSteinsResponseResolvers<ContextType>,
+  addSteinsUnion?: AddSteinsUnionResolvers,
   addStepError?: AddStepErrorResolvers<ContextType>,
   addStepResponse?: AddStepResponseResolvers<ContextType>,
   addStepUnion?: AddStepUnionResolvers,
@@ -6684,6 +7713,10 @@ export type Resolvers<ContextType = any> = {
   cbcResponse?: CbcResponseResolvers<ContextType>,
   CbcType?: CbcTypeResolvers<ContextType>,
   cbcUnion?: CbcUnionResolvers,
+  CollectionsError?: CollectionsErrorResolvers<ContextType>,
+  CollectionsResponse?: CollectionsResponseResolvers<ContextType>,
+  CollectionsUnion?: CollectionsUnionResolvers,
+  CollectionType?: CollectionTypeResolvers<ContextType>,
   Date?: GraphQLScalarType,
   DrivingScoreError?: DrivingScoreErrorResolvers<ContextType>,
   DrivingScoreResponse?: DrivingScoreResponseResolvers<ContextType>,
@@ -6725,6 +7758,9 @@ export type Resolvers<ContextType = any> = {
   sleepAnalysisError?: SleepAnalysisErrorResolvers<ContextType>,
   sleepAnalysisResponse?: SleepAnalysisResponseResolvers<ContextType>,
   sleepAnalysisUnion?: SleepAnalysisUnionResolvers,
+  SteinsError?: SteinsErrorResolvers<ContextType>,
+  SteinsResponse?: SteinsResponseResolvers<ContextType>,
+  SteinsUnion?: SteinsUnionResolvers,
   stepsError?: StepsErrorResolvers<ContextType>,
   stepsResponse?: StepsResponseResolvers<ContextType>,
   stepsUnion?: StepsUnionResolvers,
@@ -6749,6 +7785,9 @@ export type Resolvers<ContextType = any> = {
   updateCbcError?: UpdateCbcErrorResolvers<ContextType>,
   updateCbcResponse?: UpdateCbcResponseResolvers<ContextType>,
   updateCbcUnion?: UpdateCbcUnionResolvers,
+  updateCollectionsError?: UpdateCollectionsErrorResolvers<ContextType>,
+  updateCollectionsResponse?: UpdateCollectionsResponseResolvers<ContextType>,
+  updateCollectionsUnion?: UpdateCollectionsUnionResolvers,
   updateDrivingScoreError?: UpdateDrivingScoreErrorResolvers<ContextType>,
   updateDrivingScoreResponse?: UpdateDrivingScoreResponseResolvers<ContextType>,
   updateDrivingScoreUnion?: UpdateDrivingScoreUnionResolvers,
@@ -6782,6 +7821,9 @@ export type Resolvers<ContextType = any> = {
   updateSleepAnalysisError?: UpdateSleepAnalysisErrorResolvers<ContextType>,
   updateSleepAnalysisResponse?: UpdateSleepAnalysisResponseResolvers<ContextType>,
   updateSleepAnalysisUnion?: UpdateSleepAnalysisUnionResolvers,
+  updateSteinsError?: UpdateSteinsErrorResolvers<ContextType>,
+  updateSteinsResponse?: UpdateSteinsResponseResolvers<ContextType>,
+  updateSteinsUnion?: UpdateSteinsUnionResolvers,
   updateStepError?: UpdateStepErrorResolvers<ContextType>,
   updateStepResponse?: UpdateStepResponseResolvers<ContextType>,
   updateStepUnion?: UpdateStepUnionResolvers,

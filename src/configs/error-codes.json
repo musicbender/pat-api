@@ -55,5 +55,14 @@
     },
     "UPDATE_CBC_ERROR": {
       "description": "An error occured trying to update a CBC item"
+    },
+    "DISABLED_COLLECTION_TYPE": {
+      "description": "This collection type has been disabled"
+    },
+    "ADD_COLLECTION_ERROR": {
+      "description": "An error occured trying to add collection item"
+    },
+    "UPDATE_COLLECTION_ERROR": {
+      "description": "An error occured trying to update a collection item"
     }
 }

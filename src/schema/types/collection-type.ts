@@ -1,13 +1,10 @@
 import {
   GraphQLObjectType,
   GraphQLInputObjectType,
-  GraphQLFloat,
   GraphQLString,
   GraphQLInt,
   GraphQLList
 } from 'graphql';
-
-
 
 export const CollectionInputType = new GraphQLInputObjectType({
   name: 'CollectionInputType',

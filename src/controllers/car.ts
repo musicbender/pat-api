@@ -5,7 +5,7 @@ import models from '../models';
 import { Model } from 'sequelize-typescript';
 import { ExpectedError } from '../utils/errors';
 
-// add average mpg item
+// add car item
 export const addCarItem = async (input: CarInputType, config: CarConfigType): Promise<CarType> => {
   // if type has been disabled in config
   if (config.disabled) throw new ExpectedError('DISABLED_CAR_TYPE');
@@ -26,7 +26,7 @@ export const addCarItem = async (input: CarInputType, config: CarConfigType): Pr
   }
 }
 
-// update health item
+// update car item
 export const updateCarItem = async (id: string, input: CarInputUpdateType, config: CarConfigType): Promise<Model> => {
   if (config.disabled) throw new ExpectedError('DISABLED_CAR_TYPE');
 
