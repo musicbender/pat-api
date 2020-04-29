@@ -5,6 +5,7 @@ import { CollectionType, CollectionInputType, CollectionInputUpdateType, Collect
 import models from '../models';
 import { Model } from 'sequelize-typescript';
 import { ExpectedError } from '../utils/errors';
+import { findItemById } from './global';
 
 // add collection item
 export const addCollectionItem = async (input: CollectionInputType, config: CollectionConfigType): Promise<CollectionType> => {
@@ -40,5 +41,23 @@ export const updateCollectionItem = async (id: string, input: CollectionInputUpd
     return updatedItem;
   } catch (err) {
     throw new ExpectedError('UPDATE_COLLECTION_ERROR');
+  }
+}
+
+export const incrementCollection = async (id: string, increment: number = 1, config: CollectionConfigType): Promise<Model> => {
+  if (config.disabled) throw new ExpectedError('DISABLED_COLLECTION_TYPE');
+
+  const item = models[config.modelID];
+  const data: any = await findItemById(id, config.modelID);
+
+  if (!data) throw new ExpectedError('INCREMENT_COLLECTION_ERROR');
+
+  const count = data.count ? data.count + increment : increment;
+ 
+  try {
+    const [rows, [ updatedItem ]]: any = await item.update({ count }, { where: { id }, returning: true });
+    return updatedItem;
+  } catch (err) {
+    throw new ExpectedError('INCREMENT_COLLECTION_ERROR');
   }
 }

@@ -64,5 +64,8 @@
     },
     "UPDATE_COLLECTION_ERROR": {
       "description": "An error occured trying to update a collection item"
+    },
+    "INCREMENT_COLLECTION_ERROR": {
+      "description": "An error occured trying to increment a collection item"
     }
 }
