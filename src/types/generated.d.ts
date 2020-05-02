@@ -60,7 +60,9 @@ export enum ActiveEnergyErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for activeEnergy */
@@ -122,7 +124,9 @@ export enum AddActiveEnergyErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addActiveEnergy */
@@ -184,7 +188,9 @@ export enum AddAverageMpgErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addAverageMPG */
@@ -246,7 +252,9 @@ export enum AddBloodPressureErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addBloodPressure */
@@ -308,7 +316,9 @@ export enum AddBodyTemperatureErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addBodyTemperature */
@@ -370,7 +380,9 @@ export enum AddCaffeineErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addCaffeine */
@@ -432,7 +444,9 @@ export enum AddCbcErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addCbc */
@@ -494,7 +508,9 @@ export enum AddCollectionsErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addCollections */
@@ -556,7 +572,9 @@ export enum AddDrivingScoreErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addDrivingScore */
@@ -618,7 +636,9 @@ export enum AddFlightsClimbedErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addFlightsClimbed */
@@ -680,7 +700,9 @@ export enum AddHealthKitErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addHealthKit */
@@ -742,7 +764,9 @@ export enum AddHeartRateErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addHeartRate */
@@ -804,7 +828,9 @@ export enum AddHeartRateVariabilityErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addHeartRateVariability */
@@ -866,7 +892,9 @@ export enum AddHeightErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addHeight */
@@ -928,7 +956,9 @@ export enum AddOxygenSaturationErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addOxygenSaturation */
@@ -990,7 +1020,9 @@ export enum AddPlateletsErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addPlatelets */
@@ -1052,7 +1084,9 @@ export enum AddRefuelErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addRefuel */
@@ -1114,7 +1148,9 @@ export enum AddRestingEnergyErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addRestingEnergy */
@@ -1176,7 +1212,9 @@ export enum AddRestingHeartRateErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addRestingHeartRate */
@@ -1238,7 +1276,9 @@ export enum AddSleepAnalysisErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addSleepAnalysis */
@@ -1300,7 +1340,9 @@ export enum AddSteinsErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addSteins */
@@ -1362,7 +1404,9 @@ export enum AddStepErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addStep */
@@ -1424,7 +1468,9 @@ export enum AddSwimmingDistanceErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addSwimmingDistance */
@@ -1486,7 +1532,9 @@ export enum AddWaistCircumferenceErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addWaistCircumference */
@@ -1548,7 +1596,9 @@ export enum AddWalkingHeartRateAverageErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addWalkingHeartRateAverage */
@@ -1610,7 +1660,9 @@ export enum AddWalkingRunningDistanceErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addWalkingRunningDistance */
@@ -1672,7 +1724,9 @@ export enum AddWeightErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for addWeight */
@@ -1734,7 +1788,9 @@ export enum AverageMpgErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Average MPG data input */
@@ -1822,7 +1878,9 @@ export enum BloodPressureErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** BloodPressure data input */
@@ -1912,7 +1970,9 @@ export enum BodyTemperatureErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for bodyTemperature */
@@ -1974,7 +2034,9 @@ export enum CaffeineErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for caffeine */
@@ -2036,7 +2098,9 @@ export enum CbcErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Complete blood count data input */
@@ -2117,9 +2181,13 @@ export type CbcType = {
 /** Return either be response data or error data for cbc */
 export type CbcUnion = CbcResponse | CbcError;
 
+/** Collection data input for incrementing count */
+export type CollectionInputIncrementType = {
+  increment?: Maybe<Scalars['Int']>,
+};
+
 /** Collection data input */
 export type CollectionInputType = {
-  shortId?: Maybe<Scalars['String']>,
   name?: Maybe<Scalars['String']>,
   description?: Maybe<Scalars['String']>,
   tags?: Maybe<Array<Maybe<Scalars['String']>>>,
@@ -2188,7 +2256,9 @@ export enum CollectionsErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for Collections */
@@ -2265,7 +2335,9 @@ export enum DrivingScoreErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Driving score data input */
@@ -2362,7 +2434,9 @@ export enum FlightsClimbedErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for flightsClimbed */
@@ -2500,7 +2574,9 @@ export enum HeartrateErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for heartrate */
@@ -2562,7 +2638,9 @@ export enum HeartrateVariabilityErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for heartrateVariability */
@@ -2624,7 +2702,9 @@ export enum HeightErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for height */
@@ -2635,6 +2715,134 @@ export type HeightResponse = {
 
 /** Return either be response data or error data for height */
 export type HeightUnion = HeightResponse | HeightError;
+
+export type IncrementCollectionsError = {
+  __typename?: 'incrementCollectionsError',
+  errorCode?: Maybe<IncrementCollectionsErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum IncrementCollectionsErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Car type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
+}
+
+/** Response data for incrementCollections */
+export type IncrementCollectionsResponse = {
+  __typename?: 'incrementCollectionsResponse',
+  response?: Maybe<CollectionType>,
+};
+
+/** Return either be response data or error data for incrementCollections */
+export type IncrementCollectionsUnion = IncrementCollectionsResponse | IncrementCollectionsError;
+
+export type IncrementSteinsError = {
+  __typename?: 'incrementSteinsError',
+  errorCode?: Maybe<IncrementSteinsErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum IncrementSteinsErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Car type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
+}
+
+/** Response data for incrementSteins */
+export type IncrementSteinsResponse = {
+  __typename?: 'incrementSteinsResponse',
+  response?: Maybe<CollectionType>,
+};
+
+/** Return either be response data or error data for incrementSteins */
+export type IncrementSteinsUnion = IncrementSteinsResponse | IncrementSteinsError;
 
 export type Mutation = {
   __typename?: 'Mutation',
@@ -2736,10 +2944,14 @@ export type Mutation = {
   addCollection?: Maybe<AddCollectionsUnion>,
   /** Update a Collections node */
   updateCollection?: Maybe<UpdateCollectionsUnion>,
+  /** Increment a Collections node */
+  incrementCollection?: Maybe<IncrementCollectionsUnion>,
   /** Add a Steins node */
   addStein?: Maybe<AddSteinsUnion>,
   /** Update a Steins node */
   updateStein?: Maybe<UpdateSteinsUnion>,
+  /** Increment a Steins node */
+  incrementStein?: Maybe<IncrementSteinsUnion>,
 };
 
 
@@ -3012,6 +3224,12 @@ export type MutationUpdateCollectionArgs = {
 };
 
 
+export type MutationIncrementCollectionArgs = {
+  id: Scalars['String'],
+  input?: Maybe<CollectionInputIncrementType>
+};
+
+
 export type MutationAddSteinArgs = {
   input: CollectionInputType
 };
@@ -3020,6 +3238,12 @@ export type MutationAddSteinArgs = {
 export type MutationUpdateSteinArgs = {
   id: Scalars['ID'],
   input: CollectionInputUpdateType
+};
+
+
+export type MutationIncrementSteinArgs = {
+  id: Scalars['String'],
+  input?: Maybe<CollectionInputIncrementType>
 };
 
 export type OxygenSaturationError = {
@@ -3072,7 +3296,9 @@ export enum OxygenSaturationErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for oxygenSaturation */
@@ -3148,7 +3374,9 @@ export enum PlateletsErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for platelets */
@@ -3223,7 +3451,9 @@ export enum RefuelErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Car gas refuel data input */
@@ -3314,7 +3544,9 @@ export enum RestingEnergyErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for restingEnergy */
@@ -3376,7 +3608,9 @@ export enum RestingHeartrateErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for restingHeartrate */
@@ -3642,7 +3876,9 @@ export enum SleepAnalysisErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for sleepAnalysis */
@@ -3704,7 +3940,9 @@ export enum SteinsErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for Steins */
@@ -3766,7 +4004,9 @@ export enum StepsErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for steps */
@@ -3828,7 +4068,9 @@ export enum SwimmingDistanceErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for swimmingDistance */
@@ -3920,7 +4162,9 @@ export enum UpdateActiveEnergyErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateActiveEnergy */
@@ -3982,7 +4226,9 @@ export enum UpdateAverageMpgErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateAverageMPG */
@@ -4044,7 +4290,9 @@ export enum UpdateBloodPressureErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateBloodPressure */
@@ -4106,7 +4354,9 @@ export enum UpdateBodyTemperatureErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateBodyTemperature */
@@ -4168,7 +4418,9 @@ export enum UpdateCaffeineErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateCaffeine */
@@ -4230,7 +4482,9 @@ export enum UpdateCbcErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateCbc */
@@ -4292,7 +4546,9 @@ export enum UpdateCollectionsErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateCollections */
@@ -4354,7 +4610,9 @@ export enum UpdateDrivingScoreErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateDrivingScore */
@@ -4416,7 +4674,9 @@ export enum UpdateFlightsClimbedErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateFlightsClimbed */
@@ -4478,7 +4738,9 @@ export enum UpdateHeartRateErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateHeartRate */
@@ -4540,7 +4802,9 @@ export enum UpdateHeartRateVariabilityErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateHeartRateVariability */
@@ -4602,7 +4866,9 @@ export enum UpdateHeightErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateHeight */
@@ -4664,7 +4930,9 @@ export enum UpdateOxygenSaturationErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateOxygenSaturation */
@@ -4726,7 +4994,9 @@ export enum UpdatePlateletsErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updatePlatelets */
@@ -4788,7 +5058,9 @@ export enum UpdateRefuelErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateRefuel */
@@ -4850,7 +5122,9 @@ export enum UpdateRestingEnergyErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateRestingEnergy */
@@ -4912,7 +5186,9 @@ export enum UpdateRestingHeartRateErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateRestingHeartRate */
@@ -4974,7 +5250,9 @@ export enum UpdateSleepAnalysisErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateSleepAnalysis */
@@ -5036,7 +5314,9 @@ export enum UpdateSteinsErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateSteins */
@@ -5098,7 +5378,9 @@ export enum UpdateStepErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateStep */
@@ -5160,7 +5442,9 @@ export enum UpdateSwimmingDistanceErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateSwimmingDistance */
@@ -5222,7 +5506,9 @@ export enum UpdateWaistCircumferenceErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateWaistCircumference */
@@ -5284,7 +5570,9 @@ export enum UpdateWalkingHeartRateAverageErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateWalkingHeartRateAverage */
@@ -5346,7 +5634,9 @@ export enum UpdateWalkingRunningDistanceErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateWalkingRunningDistance */
@@ -5408,7 +5698,9 @@ export enum UpdateWeightErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for updateWeight */
@@ -5476,7 +5768,9 @@ export enum WaistCircumferenceErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for waistCircumference */
@@ -5538,7 +5832,9 @@ export enum WalkingHeartrateAverageErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for walkingHeartrateAverage */
@@ -5600,7 +5896,9 @@ export enum WalkingRunningDistanceErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for walkingRunningDistance */
@@ -5662,7 +5960,9 @@ export enum WeightErrorErrorCodesType {
   /** An error occured trying to add collection item */
   AddCollectionError = 'ADD_COLLECTION_ERROR',
   /** An error occured trying to update a collection item */
-  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR'
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
 /** Response data for weight */
@@ -6069,6 +6369,11 @@ export type ResolversTypes = {
   updateCollectionsResponse: ResolverTypeWrapper<UpdateCollectionsResponse>,
   updateCollectionsError: ResolverTypeWrapper<UpdateCollectionsError>,
   updateCollectionsErrorErrorCodesType: UpdateCollectionsErrorErrorCodesType,
+  CollectionInputIncrementType: CollectionInputIncrementType,
+  incrementCollectionsUnion: ResolversTypes['incrementCollectionsResponse'] | ResolversTypes['incrementCollectionsError'],
+  incrementCollectionsResponse: ResolverTypeWrapper<IncrementCollectionsResponse>,
+  incrementCollectionsError: ResolverTypeWrapper<IncrementCollectionsError>,
+  incrementCollectionsErrorErrorCodesType: IncrementCollectionsErrorErrorCodesType,
   addSteinsUnion: ResolversTypes['addSteinsResponse'] | ResolversTypes['addSteinsError'],
   addSteinsResponse: ResolverTypeWrapper<AddSteinsResponse>,
   addSteinsError: ResolverTypeWrapper<AddSteinsError>,
@@ -6077,6 +6382,10 @@ export type ResolversTypes = {
   updateSteinsResponse: ResolverTypeWrapper<UpdateSteinsResponse>,
   updateSteinsError: ResolverTypeWrapper<UpdateSteinsError>,
   updateSteinsErrorErrorCodesType: UpdateSteinsErrorErrorCodesType,
+  incrementSteinsUnion: ResolversTypes['incrementSteinsResponse'] | ResolversTypes['incrementSteinsError'],
+  incrementSteinsResponse: ResolverTypeWrapper<IncrementSteinsResponse>,
+  incrementSteinsError: ResolverTypeWrapper<IncrementSteinsError>,
+  incrementSteinsErrorErrorCodesType: IncrementSteinsErrorErrorCodesType,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
 };
 
@@ -6415,6 +6724,11 @@ export type ResolversParentTypes = {
   updateCollectionsResponse: UpdateCollectionsResponse,
   updateCollectionsError: UpdateCollectionsError,
   updateCollectionsErrorErrorCodesType: UpdateCollectionsErrorErrorCodesType,
+  CollectionInputIncrementType: CollectionInputIncrementType,
+  incrementCollectionsUnion: ResolversTypes['incrementCollectionsResponse'] | ResolversTypes['incrementCollectionsError'],
+  incrementCollectionsResponse: IncrementCollectionsResponse,
+  incrementCollectionsError: IncrementCollectionsError,
+  incrementCollectionsErrorErrorCodesType: IncrementCollectionsErrorErrorCodesType,
   addSteinsUnion: ResolversTypes['addSteinsResponse'] | ResolversTypes['addSteinsError'],
   addSteinsResponse: AddSteinsResponse,
   addSteinsError: AddSteinsError,
@@ -6423,6 +6737,10 @@ export type ResolversParentTypes = {
   updateSteinsResponse: UpdateSteinsResponse,
   updateSteinsError: UpdateSteinsError,
   updateSteinsErrorErrorCodesType: UpdateSteinsErrorErrorCodesType,
+  incrementSteinsUnion: ResolversTypes['incrementSteinsResponse'] | ResolversTypes['incrementSteinsError'],
+  incrementSteinsResponse: IncrementSteinsResponse,
+  incrementSteinsError: IncrementSteinsError,
+  incrementSteinsErrorErrorCodesType: IncrementSteinsErrorErrorCodesType,
   Boolean: Scalars['Boolean'],
 };
 
@@ -7016,6 +7334,32 @@ export type HeightUnionResolvers<ContextType = any, ParentType = ResolversParent
   __resolveType: TypeResolveFn<'heightResponse' | 'heightError', ParentType, ContextType>
 };
 
+export type IncrementCollectionsErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['incrementCollectionsError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['incrementCollectionsErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type IncrementCollectionsResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['incrementCollectionsResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['CollectionType']>, ParentType, ContextType>,
+};
+
+export type IncrementCollectionsUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['incrementCollectionsUnion']> = {
+  __resolveType: TypeResolveFn<'incrementCollectionsResponse' | 'incrementCollectionsError', ParentType, ContextType>
+};
+
+export type IncrementSteinsErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['incrementSteinsError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['incrementSteinsErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type IncrementSteinsResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['incrementSteinsResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['CollectionType']>, ParentType, ContextType>,
+};
+
+export type IncrementSteinsUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['incrementSteinsUnion']> = {
+  __resolveType: TypeResolveFn<'incrementSteinsResponse' | 'incrementSteinsError', ParentType, ContextType>
+};
+
 export type MutationResolvers<ContextType = any, ParentType = ResolversParentTypes['Mutation']> = {
   addStep?: Resolver<Maybe<ResolversTypes['addStepUnion']>, ParentType, ContextType, MutationAddStepArgs>,
   updateStep?: Resolver<Maybe<ResolversTypes['updateStepUnion']>, ParentType, ContextType, MutationUpdateStepArgs>,
@@ -7066,8 +7410,10 @@ export type MutationResolvers<ContextType = any, ParentType = ResolversParentTyp
   updateRefuel?: Resolver<Maybe<ResolversTypes['updateRefuelUnion']>, ParentType, ContextType, MutationUpdateRefuelArgs>,
   addCollection?: Resolver<Maybe<ResolversTypes['addCollectionsUnion']>, ParentType, ContextType, MutationAddCollectionArgs>,
   updateCollection?: Resolver<Maybe<ResolversTypes['updateCollectionsUnion']>, ParentType, ContextType, MutationUpdateCollectionArgs>,
+  incrementCollection?: Resolver<Maybe<ResolversTypes['incrementCollectionsUnion']>, ParentType, ContextType, MutationIncrementCollectionArgs>,
   addStein?: Resolver<Maybe<ResolversTypes['addSteinsUnion']>, ParentType, ContextType, MutationAddSteinArgs>,
   updateStein?: Resolver<Maybe<ResolversTypes['updateSteinsUnion']>, ParentType, ContextType, MutationUpdateSteinArgs>,
+  incrementStein?: Resolver<Maybe<ResolversTypes['incrementSteinsUnion']>, ParentType, ContextType, MutationIncrementSteinArgs>,
 };
 
 export type OxygenSaturationErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['oxygenSaturationError']> = {
@@ -7736,6 +8082,12 @@ export type Resolvers<ContextType = any> = {
   heightError?: HeightErrorResolvers<ContextType>,
   heightResponse?: HeightResponseResolvers<ContextType>,
   heightUnion?: HeightUnionResolvers,
+  incrementCollectionsError?: IncrementCollectionsErrorResolvers<ContextType>,
+  incrementCollectionsResponse?: IncrementCollectionsResponseResolvers<ContextType>,
+  incrementCollectionsUnion?: IncrementCollectionsUnionResolvers,
+  incrementSteinsError?: IncrementSteinsErrorResolvers<ContextType>,
+  incrementSteinsResponse?: IncrementSteinsResponseResolvers<ContextType>,
+  incrementSteinsUnion?: IncrementSteinsUnionResolvers,
   Mutation?: MutationResolvers<ContextType>,
   oxygenSaturationError?: OxygenSaturationErrorResolvers<ContextType>,
   oxygenSaturationResponse?: OxygenSaturationResponseResolvers<ContextType>,

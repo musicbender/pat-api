@@ -1,7 +1,7 @@
 import * as uuid from 'uuid';
 import * as shortid from 'shortid';
 import * as moment from 'moment';
-import { CollectionType, CollectionInputType, CollectionInputUpdateType, CollectionConfigType } from '../types';
+import { CollectionType, CollectionInputType, CollectionInputUpdateType, CollectionConfigType, CollectionInputIncrementType } from '../types';
 import models from '../models';
 import { Model } from 'sequelize-typescript';
 import { ExpectedError } from '../utils/errors';
@@ -44,7 +44,8 @@ export const updateCollectionItem = async (id: string, input: CollectionInputUpd
   }
 }
 
-export const incrementCollection = async (id: string, increment: number = 1, config: CollectionConfigType): Promise<Model> => {
+// increment collection count
+export const incrementCollectionItem = async (id: string, input: CollectionInputIncrementType, config: CollectionConfigType): Promise<Model> => {
   if (config.disabled) throw new ExpectedError('DISABLED_COLLECTION_TYPE');
 
   const item = models[config.modelID];
@@ -52,6 +53,9 @@ export const incrementCollection = async (id: string, increment: number = 1, con
 
   if (!data) throw new ExpectedError('INCREMENT_COLLECTION_ERROR');
 
+  const increment = input && input.increment != null
+    ? input.increment 
+    : 1;
   const count = data.count ? data.count + increment : increment;
  
   try {

@@ -9,11 +9,15 @@ export type ComposeQueryOptions = {
 
 export type ComposeMutationOptions = {
   type: GraphQLObjectType,
-  inputType: GraphQLInputObjectType
+  inputType?: GraphQLInputObjectType
   name?: string,
   description?: string,
   config?: any,
   controller?: any,
+}
+
+export type WhereDb = {
+  [key: string]: any
 }
 
 export type DatabaseConfigOptions = {

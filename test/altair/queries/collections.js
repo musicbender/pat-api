@@ -40,4 +40,26 @@ export const updateCollections = `
       }
     }
   }
-`
+`;
+
+export const incrementCollections = `
+  mutation IncrementCollection ($input: CollectionInputIncrementType!, $id: ID!) {
+    incrementCollection(input: $input, id: $id) {
+      ... on incrementCollectionsResponse {
+          response {
+            id
+            shortId
+            name
+            description
+            tags
+            count
+            sampledOn
+          }
+      }
+      ... on incrementCollectionsError {
+        errorCode
+        errorDesc
+      }
+    }
+  }
+`;

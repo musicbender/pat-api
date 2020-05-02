@@ -32,6 +32,14 @@ export const CollectionInputUpdateType = new GraphQLInputObjectType({
   })
 });
 
+export const CollectionInputIncrementType = new GraphQLInputObjectType({
+  name: 'CollectionInputIncrementType',
+  description: 'Collection data input for incrementing count',
+  fields: () => ({
+    increment: { type: GraphQLInt },
+  })
+});
+
 export const CollectionType = new GraphQLObjectType({
   name: 'CollectionType',
   description: 'Collection data',
@@ -47,3 +55,4 @@ export const CollectionType = new GraphQLObjectType({
     updatedOn: { type: GraphQLString },
   })
 });
+

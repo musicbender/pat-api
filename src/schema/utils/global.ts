@@ -1,5 +1,5 @@
 import * as GraphQLDate from 'graphql-date';
-import { GraphQLID, GraphQLString, GraphQLNonNull } from 'graphql';
+import { GraphQLID, GraphQLString, GraphQLNonNull, GraphQLInt } from 'graphql';
 import { findItemById, findItemByDate } from '../../controllers/global';
 import { ExpectedError } from '../../utils/errors';
 import { ComposeQueryOptions, ComposeMutationOptions } from '../../types';
@@ -84,6 +84,34 @@ export const composeUpdateMutation = (options: ComposeMutationOptions) => {
       },
       input: {
         type: new GraphQLNonNull(options.inputType)
+      }
+    },
+    async resolve(parentValue, { id, input }) {
+      try {
+        const response = await options.controller(id, input, options.config || {});
+        return { response };
+      } catch (err) {
+        throw err;
+      }
+    }
+  }
+}
+
+export const composeIncrementMutation = (options: ComposeMutationOptions) => {
+  const name = `increment${options.name}`;
+  return {
+    name,
+    description: options.description || `Increment a ${options.name} node`,
+    type: ResponseUnionType({
+      name,
+      responseType: options.type
+    }),
+    args: {
+      id: {
+        type: new GraphQLNonNull(GraphQLID)
+      },
+      input: {
+        type: options.inputType
       }
     },
     async resolve(parentValue, { id, input }) {
