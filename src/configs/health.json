@@ -51,6 +51,7 @@
     "id": "anxiety",
     "modelID": "Anxiety",
     "unit": "anxietyRating",
+    "interval": "day",
     "disabled": false
   }
 }

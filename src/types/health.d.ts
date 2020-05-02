@@ -8,21 +8,14 @@ import {
   BloodPressureInputType,
   BloodPressureInputUpdateType,
  } from '.';
-
-// enums
-export enum HealthInterval {
-  'days',
-  'month',
-  'year',
-  false
-}
+import { DateInterval } from './global';
 
 // types
 export type HealthConfigType = {
   id: string,
   modelID: string,
   unit: UnitType,
-  interval?: moment.unitOfTime.StartOf,
+  interval?: DateInterval,
   disabled?: boolean
 }
 

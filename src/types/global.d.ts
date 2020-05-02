@@ -20,6 +20,8 @@ export type WhereDb = {
   [key: string]: any
 }
 
+export type DateInterval = 'hour' | 'day' | 'week' | 'month' | 'year';
+
 export type DatabaseConfigOptions = {
   externalAccess?: boolean
 }

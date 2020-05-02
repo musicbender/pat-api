@@ -2,7 +2,7 @@ import { Op } from 'sequelize';
 import * as moment from 'moment';
 import models from '../models';
 import { Model } from 'sequelize-typescript';
-import { WhereDb } from 'types';
+import { WhereDb, DateInterval } from 'types';
 
 // find by id
 export const findItemById = (id: string, modelID: string): Promise<Model> => {
@@ -10,9 +10,9 @@ export const findItemById = (id: string, modelID: string): Promise<Model> => {
 }
 
 // find by date
-export const findItemByDate = (date: Date | string, modelID: string): Promise<Model> => {
-  const start = moment(date).startOf('day').toDate();
-  const end = moment(date).endOf('day').toDate();
+export const findItemByDate = (date: Date | string, modelID: string, interval: DateInterval = 'day'): Promise<Model> => {
+  const start = moment(date).startOf(interval).toDate();
+  const end = moment(date).endOf(interval).toDate();
 
   return models[modelID].findOne({ 
     where: { 

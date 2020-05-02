@@ -11,8 +11,8 @@ export const addHealthItem = async (input: HealthInputTypes, config: HealthConfi
   // if type has been disabled in config
   if (config.disabled) throw new ExpectedError('DISABLED_HEALTH_TYPE');
 
-  if (config.interval && config.interval === 'day') {
-    const dupeItem: any = await findItemByDate(input.sampledOn, config.modelID);
+  if (config.interval) {
+    const dupeItem: any = await findItemByDate(input.sampledOn, config.modelID, config.interval);
     const id = dupeItem && dupeItem.id 
       ? dupeItem.id
       : dupeItem && dupeItem.dataValues 
