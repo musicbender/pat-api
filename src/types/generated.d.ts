@@ -970,6 +970,70 @@ export type AddHeightResponse = {
 /** Return either be response data or error data for addHeight */
 export type AddHeightUnion = AddHeightResponse | AddHeightError;
 
+export type AddMigraineError = {
+  __typename?: 'addMigraineError',
+  errorCode?: Maybe<AddMigraineErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddMigraineErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Car type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
+}
+
+/** Response data for addMigraine */
+export type AddMigraineResponse = {
+  __typename?: 'addMigraineResponse',
+  response?: Maybe<MigraineType>,
+};
+
+/** Return either be response data or error data for addMigraine */
+export type AddMigraineUnion = AddMigraineResponse | AddMigraineError;
+
 export type AddOxygenSaturationError = {
   __typename?: 'addOxygenSaturationError',
   errorCode?: Maybe<AddOxygenSaturationErrorErrorCodesType>,
@@ -2972,6 +3036,108 @@ export type IncrementSteinsResponse = {
 /** Return either be response data or error data for incrementSteins */
 export type IncrementSteinsUnion = IncrementSteinsResponse | IncrementSteinsError;
 
+export type MigraineError = {
+  __typename?: 'migraineError',
+  errorCode?: Maybe<MigraineErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum MigraineErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Car type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
+}
+
+/** Migraine data input */
+export type MigraineInputType = {
+  painLevel?: Maybe<Scalars['Int']>,
+  auraLevel?: Maybe<Scalars['Int']>,
+  nauseaLevel?: Maybe<Scalars['Int']>,
+  auraTags?: Maybe<Array<Maybe<Scalars['String']>>>,
+  description?: Maybe<Scalars['String']>,
+  duration?: Maybe<Scalars['String']>,
+  sampledOn?: Maybe<Scalars['String']>,
+};
+
+/** Migraine data input for updating */
+export type MigraineInputUpdateType = {
+  painLevel?: Maybe<Scalars['Int']>,
+  auraLevel?: Maybe<Scalars['Int']>,
+  nauseaLevel?: Maybe<Scalars['Int']>,
+  auraTags?: Maybe<Array<Maybe<Scalars['String']>>>,
+  description?: Maybe<Scalars['String']>,
+  duration?: Maybe<Scalars['String']>,
+  sampledOn?: Maybe<Scalars['String']>,
+  createdOn?: Maybe<Scalars['String']>,
+};
+
+/** Response data for migraine */
+export type MigraineResponse = {
+  __typename?: 'migraineResponse',
+  response?: Maybe<MigraineType>,
+};
+
+/** Migraine data */
+export type MigraineType = {
+  __typename?: 'MigraineType',
+  id?: Maybe<Scalars['String']>,
+  painLevel?: Maybe<Scalars['Int']>,
+  auraLevel?: Maybe<Scalars['Int']>,
+  nauseaLevel?: Maybe<Scalars['Int']>,
+  auraTags?: Maybe<Array<Maybe<Scalars['String']>>>,
+  description?: Maybe<Scalars['String']>,
+  duration?: Maybe<Scalars['String']>,
+  sampledOn?: Maybe<Scalars['String']>,
+  createdOn?: Maybe<Scalars['String']>,
+  updatedOn?: Maybe<Scalars['String']>,
+};
+
+/** Return either be response data or error data for migraine */
+export type MigraineUnion = MigraineResponse | MigraineError;
+
 export type Mutation = {
   __typename?: 'Mutation',
   /** Add a Step node */
@@ -3060,6 +3226,10 @@ export type Mutation = {
   addAnxiety?: Maybe<AddAnxietyUnion>,
   /** Update a Anxiety node */
   updateAnxiety?: Maybe<UpdateAnxietyUnion>,
+  /** Add a Migraine node */
+  addMigraine?: Maybe<AddMigraineUnion>,
+  /** Update a Migraine node */
+  updateMigraine?: Maybe<UpdateMigraineUnion>,
   /** Add a AverageMPG node */
   addAverageMPG?: Maybe<AddAverageMpgUnion>,
   /** Update a AverageMPG node */
@@ -3320,6 +3490,17 @@ export type MutationAddAnxietyArgs = {
 export type MutationUpdateAnxietyArgs = {
   id: Scalars['ID'],
   input: HealthInputUpdateType
+};
+
+
+export type MutationAddMigraineArgs = {
+  input: MigraineInputType
+};
+
+
+export type MutationUpdateMigraineArgs = {
+  id: Scalars['ID'],
+  input: MigraineInputUpdateType
 };
 
 
@@ -3809,6 +3990,8 @@ export type RootQueryType = {
   bloodPressure?: Maybe<BloodPressureUnion>,
   /** Get a single anxiety entry by either _id or date, _id taking priority */
   anxiety?: Maybe<AnxietyUnion>,
+  /** Get a single migraine entry by either _id or date, _id taking priority */
+  migraine?: Maybe<MigraineUnion>,
   /** Get a single AverageMPG entry by either _id or date, _id taking priority */
   averageMPG?: Maybe<AverageMpgUnion>,
   /** Get a single DrivingScore entry by either _id or date, _id taking priority */
@@ -3943,6 +4126,12 @@ export type RootQueryTypeBloodPressureArgs = {
 
 
 export type RootQueryTypeAnxietyArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeMigraineArgs = {
   id?: Maybe<Scalars['String']>,
   date?: Maybe<Scalars['Date']>
 };
@@ -4260,7 +4449,8 @@ export enum UnitType {
   Min = 'min',
   Hrs = 'hrs',
   DegreesF = 'degreesF',
-  ThousandUL = 'Thousand_uL'
+  ThousandUL = 'Thousand_uL',
+  AnxietyRating = 'anxietyRating'
 }
 
 export type UpdateActiveEnergyError = {
@@ -5094,6 +5284,70 @@ export type UpdateHeightResponse = {
 
 /** Return either be response data or error data for updateHeight */
 export type UpdateHeightUnion = UpdateHeightResponse | UpdateHeightError;
+
+export type UpdateMigraineError = {
+  __typename?: 'updateMigraineError',
+  errorCode?: Maybe<UpdateMigraineErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateMigraineErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Car type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
+}
+
+/** Response data for updateMigraine */
+export type UpdateMigraineResponse = {
+  __typename?: 'updateMigraineResponse',
+  response?: Maybe<MigraineType>,
+};
+
+/** Return either be response data or error data for updateMigraine */
+export type UpdateMigraineUnion = UpdateMigraineResponse | UpdateMigraineError;
 
 export type UpdateOxygenSaturationError = {
   __typename?: 'updateOxygenSaturationError',
@@ -6345,6 +6599,12 @@ export type ResolversTypes = {
   anxietyResponse: ResolverTypeWrapper<AnxietyResponse>,
   anxietyError: ResolverTypeWrapper<AnxietyError>,
   anxietyErrorErrorCodesType: AnxietyErrorErrorCodesType,
+  migraineUnion: ResolversTypes['migraineResponse'] | ResolversTypes['migraineError'],
+  migraineResponse: ResolverTypeWrapper<MigraineResponse>,
+  MigraineType: ResolverTypeWrapper<MigraineType>,
+  Int: ResolverTypeWrapper<Scalars['Int']>,
+  migraineError: ResolverTypeWrapper<MigraineError>,
+  migraineErrorErrorCodesType: MigraineErrorErrorCodesType,
   AverageMPGUnion: ResolversTypes['AverageMPGResponse'] | ResolversTypes['AverageMPGError'],
   AverageMPGResponse: ResolverTypeWrapper<AverageMpgResponse>,
   AverageMPGType: ResolverTypeWrapper<AverageMpgType>,
@@ -6354,7 +6614,6 @@ export type ResolversTypes = {
   DrivingScoreUnion: ResolversTypes['DrivingScoreResponse'] | ResolversTypes['DrivingScoreError'],
   DrivingScoreResponse: ResolverTypeWrapper<DrivingScoreResponse>,
   DrivingScoreType: ResolverTypeWrapper<DrivingScoreType>,
-  Int: ResolverTypeWrapper<Scalars['Int']>,
   DrivingScoreError: ResolverTypeWrapper<DrivingScoreError>,
   DrivingScoreErrorErrorCodesType: DrivingScoreErrorErrorCodesType,
   RefuelUnion: ResolversTypes['RefuelResponse'] | ResolversTypes['RefuelError'],
@@ -6556,6 +6815,16 @@ export type ResolversTypes = {
   updateAnxietyResponse: ResolverTypeWrapper<UpdateAnxietyResponse>,
   updateAnxietyError: ResolverTypeWrapper<UpdateAnxietyError>,
   updateAnxietyErrorErrorCodesType: UpdateAnxietyErrorErrorCodesType,
+  MigraineInputType: MigraineInputType,
+  addMigraineUnion: ResolversTypes['addMigraineResponse'] | ResolversTypes['addMigraineError'],
+  addMigraineResponse: ResolverTypeWrapper<AddMigraineResponse>,
+  addMigraineError: ResolverTypeWrapper<AddMigraineError>,
+  addMigraineErrorErrorCodesType: AddMigraineErrorErrorCodesType,
+  MigraineInputUpdateType: MigraineInputUpdateType,
+  updateMigraineUnion: ResolversTypes['updateMigraineResponse'] | ResolversTypes['updateMigraineError'],
+  updateMigraineResponse: ResolverTypeWrapper<UpdateMigraineResponse>,
+  updateMigraineError: ResolverTypeWrapper<UpdateMigraineError>,
+  updateMigraineErrorErrorCodesType: UpdateMigraineErrorErrorCodesType,
   AverageMPGInputType: AverageMpgInputType,
   addAverageMPGUnion: ResolversTypes['addAverageMPGResponse'] | ResolversTypes['addAverageMPGError'],
   addAverageMPGResponse: ResolverTypeWrapper<AddAverageMpgResponse>,
@@ -6712,6 +6981,12 @@ export type ResolversParentTypes = {
   anxietyResponse: AnxietyResponse,
   anxietyError: AnxietyError,
   anxietyErrorErrorCodesType: AnxietyErrorErrorCodesType,
+  migraineUnion: ResolversTypes['migraineResponse'] | ResolversTypes['migraineError'],
+  migraineResponse: MigraineResponse,
+  MigraineType: MigraineType,
+  Int: Scalars['Int'],
+  migraineError: MigraineError,
+  migraineErrorErrorCodesType: MigraineErrorErrorCodesType,
   AverageMPGUnion: ResolversTypes['AverageMPGResponse'] | ResolversTypes['AverageMPGError'],
   AverageMPGResponse: AverageMpgResponse,
   AverageMPGType: AverageMpgType,
@@ -6721,7 +6996,6 @@ export type ResolversParentTypes = {
   DrivingScoreUnion: ResolversTypes['DrivingScoreResponse'] | ResolversTypes['DrivingScoreError'],
   DrivingScoreResponse: DrivingScoreResponse,
   DrivingScoreType: DrivingScoreType,
-  Int: Scalars['Int'],
   DrivingScoreError: DrivingScoreError,
   DrivingScoreErrorErrorCodesType: DrivingScoreErrorErrorCodesType,
   RefuelUnion: ResolversTypes['RefuelResponse'] | ResolversTypes['RefuelError'],
@@ -6923,6 +7197,16 @@ export type ResolversParentTypes = {
   updateAnxietyResponse: UpdateAnxietyResponse,
   updateAnxietyError: UpdateAnxietyError,
   updateAnxietyErrorErrorCodesType: UpdateAnxietyErrorErrorCodesType,
+  MigraineInputType: MigraineInputType,
+  addMigraineUnion: ResolversTypes['addMigraineResponse'] | ResolversTypes['addMigraineError'],
+  addMigraineResponse: AddMigraineResponse,
+  addMigraineError: AddMigraineError,
+  addMigraineErrorErrorCodesType: AddMigraineErrorErrorCodesType,
+  MigraineInputUpdateType: MigraineInputUpdateType,
+  updateMigraineUnion: ResolversTypes['updateMigraineResponse'] | ResolversTypes['updateMigraineError'],
+  updateMigraineResponse: UpdateMigraineResponse,
+  updateMigraineError: UpdateMigraineError,
+  updateMigraineErrorErrorCodesType: UpdateMigraineErrorErrorCodesType,
   AverageMPGInputType: AverageMpgInputType,
   addAverageMPGUnion: ResolversTypes['addAverageMPGResponse'] | ResolversTypes['addAverageMPGError'],
   addAverageMPGResponse: AddAverageMpgResponse,
@@ -7176,6 +7460,19 @@ export type AddHeightResponseResolvers<ContextType = any, ParentType = Resolvers
 
 export type AddHeightUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addHeightUnion']> = {
   __resolveType: TypeResolveFn<'addHeightResponse' | 'addHeightError', ParentType, ContextType>
+};
+
+export type AddMigraineErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addMigraineError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addMigraineErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddMigraineResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addMigraineResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['MigraineType']>, ParentType, ContextType>,
+};
+
+export type AddMigraineUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addMigraineUnion']> = {
+  __resolveType: TypeResolveFn<'addMigraineResponse' | 'addMigraineError', ParentType, ContextType>
 };
 
 export type AddOxygenSaturationErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addOxygenSaturationError']> = {
@@ -7625,6 +7922,32 @@ export type IncrementSteinsUnionResolvers<ContextType = any, ParentType = Resolv
   __resolveType: TypeResolveFn<'incrementSteinsResponse' | 'incrementSteinsError', ParentType, ContextType>
 };
 
+export type MigraineErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['migraineError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['migraineErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type MigraineResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['migraineResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['MigraineType']>, ParentType, ContextType>,
+};
+
+export type MigraineTypeResolvers<ContextType = any, ParentType = ResolversParentTypes['MigraineType']> = {
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  painLevel?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>,
+  auraLevel?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>,
+  nauseaLevel?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>,
+  auraTags?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>,
+  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  duration?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  sampledOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  createdOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  updatedOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type MigraineUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['migraineUnion']> = {
+  __resolveType: TypeResolveFn<'migraineResponse' | 'migraineError', ParentType, ContextType>
+};
+
 export type MutationResolvers<ContextType = any, ParentType = ResolversParentTypes['Mutation']> = {
   addStep?: Resolver<Maybe<ResolversTypes['addStepUnion']>, ParentType, ContextType, MutationAddStepArgs>,
   updateStep?: Resolver<Maybe<ResolversTypes['updateStepUnion']>, ParentType, ContextType, MutationUpdateStepArgs>,
@@ -7669,6 +7992,8 @@ export type MutationResolvers<ContextType = any, ParentType = ResolversParentTyp
   updateBloodPressure?: Resolver<Maybe<ResolversTypes['updateBloodPressureUnion']>, ParentType, ContextType, MutationUpdateBloodPressureArgs>,
   addAnxiety?: Resolver<Maybe<ResolversTypes['addAnxietyUnion']>, ParentType, ContextType, MutationAddAnxietyArgs>,
   updateAnxiety?: Resolver<Maybe<ResolversTypes['updateAnxietyUnion']>, ParentType, ContextType, MutationUpdateAnxietyArgs>,
+  addMigraine?: Resolver<Maybe<ResolversTypes['addMigraineUnion']>, ParentType, ContextType, MutationAddMigraineArgs>,
+  updateMigraine?: Resolver<Maybe<ResolversTypes['updateMigraineUnion']>, ParentType, ContextType, MutationUpdateMigraineArgs>,
   addAverageMPG?: Resolver<Maybe<ResolversTypes['addAverageMPGUnion']>, ParentType, ContextType, MutationAddAverageMpgArgs>,
   updateAverageMPG?: Resolver<Maybe<ResolversTypes['updateAverageMPGUnion']>, ParentType, ContextType, MutationUpdateAverageMpgArgs>,
   addDrivingScore?: Resolver<Maybe<ResolversTypes['addDrivingScoreUnion']>, ParentType, ContextType, MutationAddDrivingScoreArgs>,
@@ -7791,6 +8116,7 @@ export type RootQueryTypeResolvers<ContextType = any, ParentType = ResolversPare
   platelets?: Resolver<Maybe<ResolversTypes['plateletsUnion']>, ParentType, ContextType, RootQueryTypePlateletsArgs>,
   bloodPressure?: Resolver<Maybe<ResolversTypes['bloodPressureUnion']>, ParentType, ContextType, RootQueryTypeBloodPressureArgs>,
   anxiety?: Resolver<Maybe<ResolversTypes['anxietyUnion']>, ParentType, ContextType, RootQueryTypeAnxietyArgs>,
+  migraine?: Resolver<Maybe<ResolversTypes['migraineUnion']>, ParentType, ContextType, RootQueryTypeMigraineArgs>,
   averageMPG?: Resolver<Maybe<ResolversTypes['AverageMPGUnion']>, ParentType, ContextType, RootQueryTypeAverageMpgArgs>,
   drivingScore?: Resolver<Maybe<ResolversTypes['DrivingScoreUnion']>, ParentType, ContextType, RootQueryTypeDrivingScoreArgs>,
   refuel?: Resolver<Maybe<ResolversTypes['RefuelUnion']>, ParentType, ContextType, RootQueryTypeRefuelArgs>,
@@ -8017,6 +8343,19 @@ export type UpdateHeightResponseResolvers<ContextType = any, ParentType = Resolv
 
 export type UpdateHeightUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateHeightUnion']> = {
   __resolveType: TypeResolveFn<'updateHeightResponse' | 'updateHeightError', ParentType, ContextType>
+};
+
+export type UpdateMigraineErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateMigraineError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateMigraineErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateMigraineResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateMigraineResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['MigraineType']>, ParentType, ContextType>,
+};
+
+export type UpdateMigraineUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateMigraineUnion']> = {
+  __resolveType: TypeResolveFn<'updateMigraineResponse' | 'updateMigraineError', ParentType, ContextType>
 };
 
 export type UpdateOxygenSaturationErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateOxygenSaturationError']> = {
@@ -8286,6 +8625,9 @@ export type Resolvers<ContextType = any> = {
   addHeightError?: AddHeightErrorResolvers<ContextType>,
   addHeightResponse?: AddHeightResponseResolvers<ContextType>,
   addHeightUnion?: AddHeightUnionResolvers,
+  addMigraineError?: AddMigraineErrorResolvers<ContextType>,
+  addMigraineResponse?: AddMigraineResponseResolvers<ContextType>,
+  addMigraineUnion?: AddMigraineUnionResolvers,
   addOxygenSaturationError?: AddOxygenSaturationErrorResolvers<ContextType>,
   addOxygenSaturationResponse?: AddOxygenSaturationResponseResolvers<ContextType>,
   addOxygenSaturationUnion?: AddOxygenSaturationUnionResolvers,
@@ -8375,6 +8717,10 @@ export type Resolvers<ContextType = any> = {
   incrementSteinsError?: IncrementSteinsErrorResolvers<ContextType>,
   incrementSteinsResponse?: IncrementSteinsResponseResolvers<ContextType>,
   incrementSteinsUnion?: IncrementSteinsUnionResolvers,
+  migraineError?: MigraineErrorResolvers<ContextType>,
+  migraineResponse?: MigraineResponseResolvers<ContextType>,
+  MigraineType?: MigraineTypeResolvers<ContextType>,
+  migraineUnion?: MigraineUnionResolvers,
   Mutation?: MutationResolvers<ContextType>,
   oxygenSaturationError?: OxygenSaturationErrorResolvers<ContextType>,
   oxygenSaturationResponse?: OxygenSaturationResponseResolvers<ContextType>,
@@ -8445,6 +8791,9 @@ export type Resolvers<ContextType = any> = {
   updateHeightError?: UpdateHeightErrorResolvers<ContextType>,
   updateHeightResponse?: UpdateHeightResponseResolvers<ContextType>,
   updateHeightUnion?: UpdateHeightUnionResolvers,
+  updateMigraineError?: UpdateMigraineErrorResolvers<ContextType>,
+  updateMigraineResponse?: UpdateMigraineResponseResolvers<ContextType>,
+  updateMigraineUnion?: UpdateMigraineUnionResolvers,
   updateOxygenSaturationError?: UpdateOxygenSaturationErrorResolvers<ContextType>,
   updateOxygenSaturationResponse?: UpdateOxygenSaturationResponseResolvers<ContextType>,
   updateOxygenSaturationUnion?: UpdateOxygenSaturationUnionResolvers,

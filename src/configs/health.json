@@ -53,5 +53,11 @@
     "unit": "anxietyRating",
     "interval": "day",
     "disabled": false
+  },
+  "migraine": {
+    "id": "migraine",
+    "modelID": "Migraine",
+    "unit": null,
+    "disabled": false
   }
 }

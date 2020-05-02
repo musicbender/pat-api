@@ -7,3 +7,4 @@ export * from './cbc';
 export * from './platelets';
 export * from './blood-pressure';
 export * from './anxiety';
+export * from './migraine';

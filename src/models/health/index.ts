@@ -8,6 +8,7 @@ import Cbc from './cbc.model';
 import Platelets from './platelets.model'
 import BloodPressure from './blood-pressure.model';
 import Anxiety from './anxiety.model';
+import Migraine from './migraine.model';
 
 export default {
   [healthTypes.weight.modelID]: Weight,
@@ -19,4 +20,5 @@ export default {
   [healthTypes.platelets.modelID]: Platelets,
   [healthTypes.bloodPressure.modelID]: BloodPressure,
   [healthTypes.anxiety.modelID]: Anxiety,
+  [healthTypes.migraine.modelID]: Migraine,
 }

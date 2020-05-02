@@ -21,7 +21,7 @@ export default class BaseCollection<T = any, T2 = any> extends BaseModel<BaseCol
   @Column
   description: string;
 
-  @Default(['general'])
+  @Default([])
   @Column(DataType.ARRAY(DataType.STRING))
   tags: string[];
 

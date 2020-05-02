@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import { DateInterval } from './global';
 import { 
   UnitType,
   HealthType,
@@ -7,8 +7,10 @@ import {
   BloodPressureType,
   BloodPressureInputType,
   BloodPressureInputUpdateType,
+  MigraineType,
+  MigraineInputType,
+  MigraineInputUpdateType,
  } from '.';
-import { DateInterval } from './global';
 
 // types
 export type HealthConfigType = {
@@ -37,8 +39,8 @@ export type HealthUpdateOptions = {
   description?: string
 }
 
-export type HealthTypes = HealthType | BloodPressureType;
+export type HealthTypes = HealthType | BloodPressureType | MigraineType;
 
-export type HealthInputTypes = HealthInputType | BloodPressureInputType;
+export type HealthInputTypes = HealthInputType | BloodPressureInputType | MigraineInputType;
 
-export type HealthInputUpdateTypes = HealthInputUpdateType | BloodPressureInputUpdateType;
+export type HealthInputUpdateTypes = HealthInputUpdateType | BloodPressureInputUpdateType | MigraineInputUpdateType;
