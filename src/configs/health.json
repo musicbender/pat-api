@@ -46,5 +46,11 @@
     "modelID": "Cbc",
     "unit": null,
     "disabled": false
+  },
+  "anxiety": {
+    "id": "anxiety",
+    "modelID": "Anxiety",
+    "unit": "anxietyRating",
+    "disabled": false
   }
 }

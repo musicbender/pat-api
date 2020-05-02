@@ -30,5 +30,6 @@ export const UnitType = new GraphQLEnumType({
     "hrs": { value: "hrs" },
     "degreesF": { value: "degreesF" },
     "Thousand_uL": { value: "Thousand/uL"},
+    "anxietyRating": { value: "anxietyRating" },
   }
 });
