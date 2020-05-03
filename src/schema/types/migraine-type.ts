@@ -15,7 +15,7 @@ export const MigraineInputType = new GraphQLInputObjectType({
     nauseaLevel: { type: GraphQLInt },
     auraTags: { type: new GraphQLList(GraphQLString) },
     description: { type: GraphQLString },
-    duration: { type: GraphQLString },
+    totalDuration: { type: GraphQLString },
     sampledOn: { type: GraphQLString },
   })
 });
@@ -29,7 +29,7 @@ export const MigraineInputUpdateType = new GraphQLInputObjectType({
     nauseaLevel: { type: GraphQLInt },
     auraTags: { type: new GraphQLList(GraphQLString) },
     description: { type: GraphQLString },
-    duration: { type: GraphQLString },
+    totalDuration: { type: GraphQLString },
     sampledOn: { type: GraphQLString },
     createdOn: { type: GraphQLString },
   })
@@ -45,7 +45,7 @@ export const MigraineType = new GraphQLObjectType({
     nauseaLevel: { type: GraphQLInt },
     auraTags: { type: new GraphQLList(GraphQLString) },
     description: { type: GraphQLString },
-    duration: { type: GraphQLString },
+    totalDuration: { type: GraphQLString },
     sampledOn: { type: GraphQLString },
     createdOn: { type: GraphQLString },
     updatedOn: { type: GraphQLString },

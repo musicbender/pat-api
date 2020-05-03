@@ -1,0 +1,10 @@
+{
+  "input": {
+    "painLevel": 3,
+    "auraLevel": 6,
+    "nauseaLevel": 1,
+    "auraTags": ["ceiling-fan", "alien"],
+    "description": "It sucked",
+    "totalDuration": "0.02.13.00"
+  }
+}

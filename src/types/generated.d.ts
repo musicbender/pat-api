@@ -3098,7 +3098,7 @@ export type MigraineInputType = {
   nauseaLevel?: Maybe<Scalars['Int']>,
   auraTags?: Maybe<Array<Maybe<Scalars['String']>>>,
   description?: Maybe<Scalars['String']>,
-  duration?: Maybe<Scalars['String']>,
+  totalDuration?: Maybe<Scalars['String']>,
   sampledOn?: Maybe<Scalars['String']>,
 };
 
@@ -3109,7 +3109,7 @@ export type MigraineInputUpdateType = {
   nauseaLevel?: Maybe<Scalars['Int']>,
   auraTags?: Maybe<Array<Maybe<Scalars['String']>>>,
   description?: Maybe<Scalars['String']>,
-  duration?: Maybe<Scalars['String']>,
+  totalDuration?: Maybe<Scalars['String']>,
   sampledOn?: Maybe<Scalars['String']>,
   createdOn?: Maybe<Scalars['String']>,
 };
@@ -3129,7 +3129,7 @@ export type MigraineType = {
   nauseaLevel?: Maybe<Scalars['Int']>,
   auraTags?: Maybe<Array<Maybe<Scalars['String']>>>,
   description?: Maybe<Scalars['String']>,
-  duration?: Maybe<Scalars['String']>,
+  totalDuration?: Maybe<Scalars['String']>,
   sampledOn?: Maybe<Scalars['String']>,
   createdOn?: Maybe<Scalars['String']>,
   updatedOn?: Maybe<Scalars['String']>,
@@ -7938,7 +7938,7 @@ export type MigraineTypeResolvers<ContextType = any, ParentType = ResolversParen
   nauseaLevel?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>,
   auraTags?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>,
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
-  duration?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  totalDuration?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   sampledOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   createdOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   updatedOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
