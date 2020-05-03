@@ -3,7 +3,7 @@ import { baseAddCollectionOptions, baseUpdateCollectionOptions, baseIncrementCol
 const collectionConf = require('../../../configs/collections.json');
 
 const options = {
-  name: 'Steins',
+  name: 'Stein',
   config: collectionConf.steins,
 }
 

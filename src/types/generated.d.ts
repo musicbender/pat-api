@@ -522,13 +522,13 @@ export type AddCbcResponse = {
 /** Return either be response data or error data for addCbc */
 export type AddCbcUnion = AddCbcResponse | AddCbcError;
 
-export type AddCollectionsError = {
-  __typename?: 'addCollectionsError',
-  errorCode?: Maybe<AddCollectionsErrorErrorCodesType>,
+export type AddCollectionError = {
+  __typename?: 'addCollectionError',
+  errorCode?: Maybe<AddCollectionErrorErrorCodesType>,
   errorDesc?: Maybe<Scalars['String']>,
 };
 
-export enum AddCollectionsErrorErrorCodesType {
+export enum AddCollectionErrorErrorCodesType {
   /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
   /** Server timeout error */
@@ -577,14 +577,14 @@ export enum AddCollectionsErrorErrorCodesType {
   IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
-/** Response data for addCollections */
-export type AddCollectionsResponse = {
-  __typename?: 'addCollectionsResponse',
+/** Response data for addCollection */
+export type AddCollectionResponse = {
+  __typename?: 'addCollectionResponse',
   response?: Maybe<CollectionType>,
 };
 
-/** Return either be response data or error data for addCollections */
-export type AddCollectionsUnion = AddCollectionsResponse | AddCollectionsError;
+/** Return either be response data or error data for addCollection */
+export type AddCollectionUnion = AddCollectionResponse | AddCollectionError;
 
 export type AddDrivingScoreError = {
   __typename?: 'addDrivingScoreError',
@@ -1418,13 +1418,13 @@ export type AddSleepAnalysisResponse = {
 /** Return either be response data or error data for addSleepAnalysis */
 export type AddSleepAnalysisUnion = AddSleepAnalysisResponse | AddSleepAnalysisError;
 
-export type AddSteinsError = {
-  __typename?: 'addSteinsError',
-  errorCode?: Maybe<AddSteinsErrorErrorCodesType>,
+export type AddSteinError = {
+  __typename?: 'addSteinError',
+  errorCode?: Maybe<AddSteinErrorErrorCodesType>,
   errorDesc?: Maybe<Scalars['String']>,
 };
 
-export enum AddSteinsErrorErrorCodesType {
+export enum AddSteinErrorErrorCodesType {
   /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
   /** Server timeout error */
@@ -1473,14 +1473,14 @@ export enum AddSteinsErrorErrorCodesType {
   IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
-/** Response data for addSteins */
-export type AddSteinsResponse = {
-  __typename?: 'addSteinsResponse',
+/** Response data for addStein */
+export type AddSteinResponse = {
+  __typename?: 'addSteinResponse',
   response?: Maybe<CollectionType>,
 };
 
-/** Return either be response data or error data for addSteins */
-export type AddSteinsUnion = AddSteinsResponse | AddSteinsError;
+/** Return either be response data or error data for addStein */
+export type AddSteinUnion = AddSteinResponse | AddSteinError;
 
 export type AddStepError = {
   __typename?: 'addStepError',
@@ -2908,13 +2908,13 @@ export type HeightResponse = {
 /** Return either be response data or error data for height */
 export type HeightUnion = HeightResponse | HeightError;
 
-export type IncrementCollectionsError = {
-  __typename?: 'incrementCollectionsError',
-  errorCode?: Maybe<IncrementCollectionsErrorErrorCodesType>,
+export type IncrementCollectionError = {
+  __typename?: 'incrementCollectionError',
+  errorCode?: Maybe<IncrementCollectionErrorErrorCodesType>,
   errorDesc?: Maybe<Scalars['String']>,
 };
 
-export enum IncrementCollectionsErrorErrorCodesType {
+export enum IncrementCollectionErrorErrorCodesType {
   /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
   /** Server timeout error */
@@ -2963,22 +2963,22 @@ export enum IncrementCollectionsErrorErrorCodesType {
   IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
-/** Response data for incrementCollections */
-export type IncrementCollectionsResponse = {
-  __typename?: 'incrementCollectionsResponse',
+/** Response data for incrementCollection */
+export type IncrementCollectionResponse = {
+  __typename?: 'incrementCollectionResponse',
   response?: Maybe<CollectionType>,
 };
 
-/** Return either be response data or error data for incrementCollections */
-export type IncrementCollectionsUnion = IncrementCollectionsResponse | IncrementCollectionsError;
+/** Return either be response data or error data for incrementCollection */
+export type IncrementCollectionUnion = IncrementCollectionResponse | IncrementCollectionError;
 
-export type IncrementSteinsError = {
-  __typename?: 'incrementSteinsError',
-  errorCode?: Maybe<IncrementSteinsErrorErrorCodesType>,
+export type IncrementSteinError = {
+  __typename?: 'incrementSteinError',
+  errorCode?: Maybe<IncrementSteinErrorErrorCodesType>,
   errorDesc?: Maybe<Scalars['String']>,
 };
 
-export enum IncrementSteinsErrorErrorCodesType {
+export enum IncrementSteinErrorErrorCodesType {
   /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
   /** Server timeout error */
@@ -3027,14 +3027,14 @@ export enum IncrementSteinsErrorErrorCodesType {
   IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
-/** Response data for incrementSteins */
-export type IncrementSteinsResponse = {
-  __typename?: 'incrementSteinsResponse',
+/** Response data for incrementStein */
+export type IncrementSteinResponse = {
+  __typename?: 'incrementSteinResponse',
   response?: Maybe<CollectionType>,
 };
 
-/** Return either be response data or error data for incrementSteins */
-export type IncrementSteinsUnion = IncrementSteinsResponse | IncrementSteinsError;
+/** Return either be response data or error data for incrementStein */
+export type IncrementSteinUnion = IncrementSteinResponse | IncrementSteinError;
 
 export type MigraineError = {
   __typename?: 'migraineError',
@@ -3242,18 +3242,18 @@ export type Mutation = {
   addRefuel?: Maybe<AddRefuelUnion>,
   /** Update a Refuel node */
   updateRefuel?: Maybe<UpdateRefuelUnion>,
-  /** Add a Collections node */
-  addCollection?: Maybe<AddCollectionsUnion>,
-  /** Update a Collections node */
-  updateCollection?: Maybe<UpdateCollectionsUnion>,
-  /** Increment a Collections node */
-  incrementCollection?: Maybe<IncrementCollectionsUnion>,
-  /** Add a Steins node */
-  addStein?: Maybe<AddSteinsUnion>,
-  /** Update a Steins node */
-  updateStein?: Maybe<UpdateSteinsUnion>,
-  /** Increment a Steins node */
-  incrementStein?: Maybe<IncrementSteinsUnion>,
+  /** Add a Collection node */
+  addCollection?: Maybe<AddCollectionUnion>,
+  /** Update a Collection node */
+  updateCollection?: Maybe<UpdateCollectionUnion>,
+  /** Increment a Collection node */
+  incrementCollection?: Maybe<IncrementCollectionUnion>,
+  /** Add a Stein node */
+  addStein?: Maybe<AddSteinUnion>,
+  /** Update a Stein node */
+  updateStein?: Maybe<UpdateSteinUnion>,
+  /** Increment a Stein node */
+  incrementStein?: Maybe<IncrementSteinUnion>,
 };
 
 
@@ -4901,13 +4901,13 @@ export type UpdateCbcResponse = {
 /** Return either be response data or error data for updateCbc */
 export type UpdateCbcUnion = UpdateCbcResponse | UpdateCbcError;
 
-export type UpdateCollectionsError = {
-  __typename?: 'updateCollectionsError',
-  errorCode?: Maybe<UpdateCollectionsErrorErrorCodesType>,
+export type UpdateCollectionError = {
+  __typename?: 'updateCollectionError',
+  errorCode?: Maybe<UpdateCollectionErrorErrorCodesType>,
   errorDesc?: Maybe<Scalars['String']>,
 };
 
-export enum UpdateCollectionsErrorErrorCodesType {
+export enum UpdateCollectionErrorErrorCodesType {
   /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
   /** Server timeout error */
@@ -4956,14 +4956,14 @@ export enum UpdateCollectionsErrorErrorCodesType {
   IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
-/** Response data for updateCollections */
-export type UpdateCollectionsResponse = {
-  __typename?: 'updateCollectionsResponse',
+/** Response data for updateCollection */
+export type UpdateCollectionResponse = {
+  __typename?: 'updateCollectionResponse',
   response?: Maybe<CollectionType>,
 };
 
-/** Return either be response data or error data for updateCollections */
-export type UpdateCollectionsUnion = UpdateCollectionsResponse | UpdateCollectionsError;
+/** Return either be response data or error data for updateCollection */
+export type UpdateCollectionUnion = UpdateCollectionResponse | UpdateCollectionError;
 
 export type UpdateDrivingScoreError = {
   __typename?: 'updateDrivingScoreError',
@@ -5733,13 +5733,13 @@ export type UpdateSleepAnalysisResponse = {
 /** Return either be response data or error data for updateSleepAnalysis */
 export type UpdateSleepAnalysisUnion = UpdateSleepAnalysisResponse | UpdateSleepAnalysisError;
 
-export type UpdateSteinsError = {
-  __typename?: 'updateSteinsError',
-  errorCode?: Maybe<UpdateSteinsErrorErrorCodesType>,
+export type UpdateSteinError = {
+  __typename?: 'updateSteinError',
+  errorCode?: Maybe<UpdateSteinErrorErrorCodesType>,
   errorDesc?: Maybe<Scalars['String']>,
 };
 
-export enum UpdateSteinsErrorErrorCodesType {
+export enum UpdateSteinErrorErrorCodesType {
   /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
   /** Server timeout error */
@@ -5788,14 +5788,14 @@ export enum UpdateSteinsErrorErrorCodesType {
   IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
-/** Response data for updateSteins */
-export type UpdateSteinsResponse = {
-  __typename?: 'updateSteinsResponse',
+/** Response data for updateStein */
+export type UpdateSteinResponse = {
+  __typename?: 'updateSteinResponse',
   response?: Maybe<CollectionType>,
 };
 
-/** Return either be response data or error data for updateSteins */
-export type UpdateSteinsUnion = UpdateSteinsResponse | UpdateSteinsError;
+/** Return either be response data or error data for updateStein */
+export type UpdateSteinUnion = UpdateSteinResponse | UpdateSteinError;
 
 export type UpdateStepError = {
   __typename?: 'updateStepError',
@@ -6856,32 +6856,32 @@ export type ResolversTypes = {
   updateRefuelError: ResolverTypeWrapper<UpdateRefuelError>,
   updateRefuelErrorErrorCodesType: UpdateRefuelErrorErrorCodesType,
   CollectionInputType: CollectionInputType,
-  addCollectionsUnion: ResolversTypes['addCollectionsResponse'] | ResolversTypes['addCollectionsError'],
-  addCollectionsResponse: ResolverTypeWrapper<AddCollectionsResponse>,
-  addCollectionsError: ResolverTypeWrapper<AddCollectionsError>,
-  addCollectionsErrorErrorCodesType: AddCollectionsErrorErrorCodesType,
+  addCollectionUnion: ResolversTypes['addCollectionResponse'] | ResolversTypes['addCollectionError'],
+  addCollectionResponse: ResolverTypeWrapper<AddCollectionResponse>,
+  addCollectionError: ResolverTypeWrapper<AddCollectionError>,
+  addCollectionErrorErrorCodesType: AddCollectionErrorErrorCodesType,
   CollectionInputUpdateType: CollectionInputUpdateType,
-  updateCollectionsUnion: ResolversTypes['updateCollectionsResponse'] | ResolversTypes['updateCollectionsError'],
-  updateCollectionsResponse: ResolverTypeWrapper<UpdateCollectionsResponse>,
-  updateCollectionsError: ResolverTypeWrapper<UpdateCollectionsError>,
-  updateCollectionsErrorErrorCodesType: UpdateCollectionsErrorErrorCodesType,
+  updateCollectionUnion: ResolversTypes['updateCollectionResponse'] | ResolversTypes['updateCollectionError'],
+  updateCollectionResponse: ResolverTypeWrapper<UpdateCollectionResponse>,
+  updateCollectionError: ResolverTypeWrapper<UpdateCollectionError>,
+  updateCollectionErrorErrorCodesType: UpdateCollectionErrorErrorCodesType,
   CollectionInputIncrementType: CollectionInputIncrementType,
-  incrementCollectionsUnion: ResolversTypes['incrementCollectionsResponse'] | ResolversTypes['incrementCollectionsError'],
-  incrementCollectionsResponse: ResolverTypeWrapper<IncrementCollectionsResponse>,
-  incrementCollectionsError: ResolverTypeWrapper<IncrementCollectionsError>,
-  incrementCollectionsErrorErrorCodesType: IncrementCollectionsErrorErrorCodesType,
-  addSteinsUnion: ResolversTypes['addSteinsResponse'] | ResolversTypes['addSteinsError'],
-  addSteinsResponse: ResolverTypeWrapper<AddSteinsResponse>,
-  addSteinsError: ResolverTypeWrapper<AddSteinsError>,
-  addSteinsErrorErrorCodesType: AddSteinsErrorErrorCodesType,
-  updateSteinsUnion: ResolversTypes['updateSteinsResponse'] | ResolversTypes['updateSteinsError'],
-  updateSteinsResponse: ResolverTypeWrapper<UpdateSteinsResponse>,
-  updateSteinsError: ResolverTypeWrapper<UpdateSteinsError>,
-  updateSteinsErrorErrorCodesType: UpdateSteinsErrorErrorCodesType,
-  incrementSteinsUnion: ResolversTypes['incrementSteinsResponse'] | ResolversTypes['incrementSteinsError'],
-  incrementSteinsResponse: ResolverTypeWrapper<IncrementSteinsResponse>,
-  incrementSteinsError: ResolverTypeWrapper<IncrementSteinsError>,
-  incrementSteinsErrorErrorCodesType: IncrementSteinsErrorErrorCodesType,
+  incrementCollectionUnion: ResolversTypes['incrementCollectionResponse'] | ResolversTypes['incrementCollectionError'],
+  incrementCollectionResponse: ResolverTypeWrapper<IncrementCollectionResponse>,
+  incrementCollectionError: ResolverTypeWrapper<IncrementCollectionError>,
+  incrementCollectionErrorErrorCodesType: IncrementCollectionErrorErrorCodesType,
+  addSteinUnion: ResolversTypes['addSteinResponse'] | ResolversTypes['addSteinError'],
+  addSteinResponse: ResolverTypeWrapper<AddSteinResponse>,
+  addSteinError: ResolverTypeWrapper<AddSteinError>,
+  addSteinErrorErrorCodesType: AddSteinErrorErrorCodesType,
+  updateSteinUnion: ResolversTypes['updateSteinResponse'] | ResolversTypes['updateSteinError'],
+  updateSteinResponse: ResolverTypeWrapper<UpdateSteinResponse>,
+  updateSteinError: ResolverTypeWrapper<UpdateSteinError>,
+  updateSteinErrorErrorCodesType: UpdateSteinErrorErrorCodesType,
+  incrementSteinUnion: ResolversTypes['incrementSteinResponse'] | ResolversTypes['incrementSteinError'],
+  incrementSteinResponse: ResolverTypeWrapper<IncrementSteinResponse>,
+  incrementSteinError: ResolverTypeWrapper<IncrementSteinError>,
+  incrementSteinErrorErrorCodesType: IncrementSteinErrorErrorCodesType,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
 };
 
@@ -7238,32 +7238,32 @@ export type ResolversParentTypes = {
   updateRefuelError: UpdateRefuelError,
   updateRefuelErrorErrorCodesType: UpdateRefuelErrorErrorCodesType,
   CollectionInputType: CollectionInputType,
-  addCollectionsUnion: ResolversTypes['addCollectionsResponse'] | ResolversTypes['addCollectionsError'],
-  addCollectionsResponse: AddCollectionsResponse,
-  addCollectionsError: AddCollectionsError,
-  addCollectionsErrorErrorCodesType: AddCollectionsErrorErrorCodesType,
+  addCollectionUnion: ResolversTypes['addCollectionResponse'] | ResolversTypes['addCollectionError'],
+  addCollectionResponse: AddCollectionResponse,
+  addCollectionError: AddCollectionError,
+  addCollectionErrorErrorCodesType: AddCollectionErrorErrorCodesType,
   CollectionInputUpdateType: CollectionInputUpdateType,
-  updateCollectionsUnion: ResolversTypes['updateCollectionsResponse'] | ResolversTypes['updateCollectionsError'],
-  updateCollectionsResponse: UpdateCollectionsResponse,
-  updateCollectionsError: UpdateCollectionsError,
-  updateCollectionsErrorErrorCodesType: UpdateCollectionsErrorErrorCodesType,
+  updateCollectionUnion: ResolversTypes['updateCollectionResponse'] | ResolversTypes['updateCollectionError'],
+  updateCollectionResponse: UpdateCollectionResponse,
+  updateCollectionError: UpdateCollectionError,
+  updateCollectionErrorErrorCodesType: UpdateCollectionErrorErrorCodesType,
   CollectionInputIncrementType: CollectionInputIncrementType,
-  incrementCollectionsUnion: ResolversTypes['incrementCollectionsResponse'] | ResolversTypes['incrementCollectionsError'],
-  incrementCollectionsResponse: IncrementCollectionsResponse,
-  incrementCollectionsError: IncrementCollectionsError,
-  incrementCollectionsErrorErrorCodesType: IncrementCollectionsErrorErrorCodesType,
-  addSteinsUnion: ResolversTypes['addSteinsResponse'] | ResolversTypes['addSteinsError'],
-  addSteinsResponse: AddSteinsResponse,
-  addSteinsError: AddSteinsError,
-  addSteinsErrorErrorCodesType: AddSteinsErrorErrorCodesType,
-  updateSteinsUnion: ResolversTypes['updateSteinsResponse'] | ResolversTypes['updateSteinsError'],
-  updateSteinsResponse: UpdateSteinsResponse,
-  updateSteinsError: UpdateSteinsError,
-  updateSteinsErrorErrorCodesType: UpdateSteinsErrorErrorCodesType,
-  incrementSteinsUnion: ResolversTypes['incrementSteinsResponse'] | ResolversTypes['incrementSteinsError'],
-  incrementSteinsResponse: IncrementSteinsResponse,
-  incrementSteinsError: IncrementSteinsError,
-  incrementSteinsErrorErrorCodesType: IncrementSteinsErrorErrorCodesType,
+  incrementCollectionUnion: ResolversTypes['incrementCollectionResponse'] | ResolversTypes['incrementCollectionError'],
+  incrementCollectionResponse: IncrementCollectionResponse,
+  incrementCollectionError: IncrementCollectionError,
+  incrementCollectionErrorErrorCodesType: IncrementCollectionErrorErrorCodesType,
+  addSteinUnion: ResolversTypes['addSteinResponse'] | ResolversTypes['addSteinError'],
+  addSteinResponse: AddSteinResponse,
+  addSteinError: AddSteinError,
+  addSteinErrorErrorCodesType: AddSteinErrorErrorCodesType,
+  updateSteinUnion: ResolversTypes['updateSteinResponse'] | ResolversTypes['updateSteinError'],
+  updateSteinResponse: UpdateSteinResponse,
+  updateSteinError: UpdateSteinError,
+  updateSteinErrorErrorCodesType: UpdateSteinErrorErrorCodesType,
+  incrementSteinUnion: ResolversTypes['incrementSteinResponse'] | ResolversTypes['incrementSteinError'],
+  incrementSteinResponse: IncrementSteinResponse,
+  incrementSteinError: IncrementSteinError,
+  incrementSteinErrorErrorCodesType: IncrementSteinErrorErrorCodesType,
   Boolean: Scalars['Boolean'],
 };
 
@@ -7371,17 +7371,17 @@ export type AddCbcUnionResolvers<ContextType = any, ParentType = ResolversParent
   __resolveType: TypeResolveFn<'addCbcResponse' | 'addCbcError', ParentType, ContextType>
 };
 
-export type AddCollectionsErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addCollectionsError']> = {
-  errorCode?: Resolver<Maybe<ResolversTypes['addCollectionsErrorErrorCodesType']>, ParentType, ContextType>,
+export type AddCollectionErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addCollectionError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addCollectionErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
 };
 
-export type AddCollectionsResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addCollectionsResponse']> = {
+export type AddCollectionResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addCollectionResponse']> = {
   response?: Resolver<Maybe<ResolversTypes['CollectionType']>, ParentType, ContextType>,
 };
 
-export type AddCollectionsUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addCollectionsUnion']> = {
-  __resolveType: TypeResolveFn<'addCollectionsResponse' | 'addCollectionsError', ParentType, ContextType>
+export type AddCollectionUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addCollectionUnion']> = {
+  __resolveType: TypeResolveFn<'addCollectionResponse' | 'addCollectionError', ParentType, ContextType>
 };
 
 export type AddDrivingScoreErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addDrivingScoreError']> = {
@@ -7553,17 +7553,17 @@ export type AddSleepAnalysisUnionResolvers<ContextType = any, ParentType = Resol
   __resolveType: TypeResolveFn<'addSleepAnalysisResponse' | 'addSleepAnalysisError', ParentType, ContextType>
 };
 
-export type AddSteinsErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addSteinsError']> = {
-  errorCode?: Resolver<Maybe<ResolversTypes['addSteinsErrorErrorCodesType']>, ParentType, ContextType>,
+export type AddSteinErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addSteinError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addSteinErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
 };
 
-export type AddSteinsResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addSteinsResponse']> = {
+export type AddSteinResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addSteinResponse']> = {
   response?: Resolver<Maybe<ResolversTypes['CollectionType']>, ParentType, ContextType>,
 };
 
-export type AddSteinsUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addSteinsUnion']> = {
-  __resolveType: TypeResolveFn<'addSteinsResponse' | 'addSteinsError', ParentType, ContextType>
+export type AddSteinUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addSteinUnion']> = {
+  __resolveType: TypeResolveFn<'addSteinResponse' | 'addSteinError', ParentType, ContextType>
 };
 
 export type AddStepErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addStepError']> = {
@@ -7896,30 +7896,30 @@ export type HeightUnionResolvers<ContextType = any, ParentType = ResolversParent
   __resolveType: TypeResolveFn<'heightResponse' | 'heightError', ParentType, ContextType>
 };
 
-export type IncrementCollectionsErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['incrementCollectionsError']> = {
-  errorCode?: Resolver<Maybe<ResolversTypes['incrementCollectionsErrorErrorCodesType']>, ParentType, ContextType>,
+export type IncrementCollectionErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['incrementCollectionError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['incrementCollectionErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
 };
 
-export type IncrementCollectionsResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['incrementCollectionsResponse']> = {
+export type IncrementCollectionResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['incrementCollectionResponse']> = {
   response?: Resolver<Maybe<ResolversTypes['CollectionType']>, ParentType, ContextType>,
 };
 
-export type IncrementCollectionsUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['incrementCollectionsUnion']> = {
-  __resolveType: TypeResolveFn<'incrementCollectionsResponse' | 'incrementCollectionsError', ParentType, ContextType>
+export type IncrementCollectionUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['incrementCollectionUnion']> = {
+  __resolveType: TypeResolveFn<'incrementCollectionResponse' | 'incrementCollectionError', ParentType, ContextType>
 };
 
-export type IncrementSteinsErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['incrementSteinsError']> = {
-  errorCode?: Resolver<Maybe<ResolversTypes['incrementSteinsErrorErrorCodesType']>, ParentType, ContextType>,
+export type IncrementSteinErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['incrementSteinError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['incrementSteinErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
 };
 
-export type IncrementSteinsResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['incrementSteinsResponse']> = {
+export type IncrementSteinResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['incrementSteinResponse']> = {
   response?: Resolver<Maybe<ResolversTypes['CollectionType']>, ParentType, ContextType>,
 };
 
-export type IncrementSteinsUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['incrementSteinsUnion']> = {
-  __resolveType: TypeResolveFn<'incrementSteinsResponse' | 'incrementSteinsError', ParentType, ContextType>
+export type IncrementSteinUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['incrementSteinUnion']> = {
+  __resolveType: TypeResolveFn<'incrementSteinResponse' | 'incrementSteinError', ParentType, ContextType>
 };
 
 export type MigraineErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['migraineError']> = {
@@ -8000,12 +8000,12 @@ export type MutationResolvers<ContextType = any, ParentType = ResolversParentTyp
   updateDrivingScore?: Resolver<Maybe<ResolversTypes['updateDrivingScoreUnion']>, ParentType, ContextType, MutationUpdateDrivingScoreArgs>,
   addRefuel?: Resolver<Maybe<ResolversTypes['addRefuelUnion']>, ParentType, ContextType, MutationAddRefuelArgs>,
   updateRefuel?: Resolver<Maybe<ResolversTypes['updateRefuelUnion']>, ParentType, ContextType, MutationUpdateRefuelArgs>,
-  addCollection?: Resolver<Maybe<ResolversTypes['addCollectionsUnion']>, ParentType, ContextType, MutationAddCollectionArgs>,
-  updateCollection?: Resolver<Maybe<ResolversTypes['updateCollectionsUnion']>, ParentType, ContextType, MutationUpdateCollectionArgs>,
-  incrementCollection?: Resolver<Maybe<ResolversTypes['incrementCollectionsUnion']>, ParentType, ContextType, MutationIncrementCollectionArgs>,
-  addStein?: Resolver<Maybe<ResolversTypes['addSteinsUnion']>, ParentType, ContextType, MutationAddSteinArgs>,
-  updateStein?: Resolver<Maybe<ResolversTypes['updateSteinsUnion']>, ParentType, ContextType, MutationUpdateSteinArgs>,
-  incrementStein?: Resolver<Maybe<ResolversTypes['incrementSteinsUnion']>, ParentType, ContextType, MutationIncrementSteinArgs>,
+  addCollection?: Resolver<Maybe<ResolversTypes['addCollectionUnion']>, ParentType, ContextType, MutationAddCollectionArgs>,
+  updateCollection?: Resolver<Maybe<ResolversTypes['updateCollectionUnion']>, ParentType, ContextType, MutationUpdateCollectionArgs>,
+  incrementCollection?: Resolver<Maybe<ResolversTypes['incrementCollectionUnion']>, ParentType, ContextType, MutationIncrementCollectionArgs>,
+  addStein?: Resolver<Maybe<ResolversTypes['addSteinUnion']>, ParentType, ContextType, MutationAddSteinArgs>,
+  updateStein?: Resolver<Maybe<ResolversTypes['updateSteinUnion']>, ParentType, ContextType, MutationUpdateSteinArgs>,
+  incrementStein?: Resolver<Maybe<ResolversTypes['incrementSteinUnion']>, ParentType, ContextType, MutationIncrementSteinArgs>,
 };
 
 export type OxygenSaturationErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['oxygenSaturationError']> = {
@@ -8267,17 +8267,17 @@ export type UpdateCbcUnionResolvers<ContextType = any, ParentType = ResolversPar
   __resolveType: TypeResolveFn<'updateCbcResponse' | 'updateCbcError', ParentType, ContextType>
 };
 
-export type UpdateCollectionsErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCollectionsError']> = {
-  errorCode?: Resolver<Maybe<ResolversTypes['updateCollectionsErrorErrorCodesType']>, ParentType, ContextType>,
+export type UpdateCollectionErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCollectionError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateCollectionErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
 };
 
-export type UpdateCollectionsResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCollectionsResponse']> = {
+export type UpdateCollectionResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCollectionResponse']> = {
   response?: Resolver<Maybe<ResolversTypes['CollectionType']>, ParentType, ContextType>,
 };
 
-export type UpdateCollectionsUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCollectionsUnion']> = {
-  __resolveType: TypeResolveFn<'updateCollectionsResponse' | 'updateCollectionsError', ParentType, ContextType>
+export type UpdateCollectionUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateCollectionUnion']> = {
+  __resolveType: TypeResolveFn<'updateCollectionResponse' | 'updateCollectionError', ParentType, ContextType>
 };
 
 export type UpdateDrivingScoreErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateDrivingScoreError']> = {
@@ -8436,17 +8436,17 @@ export type UpdateSleepAnalysisUnionResolvers<ContextType = any, ParentType = Re
   __resolveType: TypeResolveFn<'updateSleepAnalysisResponse' | 'updateSleepAnalysisError', ParentType, ContextType>
 };
 
-export type UpdateSteinsErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSteinsError']> = {
-  errorCode?: Resolver<Maybe<ResolversTypes['updateSteinsErrorErrorCodesType']>, ParentType, ContextType>,
+export type UpdateSteinErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSteinError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateSteinErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
 };
 
-export type UpdateSteinsResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSteinsResponse']> = {
+export type UpdateSteinResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSteinResponse']> = {
   response?: Resolver<Maybe<ResolversTypes['CollectionType']>, ParentType, ContextType>,
 };
 
-export type UpdateSteinsUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSteinsUnion']> = {
-  __resolveType: TypeResolveFn<'updateSteinsResponse' | 'updateSteinsError', ParentType, ContextType>
+export type UpdateSteinUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateSteinUnion']> = {
+  __resolveType: TypeResolveFn<'updateSteinResponse' | 'updateSteinError', ParentType, ContextType>
 };
 
 export type UpdateStepErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateStepError']> = {
@@ -8604,9 +8604,9 @@ export type Resolvers<ContextType = any> = {
   addCbcError?: AddCbcErrorResolvers<ContextType>,
   addCbcResponse?: AddCbcResponseResolvers<ContextType>,
   addCbcUnion?: AddCbcUnionResolvers,
-  addCollectionsError?: AddCollectionsErrorResolvers<ContextType>,
-  addCollectionsResponse?: AddCollectionsResponseResolvers<ContextType>,
-  addCollectionsUnion?: AddCollectionsUnionResolvers,
+  addCollectionError?: AddCollectionErrorResolvers<ContextType>,
+  addCollectionResponse?: AddCollectionResponseResolvers<ContextType>,
+  addCollectionUnion?: AddCollectionUnionResolvers,
   addDrivingScoreError?: AddDrivingScoreErrorResolvers<ContextType>,
   addDrivingScoreResponse?: AddDrivingScoreResponseResolvers<ContextType>,
   addDrivingScoreUnion?: AddDrivingScoreUnionResolvers,
@@ -8646,9 +8646,9 @@ export type Resolvers<ContextType = any> = {
   addSleepAnalysisError?: AddSleepAnalysisErrorResolvers<ContextType>,
   addSleepAnalysisResponse?: AddSleepAnalysisResponseResolvers<ContextType>,
   addSleepAnalysisUnion?: AddSleepAnalysisUnionResolvers,
-  addSteinsError?: AddSteinsErrorResolvers<ContextType>,
-  addSteinsResponse?: AddSteinsResponseResolvers<ContextType>,
-  addSteinsUnion?: AddSteinsUnionResolvers,
+  addSteinError?: AddSteinErrorResolvers<ContextType>,
+  addSteinResponse?: AddSteinResponseResolvers<ContextType>,
+  addSteinUnion?: AddSteinUnionResolvers,
   addStepError?: AddStepErrorResolvers<ContextType>,
   addStepResponse?: AddStepResponseResolvers<ContextType>,
   addStepUnion?: AddStepUnionResolvers,
@@ -8711,12 +8711,12 @@ export type Resolvers<ContextType = any> = {
   heightError?: HeightErrorResolvers<ContextType>,
   heightResponse?: HeightResponseResolvers<ContextType>,
   heightUnion?: HeightUnionResolvers,
-  incrementCollectionsError?: IncrementCollectionsErrorResolvers<ContextType>,
-  incrementCollectionsResponse?: IncrementCollectionsResponseResolvers<ContextType>,
-  incrementCollectionsUnion?: IncrementCollectionsUnionResolvers,
-  incrementSteinsError?: IncrementSteinsErrorResolvers<ContextType>,
-  incrementSteinsResponse?: IncrementSteinsResponseResolvers<ContextType>,
-  incrementSteinsUnion?: IncrementSteinsUnionResolvers,
+  incrementCollectionError?: IncrementCollectionErrorResolvers<ContextType>,
+  incrementCollectionResponse?: IncrementCollectionResponseResolvers<ContextType>,
+  incrementCollectionUnion?: IncrementCollectionUnionResolvers,
+  incrementSteinError?: IncrementSteinErrorResolvers<ContextType>,
+  incrementSteinResponse?: IncrementSteinResponseResolvers<ContextType>,
+  incrementSteinUnion?: IncrementSteinUnionResolvers,
   migraineError?: MigraineErrorResolvers<ContextType>,
   migraineResponse?: MigraineResponseResolvers<ContextType>,
   MigraineType?: MigraineTypeResolvers<ContextType>,
@@ -8773,9 +8773,9 @@ export type Resolvers<ContextType = any> = {
   updateCbcError?: UpdateCbcErrorResolvers<ContextType>,
   updateCbcResponse?: UpdateCbcResponseResolvers<ContextType>,
   updateCbcUnion?: UpdateCbcUnionResolvers,
-  updateCollectionsError?: UpdateCollectionsErrorResolvers<ContextType>,
-  updateCollectionsResponse?: UpdateCollectionsResponseResolvers<ContextType>,
-  updateCollectionsUnion?: UpdateCollectionsUnionResolvers,
+  updateCollectionError?: UpdateCollectionErrorResolvers<ContextType>,
+  updateCollectionResponse?: UpdateCollectionResponseResolvers<ContextType>,
+  updateCollectionUnion?: UpdateCollectionUnionResolvers,
   updateDrivingScoreError?: UpdateDrivingScoreErrorResolvers<ContextType>,
   updateDrivingScoreResponse?: UpdateDrivingScoreResponseResolvers<ContextType>,
   updateDrivingScoreUnion?: UpdateDrivingScoreUnionResolvers,
@@ -8812,9 +8812,9 @@ export type Resolvers<ContextType = any> = {
   updateSleepAnalysisError?: UpdateSleepAnalysisErrorResolvers<ContextType>,
   updateSleepAnalysisResponse?: UpdateSleepAnalysisResponseResolvers<ContextType>,
   updateSleepAnalysisUnion?: UpdateSleepAnalysisUnionResolvers,
-  updateSteinsError?: UpdateSteinsErrorResolvers<ContextType>,
-  updateSteinsResponse?: UpdateSteinsResponseResolvers<ContextType>,
-  updateSteinsUnion?: UpdateSteinsUnionResolvers,
+  updateSteinError?: UpdateSteinErrorResolvers<ContextType>,
+  updateSteinResponse?: UpdateSteinResponseResolvers<ContextType>,
+  updateSteinUnion?: UpdateSteinUnionResolvers,
   updateStepError?: UpdateStepErrorResolvers<ContextType>,
   updateStepResponse?: UpdateStepResponseResolvers<ContextType>,
   updateStepUnion?: UpdateStepUnionResolvers,

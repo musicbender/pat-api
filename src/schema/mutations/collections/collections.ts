@@ -3,7 +3,7 @@ import { baseAddCollectionOptions, baseUpdateCollectionOptions, baseIncrementCol
 const collectionConf = require('../../../configs/collections.json');
 
 const options = {
-  name: 'Collections',
+  name: 'Collection',
   config: collectionConf.collections,
 }
 

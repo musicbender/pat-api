@@ -1,7 +1,7 @@
-export const addCollections = `
-  mutation AddCollection ($input: CollectionInputType!) {
-    addCollection(input: $input){
-      ... on addCollectionResponse {
+export const addSteins = `
+  mutation AddStein ($input: CollectionInputType!) {
+    addStein(input: $input){
+      ... on addSteinResponse {
           response {
             id
             shortId
@@ -12,7 +12,7 @@ export const addCollections = `
             sampledOn
           }
       }
-      ... on addCollectionsError {
+      ... on addSteinError {
         errorCode
         errorDesc
       }
@@ -20,10 +20,10 @@ export const addCollections = `
   }
 `;
 
-export const updateCollections = `
-  mutation UpdateCollection ($input: CollectionInputUpdateType!, $id: ID!) {
-    updateCollection(input: $input, id: $id) {
-      ... on updateCollectionResponse {
+export const updateSteins = `
+  mutation UpdateStein ($input: CollectionInputUpdateType!, $id: ID!) {
+    updateStein(input: $input, id: $id) {
+      ... on updateSteinResponse {
           response {
             id
             shortId
@@ -34,7 +34,7 @@ export const updateCollections = `
             sampledOn
           }
       }
-      ... on updateCollectionError {
+      ... on updateSteinError {
         errorCode
         errorDesc
       }
@@ -42,10 +42,10 @@ export const updateCollections = `
   }
 `;
 
-export const incrementCollections = `
-  mutation IncrementCollection ($input: CollectionInputIncrementType!, $id: ID!) {
-    incrementCollection(input: $input, id: $id) {
-      ... on incrementCollectionResponse {
+export const incrementSteins = `
+  mutation IncrementStein ($input: CollectionInputIncrementType!, $id: ID!) {
+    incrementStein(input: $input, id: $id) {
+      ... on incrementSteinResponse {
           response {
             id
             shortId
@@ -56,7 +56,7 @@ export const incrementCollections = `
             sampledOn
           }
       }
-      ... on incrementCollectionError {
+      ... on incrementSteinError {
         errorCode
         errorDesc
       }
