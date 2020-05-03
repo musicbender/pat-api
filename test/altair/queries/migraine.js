@@ -1,7 +1,7 @@
 export const getMigraine = `  
   query GetMigraine ($id: String, $date: Date) {
     migraine(id: $id, date: $date) {
-        ... on anxietyResponse {
+        ... on migraineResponse {
           response {
             id
             painLevel
@@ -15,7 +15,7 @@ export const getMigraine = `
             updatedOn
           }
         }
-      ... on anxietyError {
+      ... on migraineError {
         errorCode
         errorDesc
       }
