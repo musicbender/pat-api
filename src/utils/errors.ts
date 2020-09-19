@@ -8,8 +8,9 @@ export class ExpectedError extends Error {
 
   constructor(message: string, desc?: string) {
     super(message);
+    console.log("error", message, errors[message]);
     this.message = errors.hasOwnProperty(message) ? message : 'INTERNAL_ERROR';
-    this.desc = desc || errors[message].description || errors.INTERNAL_ERROR.description;
+    this.desc = desc || errors[this.message].description || errors.INTERNAL_ERROR.description;
     this.name = this.constructor.name;
   }
 }

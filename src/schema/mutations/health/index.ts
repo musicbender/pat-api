@@ -1,3 +1,4 @@
+export * from './activity';
 export * from './weight';
 export * from './height';
 export * from './body-temperature';

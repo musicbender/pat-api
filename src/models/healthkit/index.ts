@@ -12,7 +12,7 @@ import SwimmingDistance from './swimming-distance.model';
 import WalkingHeartRateAverage from './walking-heartrate.model';
 import WalkingRunningDistance from './walking-running-distance.model';
 
-export default {
+export default { 
   [healthTypes.steps.modelID]: Step,
   [healthTypes.flightsClimbed.modelID]: FlightsClimbed,
   [healthTypes.heartRate.modelID]: HeartRate,

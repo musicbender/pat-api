@@ -1,4 +1,11 @@
 {
+  "activity": {
+    "id": "activity",
+    "modelID": "Activity",
+    "unit": "kcal",
+    "interval": "day",
+    "disabled": false
+  },
   "weight": {
     "id": "weight",
     "modelID": "Weight",

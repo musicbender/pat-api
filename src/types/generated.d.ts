@@ -74,6 +74,135 @@ export type ActiveEnergyResponse = {
 /** Return either be response data or error data for activeEnergy */
 export type ActiveEnergyUnion = ActiveEnergyResponse | ActiveEnergyError;
 
+export type ActivityError = {
+  __typename?: 'activityError',
+  errorCode?: Maybe<ActivityErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum ActivityErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Car type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
+}
+
+/** Fitness activity input */
+export type ActivityInputType = {
+  sampledOn?: Maybe<Scalars['String']>,
+  energy?: Maybe<Scalars['Float']>,
+  energyUnit?: Maybe<Scalars['Float']>,
+  energyGoal?: Maybe<Scalars['Float']>,
+  energyProgress?: Maybe<Scalars['Float']>,
+  energyComplete?: Maybe<Scalars['Boolean']>,
+  standHours?: Maybe<Scalars['Float']>,
+  standProgress?: Maybe<Scalars['Float']>,
+  standGoal?: Maybe<Scalars['Float']>,
+  standComplete?: Maybe<Scalars['Boolean']>,
+  exerciseMinutes?: Maybe<Scalars['Float']>,
+  exerciseGoal?: Maybe<Scalars['Float']>,
+  exerciseProgress?: Maybe<Scalars['Float']>,
+  exerciseComplete?: Maybe<Scalars['Boolean']>,
+  ringsProgress?: Maybe<Scalars['Float']>,
+  ringsComplete?: Maybe<Scalars['Boolean']>,
+};
+
+/** Fitness activity update input */
+export type ActivityInputUpdateType = {
+  sampledOn?: Maybe<Scalars['String']>,
+  updatedOn?: Maybe<Scalars['String']>,
+  energy?: Maybe<Scalars['Float']>,
+  energyUnit?: Maybe<Scalars['Float']>,
+  energyGoal?: Maybe<Scalars['Float']>,
+  energyProgress?: Maybe<Scalars['Float']>,
+  energyComplete?: Maybe<Scalars['Boolean']>,
+  standHours?: Maybe<Scalars['Float']>,
+  standProgress?: Maybe<Scalars['Float']>,
+  standGoal?: Maybe<Scalars['Float']>,
+  standComplete?: Maybe<Scalars['Boolean']>,
+  exerciseMinutes?: Maybe<Scalars['Float']>,
+  exerciseGoal?: Maybe<Scalars['Float']>,
+  exerciseProgress?: Maybe<Scalars['Float']>,
+  exerciseComplete?: Maybe<Scalars['Boolean']>,
+  ringsProgress?: Maybe<Scalars['Float']>,
+  ringsComplete?: Maybe<Scalars['Boolean']>,
+};
+
+/** Response data for activity */
+export type ActivityResponse = {
+  __typename?: 'activityResponse',
+  response?: Maybe<ActivityType>,
+};
+
+/** Fitness activity sample */
+export type ActivityType = {
+  __typename?: 'ActivityType',
+  id?: Maybe<Scalars['String']>,
+  sampledOn?: Maybe<Scalars['String']>,
+  createdOn?: Maybe<Scalars['String']>,
+  updatedOn?: Maybe<Scalars['String']>,
+  energy?: Maybe<Scalars['Float']>,
+  energyUnit?: Maybe<Scalars['Float']>,
+  energyGoal?: Maybe<Scalars['Float']>,
+  energyProgress?: Maybe<Scalars['Float']>,
+  energyComplete?: Maybe<Scalars['Boolean']>,
+  standHours?: Maybe<Scalars['Float']>,
+  standProgress?: Maybe<Scalars['Float']>,
+  standGoal?: Maybe<Scalars['Float']>,
+  standComplete?: Maybe<Scalars['Boolean']>,
+  exerciseMinutes?: Maybe<Scalars['Float']>,
+  exerciseGoal?: Maybe<Scalars['Float']>,
+  exerciseProgress?: Maybe<Scalars['Float']>,
+  exerciseComplete?: Maybe<Scalars['Boolean']>,
+  ringsProgress?: Maybe<Scalars['Float']>,
+  ringsComplete?: Maybe<Scalars['Boolean']>,
+};
+
+/** Return either be response data or error data for activity */
+export type ActivityUnion = ActivityResponse | ActivityError;
+
 export type AddActiveEnergyError = {
   __typename?: 'addActiveEnergyError',
   errorCode?: Maybe<AddActiveEnergyErrorErrorCodesType>,
@@ -137,6 +266,70 @@ export type AddActiveEnergyResponse = {
 
 /** Return either be response data or error data for addActiveEnergy */
 export type AddActiveEnergyUnion = AddActiveEnergyResponse | AddActiveEnergyError;
+
+export type AddActivityError = {
+  __typename?: 'addActivityError',
+  errorCode?: Maybe<AddActivityErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum AddActivityErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Car type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
+}
+
+/** Response data for addActivity */
+export type AddActivityResponse = {
+  __typename?: 'addActivityResponse',
+  response?: Maybe<ActivityType>,
+};
+
+/** Return either be response data or error data for addActivity */
+export type AddActivityUnion = AddActivityResponse | AddActivityError;
 
 export type AddAnxietyError = {
   __typename?: 'addAnxietyError',
@@ -3190,6 +3383,10 @@ export type Mutation = {
   addWalkingRunningDistance?: Maybe<AddWalkingRunningDistanceUnion>,
   /** Update a WalkingRunningDistance node */
   updateWalkingRunningDistance?: Maybe<UpdateWalkingRunningDistanceUnion>,
+  /** Add a Activity node */
+  addActivity?: Maybe<AddActivityUnion>,
+  /** Update a Activity node */
+  updateActivity?: Maybe<UpdateActivityUnion>,
   /** Add a Weight node */
   addWeight?: Maybe<AddWeightUnion>,
   /** Update a Weight node */
@@ -3391,6 +3588,17 @@ export type MutationAddWalkingRunningDistanceArgs = {
 export type MutationUpdateWalkingRunningDistanceArgs = {
   id: Scalars['ID'],
   input: HealthKitInputUpdateType
+};
+
+
+export type MutationAddActivityArgs = {
+  input: ActivityInputType
+};
+
+
+export type MutationUpdateActivityArgs = {
+  id: Scalars['ID'],
+  input: ActivityInputUpdateType
 };
 
 
@@ -3992,6 +4200,8 @@ export type RootQueryType = {
   anxiety?: Maybe<AnxietyUnion>,
   /** Get a single migraine entry by either _id or date, _id taking priority */
   migraine?: Maybe<MigraineUnion>,
+  /** Get a single activity entry by either _id or date, _id taking priority */
+  activity?: Maybe<ActivityUnion>,
   /** Get a single AverageMPG entry by either _id or date, _id taking priority */
   averageMPG?: Maybe<AverageMpgUnion>,
   /** Get a single DrivingScore entry by either _id or date, _id taking priority */
@@ -4132,6 +4342,12 @@ export type RootQueryTypeAnxietyArgs = {
 
 
 export type RootQueryTypeMigraineArgs = {
+  id?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>
+};
+
+
+export type RootQueryTypeActivityArgs = {
   id?: Maybe<Scalars['String']>,
   date?: Maybe<Scalars['Date']>
 };
@@ -4516,6 +4732,70 @@ export type UpdateActiveEnergyResponse = {
 
 /** Return either be response data or error data for updateActiveEnergy */
 export type UpdateActiveEnergyUnion = UpdateActiveEnergyResponse | UpdateActiveEnergyError;
+
+export type UpdateActivityError = {
+  __typename?: 'updateActivityError',
+  errorCode?: Maybe<UpdateActivityErrorErrorCodesType>,
+  errorDesc?: Maybe<Scalars['String']>,
+};
+
+export enum UpdateActivityErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Car type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car average mpg item */
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
+}
+
+/** Response data for updateActivity */
+export type UpdateActivityResponse = {
+  __typename?: 'updateActivityResponse',
+  response?: Maybe<ActivityType>,
+};
+
+/** Return either be response data or error data for updateActivity */
+export type UpdateActivityUnion = UpdateActivityResponse | UpdateActivityError;
 
 export type UpdateAnxietyError = {
   __typename?: 'updateAnxietyError',
@@ -6605,6 +6885,12 @@ export type ResolversTypes = {
   Int: ResolverTypeWrapper<Scalars['Int']>,
   migraineError: ResolverTypeWrapper<MigraineError>,
   migraineErrorErrorCodesType: MigraineErrorErrorCodesType,
+  activityUnion: ResolversTypes['activityResponse'] | ResolversTypes['activityError'],
+  activityResponse: ResolverTypeWrapper<ActivityResponse>,
+  ActivityType: ResolverTypeWrapper<ActivityType>,
+  Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
+  activityError: ResolverTypeWrapper<ActivityError>,
+  activityErrorErrorCodesType: ActivityErrorErrorCodesType,
   AverageMPGUnion: ResolversTypes['AverageMPGResponse'] | ResolversTypes['AverageMPGError'],
   AverageMPGResponse: ResolverTypeWrapper<AverageMpgResponse>,
   AverageMPGType: ResolverTypeWrapper<AverageMpgType>,
@@ -6735,6 +7021,16 @@ export type ResolversTypes = {
   updateWalkingRunningDistanceResponse: ResolverTypeWrapper<UpdateWalkingRunningDistanceResponse>,
   updateWalkingRunningDistanceError: ResolverTypeWrapper<UpdateWalkingRunningDistanceError>,
   updateWalkingRunningDistanceErrorErrorCodesType: UpdateWalkingRunningDistanceErrorErrorCodesType,
+  ActivityInputType: ActivityInputType,
+  addActivityUnion: ResolversTypes['addActivityResponse'] | ResolversTypes['addActivityError'],
+  addActivityResponse: ResolverTypeWrapper<AddActivityResponse>,
+  addActivityError: ResolverTypeWrapper<AddActivityError>,
+  addActivityErrorErrorCodesType: AddActivityErrorErrorCodesType,
+  ActivityInputUpdateType: ActivityInputUpdateType,
+  updateActivityUnion: ResolversTypes['updateActivityResponse'] | ResolversTypes['updateActivityError'],
+  updateActivityResponse: ResolverTypeWrapper<UpdateActivityResponse>,
+  updateActivityError: ResolverTypeWrapper<UpdateActivityError>,
+  updateActivityErrorErrorCodesType: UpdateActivityErrorErrorCodesType,
   HealthInputType: HealthInputType,
   addWeightUnion: ResolversTypes['addWeightResponse'] | ResolversTypes['addWeightError'],
   addWeightResponse: ResolverTypeWrapper<AddWeightResponse>,
@@ -6882,7 +7178,6 @@ export type ResolversTypes = {
   incrementSteinResponse: ResolverTypeWrapper<IncrementSteinResponse>,
   incrementSteinError: ResolverTypeWrapper<IncrementSteinError>,
   incrementSteinErrorErrorCodesType: IncrementSteinErrorErrorCodesType,
-  Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
 };
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -6987,6 +7282,12 @@ export type ResolversParentTypes = {
   Int: Scalars['Int'],
   migraineError: MigraineError,
   migraineErrorErrorCodesType: MigraineErrorErrorCodesType,
+  activityUnion: ResolversTypes['activityResponse'] | ResolversTypes['activityError'],
+  activityResponse: ActivityResponse,
+  ActivityType: ActivityType,
+  Boolean: Scalars['Boolean'],
+  activityError: ActivityError,
+  activityErrorErrorCodesType: ActivityErrorErrorCodesType,
   AverageMPGUnion: ResolversTypes['AverageMPGResponse'] | ResolversTypes['AverageMPGError'],
   AverageMPGResponse: AverageMpgResponse,
   AverageMPGType: AverageMpgType,
@@ -7117,6 +7418,16 @@ export type ResolversParentTypes = {
   updateWalkingRunningDistanceResponse: UpdateWalkingRunningDistanceResponse,
   updateWalkingRunningDistanceError: UpdateWalkingRunningDistanceError,
   updateWalkingRunningDistanceErrorErrorCodesType: UpdateWalkingRunningDistanceErrorErrorCodesType,
+  ActivityInputType: ActivityInputType,
+  addActivityUnion: ResolversTypes['addActivityResponse'] | ResolversTypes['addActivityError'],
+  addActivityResponse: AddActivityResponse,
+  addActivityError: AddActivityError,
+  addActivityErrorErrorCodesType: AddActivityErrorErrorCodesType,
+  ActivityInputUpdateType: ActivityInputUpdateType,
+  updateActivityUnion: ResolversTypes['updateActivityResponse'] | ResolversTypes['updateActivityError'],
+  updateActivityResponse: UpdateActivityResponse,
+  updateActivityError: UpdateActivityError,
+  updateActivityErrorErrorCodesType: UpdateActivityErrorErrorCodesType,
   HealthInputType: HealthInputType,
   addWeightUnion: ResolversTypes['addWeightResponse'] | ResolversTypes['addWeightError'],
   addWeightResponse: AddWeightResponse,
@@ -7264,7 +7575,6 @@ export type ResolversParentTypes = {
   incrementSteinResponse: IncrementSteinResponse,
   incrementSteinError: IncrementSteinError,
   incrementSteinErrorErrorCodesType: IncrementSteinErrorErrorCodesType,
-  Boolean: Scalars['Boolean'],
 };
 
 export type ActiveEnergyErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['activeEnergyError']> = {
@@ -7280,6 +7590,41 @@ export type ActiveEnergyUnionResolvers<ContextType = any, ParentType = Resolvers
   __resolveType: TypeResolveFn<'activeEnergyResponse' | 'activeEnergyError', ParentType, ContextType>
 };
 
+export type ActivityErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['activityError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['activityErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type ActivityResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['activityResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['ActivityType']>, ParentType, ContextType>,
+};
+
+export type ActivityTypeResolvers<ContextType = any, ParentType = ResolversParentTypes['ActivityType']> = {
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  sampledOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  createdOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  updatedOn?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  energy?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  energyUnit?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  energyGoal?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  energyProgress?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  energyComplete?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>,
+  standHours?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  standProgress?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  standGoal?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  standComplete?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>,
+  exerciseMinutes?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  exerciseGoal?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  exerciseProgress?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  exerciseComplete?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>,
+  ringsProgress?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>,
+  ringsComplete?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>,
+};
+
+export type ActivityUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['activityUnion']> = {
+  __resolveType: TypeResolveFn<'activityResponse' | 'activityError', ParentType, ContextType>
+};
+
 export type AddActiveEnergyErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addActiveEnergyError']> = {
   errorCode?: Resolver<Maybe<ResolversTypes['addActiveEnergyErrorErrorCodesType']>, ParentType, ContextType>,
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
@@ -7291,6 +7636,19 @@ export type AddActiveEnergyResponseResolvers<ContextType = any, ParentType = Res
 
 export type AddActiveEnergyUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addActiveEnergyUnion']> = {
   __resolveType: TypeResolveFn<'addActiveEnergyResponse' | 'addActiveEnergyError', ParentType, ContextType>
+};
+
+export type AddActivityErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addActivityError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['addActivityErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type AddActivityResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['addActivityResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['ActivityType']>, ParentType, ContextType>,
+};
+
+export type AddActivityUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['addActivityUnion']> = {
+  __resolveType: TypeResolveFn<'addActivityResponse' | 'addActivityError', ParentType, ContextType>
 };
 
 export type AddAnxietyErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['addAnxietyError']> = {
@@ -7974,6 +8332,8 @@ export type MutationResolvers<ContextType = any, ParentType = ResolversParentTyp
   updateWalkingHeartRateAverage?: Resolver<Maybe<ResolversTypes['updateWalkingHeartRateAverageUnion']>, ParentType, ContextType, MutationUpdateWalkingHeartRateAverageArgs>,
   addWalkingRunningDistance?: Resolver<Maybe<ResolversTypes['addWalkingRunningDistanceUnion']>, ParentType, ContextType, MutationAddWalkingRunningDistanceArgs>,
   updateWalkingRunningDistance?: Resolver<Maybe<ResolversTypes['updateWalkingRunningDistanceUnion']>, ParentType, ContextType, MutationUpdateWalkingRunningDistanceArgs>,
+  addActivity?: Resolver<Maybe<ResolversTypes['addActivityUnion']>, ParentType, ContextType, MutationAddActivityArgs>,
+  updateActivity?: Resolver<Maybe<ResolversTypes['updateActivityUnion']>, ParentType, ContextType, MutationUpdateActivityArgs>,
   addWeight?: Resolver<Maybe<ResolversTypes['addWeightUnion']>, ParentType, ContextType, MutationAddWeightArgs>,
   updateWeight?: Resolver<Maybe<ResolversTypes['updateWeightUnion']>, ParentType, ContextType, MutationUpdateWeightArgs>,
   addHeight?: Resolver<Maybe<ResolversTypes['addHeightUnion']>, ParentType, ContextType, MutationAddHeightArgs>,
@@ -8117,6 +8477,7 @@ export type RootQueryTypeResolvers<ContextType = any, ParentType = ResolversPare
   bloodPressure?: Resolver<Maybe<ResolversTypes['bloodPressureUnion']>, ParentType, ContextType, RootQueryTypeBloodPressureArgs>,
   anxiety?: Resolver<Maybe<ResolversTypes['anxietyUnion']>, ParentType, ContextType, RootQueryTypeAnxietyArgs>,
   migraine?: Resolver<Maybe<ResolversTypes['migraineUnion']>, ParentType, ContextType, RootQueryTypeMigraineArgs>,
+  activity?: Resolver<Maybe<ResolversTypes['activityUnion']>, ParentType, ContextType, RootQueryTypeActivityArgs>,
   averageMPG?: Resolver<Maybe<ResolversTypes['AverageMPGUnion']>, ParentType, ContextType, RootQueryTypeAverageMpgArgs>,
   drivingScore?: Resolver<Maybe<ResolversTypes['DrivingScoreUnion']>, ParentType, ContextType, RootQueryTypeDrivingScoreArgs>,
   refuel?: Resolver<Maybe<ResolversTypes['RefuelUnion']>, ParentType, ContextType, RootQueryTypeRefuelArgs>,
@@ -8187,6 +8548,19 @@ export type UpdateActiveEnergyResponseResolvers<ContextType = any, ParentType = 
 
 export type UpdateActiveEnergyUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateActiveEnergyUnion']> = {
   __resolveType: TypeResolveFn<'updateActiveEnergyResponse' | 'updateActiveEnergyError', ParentType, ContextType>
+};
+
+export type UpdateActivityErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateActivityError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['updateActivityErrorErrorCodesType']>, ParentType, ContextType>,
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+};
+
+export type UpdateActivityResponseResolvers<ContextType = any, ParentType = ResolversParentTypes['updateActivityResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['ActivityType']>, ParentType, ContextType>,
+};
+
+export type UpdateActivityUnionResolvers<ContextType = any, ParentType = ResolversParentTypes['updateActivityUnion']> = {
+  __resolveType: TypeResolveFn<'updateActivityResponse' | 'updateActivityError', ParentType, ContextType>
 };
 
 export type UpdateAnxietyErrorResolvers<ContextType = any, ParentType = ResolversParentTypes['updateAnxietyError']> = {
@@ -8583,9 +8957,16 @@ export type Resolvers<ContextType = any> = {
   activeEnergyError?: ActiveEnergyErrorResolvers<ContextType>,
   activeEnergyResponse?: ActiveEnergyResponseResolvers<ContextType>,
   activeEnergyUnion?: ActiveEnergyUnionResolvers,
+  activityError?: ActivityErrorResolvers<ContextType>,
+  activityResponse?: ActivityResponseResolvers<ContextType>,
+  ActivityType?: ActivityTypeResolvers<ContextType>,
+  activityUnion?: ActivityUnionResolvers,
   addActiveEnergyError?: AddActiveEnergyErrorResolvers<ContextType>,
   addActiveEnergyResponse?: AddActiveEnergyResponseResolvers<ContextType>,
   addActiveEnergyUnion?: AddActiveEnergyUnionResolvers,
+  addActivityError?: AddActivityErrorResolvers<ContextType>,
+  addActivityResponse?: AddActivityResponseResolvers<ContextType>,
+  addActivityUnion?: AddActivityUnionResolvers,
   addAnxietyError?: AddAnxietyErrorResolvers<ContextType>,
   addAnxietyResponse?: AddAnxietyResponseResolvers<ContextType>,
   addAnxietyUnion?: AddAnxietyUnionResolvers,
@@ -8755,6 +9136,9 @@ export type Resolvers<ContextType = any> = {
   updateActiveEnergyError?: UpdateActiveEnergyErrorResolvers<ContextType>,
   updateActiveEnergyResponse?: UpdateActiveEnergyResponseResolvers<ContextType>,
   updateActiveEnergyUnion?: UpdateActiveEnergyUnionResolvers,
+  updateActivityError?: UpdateActivityErrorResolvers<ContextType>,
+  updateActivityResponse?: UpdateActivityResponseResolvers<ContextType>,
+  updateActivityUnion?: UpdateActivityUnionResolvers,
   updateAnxietyError?: UpdateAnxietyErrorResolvers<ContextType>,
   updateAnxietyResponse?: UpdateAnxietyResponseResolvers<ContextType>,
   updateAnxietyUnion?: UpdateAnxietyUnionResolvers,

@@ -1,3 +1,4 @@
+export * from './activity-type';
 export * from './healthkit-type';
 export * from './health-type';
 export * from './average-mpg-type';

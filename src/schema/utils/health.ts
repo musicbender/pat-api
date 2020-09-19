@@ -8,7 +8,7 @@ import {
 export const baseAddHealthOptions = {
   type: HealthType,
   inputType: HealthInputType,
-  controller: addHealthItem,
+  controller: addHealthItem, 
 }
 
 export const baseUpdateHealthOptions = {

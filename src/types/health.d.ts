@@ -11,6 +11,7 @@ import {
   MigraineInputType,
   MigraineInputUpdateType,
  } from '.';
+import { ActivityType, ActivityInputType, ActivityInputUpdateType } from './generated';
 
 // types
 export type HealthConfigType = {
@@ -23,7 +24,7 @@ export type HealthConfigType = {
 
 export type HealthQueryOptions = {
   type: string, 
-  name?: string,
+  name?: string, 
   description?: string,
 }
 
@@ -39,8 +40,8 @@ export type HealthUpdateOptions = {
   description?: string
 }
 
-export type HealthTypes = HealthType | BloodPressureType | MigraineType;
+export type HealthTypes = HealthType | BloodPressureType | MigraineType | ActivityType;
 
-export type HealthInputTypes = HealthInputType | BloodPressureInputType | MigraineInputType;
+export type HealthInputTypes = HealthInputType | BloodPressureInputType | MigraineInputType | ActivityInputType;
 
-export type HealthInputUpdateTypes = HealthInputUpdateType | BloodPressureInputUpdateType | MigraineInputUpdateType;
+export type HealthInputUpdateTypes = HealthInputUpdateType | BloodPressureInputUpdateType | MigraineInputUpdateType | ActivityInputUpdateType;
