@@ -33,9 +33,11 @@ export const addHealthKitItem = async (input: HealthKitInputType, config: Health
   }
 
   let data: HealthKitType = aggregateHealthData(input, config);
-  
+  const currentDate: string = moment().toISOString();
+
   data.id = uuid();
-  data.createdOn = moment().toISOString();
+  data.createdOn = currentDate;
+  data.updatedOn = currentDate;
 
   // do not create row if there is no value or type is disabled
   if (data.value === null) {
@@ -63,6 +65,8 @@ export const replaceHealthKitItem = async (id: string, input: HealthKitInputType
   }
 
   const data: HealthKitType = aggregateHealthData(input, config);
+  data.updatedOn = moment().toISOString();
+  
   const HealthItem = models[config.modelID];
 
   try {

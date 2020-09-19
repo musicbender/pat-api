@@ -12,11 +12,14 @@ export const addCollectionItem = async (input: CollectionInputType, config: Coll
   // if type has been disabled in config
   if (config.disabled) throw new ExpectedError('DISABLED_COLLECTION_TYPE');
 
+  const currentDate: string = moment().toISOString();
+
   let data: CollectionType = {
     ...input,
     id: uuid(),
     shortId: shortid.generate(),
-    createdOn: moment().toISOString(),
+    createdOn: currentDate,
+    updatedOn: currentDate,
   };
 
   const item = models[config.modelID];

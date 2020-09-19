@@ -22,11 +22,14 @@ export const addHealthItem = async (input: HealthInputTypes, config: HealthConfi
     if (dupeItem) return replaceHealthItem(id, input, config);
   }
 
+  const currentDate: string = moment().toISOString();
+
   let data: HealthTypes = {
     ...input,
     id: uuid(),
     unit: config.unit,
-    createdOn: moment().toISOString(),
+    createdOn: currentDate,
+    updatedOn: currentDate,
   };
 
   const HealthItem = models[config.modelID];
@@ -43,7 +46,7 @@ export const addHealthItem = async (input: HealthInputTypes, config: HealthConfi
 export const replaceHealthItem = async (id: string, input: HealthInputTypes, config: HealthConfigType): Promise<Model> => {
   if (config.disabled) throw new ExpectedError('DISABLED_HEALTH_TYPE');
 
-  const data: HealthTypes = input;
+  const data: HealthTypes = { ...input, updatedOn: moment().toISOString() };
   const HealthItem = models[config.modelID];
 
   try {

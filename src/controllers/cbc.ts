@@ -34,6 +34,7 @@ export const addCbcItem = async (input: CbcInputType): Promise<CbcType> => {
     ...input,
     id: uuid(),
     createdOn: currentDate,
+    updatedOn: currentDate,
     plateletsId: plateletId,
     platelets: {
       id: plateletId,

@@ -10,10 +10,13 @@ export const addCarItem = async (input: CarInputType, config: CarConfigType): Pr
   // if type has been disabled in config
   if (config.disabled) throw new ExpectedError('DISABLED_CAR_TYPE');
 
+  const currentDate: string = moment().toISOString();
+
   let data: CarType = {
     ...input,
     id: uuid(),
-    createdOn: moment().toISOString(),
+    createdOn: currentDate,
+    updatedOn: currentDate,
   };
 
   const item = models[config.modelID];
