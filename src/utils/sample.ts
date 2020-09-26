@@ -18,11 +18,11 @@ export const isWithinInterval = (interval: moment.unitOfTime.StartOf, date: stri
     return moment(date1).isSame(moment(date2), 'day');
 }
 
-export const getValidSources = (validSources: string[], overrideSources?: string[]): string[] => {
-    return overrideSources && overrideSources.length > 0
-        ? overrideSources
-        : validSources && overrideSources.length > 0
+export const getValidSources = (validSources: string[], defaultSources?: string[]): string[] => {
+    return validSources && validSources.length > 0
         ? validSources
+        : defaultSources && defaultSources.length > 0
+        ? defaultSources
         : ["*"];
 }
 
