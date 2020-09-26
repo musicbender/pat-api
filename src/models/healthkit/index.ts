@@ -11,6 +11,7 @@ import SleepAnalysis from './sleep-analysis.model';
 import SwimmingDistance from './swimming-distance.model';
 import WalkingHeartRateAverage from './walking-heartrate.model';
 import WalkingRunningDistance from './walking-running-distance.model';
+import OxygenSaturation from './oxygen-saturation.model';
 
 export default { 
   [healthTypes.steps.modelID]: Step,
@@ -25,4 +26,5 @@ export default {
   [healthTypes.swimmingDistance.modelID]: SwimmingDistance,
   [healthTypes.walkingHeartRateAverage.modelID]: WalkingHeartRateAverage,
   [healthTypes.walkingRunningDistance.modelID]: WalkingRunningDistance,
+  [healthTypes.oxygenSaturation.modelID]: OxygenSaturation,
 }

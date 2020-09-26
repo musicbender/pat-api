@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import { HealthType, HealthKitType, HealthKitInputType, HealthKitInputSampleType, UnitType } from '../types/generated';
+import { HealthKitInputType, HealthKitInputSampleType, UnitType } from '../types/generated';
 
 // enums
 export enum FindOutterValuesTypes {
@@ -8,6 +8,8 @@ export enum FindOutterValuesTypes {
 }
 
 // types
+export type ValidSources = "*" | "pat-iphone" | "pat-apple-watch" | "Shortcuts" | "Blood Oxygen";
+
 export type SampleType = {
   date?: Date,
   source?: string
@@ -21,7 +23,7 @@ export type HealthKitConfigType = {
   healthkitID?: string,
   modelID: string,
   interval?: moment.unitOfTime.StartOf,
-  defaultValidSource?: string,
+  defaultValidSources?: ValidSources[],
   valueType: string,
   defaultUnit: UnitType,
   disabled?: boolean

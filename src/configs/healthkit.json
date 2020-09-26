@@ -5,7 +5,7 @@
       "healthkitID": "Steps",
       "modelID": "Step",
       "interval": "day",
-      "defaultValidSource": "pat-apple-watch",
+      "defaultValidSources": ["pat-apple-watch"],
       "valueType": "totalSampleValue",
       "defaultUnit": "count",
       "disabled": false
@@ -15,7 +15,7 @@
       "healthkitID": "Caffeine",
       "modelID": "Caffeine",
       "interval": "day",
-      "defaultValidSource": "*",
+      "defaultValidSources": ["*"],
       "valueType": "totalSampleValue",
       "defaultUnit": "mg",
       "disabled": false
@@ -25,7 +25,7 @@
       "healthkitID": "Flights Climbed",
       "modelID": "FlightsClimbed",
       "interval": "day",
-      "defaultValidSource": "pat-iphone",
+      "defaultValidSources": ["pat-iphone"],
       "valueType": "totalSampleValue",
       "defaultUnit": "count",
       "disabled": false
@@ -35,7 +35,7 @@
       "healthkitID": "Heart Rate",
       "modelID": "HeartRate",
       "interval": "day",
-      "defaultValidSource": "pat-apple-watch",
+      "defaultValidSources": ["pat-apple-watch"],
       "valueType": "averageSampleValue",
       "defaultUnit": "bpm",
       "disabled": false
@@ -45,7 +45,7 @@
       "healthkitID": "Heart Rate Variability",
       "modelID": "HeartRateVariability",
       "interval": "day",
-      "defaultValidSource": "pat-apple-watch",
+      "defaultValidSources": ["pat-apple-watch"],
       "valueType": "averageSampleValue",
       "defaultUnit": "ms",
       "disabled": false
@@ -55,27 +55,27 @@
       "healthkitID": "Mindful Minutes",
       "modelID": "MindfulMinutes",
       "interval": "day",
-      "defaultValidSource": "pat-apple-watch",
+      "defaultValidSources": ["pat-apple-watch"],
       "valueType": "totalSampleValue",
       "defaultUnit": "min",
       "disabled": true
     },
-    "exerciseMinutes": {
-      "id": "exercise-minutes",
-      "healthkitID": "Exercise Minutes",
-      "modelID": "ExerciseMinutes",
+    "oxygenSaturation": {
+      "id": "oxygen-saturation",
+      "healthkitID": "Oxygen Saturation",
+      "modelID": "OxygenSaturation",
       "interval": "day",
-      "defaultValidSource": "pat-apple-watch",
-      "valueType": "totalSampleValue",
-      "defaultUnit": "min",
-      "disabled": true
+      "valueType": "averageSampleValue",
+      "defaultValidSources":["pat-apple-watch", "Blood Oxygen"],
+      "defaultUnit": "%",
+      "disabled": false
     },
     "restingHeartRate": {
       "id": "resting-heartrate",
       "healthkitID": "Resting Heart Rate",
       "modelID": "RestingHeartRate",
       "interval": "day",
-      "defaultValidSource": "pat-apple-watch",
+      "defaultValidSources": ["pat-apple-watch"],
       "valueType": "averageSampleValue",
       "defaultUnit": "bpm",
       "disabled": false
@@ -85,7 +85,7 @@
       "healthkitID": "Sleep Analysis",
       "modelID": "SleepAnalysis",
       "interval": "day",
-      "defaultValidSource": "pat-apple-watch",
+      "defaultValidSources": ["pat-apple-watch"],
       "valueType": "totalSampleValue",
       "defaultUnit": "hrs",
       "disabled": true
@@ -95,7 +95,7 @@
       "healthkitID": "Swimming Distance",
       "modelID": "SwimmingDistance",
       "interval": "day",
-      "defaultValidSource": "pat-apple-watch",
+      "defaultValidSources": ["pat-apple-watch"],
       "valueType": "totalSampleValue",
       "defaultUnit": "ft",
       "disabled": false
@@ -105,7 +105,7 @@
       "healthkitID": "Walking Heart Rate Average",
       "modelID": "WalkingHeartRateAverage",
       "interval": "day",
-      "defaultValidSource": "pat-apple-watch",
+      "defaultValidSources": ["pat-apple-watch"],
       "valueType": "averageSampleValue",
       "defaultUnit": "bpm",
       "disabled": false
@@ -114,7 +114,7 @@
       "id": "active-energy",
       "healthkitID": "Active Calories",
       "modelID": "ActiveEnergy",
-      "defaultValidSource": "pat-apple-watch",
+      "defaultValidSources": ["pat-apple-watch"],
       "interval": "day",
       "valueType": "totalSampleValue",
       "defaultUnit": "kcal",
@@ -124,7 +124,7 @@
       "id": "resting-energy",
       "healthkitID": "Resting Calories",
       "modelID": "RestingEnergy",
-      "defaultValidSource": "pat-apple-watch",
+      "defaultValidSources": ["pat-apple-watch"],
       "interval": "day",
       "valueType": "totalSampleValue",
       "defaultUnit": "kcal",
@@ -134,7 +134,7 @@
       "id": "walking-running-distance",
       "healthkitID": "Walking + Running Distance",
       "modelID": "WalkingRunningDistance",
-      "defaultValidSource": "pat-apple-watch",
+      "defaultValidSources": ["pat-apple-watch"],
       "interval": "day",
       "valueType": "totalSampleValue",
       "defaultUnit": "mi",

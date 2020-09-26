@@ -132,21 +132,21 @@ describe('sample.ts', () => {
             {
                 assert: [
                     null,
-                    'pat-iphone'
+                    ['pat-iphone']
                 ],
                 expected: ['pat-iphone']
             },
             {
                 assert: [
                     null,
-                    'pat-apple-watch'
+                    ['pat-apple-watch']
                 ],
                 expected: ['pat-apple-watch']
             },
             {
                 assert: [
                     ['pat-iphone'],
-                    'pat-apple-watch'
+                    ['pat-apple-watch']
                 ],
                 expected: ['pat-iphone']
             },
@@ -166,17 +166,10 @@ describe('sample.ts', () => {
             },
             {
                 assert: [
-                    ['none'],
-                    null
-                ],
-                expected: null
-            },
-            {
-                assert: [
                     null,
-                    'none'
+                    []
                 ],
-                expected: null
+                expected: ['*']
             }
         ];
 

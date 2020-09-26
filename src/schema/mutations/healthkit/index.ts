@@ -11,3 +11,4 @@ export * from './sleep-analysis';
 export * from './swimming-distance';
 export * from './walking-heartrate-average';
 export * from './walking-running-distance';
+export * from './oxygen-saturation';

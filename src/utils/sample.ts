@@ -18,19 +18,11 @@ export const isWithinInterval = (interval: moment.unitOfTime.StartOf, date: stri
     return moment(date1).isSame(moment(date2), 'day');
 }
 
-export const getValidSources = (validSources: string[], defaultValidSource: string): string[] => {
-    if (validSources && validSources.indexOf('none') > -1) {
-        return null;
-    }
-
-    if (!validSources && defaultValidSource === 'none') {
-        return null;
-    }
-
-    return validSources && validSources.length > 0
-        ? [ ...validSources ]
-        : defaultValidSource
-        ? [defaultValidSource]
+export const getValidSources = (validSources: string[], overrideSources?: string[]): string[] => {
+    return overrideSources && overrideSources.length > 0
+        ? overrideSources
+        : validSources && overrideSources.length > 0
+        ? validSources
         : ["*"];
 }
 
@@ -104,7 +96,7 @@ export const reduceSampleData = (
   config: HealthKitConfigType
 ): HealthKitType => {
   let output: HealthKitType = initialOutput;
-  const validSources: string[] = getValidSources(input.validSources, config.defaultValidSource);
+  const validSources: string[] = getValidSources(input.validSources, config.defaultValidSources);
   let valueArr: number[] = [];
   
   samples.forEach((sample: HealthKitInputSampleType) => {

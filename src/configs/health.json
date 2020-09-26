@@ -30,12 +30,6 @@
     "unit": "mmHg",
     "disabled": false
   },
-  "oxygenSaturation": {
-    "id": "oxygen-saturation",
-    "modelID": "OxygenSaturation",
-    "unit": "%",
-    "disabled": false
-  },
   "bodyTemperature": {
     "id": "body-temperature",
     "modelID": "BodyTemperature",
