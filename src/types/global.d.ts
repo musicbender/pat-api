@@ -1,4 +1,5 @@
 import { GraphQLObjectType, GraphQLInputObjectType } from 'graphql';
+import { OrderItem } from 'sequelize/types';
 
 export type ComposeQueryOptions = {
   type: GraphQLObjectType,
@@ -14,6 +15,15 @@ export type ComposeMutationOptions = {
   description?: string,
   config?: any,
   controller?: any,
+}
+
+export type QueryAllOptions = {
+  limit?: number,
+  offset?: number,
+  after?: string,
+  before?: string,
+  sortBy?: OrderItem,
+  dateBy?: string,
 }
 
 export type WhereDb = {

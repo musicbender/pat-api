@@ -1,6 +1,6 @@
 import * as GraphQLDate from 'graphql-date';
-import { GraphQLID, GraphQLString, GraphQLNonNull, GraphQLInt } from 'graphql';
-import { findItemById, findItemByDate } from '../../controllers/global';
+import { GraphQLID, GraphQLString, GraphQLNonNull, GraphQLInt, GraphQLDirective, GraphQLBoolean, GraphQLList } from 'graphql';
+import { findItemById, findItemByDate, findAllItems } from '../../controllers/global';
 import { ExpectedError } from '../../utils/errors';
 import { ComposeQueryOptions, ComposeMutationOptions } from '../../types';
 import { ResponseUnionType } from '../types';
@@ -36,6 +36,50 @@ export const composeQuery = (options: ComposeQueryOptions) => {
           response = await findItemByDate(args.date, modelID);
         }
         
+        return { response };
+      } catch (err) {
+        throw err;
+      }
+    }
+  }
+}
+
+export const composeQueryAll = (options: ComposeQueryOptions) => {
+  const name = (options.name || options.type.name);
+  const queryName = `${name}All`;
+  const description = `Get a multiple ${name} entries`;
+  return {
+    queryName,
+    type: ResponseUnionType({
+      queryName,
+      responseType: new GraphQLList(options.type),
+    }),
+    description: options.description || description || `${name} query for all`,
+    args: {
+      limit: {
+        type: GraphQLInt 
+      },
+      offset: {
+        type: GraphQLInt 
+      },
+      after: {
+        type: GraphQLDate 
+      },
+      before: {
+        type: GraphQLDate 
+      },
+      sortBy: {
+        type: new GraphQLList(GraphQLString) 
+      },
+      dateBy: {
+        type: GraphQLString 
+      },
+    },
+    async resolve(parentValue, args) {
+      const modelID = options.modelID || options.name;
+
+      try {
+        const response =  await findAllItems(args, modelID);
         return { response };
       } catch (err) {
         throw err;
