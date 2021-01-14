@@ -45,16 +45,16 @@ export const composeQuery = (options: ComposeQueryOptions) => {
 }
 
 export const composeQueryAll = (options: ComposeQueryOptions) => {
-  const name = (options.name || options.type.name);
-  const queryName = `${name}All`;
-  const description = `Get a multiple ${name} entries`;
+  const id = (options.name || options.type.name);
+  const name = `${id}All`;
+  const description = `Get a multiple ${id} entries`;
   return {
-    queryName,
+    name,
     type: ResponseUnionType({
-      queryName,
+      name,
       responseType: new GraphQLList(options.type),
     }),
-    description: options.description || description || `${name} query for all`,
+    description: options.description || description || `${id} query for all`,
     args: {
       limit: {
         type: GraphQLInt 

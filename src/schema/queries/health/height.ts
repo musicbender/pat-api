@@ -1,9 +1,12 @@
-import { composeQuery } from '../../utils/global';
+import { composeQuery, composeQueryAll } from '../../utils/global';
 import { HealthType } from '../../types';
 const healthTypes = require('../../../configs/health.json');
 
-export const height = composeQuery({
+const options = {
   type: HealthType,
   name: 'height',
   modelID: healthTypes.height.modelID,
-});
+};
+
+export const height = composeQuery(options);
+export const heightAll = composeQueryAll(options);

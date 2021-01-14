@@ -2,7 +2,6 @@ import * as uuid from 'uuid';
 import * as moment from 'moment';
 import { CbcType, CbcInputType, CbcInputUpdateType, HealthConfigType } from '../types';
 import models from '../models';
-import { Model } from 'sequelize-typescript';
 import { ExpectedError } from '../utils/errors';
 import { findItemById, findItemByDate } from './global';
 const healthConfig = require('../configs/health.json');
@@ -55,7 +54,7 @@ export const addCbcItem = async (input: CbcInputType): Promise<CbcType> => {
   }
 }
 
-export const updateCbcItem = async (id: string, input: any): Promise<CbcType> => {
+export const updateCbcItem = async (id: string, input: CbcInputUpdateType): Promise<CbcType> => {
   if (healthConfig.cbc.disabled) throw new ExpectedError('DISABLED_CBC_TYPE');
 
   const item = models[healthConfig.cbc.modelID];

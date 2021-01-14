@@ -34,11 +34,11 @@ export const findAllItems = (options: QueryAllOptions, modelID: string): Promise
     const dateBy: string = options.dateBy || 'sampledOn';
     let dateOptions = {};
 
-    if (options.after) {
+    if (options.after && moment(options.after).isValid()) {
       dateOptions = { ...dateOptions, [Op.gte]: moment(options.after).toDate() };
     }
 
-    if (options.before) {
+    if (options.before && moment(options.before).isValid()) {
       dateOptions = { ...dateOptions, [Op.lte]: moment(options.before).toDate() };
     }
 

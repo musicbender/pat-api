@@ -26,4 +26,3 @@ services:
       POSTGRES_USER: postgres 
       POSTGRES_PASSWORD: 5NMMqWwQcipc1iCiQ8Dqh
       
-      

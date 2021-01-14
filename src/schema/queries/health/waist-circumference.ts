@@ -1,9 +1,12 @@
-import { composeQuery } from '../../utils/global';
+import { composeQuery, composeQueryAll } from '../../utils/global';
 import { HealthType } from '../../types';
 const healthTypes = require('../../../configs/health.json');
 
-export const waistCircumference = composeQuery({
+const options = {
   type: HealthType,
   name: 'waistCircumference',
   modelID: healthTypes.waistCircumference.modelID,
-});
+};
+
+export const waistCircumference = composeQuery(options);
+export const waistCircumferenceAll = composeQueryAll(options);

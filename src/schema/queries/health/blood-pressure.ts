@@ -1,9 +1,12 @@
-import { composeQuery } from '../../utils/global';
+import { composeQuery, composeQueryAll } from '../../utils/global';
 import { BloodPressureType } from '../../types';
 const healthTypes = require('../../../configs/health.json');
 
-export const bloodPressure = composeQuery({
+const options = {
   type: BloodPressureType,
   name: 'bloodPressure',
   modelID: healthTypes.bloodPressure.modelID,
-});
+};
+
+export const bloodPressure = composeQuery(options);
+export const bloodPressureAll = composeQueryAll(options);
