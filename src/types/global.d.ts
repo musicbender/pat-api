@@ -6,6 +6,7 @@ export type ComposeQueryOptions = {
   name?: string,
   modelID?: string,
   description?: string,
+  findInclude?: string,
 }
 
 export type ComposeMutationOptions = {

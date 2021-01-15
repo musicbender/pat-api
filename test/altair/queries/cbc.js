@@ -32,6 +32,48 @@ export const addCbc = `
   }
 `;
 
+export const getCbcAll = `
+  query GetCbcAll ($limit: Int) {
+    cbcAll (limit: $limit) {
+        ... on cbcAllResponse {
+          response {
+            id
+            sampledOn
+            createdOn
+            updatedOn
+            wbcCount
+            rbcCount
+            hematrocrit
+            hgb
+            mvc
+            mch
+            mchc
+            redCellDistributionWidth
+            meanPlateletVolume
+            granulocytes
+            lymphocytes
+            monocytes
+            neutrophil
+            lymphocytePercent
+            monocytePercent
+            plateletsId
+            platelets {
+              id
+              value
+              unit
+              sampledOn
+              cbcId
+            }
+          }
+        }
+      ... on cbcAllError {
+        errorCode
+        errorDesc
+      }
+    }
+  }
+`;
+
 export const updateCbc = `
   mutation UpdateCbc($id: ID!, $input: CbcInputUpdateType!) {
     updateCbc(id: $id, input: $input){

@@ -31,9 +31,9 @@ export const composeQuery = (options: ComposeQueryOptions) => {
 
       try {
         if (args.id) {
-          response = await findItemById(args.id, modelID);
+          response = await findItemById(args.id, modelID, options.findInclude);
         } else if (args.date) {
-          response = await findItemByDate(args.date, modelID);
+          response = await findItemByDate(args.date, modelID, options.findInclude);
         }
         
         return { response };
@@ -79,7 +79,7 @@ export const composeQueryAll = (options: ComposeQueryOptions) => {
       const modelID = options.modelID || options.name;
 
       try {
-        const response =  await findAllItems(args, modelID);
+        const response =  await findAllItems(args, modelID, options.findInclude);
         return { response };
       } catch (err) {
         throw err;

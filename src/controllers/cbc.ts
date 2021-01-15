@@ -1,26 +1,9 @@
 import * as uuid from 'uuid';
 import * as moment from 'moment';
-import { CbcType, CbcInputType, CbcInputUpdateType, HealthConfigType } from '../types';
+import { CbcType, CbcInputType, CbcInputUpdateType } from '../types';
 import models from '../models';
 import { ExpectedError } from '../utils/errors';
-import { findItemById, findItemByDate } from './global';
 const healthConfig = require('../configs/health.json');
-
-export const getCbcItem = async (id?: string, date?: Date): Promise<CbcType> => {
-  const modelID = 'Cbc';
-  let response;
-
-  if (id) {
-    response = await findItemById(id, modelID);
-  } else if (date) {
-    response = await findItemByDate(date, modelID);
-  }
-
-  const platelets = await models[healthConfig.platelets.modelID].findOne({ where: { id: response.plateletsId } });
-  response.platelets = platelets;
-
-  return response
-}
 
 export const addCbcItem = async (input: CbcInputType): Promise<CbcType> => {
   // if type has been disabled in config
