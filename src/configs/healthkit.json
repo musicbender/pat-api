@@ -139,6 +139,26 @@
       "valueType": "totalSampleValue",
       "defaultUnit": "mi",
       "disabled": false
+    },
+    "systolicBloodPressure": {
+      "id": "systolic-blood-pressure",
+      "healthkitID": "Systolic Blood Pressure",
+      "modelID": "BloodPressure",
+      "defaultValidSources": ["pat-apple-watch", "Health Mate"],
+      "interval": "day",
+      "valueType": "averageSampleValue",
+      "defaultUnit": "mmHg",
+      "disabled": false
+    },
+    "diastolicBloodPressure": {
+      "id": "diastolic-blood-pressure",
+      "healthkitID": "Diastolic Blood Pressure",
+      "modelID": "BloodPressure",
+      "defaultValidSources": ["pat-apple-watch", "Health Mate"],
+      "interval": "day",
+      "valueType": "averageSampleValue",
+      "defaultUnit": "mmHg",
+      "disabled": false
     }
   }
 }

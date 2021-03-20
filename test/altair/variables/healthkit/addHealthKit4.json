@@ -1,0 +1,78 @@
+{
+  "input": [
+    {
+      "type": "Steps",
+      "unit": "count",
+      "sampledOn": "2021-03-14T17:32:46+0000",
+      "sampleList": [
+        {
+          "date": "2021-03-14T17:32:46+0000",
+          "value": "82",
+          "source": "pat-apple-watch",
+          "duration": "5:49"
+        },
+        {
+          "date": "2021-03-14T17:32:46+0000",
+          "value": "82",
+          "source": "pat-apple-watch",
+          "duration": "20"
+        },
+        {
+          "date": "2021-03-14T17:32:46+0000",
+          "value": "200",
+          "source": "pat-apple-watch",
+          "duration": "1:12"
+        }
+      ]
+    },
+    {
+      "type": "Flights Climbed",
+      "unit": "count",
+      "sampledOn": "2021-03-14T17:32:46+0000",
+      "sampleList": [
+        {
+          "date": "2021-03-14T17:32:46+0000",
+          "value": "1",
+          "source": "pat-iphone",
+          "duration": "2"
+        },
+        {
+          "date": "2021-03-14T17:32:46+0000",
+          "value": "3",
+          "source": "pat-iphone",
+          "duration": "20"
+        },
+        {
+          "date": "2021-03-14T17:32:46+0000",
+          "value": "1",
+          "source": "pat-iphone",
+          "duration": "12"
+        }
+      ]
+    },
+    {
+      "type": "Systolic Blood Pressure",
+      "unit": "mmHg",
+      "sampledOn": "2021-03-14T17:32:46+0000",
+      "sampleList": [
+        {
+          "date": "2021-03-14T17:32:46+0000",
+          "source": "Health Mate",
+          "value": "115"
+        }
+      ]
+    },
+    {
+      "type": "Diastolic Blood Pressure",
+      "unit": "mmHg",
+      "sampledOn": "2021-03-14T17:32:46+0000",
+      "sampleList": [
+        {
+          "date": "2021-03-14T17:32:46+0000",
+          "source": "Health Mate",
+          "value": "70"
+        }
+      ]
+    }
+  ]
+}

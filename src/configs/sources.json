@@ -10,5 +10,8 @@
   },
   "BLOOD_OXYGEN": {
     "id": "Blood Oxygen"
+  },
+  "HEALTH_MATE": {
+    "id": "Health Mate"
   }
 }

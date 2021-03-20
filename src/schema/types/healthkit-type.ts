@@ -1,11 +1,13 @@
 import {
   GraphQLObjectType,
   GraphQLInputObjectType,
+  GraphQLUnionType,
   GraphQLFloat,
   GraphQLList,
   GraphQLString,
   GraphQLNonNull
 } from 'graphql';
+import { BloodPressureType } from './blood-pressure-type';
 import { UnitType } from './unit-type';
 
 export const HealthKitInputSampleType = new GraphQLInputObjectType({
@@ -69,3 +71,15 @@ export const HealthKitType = new GraphQLObjectType({
     totalDuration: { type: GraphQLString }
   })
 });
+
+export const HealthKitUnionType = new GraphQLUnionType({
+    name: 'HealthKitUnionType',
+    description: `Return either HealthKittype item or Blood Pressure item`,
+    types: [ HealthKitType, BloodPressureType ],
+    resolveType: (value) => {
+      console.log(value);
+      if (value.systolic || value.dystolic) return 'BloodPressureType';
+      return 'HealthKitType';
+    }
+});
+
