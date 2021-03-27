@@ -5,7 +5,7 @@ const healthTypes = require('../../../configs/health.json');
 const options = {
   type: HealthType,
   name: 'height',
-  modelID: healthTypes.height.modelID,
+  config: healthTypes.height,
 };
 
 export const height = composeQuery(options);

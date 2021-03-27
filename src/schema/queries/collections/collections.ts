@@ -5,6 +5,7 @@ const collectionConf = require('../../../configs/collections.json');
 const options = {
   name: collectionConf.collections.modelID, 
   type: CollectionType, 
+  config: collectionConf.collections,
 };
 
 export const collections = composeQuery(options);

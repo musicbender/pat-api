@@ -1,10 +1,14 @@
 import { GraphQLObjectType, GraphQLInputObjectType } from 'graphql';
 import { OrderItem } from 'sequelize/types';
+import { CarConfigType } from './car';
+import { CollectionConfigType } from './collection';
+import { HealthConfigType } from './health';
+import { HealthKitConfigType } from './healthkit';
 
 export type ComposeQueryOptions = {
   type: GraphQLObjectType,
   name?: string,
-  modelID?: string,
+  config?: AnyConfig,
   description?: string,
   findInclude?: string,
 }
@@ -14,7 +18,7 @@ export type ComposeMutationOptions = {
   inputType?: GraphQLInputObjectType
   name?: string,
   description?: string,
-  config?: any,
+  config?: AnyConfig,
   controller?: any,
 }
 
@@ -32,6 +36,8 @@ export type WhereDb = {
 }
 
 export type DateInterval = 'hour' | 'day' | 'week' | 'month' | 'year';
+
+export type AnyConfig = HealthKitConfigType | HealthConfigType | CarConfigType | CollectionConfigType;
 
 export type DatabaseConfigOptions = {
   externalAccess?: boolean

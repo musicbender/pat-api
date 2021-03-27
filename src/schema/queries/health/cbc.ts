@@ -5,7 +5,7 @@ const healthTypes = require('../../../configs/health.json');
 const options = {
   type: CbcType,
   name: 'cbc',
-  modelID: healthTypes.cbc.modelID,
+  config: healthTypes.cbc,
   findInclude: healthTypes.platelets.modelID,
 };
 

@@ -5,6 +5,7 @@ import {
   GraphQLString
 } from 'graphql';
 import { UnitType } from './unit-type';
+import { globalTypeFields } from '../utils/global';
 
 export const HealthInputType = new GraphQLInputObjectType({
   name: 'HealthInputType',
@@ -30,11 +31,8 @@ export const HealthType = new GraphQLObjectType({
   name: 'HealthType',
   description: 'Health data',
   fields: () => ({
-    id: { type: GraphQLString },
+    ...globalTypeFields,
     value: { type: GraphQLFloat },
-    sampledOn: { type: GraphQLString },
-    createdOn: { type: GraphQLString },
-    updatedOn: { type: GraphQLString },
-    unit: { type: UnitType }
+    unit: { type: UnitType },
   })
 });

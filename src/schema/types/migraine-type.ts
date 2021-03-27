@@ -5,6 +5,7 @@ import {
   GraphQLString,
   GraphQLList
 } from 'graphql';
+import { globalTypeFields } from '../utils/global';
 
 export const MigraineInputType = new GraphQLInputObjectType({
   name: 'MigraineInputType',
@@ -39,16 +40,13 @@ export const MigraineType = new GraphQLObjectType({
   name: 'MigraineType',
   description: 'Migraine data',
   fields: () => ({
-    id: { type: GraphQLString },
+    ...globalTypeFields,
     painLevel: { type: GraphQLInt },
     auraLevel: { type: GraphQLInt },
     nauseaLevel: { type: GraphQLInt },
     auraTags: { type: new GraphQLList(GraphQLString) },
     description: { type: GraphQLString },
     totalDuration: { type: GraphQLString },
-    sampledOn: { type: GraphQLString },
-    createdOn: { type: GraphQLString },
-    updatedOn: { type: GraphQLString },
   })
 });
 

@@ -38,5 +38,6 @@ export const AverageMPGType = new GraphQLObjectType({
     sampledOn: { type: GraphQLString },
     createdOn: { type: GraphQLString },
     updatedOn: { type: GraphQLString },
+    configID: { type: GraphQLString },
   })
 });

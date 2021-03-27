@@ -1,3 +1,4 @@
+import { globalTypeFields } from '../utils/global';
 import {
   GraphQLObjectType,
   GraphQLInputObjectType,
@@ -57,10 +58,7 @@ export const ActivityType = new GraphQLObjectType({
   name: 'ActivityType',
   description: 'Fitness activity sample',
   fields: () => ({
-    id: { type: GraphQLString },
-    sampledOn: { type: GraphQLString },
-    createdOn: { type: GraphQLString },
-    updatedOn: { type: GraphQLString },
+    ...globalTypeFields,
     energy: { type: GraphQLFloat },
     energyUnit: { type: GraphQLString },
     energyGoal: { type: GraphQLFloat },

@@ -5,7 +5,7 @@ const healthTypes = require('../../../configs/health.json');
 const options = {
   type: HealthType,
   name: 'waistCircumference',
-  modelID: healthTypes.waistCircumference.modelID,
+  config: healthTypes.waistCircumference,
 };
 
 export const waistCircumference = composeQuery(options);

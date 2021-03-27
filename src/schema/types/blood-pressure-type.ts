@@ -5,6 +5,7 @@ import {
   GraphQLString
 } from 'graphql';
 import { UnitType } from './unit-type';
+import { globalTypeFields } from '../utils/global';
 
 export const BloodPressureInputType = new GraphQLInputObjectType({
   name: 'BloodPressureInputType',
@@ -32,13 +33,10 @@ export const BloodPressureType = new GraphQLObjectType({
   name: 'BloodPressureType',
   description: 'BloodPressure data',
   fields: () => ({
-    id: { type: GraphQLString },
+    ...globalTypeFields,
     systolic: { type: GraphQLFloat },
     diastolic: { type: GraphQLFloat },
-    sampledOn: { type: GraphQLString },
-    createdOn: { type: GraphQLString },
-    updatedOn: { type: GraphQLString },
-    unit: { type: UnitType }
+    unit: { type: UnitType },
   })
 });
 

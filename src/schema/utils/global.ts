@@ -2,8 +2,23 @@ import * as GraphQLDate from 'graphql-date';
 import { GraphQLID, GraphQLString, GraphQLNonNull, GraphQLInt, GraphQLDirective, GraphQLBoolean, GraphQLList } from 'graphql';
 import { findItemById, findItemByDate, findAllItems } from '../../controllers/global';
 import { ExpectedError } from '../../utils/errors';
-import { ComposeQueryOptions, ComposeMutationOptions } from '../../types';
+import { ComposeQueryOptions, ComposeMutationOptions, AnyConfig } from '../../types';
 import { ResponseUnionType } from '../types';
+
+export const appendResponse = (resData: Object, config: AnyConfig) => {
+  return { 
+    ...resData, 
+    configID: config.id,
+  };
+}
+
+export const globalTypeFields = {
+    id: { type: GraphQLString },
+    sampledOn: { type: GraphQLString },
+    createdOn: { type: GraphQLString },
+    updatedOn: { type: GraphQLString },
+    configID: { type: GraphQLString },
+}
 
 export const composeQuery = (options: ComposeQueryOptions) => {
   const name = options.name || options.type.name;
@@ -26,7 +41,7 @@ export const composeQuery = (options: ComposeQueryOptions) => {
     async resolve(parentValue, args) {
       if (!args.id && !args.date) throw new ExpectedError('INVALID_ARGUMENTS');
 
-      const modelID = options.modelID || options.name;
+      const modelID = options.config.modelID || options.name;
       let response;
 
       try {
@@ -36,7 +51,7 @@ export const composeQuery = (options: ComposeQueryOptions) => {
           response = await findItemByDate(args.date, modelID, options.findInclude);
         }
         
-        return { response };
+        return { response: appendResponse(response, options.config) };
       } catch (err) {
         throw err;
       }
@@ -76,11 +91,11 @@ export const composeQueryAll = (options: ComposeQueryOptions) => {
       },
     },
     async resolve(parentValue, args) {
-      const modelID = options.modelID || options.name;
+      const modelID = options.config.modelID || options.name;
 
       try {
         const response =  await findAllItems(args, modelID, options.findInclude);
-        return { response };
+        return { response: appendResponse(response, options.config) };
       } catch (err) {
         throw err;
       }
@@ -105,9 +120,9 @@ export const composeAddMutation = (options: ComposeMutationOptions) => {
     async resolve(parentValue, { input }) {
       try {
         const response = await options.controller(input, options.config || {});
-        return { response };
+        return { response: appendResponse(response, options.config)}; 
       } catch (err) {
-        throw err;
+        throw err; 
       }
     }
   }
@@ -133,7 +148,7 @@ export const composeUpdateMutation = (options: ComposeMutationOptions) => {
     async resolve(parentValue, { id, input }) {
       try {
         const response = await options.controller(id, input, options.config || {});
-        return { response };
+        return { response: appendResponse(response, options.config) };
       } catch (err) {
         throw err;
       }
@@ -161,7 +176,7 @@ export const composeIncrementMutation = (options: ComposeMutationOptions) => {
     async resolve(parentValue, { id, input }) {
       try {
         const response = await options.controller(id, input, options.config || {});
-        return { response };
+        return { response: appendResponse(response, options.config) };
       } catch (err) {
         throw err;
       }

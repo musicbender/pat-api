@@ -17,6 +17,7 @@ export const addCarItem = async (input: CarInputType, config: CarConfigType): Pr
     id: uuid(),
     createdOn: currentDate,
     updatedOn: currentDate,
+    configID: config.id,
   };
 
   const item = models[config.modelID];

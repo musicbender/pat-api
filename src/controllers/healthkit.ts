@@ -6,6 +6,7 @@ import { findItemByDate } from './global';
 import { addHealthItem } from './health';
 import models from '../models';
 import { Model } from 'sequelize-typescript';
+import { appendResponse } from '../schema/utils/global';
 const { healthTypes } = require('../configs/healthkit.json');
 const healthConfig = require('../configs/health.json');
 
@@ -17,7 +18,8 @@ import {
   BloodPressureType,
   HealthKitTypeWithItemType,
   HealthkitInputAndConfig,
-  HealthTypes
+  HealthTypes,
+  HealthType,
 } from '../types';
 
 // add health item
@@ -155,7 +157,8 @@ const addHealthkitBloodPressure = async (healthItems: HealthkitInputAndConfig[])
     return result;
   }, {});
 
-  return addHealthItem(output, bpConfig);
+  const addResult: Model & HealthType = await addHealthItem(output, bpConfig) as Model & HealthType;
+  return appendResponse(addResult.get(), bpConfig);
 }
 
 export const addHealthKitItems = async (inputs: HealthKitInputType[]) => {
@@ -175,13 +178,14 @@ export const addHealthKitItems = async (inputs: HealthKitInputType[]) => {
       bloodPressuremItems = [ ...bloodPressuremItems, { input, config } ];
     } else {
       const newItem = await addHealthKitItem(input, config);
-      healthkitItems = [ ...healthkitItems, newItem ];
+      healthkitItems = [ ...healthkitItems, appendResponse(newItem, config) ];
     }
   }));
 
+  const bloodPressureOutput = await addHealthkitBloodPressure(bloodPressuremItems);
   const output = [
     ...healthkitItems,
-    await addHealthkitBloodPressure(bloodPressuremItems)
+    bloodPressureOutput,
   ];
 
   return { response: output };

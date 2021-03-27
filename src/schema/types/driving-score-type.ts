@@ -6,6 +6,7 @@ import {
   GraphQLNonNull
 } from 'graphql';
 import { VehicleType } from './vehicles-type';
+import { globalTypeFields } from '../utils/global';
 
 export const DrivingScoreInputType = new GraphQLInputObjectType({
   name: 'DrivingScoreInputType',
@@ -38,14 +39,11 @@ export const DrivingScoreType = new GraphQLObjectType({
   name: 'DrivingScoreType',
   description: 'Driving score sample for car',
   fields: () => ({
-    id: { type: GraphQLString },
+    ...globalTypeFields,
     accelerationScore: { type: GraphQLInt },
     coastingScore: { type: GraphQLInt },
     breakingScore: { type: GraphQLInt },
     totalScore: { type: GraphQLInt },
     vehicle: { type: VehicleType },
-    sampledOn: { type: GraphQLString },
-    createdOn: { type: GraphQLString },
-    updatedOn: { type: GraphQLString },
   })
 });

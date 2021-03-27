@@ -5,7 +5,7 @@ const healthTypes = require('../../../configs/health.json');
 const options = {
   type: HealthType,
   name: 'bodyTemperature',
-  modelID: healthTypes.bodyTemperature.modelID,
+  config: healthTypes.bodyTemperature,
 };
 
 export const bodyTemperature = composeQuery(options);

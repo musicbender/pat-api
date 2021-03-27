@@ -31,7 +31,7 @@ export const addCbcItem = async (input: CbcInputType): Promise<CbcType> => {
 
   try {
     const res: any = await item.create(data, { include: models[healthConfig.platelets.modelID] });
-    return res.dataValues;
+    return { ...res.dataValues, configID: healthConfig.platelets.id };
   } catch (err) {
     throw new ExpectedError('ADD_CBC_ERROR');
   }

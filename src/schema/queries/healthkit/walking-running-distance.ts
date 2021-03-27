@@ -5,7 +5,7 @@ const { healthTypes } = require('../../../configs/healthkit.json');
 const options = {
   type: HealthKitType,
   name: 'walkingRunningDistance',
-  modelID: healthTypes.walkingRunningDistance.modelID,
+  config: healthTypes.walkingRunningDistance,
 };
 
 export const walkingRunningDistance = composeQuery(options);

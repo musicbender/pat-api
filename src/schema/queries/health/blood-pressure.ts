@@ -5,7 +5,7 @@ const healthTypes = require('../../../configs/health.json');
 const options = {
   type: BloodPressureType,
   name: 'bloodPressure',
-  modelID: healthTypes.bloodPressure.modelID,
+  config: healthTypes.bloodPressure,
 };
 
 export const bloodPressure = composeQuery(options);

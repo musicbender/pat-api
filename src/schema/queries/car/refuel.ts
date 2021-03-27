@@ -5,6 +5,7 @@ const carConf = require('../../../configs/cars.json');
 const options = {
   name: carConf.refuel.modelID, 
   type: RefuelType, 
+  config: carConf.refuel,
 };
 
 export const refuel = composeQuery(options);

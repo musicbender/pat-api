@@ -7,6 +7,7 @@ import {
 } from 'graphql';
 import { CbcType } from './cbc-type';
 import { UnitType } from './unit-type';
+import { globalTypeFields } from '../utils/global';
 
 export const PlateletInputType = new GraphQLInputObjectType({
   name: 'PlateletInputType',
@@ -32,14 +33,11 @@ export const PlateletType = new GraphQLObjectType({
   name: 'PlateletType',
   description: 'Health data',
   fields: () => ({
-    id: { type: GraphQLString },
+    ...globalTypeFields,
     value: { type: GraphQLFloat },
     unit: { type: UnitType },
     cbc: { type: CbcType },
     cbcId: { type: GraphQLString },
-    sampledOn: { type: GraphQLString },
-    createdOn: { type: GraphQLString },
-    updatedOn: { type: GraphQLString },
   })
 });
 

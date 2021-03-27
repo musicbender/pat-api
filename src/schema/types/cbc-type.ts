@@ -4,6 +4,7 @@ import {
   GraphQLFloat,
   GraphQLString
 } from 'graphql';
+import { globalTypeFields } from '../utils/global';
 import { PlateletType } from './platelet-type';
 
 export const CbcInputType = new GraphQLInputObjectType({
@@ -59,10 +60,7 @@ export const CbcType = new GraphQLObjectType({
   name: 'CbcType',
   description: 'Complete blood count data sample',
   fields: () => ({
-    id: { type: GraphQLString },
-    sampledOn: { type: GraphQLString },
-    createdOn: { type: GraphQLString },
-    updatedOn: { type: GraphQLString },
+    ...globalTypeFields,
     wbcCount: { type: GraphQLFloat },
     rbcCount: { type: GraphQLFloat },
     hematrocrit: { type: GraphQLFloat },

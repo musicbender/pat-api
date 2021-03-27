@@ -4,7 +4,8 @@ const carConf = require('../../../configs/cars.json');
 
 const options = {
   name: carConf.drivingScore.modelID, 
-  type: DrivingScoreType, 
+  type: DrivingScoreType,
+  config: carConf.drivingScore,
 };
 
 export const drivingScore = composeQuery(options);

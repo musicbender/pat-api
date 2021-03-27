@@ -5,7 +5,7 @@ const healthTypes = require('../../../configs/health.json');
 const options = {
   type: ActivityType,
   name: 'activity',
-  modelID: healthTypes.activity.modelID,
+  config: healthTypes.activity,
 };
 
 export const activity = composeQuery(options);

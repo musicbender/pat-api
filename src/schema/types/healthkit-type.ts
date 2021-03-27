@@ -9,6 +9,7 @@ import {
 } from 'graphql';
 import { BloodPressureType } from './blood-pressure-type';
 import { UnitType } from './unit-type';
+import { globalTypeFields } from '../utils/global'
 
 export const HealthKitInputSampleType = new GraphQLInputObjectType({
   name: 'HealthKitInputSampleType',
@@ -56,19 +57,16 @@ export const HealthKitType = new GraphQLObjectType({
   name: 'HealthKitType',
   description: 'Health data',
   fields: () => ({
-    id: { type: GraphQLString },
+    ...globalTypeFields,
     value: { type: GraphQLFloat },
     valueType: { type: GraphQLString },
     totalSampleValue: { type: GraphQLFloat },
     averageSampleValue: { type: GraphQLFloat },
     highestSampleValue: { type: GraphQLFloat },
     lowestSampleValue: { type: GraphQLFloat },
-    sampledOn: { type: GraphQLString },
-    createdOn: { type: GraphQLString },
-    updatedOn: { type: GraphQLString },
     sources: { type: new GraphQLList(GraphQLString) },
     unit: { type: UnitType },
-    totalDuration: { type: GraphQLString }
+    totalDuration: { type: GraphQLString },
   })
 });
 
@@ -77,7 +75,6 @@ export const HealthKitUnionType = new GraphQLUnionType({
     description: `Return either HealthKittype item or Blood Pressure item`,
     types: [ HealthKitType, BloodPressureType ],
     resolveType: (value) => {
-      console.log(value);
       if (value.systolic || value.dystolic) return 'BloodPressureType';
       return 'HealthKitType';
     }

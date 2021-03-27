@@ -5,6 +5,7 @@ const carConf = require('../../../configs/cars.json');
 const options = {
   name: carConf.averageMPG.modelID, 
   type: AverageMPGType, 
+  config: carConf.averageMPG,
 };
 
 export const averageMPG = composeQuery(options);

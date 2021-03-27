@@ -2,7 +2,7 @@ import { FindOptions, Op } from 'sequelize';
 import * as moment from 'moment';
 import models from '../models';
 import { Model } from 'sequelize-typescript';
-import { WhereDb, DateInterval, QueryAllOptions } from 'types';
+import { WhereDb, DateInterval, QueryAllOptions, AnyConfig } from 'types';
 
 // find by id
 export const findItemById = (id: string, modelID: string, include?: string): Promise<Model> => {

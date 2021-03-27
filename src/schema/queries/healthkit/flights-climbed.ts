@@ -5,7 +5,7 @@ const { healthTypes } = require('../../../configs/healthkit.json');
 const options = {
   type: HealthKitType,
   name: 'flightsClimbed',
-  modelID: healthTypes.flightsClimbed.modelID,
+  config: healthTypes.flightsClimbed,
 };
 
 export const flightsClimbed = composeQuery(options);
