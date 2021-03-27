@@ -27,10 +27,10 @@
   "homepage": "https://github.com/musicbender/pat-api#readme",
   "devDependencies": {
     "@babel/core": "^7.5.5",
-    "@graphql-codegen/cli": "^1.4.0",
+    "@graphql-codegen/cli": "^1.21.3",
     "@graphql-codegen/typescript": "1.4.0",
     "@graphql-codegen/typescript-document-nodes": "1.4.0",
-    "@graphql-codegen/typescript-mongodb": "1.4.0",
+    "@graphql-codegen/typescript-mongodb": "^1.18.1",
     "@graphql-codegen/typescript-resolvers": "1.4.0",
     "@types/bluebird": "^3.5.28",
     "@types/dotenv": "^6.1.1",
