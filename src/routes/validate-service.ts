@@ -6,10 +6,10 @@ const pkg = require('../../package.json');
 const router = new Router();
 
 router.get('/test', async (ctx: KoaContext): Promise<void> => {
-  ctx.redirect('/health/liveliness');
+  ctx.redirect('/health/liveness');
 });
 
-router.get('/health/liveliness', async (ctx: KoaContext): Promise<void> => {
+router.get('/health/liveness', async (ctx: KoaContext): Promise<void> => {
   restResponse(ctx);
 });
 
