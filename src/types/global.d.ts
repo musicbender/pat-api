@@ -1,4 +1,5 @@
 import { GraphQLObjectType, GraphQLInputObjectType } from 'graphql';
+import { BaseContext } from 'koa';
 import { OrderItem } from 'sequelize/types';
 import { CarConfigType } from './car';
 import { CollectionConfigType } from './collection';
@@ -60,3 +61,9 @@ export type TestItem = {
   expected: any,
   description?: string
 }
+
+export type KoaCustomContext = {
+  isReady?: boolean
+}
+
+export type KoaContext = BaseContext & KoaCustomContext;

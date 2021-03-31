@@ -13,6 +13,7 @@ import {
 
 // init
 const app = new Koa();
+app.context.isReady = false;
 
 // middlewares
 app.use(requestIDMiddleware);
@@ -39,5 +40,6 @@ app.use(router());
   // start server
   app.listen(process.env.PATAPI_PORT, () => {
     console.log(`Pat API running at port ${process.env.PATAPI_PORT}`)
+    app.context.isReady = true;
   });
 })();
