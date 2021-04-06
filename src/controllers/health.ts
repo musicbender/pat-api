@@ -35,22 +35,22 @@ export const addHealthItem = async (input: HealthInputTypes, config: HealthConfi
   const HealthItem = models[config.modelID];
 
   try {
-    const res: any = await HealthItem.create(data);
-    return res.dataValues;
+    const res: HealthTypes = await HealthItem.create(data, { raw: true });
+    return res;
   } catch (err) {
     throw new ExpectedError('ADD_HEALTH_ERROR');
   }
 }
 
 // replace health item
-export const replaceHealthItem = async (id: string, input: HealthInputTypes, config: HealthConfigType): Promise<Model> => {
+export const replaceHealthItem = async (id: string, input: HealthInputTypes, config: HealthConfigType): Promise<HealthTypes> => {
   if (config.disabled) throw new ExpectedError('DISABLED_HEALTH_TYPE');
 
   const data: HealthTypes = { ...input, updatedOn: moment().toISOString() };
   const HealthItem = models[config.modelID];
 
   try {
-    const [rows, [ updatedItem ]]: any = await HealthItem.update({ ...data }, { where: { id }, returning: true });
+    const [rows, [ updatedItem ]]: any = await HealthItem.update({ ...data }, { where: { id }, returning: true, raw: true });
     return updatedItem;
   } catch (err) {
     throw new ExpectedError('REPLACE_HEALTH_ERROR');
