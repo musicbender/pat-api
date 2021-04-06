@@ -12,7 +12,8 @@
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "tdd": "jest --watch",
     "test": "jest",
-    "generate": "graphql-codegen -r dotenv/config"
+    "generate": "graphql-codegen -r dotenv/config",
+    "postversion": "sh .deployment/scripts/version.sh"
   },
   "repository": {
     "type": "git",
