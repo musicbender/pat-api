@@ -158,7 +158,8 @@ const addHealthkitBloodPressure = async (healthItems: HealthkitInputAndConfig[])
   }, {});
 
   const addResult: Model & HealthType = await addHealthItem(output, bpConfig) as Model & HealthType;
-  return appendResponse(addResult.get(), bpConfig);
+  const result = addResult.get ? addResult.get() : addResult;
+  return appendResponse(result, bpConfig);
 }
 
 export const addHealthKitItems = async (inputs: HealthKitInputType[]) => {
