@@ -15,6 +15,16 @@ const buildData = (secrets) => {
     return output;
 }
 
+// meta data env variables about the deployment
+const buildMetaData = (buildNumber, commitHash) => {
+  const timestamp = Date.now();
+  return {
+    "PATAPI_BUILD_NUMBER": buildNumber,
+    "PATAPI_COMMIT_HASH": commitHash,
+    "PATAPI_LAST_DEPLOY_DATE": new Date(timestamp).toLocaleDateString(),
+  }
+}
+
 const buildSecrets = () => {
     // Get arguments
     const args = minimist(process.argv.slice(2), {
@@ -25,12 +35,16 @@ const buildSecrets = () => {
         'region',
         'aws-key',
         'aws-secret',
+        'build-number',
+        'commit-hash'
       ],
       alias: {
         s: 'secret',
         f: 'file',
         r: 'region',
         m: 'metaname',
+        b: 'build-number',
+        c: 'commit-hash'
       },
       default: {
         region: 'us-east-2',
@@ -43,6 +57,8 @@ const buildSecrets = () => {
     const accessKeyId = args['aws-key'];
     const secretAccessKey = args['aws-secret'];
     const metaname = args['metaname'] || secret;
+    const buildNumber = args['build-number'];
+    const commitHash = args['commit-hash'];
 
     // Validate
     if (!secret || secret.length === 0) {
@@ -97,13 +113,16 @@ const buildSecrets = () => {
               namespace: 'default'
           },
           type: 'Opaque',
-          data: buildData(secrets)
+          data: { 
+            ...buildData(secrets),
+            ...buildMetaData(buildNumber, commitHash)
+          }
         };
 
         fs.writeFileSync(jsonFile, JSON.stringify(output));
       })
       .catch((err) => {
-        console.error(`ERROR: Error: ${err.message}`);
+        console.error(`Error creating pat-api secrets: ${err.message}`);
         process.exit(1);
       });
 }

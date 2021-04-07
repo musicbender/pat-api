@@ -41,7 +41,7 @@ pipelines:
           script:
             - npm i aws-sdk minimist
             - mkdir config
-            - node .deployment/scripts/build-secrets.js --aws-key=${AWS_ACCESS_KEY_ID} --aws-secret=${AWS_SECRET_ACCESS_KEY} -s ${AWS_SECRETS_NAME} -m ${SECRETS_META} -f ./config/secrets.json
+            - node .deployment/scripts/build-secrets.js --aws-key=${AWS_ACCESS_KEY_ID} --aws-secret=${AWS_SECRET_ACCESS_KEY} -s ${AWS_SECRETS_NAME} -m ${SECRETS_META} -b ${BITBUCKET_BUILD_NUMBER} -c ${BITBUCKET_COMMIT} -f ./config/secrets.json
           artifacts:
             - config/*
       - step:
