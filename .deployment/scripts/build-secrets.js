@@ -19,9 +19,9 @@ const buildData = (secrets) => {
 const buildMetaData = (buildNumber, commitHash) => {
   const timestamp = Date.now();
   return {
-    "PATAPI_BUILD_NUMBER": buildNumber,
-    "PATAPI_COMMIT_HASH": commitHash,
-    "PATAPI_LAST_DEPLOY_DATE": new Date(timestamp).toLocaleDateString(),
+    "PATAPI_BUILD_NUMBER": btoa(buildNumber),
+    "PATAPI_COMMIT_HASH": btoa(commitHash),
+    "PATAPI_LAST_DEPLOY_DATE": btoa(new Date(timestamp)).toLocaleDateString(),
   }
 }
 
@@ -96,7 +96,8 @@ const buildSecrets = () => {
     };
 
     // Get secrets and create secret
-    secretsmanager.getSecretValue(params).promise()
+    secretsmanager.getSecretValue(params)
+      .promise()
       .then(({ SecretString }) => {
         console.log('Secrets retrieved.');
         const secretName = metaname
