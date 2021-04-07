@@ -2,6 +2,10 @@ const AWS = require('aws-sdk');
 const fs = require('fs');
 const minimist = require('minimist');
 
+const encode = (str) => {
+  return Buffer.from(srt).toString('base64');
+}
+
 const buildData = (secrets) => {
     let output = {};
     
@@ -19,9 +23,9 @@ const buildData = (secrets) => {
 const buildMetaData = (buildNumber, commitHash) => {
   const timestamp = Date.now();
   return {
-    "PATAPI_BUILD_NUMBER": btoa(buildNumber),
-    "PATAPI_COMMIT_HASH": btoa(commitHash),
-    "PATAPI_LAST_DEPLOY_DATE": btoa(new Date(timestamp)).toLocaleDateString(),
+    "PATAPI_BUILD_NUMBER": encode(buildNumber),
+    "PATAPI_COMMIT_HASH": encode(commitHash),
+    "PATAPI_LAST_DEPLOY_DATE": encode(new Date(timestamp).toLocaleDateString()),
   }
 }
 
