@@ -3,7 +3,7 @@ const fs = require('fs');
 const minimist = require('minimist');
 
 const encode = (str) => {
-  return Buffer.from(srt).toString('base64');
+  return Buffer.from(str).toString('base64');
 }
 
 const buildData = (secrets) => {
