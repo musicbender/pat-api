@@ -2,11 +2,11 @@ import { FindOptions, Op } from 'sequelize';
 import * as moment from 'moment';
 import models from '../models';
 import { Model } from 'sequelize-typescript';
-import { WhereDb, DateInterval, QueryAllOptions, AnyConfig } from 'types';
+import { WhereDb, DateInterval, QueryAllOptions } from 'types';
 
 // find by id
 export const findItemById = (id: string, modelID: string, include?: string): Promise<Model> => {
-  let dbOptions: FindOptions = { where: { id } };
+  let dbOptions: FindOptions = { where: { id }};
   if (include) dbOptions.include = models[include];
   return models[modelID].findOne(dbOptions);
 }
@@ -24,7 +24,7 @@ export const findItemByDate = (
   let dbOptions: FindOptions = { 
     where: { 
       sampledOn: { [Op.gte]: start, [Op.lte]: end } 
-    } 
+    }
   }
 
   if (include) dbOptions.include = models[include];

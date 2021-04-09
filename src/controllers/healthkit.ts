@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import * as uuid from 'uuid';
+import { v4 as uuid } from 'uuid';
 import { ExpectedError } from '../utils/errors';
 import { aggregateHealthData } from '../utils/sample';
 import { findItemByDate } from './global';

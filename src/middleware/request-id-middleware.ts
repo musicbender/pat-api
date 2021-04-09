@@ -1,4 +1,4 @@
-import * as uuid from 'uuid';
+import { v4 as uuid } from 'uuid';
 import { Context } from 'koa';
 
 const requestIDMiddleware = (ctx: Context, next: () => Promise<any>) => {

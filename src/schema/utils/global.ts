@@ -50,8 +50,10 @@ export const composeQuery = (options: ComposeQueryOptions) => {
         } else if (args.date) {
           response = await findItemByDate(args.date, modelID, options.findInclude);
         }
+
+        console.log('get***', response, response.get());
         
-        return { response: appendResponse(response, options.config) };
+        return { response: appendResponse(response.get(), options.config) };
       } catch (err) {
         throw err;
       }
