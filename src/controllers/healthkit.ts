@@ -183,11 +183,12 @@ export const addHealthKitItems = async (inputs: HealthKitInputType[]) => {
     }
   }));
 
-  const bloodPressureOutput = await addHealthkitBloodPressure(bloodPressuremItems);
-  const output = [
-    ...healthkitItems,
-    bloodPressureOutput,
-  ];
+  let output: (HealthTypes | HealthKitType)[] = healthkitItems;
+
+  if (bloodPressuremItems.length > 0) {
+    const bloodPressureOutput = await addHealthkitBloodPressure(bloodPressuremItems);
+    output.push(bloodPressureOutput);
+  }
 
   return { response: output };
 }
