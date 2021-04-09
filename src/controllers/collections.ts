@@ -1,4 +1,4 @@
-import * as uuid from 'uuid';
+import { v4 as uuid } from 'uuid';
 import * as shortid from 'shortid';
 import * as moment from 'moment';
 import { CollectionType, CollectionInputType, CollectionInputUpdateType, CollectionConfigType, CollectionInputIncrementType } from '../types';

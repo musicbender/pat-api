@@ -1,4 +1,4 @@
-import * as uuid from 'uuid';
+import { v4 as uuid } from 'uuid';
 import * as moment from 'moment';
 import { CarType, CarInputType, CarInputUpdateType, CarConfigType } from '../types';
 import models from '../models';

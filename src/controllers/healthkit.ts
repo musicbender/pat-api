@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import * as uuid from 'uuid';
+import { v4 as uuid } from 'uuid';
 import { ExpectedError } from '../utils/errors';
 import { aggregateHealthData } from '../utils/sample';
 import { findItemByDate } from './global';
@@ -183,11 +183,12 @@ export const addHealthKitItems = async (inputs: HealthKitInputType[]) => {
     }
   }));
 
-  const bloodPressureOutput = await addHealthkitBloodPressure(bloodPressuremItems);
-  const output = [
-    ...healthkitItems,
-    bloodPressureOutput,
-  ];
+  let output: (HealthTypes | HealthKitType)[] = healthkitItems;
+
+  if (bloodPressuremItems.length > 0) {
+    const bloodPressureOutput = await addHealthkitBloodPressure(bloodPressuremItems);
+    output.push(bloodPressureOutput);
+  }
 
   return { response: output };
 }

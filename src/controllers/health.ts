@@ -1,4 +1,4 @@
-import * as uuid from 'uuid';
+import { v4 as uuid } from 'uuid';
 import * as moment from 'moment';
 import models from '../models';
 import { Model } from 'sequelize-typescript';
