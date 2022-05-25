@@ -51,7 +51,7 @@ export const composeQuery = (options: ComposeQueryOptions) => {
           response = await findItemByDate(args.date, modelID, options.findInclude);
         }
 
-        console.log('get***', response, response.get());
+        if (!response) throw new ExpectedError('NOT_FOUND');
         
         return { response: appendResponse(response.get(), options.config) };
       } catch (err) {
@@ -97,6 +97,7 @@ export const composeQueryAll = (options: ComposeQueryOptions) => {
 
       try {
         const response =  await findAllItems(args, modelID, options.findInclude);
+        if (!response) throw new ExpectedError('NOT_FOUND');
         return { response: appendResponse(response, options.config) };
       } catch (err) {
         throw err;

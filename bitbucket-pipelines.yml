@@ -1,7 +1,7 @@
 test: &test
-  step: 
+  step:
     name: Run unit tests
-    image: node:12.7.0
+    image: node:16.13.1
     caches:
       - node
     script:
@@ -35,9 +35,9 @@ pipelines:
       - step:
           name: Get aws secrets and save to artifact
           deployment: prod_get-secrets
-          image: node:12.7.0
+          image: node:16.13.1
           caches:
-              - node
+            - node
           script:
             - npm i aws-sdk minimist
             - mkdir config
@@ -68,5 +68,3 @@ pipelines:
             - kubectl config use-context development
             - kubectl apply -f ./config/secrets.json
             - kubectl set image deployment/pat-api pat-api=${IMAGE_NAME}
-
-

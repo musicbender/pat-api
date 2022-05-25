@@ -1,74 +1,77 @@
 {
-    "INTERNAL_ERROR": {
-      "description": "Oh noes. There was an internal error."
-    },
-    "SERVER_TIMEOUT": {
-      "description": "Server timeout error"
-    },
-    "UNAUTHORIZED": {
-      "description": "Authorization failed."
-    },
-    "INVALID_ARGUMENTS": {
-      "description": "Arguments given were not valid"
-    },
-    "ADD_HEALTHKIT_ERROR": {
-      "description": "An error occured trying to add healthkit item"
-    },
-    "REPLACE_HEALTHKIT_ERROR": {
-      "description": "An error occured trying to replace a healthkit item"
-    },
-    "UPDATE_HEALTHKIT_ERROR": {
-      "description": "An error occured trying to update a healthkit item"
-    },
-    "INVALID_HEALTHKIT_TYPE": {
-      "description": "Not a valid healthkit type"
-    },
-    "DISABLED_HEALTHKIT_TYPE": {
-      "description": "Healthkit type has been disabled"
-    },
-    "ADD_HEALTH_ERROR": {
-      "description": "An error occured trying to add health item"
-    },
-    "REPLACE_HEALTH_ERROR": {
-      "description": "An error occured trying to replace a health item"
-    },
-    "UPDATE_HEALTH_ERROR": {
-      "description": "An error occured trying to update a health item"
-    },
-    "DISABLED_HEALTH_TYPE": {
-      "description": "Health type has been disabled"
-    },
-    "INVALID_HEALTHKIT_INPUT": {
-      "description": "Input is invalid or empty"
-    },
-    "DISABLED_CAR_TYPE": {
-      "description": "Car type has been disabled"
-    },
-    "ADD_CAR_ERROR": {
-      "description": "An error occured trying to add car average mpg"
-    },
-    "UPDATE_CAR_ERROR": {
-      "description": "An error occured trying to update a car average mpg item"
-    },
-    "DISABLED_CBC_TYPE": {
-      "description": "CBC type has been disabled"
-    },
-    "ADD_CBC_ERROR": {
-      "description": "An error occured trying to add CBC item"
-    },
-    "UPDATE_CBC_ERROR": {
-      "description": "An error occured trying to update a CBC item"
-    },
-    "DISABLED_COLLECTION_TYPE": {
-      "description": "This collection type has been disabled"
-    },
-    "ADD_COLLECTION_ERROR": {
-      "description": "An error occured trying to add collection item"
-    },
-    "UPDATE_COLLECTION_ERROR": {
-      "description": "An error occured trying to update a collection item"
-    },
-    "INCREMENT_COLLECTION_ERROR": {
-      "description": "An error occured trying to increment a collection item"
-    }
+  "INTERNAL_ERROR": {
+    "description": "Oh noes. There was an internal error."
+  },
+  "SERVER_TIMEOUT": {
+    "description": "Server timeout error"
+  },
+  "UNAUTHORIZED": {
+    "description": "Authorization failed."
+  },
+  "NOT_FOUND": {
+    "description": "Unable to find the thing"
+  },
+  "INVALID_ARGUMENTS": {
+    "description": "Arguments given were not valid"
+  },
+  "ADD_HEALTHKIT_ERROR": {
+    "description": "An error occured trying to add healthkit item"
+  },
+  "REPLACE_HEALTHKIT_ERROR": {
+    "description": "An error occured trying to replace a healthkit item"
+  },
+  "UPDATE_HEALTHKIT_ERROR": {
+    "description": "An error occured trying to update a healthkit item"
+  },
+  "INVALID_HEALTHKIT_TYPE": {
+    "description": "Not a valid healthkit type"
+  },
+  "DISABLED_HEALTHKIT_TYPE": {
+    "description": "Healthkit type has been disabled"
+  },
+  "ADD_HEALTH_ERROR": {
+    "description": "An error occured trying to add health item"
+  },
+  "REPLACE_HEALTH_ERROR": {
+    "description": "An error occured trying to replace a health item"
+  },
+  "UPDATE_HEALTH_ERROR": {
+    "description": "An error occured trying to update a health item"
+  },
+  "DISABLED_HEALTH_TYPE": {
+    "description": "Health type has been disabled"
+  },
+  "INVALID_HEALTHKIT_INPUT": {
+    "description": "Input is invalid or empty"
+  },
+  "DISABLED_CAR_TYPE": {
+    "description": "Car type has been disabled"
+  },
+  "ADD_CAR_ERROR": {
+    "description": "An error occured trying to add car average mpg"
+  },
+  "UPDATE_CAR_ERROR": {
+    "description": "An error occured trying to update a car average mpg item"
+  },
+  "DISABLED_CBC_TYPE": {
+    "description": "CBC type has been disabled"
+  },
+  "ADD_CBC_ERROR": {
+    "description": "An error occured trying to add CBC item"
+  },
+  "UPDATE_CBC_ERROR": {
+    "description": "An error occured trying to update a CBC item"
+  },
+  "DISABLED_COLLECTION_TYPE": {
+    "description": "This collection type has been disabled"
+  },
+  "ADD_COLLECTION_ERROR": {
+    "description": "An error occured trying to add collection item"
+  },
+  "UPDATE_COLLECTION_ERROR": {
+    "description": "An error occured trying to update a collection item"
+  },
+  "INCREMENT_COLLECTION_ERROR": {
+    "description": "An error occured trying to increment a collection item"
+  }
 }

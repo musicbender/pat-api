@@ -1,11 +1,11 @@
-FROM node:12.7.0
+FROM node:16.13.1
 
 WORKDIR /app
 
 COPY ./package.json .
 COPY ./tsconfig.json .
 COPY yarn.lock .
-RUN npm install -g yarn nodemon ts-node typescript && yarn
+RUN npm install -g nodemon ts-node typescript && yarn
 
 COPY ./ .
 
