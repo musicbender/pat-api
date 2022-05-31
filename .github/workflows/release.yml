@@ -113,13 +113,13 @@ jobs:
   deploy:
     name: Deploy to k8s cluster
     runs-on: ubuntu-latest
-    needs: k8s_creds
+    needs: [build, k8s_creds]
     environment: production
     env:
       KUBE_USER: ${{ secrets.KUBE_USER }}
       DO_TOKEN: ${{ secrets.DO_TOKEN }}
       KUBE_CLUSTER: ${{ secrets.KUBE_CLUSTER }}
-      IMAGE_NAME: ${{ steps.image_name.output.image_name }}
+      IMAGE_NAME: ${{ needs.build.output.image_name }}
     steps:
       - name: Download aws secrets artifact
         uses: actions/download-artifact@v1
