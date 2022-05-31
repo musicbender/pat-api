@@ -17,7 +17,7 @@ jobs:
         run: mkdir .deployments/__artifacts
       - name: DEBUGGING
         run: echo ${{ secrets.AWS_REGION }}
-      - run: echo ${{ GITHUB_RUN_NUMBER }}
+      - run: echo $GITHUB_RUN_NUMBER
       - name: "Get Login to AWS ECR"
         id: ecr-login
         uses: thalesvon/ecr-login@master
