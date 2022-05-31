@@ -15,13 +15,16 @@ jobs:
       - uses: actions/checkout@v3
       - name: Create a temporary artifact artifacts folder
         run: mkdir .deployments/__artifacts
+      - name: DEBUGGING
+        run: echo ${{ secrets.AWS_REGION }}
+      - run: echo ${{ GITHUB_RUN_NUMBER }}
       - name: "Get Login to AWS ECR"
         id: ecr-login
         uses: thalesvon/ecr-login@master
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_DEFAULT_OUTPUT: json
-          AWS_REGION: ${{ AWS_REGION }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         with:
           args: "get-login --no-include-email --region ${AWS_REGION}"
@@ -102,16 +105,19 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: kube_ca
-      - name: Setup kubectl
-        uses: matootie/dokube@v1.4.0
-        with:
-          personalAccessToken: ${{ secrets.DO_TOKEN }}
-          clusterName: ${{ secrets.KUBE_CLUSTER }}
-      - name: Setup k8s config
-        run: kubectl config set-cluster pat-api-k8s --server=https://fcae1d7e-5f25-4d97-b187-b81f25326a71.k8s.ondigitalocean.com --certificate-authority=".deployments/__artifacts/kube_ca"
-      - run: kubectl config set-credentials ${{ secrets.KUBE_USER }} --token="$(cat .deployments/__artifacts/kube_token)"
-      - run: kubectl config set-context development --cluster=pat-api-k8s --user=${{ secrets.KUBE_USER }}
-      - name: Apply aws secrets
-        run: kubectl apply -f .deployment/__artifacts/aws_secrets.json
-      - name: Deploy image to k8s cluster
-        run: kubectl set image deployment/pat-api pat-api=${{ steps.image_name.output.image_name }}
+      - run: cat .deployment/__artifacts/aws_secrets.json
+      - run: echo ${{ secrets.KUBE_USER }}
+      - run: echo ${{ steps.build_id.outputs.build_id }}
+      # - name: Setup kubectl
+      #   uses: matootie/dokube@v1.4.0
+      #   with:
+      #     personalAccessToken: ${{ secrets.DO_TOKEN }}
+      #     clusterName: ${{ secrets.KUBE_CLUSTER }}
+      # - name: Setup k8s config
+      #   run: kubectl config set-cluster pat-api-k8s --server=https://fcae1d7e-5f25-4d97-b187-b81f25326a71.k8s.ondigitalocean.com --certificate-authority=".deployments/__artifacts/kube_ca"
+      # - run: kubectl config set-credentials ${{ secrets.KUBE_USER }} --token="$(cat .deployments/__artifacts/kube_token)"
+      # - run: kubectl config set-context development --cluster=pat-api-k8s --user=${{ secrets.KUBE_USER }}
+      # - name: Apply aws secrets
+      #   run: kubectl apply -f .deployment/__artifacts/aws_secrets.json
+      # - name: Deploy image to k8s cluster
+      #   run: kubectl set image deployment/pat-api pat-api=${{ steps.image_name.output.image_name }}
