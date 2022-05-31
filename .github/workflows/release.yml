@@ -12,21 +12,26 @@ jobs:
     name: Build and push to ECR
     runs-on: ubuntu-latest
     environment: production
+    env:
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGISTRY_URL: ${{ secrets.AWS_REGISTRY_URL }}
     steps:
       - uses: actions/checkout@v3
       - name: Create a temporary artifact artifacts folder
         run: mkdir .deployment/__artifacts
       - name: DEBUGGING
-        run: echo ${{ secrets.AWS_REGION }}
+        run: echo $AWS_REGION
       - run: echo $GITHUB_RUN_NUMBER
       - name: "Get Login to AWS ECR"
         id: ecr-login
         uses: thalesvon/ecr-login@master
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
           AWS_DEFAULT_OUTPUT: json
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: $AWS_REGION
+          AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
         with:
           args: "get-login --no-include-email --region ${AWS_REGION}"
       - name: Create build ID
@@ -36,21 +41,25 @@ jobs:
           echo "::set-output name=build_id::$build_id"
       - name: Create image name
         id: image_name
+        env:
+          BUILD_ID: ${{ steps.build_id.outputs.build_id }}
         run: |
-          image_name=$(echo "$AWS_REGISTRY_URL":"${{ steps.build_id.outputs.build_id }}")
+          image_name=$(echo "$AWS_REGISTRY_URL":"$BUILD_ID")
           echo "::set-output name=image_name::$image_name"
       - name: Set up Docker buildx
         uses: docker/setup-buildx-action@v2
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v3.0.0
+        env:
+          IMAGE_NAME: ${{ steps.image_name.output.image_name }}
         with:
           push: true
           context: .
           file: ./Dockerfile.prod
           tags: |
-            ${{ steps.image_name.output.image_name }}
-            ${{ secrets.AWS_REGISTRY_URL }}:latest
+            ${IMAGE_NAME}
+            ${AWS_REGISTRY_URL}:latest
     outputs:
       build_id: ${{ steps.build_id.outputs.build_id }}
       image_name: ${{ steps.image_name.outputs.image_name }}
@@ -59,6 +68,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment: production
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_SECRETS_NAME: ${{ secrets.AWS_SECRETS_NAME }}
+      AWS_SECRETS_META: ${{ secrets.AWS_SECRETS_META }}
     steps:
       - name: Use Node.js
         uses: actions/setup-node@v3`  `
@@ -67,7 +81,7 @@ jobs:
       - name: Install dependencies
         run: npm i aws-sdk minimist
       - name: Fetch and save aws secrets
-        run: node .deployment/scripts/build-secrets.js --aws-key=${secrets.AWS_ACCESS_KEY_ID }} --aws-secret=${secrets.AWS_SECRET_ACCESS_KEY} -s ${secrets.AWS_SECRETS_NAME} -m ${secrets.SECRETS_META} -b ${GITHUB_RUN_NUMBER"} -c ${GITHUB_SHA} -f .deployment/__artifacts/aws_secrets.json
+        run: node .deployment/scripts/build-secrets.js --aws-key=${AWS_ACCESS_KEY_ID }} --aws-secret=${AWS_SECRET_ACCESS_KEY} -s ${AWS_SECRETS_NAME} -m ${AWS_SECRETS_META} -b ${GITHUB_RUN_NUMBER"} -c ${GITHUB_SHA} -f .deployment/__artifacts/aws_secrets.json
       - name: Upload secrets artifact
         uses: actions/upload-artifact@v3
         with:
@@ -78,11 +92,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: secrets
     environment: production
+    env:
+      KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
+      KUBE_CA: ${{ secrets.KUBE_CA }}
     steps:
       - name: Create credential files
         run: |
-          echo ${{ secrets.KUBE_TOKEN }} | base64 -d -i > .deployment/__artifacts/kube_token
-          echo ${{ secrets.KUBE_CA }} | base64 -d -i > .deployment/__artifacts/kube_ca
+          echo $KUBE_TOKEN | base64 -d -i > .deployment/__artifacts/kube_token
+          echo $KUBE_CA | base64 -d -i > .deployment/__artifacts/kube_ca
       - name: Upload k8s token
         uses: actions/upload-artifact@v3
         with:
@@ -98,6 +115,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: k8s_creds
     environment: production
+    env:
+      KUBE_USER: ${{ secrets.KUBE_USER }}
+      DO_TOKEN: ${{ secrets.DO_TOKEN }}
+      KUBE_CLUSTER: ${{ secrets.KUBE_CLUSTER }}
+      IMAGE_NAME: ${{ steps.image_name.output.image_name }}
     steps:
       - name: Download aws secrets artifact
         uses: actions/download-artifact@v1
@@ -112,18 +134,18 @@ jobs:
         with:
           name: kube_ca
       - run: cat .deployment/__artifacts/aws_secrets.json
-      - run: echo ${{ secrets.KUBE_USER }}
-      - run: echo ${{ steps.build_id.outputs.build_id }}
+      - run: echo $KUBE_USER
+      - run: echo $IMAGE_NAME
       # - name: Setup kubectl
       #   uses: matootie/dokube@v1.4.0
       #   with:
-      #     personalAccessToken: ${{ secrets.DO_TOKEN }}
-      #     clusterName: ${{ secrets.KUBE_CLUSTER }}
+      #     personalAccessToken: $DO_TOKEN
+      #     clusterName: $KUBE_CLUSTER
       # - name: Setup k8s config
       #   run: kubectl config set-cluster pat-api-k8s --server=https://fcae1d7e-5f25-4d97-b187-b81f25326a71.k8s.ondigitalocean.com --certificate-authority=".deployment/__artifacts/kube_ca"
-      # - run: kubectl config set-credentials ${{ secrets.KUBE_USER }} --token="$(cat .deployment/__artifacts/kube_token)"
-      # - run: kubectl config set-context development --cluster=pat-api-k8s --user=${{ secrets.KUBE_USER }}
+      # - run: kubectl config set-credentials ${KUBE_USER} --token="$(cat .deployment/__artifacts/kube_token)"
+      # - run: kubectl config set-context development --cluster=pat-api-k8s --user=${KUBE_USER}
       # - name: Apply aws secrets
       #   run: kubectl apply -f .deployment/__artifacts/aws_secrets.json
       # - name: Deploy image to k8s cluster
-      #   run: kubectl set image deployment/pat-api pat-api=${{ steps.image_name.output.image_name }}
+      #   run: kubectl set image deployment/pat-api pat-api=${IMAGE_NAME}
