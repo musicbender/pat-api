@@ -46,20 +46,15 @@ jobs:
           echo "::set-output name=image_name::$image_name"
       - name: Set up Docker buildx
         uses: docker/setup-buildx-action@v2
-      - env:
-          IMAGE_NAME: ${{ steps.image_name.output.image_name }}
-        run: echo $IMAGE_NAME
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v3.0.0
-        env:
-          IMAGE_NAME: ${{ steps.image_name.output.image_name }}
         with:
           push: true
           context: .
           file: ./Dockerfile.prod
           tags: |
-            $IMAGE_NAME
+            ${{ steps.image_name.output.image_name }}
             ${AWS_REGISTRY_URL}:latest
     outputs:
       build_id: ${{ steps.build_id.outputs.build_id }}
