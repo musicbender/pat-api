@@ -5,7 +5,7 @@ on:
     branches: [feature/github-actions]
   pull_request:
     branches: [feature/github-actions]
-   workflow_dispatch:
+  workflow_dispatch:
 
 env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
@@ -35,7 +35,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
         with:
           args: "get-login --no-include-email --region ${AWS_REGION}"
-      - name: 'ECR Login'
+      - name: "ECR Login"
         run: ${{ steps.ecr-login.outputs.login-string }}
       - name: Create build ID
         id: build_id
