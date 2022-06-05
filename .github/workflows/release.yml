@@ -42,10 +42,8 @@ jobs:
           account_id: ${{ secrets.AWS_ACCOUNT_ID }}
           region: ${{ env.AWS_REGION }}
           repo: patjacobs/pat-api
-          dockerfile: Dockerfile.prod
-          tags: |
-            ${{ steps.build_id.output.build_id }}
-            latest
+          dockerfile: ./Dockerfile.prod
+          tags: ${{ steps.build_id.output.build_id }},latest
     outputs:
       build_id: ${{ steps.build_id.outputs.build_id }}
       image_name: ${{ steps.image_name.outputs.image_name }}
