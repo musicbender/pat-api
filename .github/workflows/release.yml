@@ -22,15 +22,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: Create a temporary artifact artifacts folder
         run: mkdir .deployment/__artifacts
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ env.AWS_REGION }}
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
       - name: Create build ID
         id: build_id
         run: |
@@ -43,18 +34,18 @@ jobs:
         run: |
           image_name=$(echo "$AWS_REGISTRY_URL":"$BUILD_ID")
           echo "::set-output name=image_name::$image_name"
-      - name: Set up Docker buildx
-        uses: docker/setup-buildx-action@v2
-      - name: Build and push
-        id: docker_build
-        uses: docker/build-push-action@v3.0.0
+      - name: Build and push to ECR
+        uses: docker://ghcr.io/kciter/aws-ecr-action:latest
         with:
-          push: true
-          context: .
-          file: ./Dockerfile.prod
+          access_key_id: ${{ env.AWS_ACCESS_KEY_ID }}
+          secret_access_key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          account_id: ${{ secrets.AWS_ACCOUNT_ID }}
+          region: ${{ env.AWS_REGION }}
+          repo: patjacobs/pat-api
+          dockerfile: Dockerfile.prod
           tags: |
-            ${{ steps.image_name.output.image_name }}
-            ${{ env.AWS_REGISTRY_URL }}:latest
+            ${{ steps.build_id.output.build_id }}
+            latest
     outputs:
       build_id: ${{ steps.build_id.outputs.build_id }}
       image_name: ${{ steps.image_name.outputs.image_name }}
@@ -142,3 +133,16 @@ jobs:
       #   run: kubectl apply -f .deployment/__artifacts/aws_secrets.json
       # - name: Deploy image to k8s cluster
       #   run: kubectl set image deployment/pat-api pat-api=${IMAGE_NAME}
+
+      # - name: Set up Docker buildx
+      #   uses: docker/setup-buildx-action@v2
+      # - name: Build and push
+      #   id: docker_build
+      #   uses: docker/build-push-action@v3.0.0
+      #   with:
+      #     push: true
+      #     context: .
+      #     file: ./Dockerfile.prod
+      #     tags: |
+      #       ${{ steps.image_name.output.image_name }}
+      #       ${{ env.AWS_REGISTRY_URL }}:latest
