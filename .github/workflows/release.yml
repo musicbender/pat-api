@@ -42,7 +42,7 @@ jobs:
           account_id: ${{ secrets.AWS_ACCOUNT_ID }}
           region: ${{ env.AWS_REGION }}
           repo: patjacobs/pat-api
-          dockerfile: ./Dockerfile.prod
+          dockerfile: Dockerfile.prod
           path: .
           tags: ${{ steps.build_id.output.build_id }},latest
     outputs:
