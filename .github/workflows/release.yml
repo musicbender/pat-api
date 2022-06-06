@@ -43,6 +43,7 @@ jobs:
           region: ${{ env.AWS_REGION }}
           repo: patjacobs/pat-api
           dockerfile: ./Dockerfile.prod
+          path: .
           tags: ${{ steps.build_id.output.build_id }},latest
     outputs:
       build_id: ${{ steps.build_id.outputs.build_id }}
