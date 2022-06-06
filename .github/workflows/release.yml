@@ -34,6 +34,15 @@ jobs:
         run: |
           image_name=$(echo "$AWS_REGISTRY_URL":"$BUILD_ID")
           echo "::set-output name=image_name::$image_name"
+      - name: DEBUG
+        env:
+          DEBUG_AWS_ACCESS_ID: ${{ env.AWS_ACCESS_KEY_ID }}
+          DEBUG_AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          DEBUG_AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+        run: |
+          echo $DEBUG_AWS_ACCESS_ID
+          echo $DEBUG_AWS_SECRET_ACCESS_KEY
+          echo $DEBUG_AWS_ACCOUNT_ID
       - name: Build and push to ECR
         uses: docker://ghcr.io/kciter/aws-ecr-action:latest
         with:
@@ -43,6 +52,7 @@ jobs:
           region: ${{ env.AWS_REGION }}
           repo: patjacobs/pat-api
           dockerfile: Dockerfile.prod
+          path: .
           tags: ${{ steps.build_id.output.build_id }},latest
     outputs:
       build_id: ${{ steps.build_id.outputs.build_id }}
