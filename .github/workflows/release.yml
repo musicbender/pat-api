@@ -25,7 +25,7 @@ jobs:
       - name: Create build ID
         id: build_id
         run: |
-          build_id=$(echo "$GITHUB_REF_NAME"_"$GITHUB_SHA"_"$GITHUB_RUN_NUMBER")
+          build_id=$(echo "$GITHUB_SHA"_"$GITHUB_RUN_NUMBER")
           echo "::set-output name=build_id::$build_id"
       - name: Create image name
         id: image_name
@@ -69,7 +69,7 @@ jobs:
       - name: Install dependencies
         run: npm i aws-sdk minimist
       - name: Fetch and save aws secrets
-        run: node .deployment/scripts/build-secrets.js --aws-key=${AWS_ACCESS_KEY_ID }} --aws-secret=${AWS_SECRET_ACCESS_KEY} -s ${AWS_SECRETS_NAME} -m ${AWS_SECRETS_META} -b ${GITHUB_RUN_NUMBER"} -c ${GITHUB_SHA} -f .deployment/__artifacts/aws_secrets.json
+        run: node .deployment/scripts/build-secrets.js --aws-key=${AWS_ACCESS_KEY_ID }} --aws-secret=${AWS_SECRET_ACCESS_KEY} -s ${AWS_SECRETS_NAME} -m ${AWS_SECRETS_META} -b ${GITHUB_RUN_NUMBER} -c ${GITHUB_SHA} -f .deployment/__artifacts/aws_secrets.json
       - name: Upload secrets artifact
         uses: actions/upload-artifact@v3
         with:
