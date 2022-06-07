@@ -58,6 +58,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment: production
+    defaults:
+      run:
+        working-directory: .deployment
     env:
       AWS_SECRETS_NAME: ${{ secrets.AWS_SECRETS_NAME }}
       AWS_SECRETS_META: ${{ secrets.AWS_SECRETS_META }}
@@ -69,12 +72,12 @@ jobs:
       - name: Install dependencies
         run: npm i aws-sdk minimist
       - name: Fetch and save aws secrets
-        run: node ./.deployment/scripts/build-secrets.js --aws-key=${AWS_ACCESS_KEY_ID} --aws-secret=${AWS_SECRET_ACCESS_KEY} -s ${AWS_SECRETS_NAME} -m ${AWS_SECRETS_META} -b ${GITHUB_RUN_NUMBER} -c ${GITHUB_SHA} -f .deployment/__artifacts/aws_secrets.json
+        run: node ./scripts/build-secrets.js --aws-key=${AWS_ACCESS_KEY_ID} --aws-secret=${AWS_SECRET_ACCESS_KEY} -s ${AWS_SECRETS_NAME} -m ${AWS_SECRETS_META} -b ${GITHUB_RUN_NUMBER} -c ${GITHUB_SHA} -f ./__artifacts/aws_secrets.json
       - name: Upload secrets artifact
         uses: actions/upload-artifact@v3
         with:
           name: aws_secrets
-          path: .deployment/__artifacts/aws_secrets.json
+          path: ./__artifacts/aws_secrets.json
   k8s_creds:
     name: Fetch k8s credentials
     runs-on: ubuntu-latest
