@@ -64,7 +64,7 @@ const buildSecrets = () => {
     const buildNumber = args['build-number'];
     const commitHash = args['commit-hash'];
 
-    console.log('DEBUG', region, secret, metaname, accessKeyId.indexOf('CAFI') > -1, secretAccessKey.indexOf('05wb') > -1);
+    console.log('DEBUG', region + '---', secret + '---', metaname + '---', accessKeyId.indexOf('CAFI') > -1, secretAccessKey.indexOf('05wb') > -1);
 
     // Validate
     if (!secret || secret.length === 0) {
