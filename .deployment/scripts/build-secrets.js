@@ -64,8 +64,6 @@ const buildSecrets = () => {
     const buildNumber = args['build-number'];
     const commitHash = args['commit-hash'];
 
-    console.log('DEBUG', region.includes('us-east-2'), secret.includes('pat-api-prod'), metaname + '---', accessKeyId.indexOf('CAFI') > -1, secretAccessKey.indexOf('05wb') > -1);
-
     // Validate
     if (!secret || secret.length === 0) {
       console.error('ERROR: --secret|-s must be provided');
