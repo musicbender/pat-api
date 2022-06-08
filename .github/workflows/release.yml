@@ -108,9 +108,9 @@ jobs:
       IMAGE_NAME: ${{ needs.build.output.image_name }}
       KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
     steps:
+      - uses: actions/checkout@v3
       - name: Create a temporary artifact artifacts folder
         run: mkdir .deployment/__artifacts
-      - uses: actions/checkout@v3
       - name: Download aws secrets artifact
         uses: actions/download-artifact@v1
         with:
