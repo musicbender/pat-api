@@ -103,7 +103,8 @@ jobs:
     environment: production
     env:
       KUBE_USER: ${{ secrets.KUBE_USER }}
-      IMAGE_NAME: ${{ needs.build.output.image_name }}
+      KUBE_CLUSTER: ${{ secrets.KUBE_CLUSTER }}
+      IMAGE_NAME: ${{ needs.build.outputs.image_name }}
       KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
     steps:
       - uses: actions/checkout@v3
@@ -130,7 +131,7 @@ jobs:
       - name: Setup k8s config
         run: kubectl config set-cluster pat-api-k8s --server=https://fcae1d7e-5f25-4d97-b187-b81f25326a71.k8s.ondigitalocean.com --certificate-authority=".deployment/__artifacts/kube_ca"
       - run: kubectl config set-credentials ${KUBE_USER} --token=${KUBE_TOKEN}
-      - run: kubectl config set-context development --cluster=pat-api-k8s --user=${KUBE_USER}
+      - run: kubectl config set-context development --cluster=${KUBE_CLUSTER} --user=${KUBE_USER}
       - name: Apply aws secrets
         run: kubectl apply -f .deployment/__artifacts/aws_secrets.json
       - name: Deploy image to k8s cluster
