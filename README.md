@@ -1,3 +1,6 @@
+![Build Status](https://github.com/musicbender/pat-api/actions/workflows/release.yml/badge.svg)
+
+
 ### About
 
 This is my personal life API for tracking different data point of my life: health, goals, habits, whatevers! 

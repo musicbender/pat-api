@@ -1,0 +1,128 @@
+name: Release
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+env:
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+  AWS_REGISTRY_URL: ${{ secrets.AWS_REGISTRY_URL }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+jobs:
+  build:
+    name: Build and push to ECR
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v3
+      - name: Create a temporary artifact artifacts folder
+        run: mkdir .deployment/__artifacts
+      - name: Create build ID
+        id: build_id
+        run: |
+          build_id=$(echo "$GITHUB_SHA"_"$GITHUB_RUN_NUMBER")
+          echo "::set-output name=build_id::$build_id"
+      - name: Build and push to ECR
+        uses: docker://ghcr.io/kciter/aws-ecr-action:latest
+        with:
+          access_key_id: ${{ env.AWS_ACCESS_KEY_ID }}
+          secret_access_key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          account_id: ${{ secrets.AWS_ACCOUNT_ID }}
+          region: ${{ env.AWS_REGION }}
+          repo: patjacobs/pat-api
+          dockerfile: Dockerfile.prod
+          path: .
+          tags: latest,${{ steps.build_id.output.build_id }}
+    outputs:
+      build_id: ${{ steps.build_id.outputs.build_id }}
+  secrets:
+    name: Fetch AWS secrets
+    runs-on: ubuntu-latest
+    needs: build
+    environment: production
+    env:
+      AWS_SECRETS_NAME: ${{ secrets.AWS_SECRETS_NAME }}
+      AWS_SECRETS_META: ${{ secrets.AWS_SECRETS_META }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+      - name: Install dependencies
+        run: npm i aws-sdk minimist
+      - name: Create a temporary artifact artifacts folder
+        run: mkdir .deployment/__artifacts
+      - name: Fetch and save aws secrets
+        run: node ./.deployment/scripts/build-secrets.js --aws-key=${AWS_ACCESS_KEY_ID} --aws-secret=${AWS_SECRET_ACCESS_KEY} -s ${AWS_SECRETS_NAME} -m ${AWS_SECRETS_META} -b ${GITHUB_RUN_NUMBER} -c ${GITHUB_SHA} -f .deployment/__artifacts/aws_secrets.json
+      - name: Upload secrets artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: aws_secrets
+          path: .deployment/__artifacts/aws_secrets.json
+  k8s_creds:
+    name: Fetch k8s credentials
+    runs-on: ubuntu-latest
+    needs: secrets
+    environment: production
+    env:
+      KUBE_CA: ${{ secrets.KUBE_CA }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Create a temporary artifact artifacts folder
+        run: mkdir .deployment/__artifacts
+      - name: Create k8s certificate file
+        run: echo "${KUBE_CA}" | base64 --decode > .deployment/__artifacts/kube_ca
+      - name: Upload k8s certificate
+        uses: actions/upload-artifact@v3
+        with:
+          name: kube_ca
+          path: .deployment/__artifacts/kube_ca
+  deploy:
+    name: Deploy to k8s cluster
+    runs-on: ubuntu-latest
+    needs: [build, k8s_creds]
+    environment: production
+    env:
+      KUBE_USER: ${{ secrets.KUBE_USER }}
+      KUBE_CLUSTER: ${{ secrets.KUBE_CLUSTER }}
+      BUILD_ID: ${{ needs.build.outputs.build_id }}
+      KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Create a temporary artifact artifacts folder
+        run: mkdir .deployment/__artifacts
+      - name: Download aws secrets artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: aws_secrets
+          path: .deployment/__artifacts
+      - name: Download k8s certificate artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: kube_ca
+          path: .deployment/__artifacts
+      - name: Create image name
+        id: image_name
+        run: |
+          image_name=$(echo "$AWS_REGISTRY_URL":"$BUILD_ID")
+          echo "::set-output name=image_name::$image_name"
+      - name: Setup kubectl
+        uses: matootie/dokube@v1.4.0
+        with:
+          personalAccessToken: ${{ secrets.DO_TOKEN }}
+          clusterName: ${{ secrets.KUBE_CLUSTER }}
+          expirationTime: 300
+      - name: Setup k8s config
+        run: kubectl config set-cluster pat-api-k8s --server=https://fcae1d7e-5f25-4d97-b187-b81f25326a71.k8s.ondigitalocean.com --certificate-authority=".deployment/__artifacts/kube_ca"
+      - run: kubectl config set-credentials ${KUBE_USER} --token=${KUBE_TOKEN}
+      - run: kubectl config set-context development --cluster=${KUBE_CLUSTER} --user=${KUBE_USER}
+      - name: Apply aws secrets
+        run: kubectl apply -f .deployment/__artifacts/aws_secrets.json
+      - name: Deploy image to k8s cluster
+        env:
+          IMAGE_NAME: ${{ steps.image_name.outputs.image_name }}
+        run: kubectl set image deployment/pat-api pat-api=${IMAGE_NAME}
