@@ -115,11 +115,14 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: aws_secrets
+          path: .deployment/__artifacts
       - name: Download k8s certificate artifact
         uses: actions/download-artifact@v1
         with:
           name: kube_ca
-      - run: cat .deployment/__artifacts/aws_secrets.json
+          path: .deployment/__artifacts
+      - name: DEBUGGING
+        run: cat .deployment/__artifacts/aws_secrets.json
       - name: Setup kubectl
         uses: matootie/dokube@v1.4.0
         with:
