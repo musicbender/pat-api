@@ -2,9 +2,9 @@ name: Release
 
 on:
   push:
-    branches: [feature/github-actions]
+    branches: [master]
   pull_request:
-    branches: [feature/github-actions]
+    branches: [master]
   workflow_dispatch:
 
 env:
