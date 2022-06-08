@@ -36,9 +36,9 @@ jobs:
           echo "::set-output name=image_name::$image_name"
       - name: DEBUG
         env:
-          DEBUG_BUILD_ID: ${{ steps.build_id.outputs.build_id }}
+          DEBUG_IMAGE_NAME: ${{ steps.image_name.outputs.image_name }}
         run: |
-          echo $DEBUG_BUILD_ID
+          echo $DEBUG_IMAGE_NAME
       - name: Build and push to ECR
         uses: docker://ghcr.io/kciter/aws-ecr-action:latest
         with:
@@ -121,7 +121,9 @@ jobs:
           name: kube_ca
           path: .deployment/__artifacts
       - name: DEBUGGING
-        run: cat .deployment/__artifacts/aws_secrets.json
+        env:
+          DEBUG_IMAGE_NAME: ${{ needs.build.outputs.image_name }}
+        run: echo $DEBUG_IMAGE_NAME
       - name: Setup kubectl
         uses: matootie/dokube@v1.4.0
         with:
