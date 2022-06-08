@@ -84,21 +84,13 @@ jobs:
     needs: secrets
     environment: production
     env:
-      KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
       KUBE_CA: ${{ secrets.KUBE_CA }}
     steps:
       - uses: actions/checkout@v3
       - name: Create a temporary artifact artifacts folder
         run: mkdir .deployment/__artifacts
-      - name: Create credential files
-        run: |
-          echo $KUBE_TOKEN | base64 -d -i > .deployment/__artifacts/kube_token
-          echo $KUBE_CA | base64 -d -i > .deployment/__artifacts/kube_ca
-      - name: Upload k8s token
-        uses: actions/upload-artifact@v3
-        with:
-          name: kube_token
-          path: .deployment/__artifacts/kube_token
+      - name: Create k8s certificate file
+        run: echo "${KUBE_CA}" | base64 --decode > .deployment/__artifacts/kube_ca
       - name: Upload k8s certificate
         uses: actions/upload-artifact@v3
         with:
@@ -114,6 +106,7 @@ jobs:
       DO_TOKEN: ${{ secrets.DO_TOKEN }}
       KUBE_CLUSTER: ${{ secrets.KUBE_CLUSTER }}
       IMAGE_NAME: ${{ needs.build.output.image_name }}
+      KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
     steps:
       - name: Create a temporary artifact artifacts folder
         run: mkdir .deployment/__artifacts
@@ -122,40 +115,21 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: aws_secrets
-      - name: Download k8s token artifact
-        uses: actions/download-artifact@v1
-        with:
-          name: kube_token
       - name: Download k8s certificate artifact
         uses: actions/download-artifact@v1
         with:
           name: kube_ca
       - run: cat .deployment/__artifacts/aws_secrets.json
-      - run: echo $KUBE_USER
-      - run: echo $IMAGE_NAME
-      # - name: Setup kubectl
-      #   uses: matootie/dokube@v1.4.0
-      #   with:
-      #     personalAccessToken: $DO_TOKEN
-      #     clusterName: $KUBE_CLUSTER
-      # - name: Setup k8s config
-      #   run: kubectl config set-cluster pat-api-k8s --server=https://fcae1d7e-5f25-4d97-b187-b81f25326a71.k8s.ondigitalocean.com --certificate-authority=".deployment/__artifacts/kube_ca"
-      # - run: kubectl config set-credentials ${KUBE_USER} --token="$(cat .deployment/__artifacts/kube_token)"
-      # - run: kubectl config set-context development --cluster=pat-api-k8s --user=${KUBE_USER}
-      # - name: Apply aws secrets
-      #   run: kubectl apply -f .deployment/__artifacts/aws_secrets.json
-      # - name: Deploy image to k8s cluster
-      #   run: kubectl set image deployment/pat-api pat-api=${IMAGE_NAME}
-
-      # - name: Set up Docker buildx
-      #   uses: docker/setup-buildx-action@v2
-      # - name: Build and push
-      #   id: docker_build
-      #   uses: docker/build-push-action@v3.0.0
-      #   with:
-      #     push: true
-      #     context: .
-      #     file: ./Dockerfile.prod
-      #     tags: |
-      #       ${{ steps.image_name.output.image_name }}
-      #       ${{ env.AWS_REGISTRY_URL }}:latest
+      - name: Setup kubectl
+        uses: matootie/dokube@v1.4.0
+        with:
+          personalAccessToken: $DO_TOKEN
+          clusterName: $KUBE_CLUSTER
+      - name: Setup k8s config
+        run: kubectl config set-cluster pat-api-k8s --server=https://fcae1d7e-5f25-4d97-b187-b81f25326a71.k8s.ondigitalocean.com --certificate-authority=".deployment/__artifacts/kube_ca"
+      - run: kubectl config set-credentials ${KUBE_USER} --token=${KUBE_TOKEN}
+      - run: kubectl config set-context development --cluster=pat-api-k8s --user=${KUBE_USER}
+      - name: Apply aws secrets
+        run: kubectl apply -f .deployment/__artifacts/aws_secrets.json
+      - name: Deploy image to k8s cluster
+        run: kubectl set image deployment/pat-api pat-api=${IMAGE_NAME}
