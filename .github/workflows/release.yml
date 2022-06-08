@@ -88,6 +88,8 @@ jobs:
       KUBE_CA: ${{ secrets.KUBE_CA }}
     steps:
       - uses: actions/checkout@v3
+      - name: Create a temporary artifact artifacts folder
+        run: mkdir .deployment/__artifacts
       - name: Create credential files
         run: |
           echo $KUBE_TOKEN | base64 -d -i > .deployment/__artifacts/kube_token
@@ -113,6 +115,8 @@ jobs:
       KUBE_CLUSTER: ${{ secrets.KUBE_CLUSTER }}
       IMAGE_NAME: ${{ needs.build.output.image_name }}
     steps:
+      - name: Create a temporary artifact artifacts folder
+        run: mkdir .deployment/__artifacts
       - uses: actions/checkout@v3
       - name: Download aws secrets artifact
         uses: actions/download-artifact@v1
