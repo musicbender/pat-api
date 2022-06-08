@@ -103,8 +103,6 @@ jobs:
     environment: production
     env:
       KUBE_USER: ${{ secrets.KUBE_USER }}
-      DO_TOKEN: ${{ secrets.DO_TOKEN }}
-      KUBE_CLUSTER: ${{ secrets.KUBE_CLUSTER }}
       IMAGE_NAME: ${{ needs.build.output.image_name }}
       KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
     steps:
@@ -126,8 +124,9 @@ jobs:
       - name: Setup kubectl
         uses: matootie/dokube@v1.4.0
         with:
-          personalAccessToken: $DO_TOKEN
-          clusterName: $KUBE_CLUSTER
+          personalAccessToken: ${{ secrets.DO_TOKEN }}
+          clusterName: ${{ secrets.KUBE_CLUSTER }}
+          expirationTime: 300
       - name: Setup k8s config
         run: kubectl config set-cluster pat-api-k8s --server=https://fcae1d7e-5f25-4d97-b187-b81f25326a71.k8s.ondigitalocean.com --certificate-authority=".deployment/__artifacts/kube_ca"
       - run: kubectl config set-credentials ${KUBE_USER} --token=${KUBE_TOKEN}
