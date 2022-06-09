@@ -35,7 +35,7 @@ jobs:
           repo: patjacobs/pat-api
           dockerfile: Dockerfile.prod
           path: .
-          tags: latest,${{ steps.build_id.output.build_id }}
+          tags: latest,${{ steps.build_id.outputs.build_id }}
     outputs:
       build_id: ${{ steps.build_id.outputs.build_id }}
   secrets:
