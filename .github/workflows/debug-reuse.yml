@@ -7,4 +7,4 @@ on:
 jobs:
   test:
     name: Run tests debugging nowwww
-    uses: musicbender/pat-api/.github/workflows/unit-test.yml@master
+    uses: ./.github/workflows/unit-test.yml@feature/cicd-unit-test
