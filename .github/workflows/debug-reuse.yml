@@ -7,4 +7,4 @@ on:
 jobs:
   test:
     name: Run tests debugging nowwww
-    uses: ./.github/workflows/unit-test.yml@feature/cicd-unit-test
+    uses: ./.github/workflows/unit-test.yml
