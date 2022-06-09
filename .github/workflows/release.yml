@@ -12,6 +12,9 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 jobs:
+  test:
+    name: Run tests
+    uses: musicbender/pat-api/.github/workflows/unit-test.yml@master
   build:
     name: Build and push to ECR
     runs-on: ubuntu-latest
