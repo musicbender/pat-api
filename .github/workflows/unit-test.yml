@@ -1,0 +1,25 @@
+name: Unit Test
+
+on:
+  workflow_call:
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    name: Run unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+      - name: Install dependencies
+        run: |
+          yarn global add jest
+          yarn install --production=false
+      - name: Run unit tests
+        run: yarn test

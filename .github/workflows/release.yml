@@ -12,6 +12,9 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 jobs:
+  test:
+    name: Run tests
+    uses: ./.github/workflows/unit-test.yml
   build:
     name: Build and push to ECR
     runs-on: ubuntu-latest
@@ -23,7 +26,7 @@ jobs:
       - name: Create build ID
         id: build_id
         run: |
-          build_id=$(echo "$GITHUB_SHA"_"$GITHUB_RUN_NUMBER")
+          build_id=$(echo release_"$GITHUB_SHA"_"$GITHUB_RUN_NUMBER")
           echo "::set-output name=build_id::$build_id"
       - name: Build and push to ECR
         uses: docker://ghcr.io/kciter/aws-ecr-action:latest
