@@ -1,0 +1,10 @@
+name: Unit Test Debugging
+
+on:
+  push:
+    branches: [feature/cicd-unit-test]
+
+jobs:
+  test:
+    name: Run tests debugging nowwww
+    uses: musicbender/pat-api/.github/workflows/unit-test.yml@master
