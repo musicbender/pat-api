@@ -521,10 +521,5 @@ describe('sample.ts', () => {
         expect(formatDate.isValid()).toEqual(true);
         expect(data.sources).toEqual([]);
       });
-
-      it('debug --- this should fail', () => {
-        const data = aggregateHealthData(mockStepData[6], healthTypes.steps);
-        expect(data.unit).toEqual('wut');
-      });
     });
 });
