@@ -14,7 +14,7 @@ env:
 jobs:
   test:
     name: Run tests
-    uses: musicbender/pat-api/.github/workflows/unit-test.yml@master
+    uses: ./.github/workflows/unit-test.yml
   build:
     name: Build and push to ECR
     runs-on: ubuntu-latest
