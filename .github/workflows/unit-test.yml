@@ -2,6 +2,8 @@ name: Unit Test
 
 on:
   workflow_call:
+  push:
+    branches: [dev]
   pull_request:
     branches: [master]
 
