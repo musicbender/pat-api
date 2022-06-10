@@ -1,0 +1,7 @@
+breaking changes: ["breaking/*"]
+documentation: ["doc/*", "docs/*", "documentation/*"]
+enhancement: ["feature/*", "feat/*"]
+fix: ["fix/*", "bugfix/*", "hotfix/*", "bug/*"]
+tests: ["tests/*", "test/*"]
+chore: ["chore/*", "maintenance/"]
+dependencies: ["dependencies/*", "deps/"]
