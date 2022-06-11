@@ -1,6 +1,13 @@
 import { isWithinInterval, getValidSources, getAverage, findOutterValues, aggregateHealthData } from '../sample';
 import * as moment from 'moment';
 import { TestItem } from '../../types';
+
+/**
+ * Samples util unit tests
+ * 
+ * @group unit/util
+ */
+
 const { healthTypes } = require('../../configs/healthkit.json');
 
 // mocks

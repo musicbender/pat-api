@@ -1,6 +1,12 @@
 import * as moment from 'moment';
 import { formatDuration, addToDuration } from '../date';
 
+/**
+ * Date util unit tests
+ * 
+ * @group unit/util
+ */
+
 describe('date.ts', function () {
   describe('formatDuration()', function () {
     const tests = [

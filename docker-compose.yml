@@ -25,4 +25,3 @@ services:
       POSTGRES_DB: pat_api
       POSTGRES_USER: postgres 
       POSTGRES_PASSWORD: 5NMMqWwQcipc1iCiQ8Dqh
-      
