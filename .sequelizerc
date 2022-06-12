@@ -1,6 +1,6 @@
-const path = require('path')
+import path from "path";
 
-module.exports = {
+export default {
   'config':          path.resolve('src', 'configs', 'database.js'),
   'migrations-path': path.resolve('src', 'migrations')
 }

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-jest --group=integration
+jest --group=integration --setupFile test/integration/setup.ts

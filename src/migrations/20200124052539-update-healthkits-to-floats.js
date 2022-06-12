@@ -2,7 +2,7 @@ const tables = [ 'caffeine', 'flights-climbed', 'heartrate-variability', 'heartr
 
 const columns = [ 'value', 'totalSampleValue', 'averageSampleValue', 'highestSampleValue', 'lowestSampleValue'];
 
-module.exports = {
+export default {
   up: async (queryInterface, Sequelize) => {
     for (let t = 0; t < tables.length; t++) {
       for (let c = 0; c < columns.length; c++) {

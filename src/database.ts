@@ -2,6 +2,8 @@ import { Sequelize } from 'sequelize-typescript';
 import * as fs from 'fs';
 import { DatabaseConfigOptions, DbSSLConfigType, DbSSLType } from './types';
 
+let sequelize: Sequelize;
+
 const sslConfig = {
   key: process.env.PATAPI_DB_SSL_KEY,
   cert: process.env.PATAPI_DB_SSL_CERT,
@@ -51,7 +53,15 @@ export const getDBConfig = (options: DatabaseConfigOptions = {}): any => {
       };
 }
 
-export const connectDB = () => {
-  const sequelize = new Sequelize(getDBConfig());
-  return sequelize.sync();
+export const connectDatabase = () => {
+  try {
+    sequelize = new Sequelize(getDBConfig());
+    return sequelize.sync();
+  } catch (err) {
+    throw new Error(`Database could not connect: ${err}`);
+  }
+}
+
+export const closeDatabase = async () => {
+  await sequelize.close();
 }

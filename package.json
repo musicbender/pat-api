@@ -3,6 +3,7 @@
   "version": "1.5.12",
   "description": "My life tracking GraphQL API service",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "ts-node index.ts",
     "dev": "docker-compose up",
@@ -12,8 +13,7 @@
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "tdd": "jest --group=unit --watch",
     "test": "jest --group=unit",
-    "test:e2e": "sh test/e2e/scripts/e2e-run-prod.sh",
-    "test:e2e:local": "sh test/e2e/scripts/e2e-run-local.sh",
+    "test:int": "jest --group=integration --setupFiles ./test/integration/setup.ts",
     "generate": "graphql-codegen -r dotenv/config",
     "postversion": "sh .deployment/scripts/version.sh"
   },
@@ -61,6 +61,7 @@
   },
   "dependencies": {
     "@koa/cors": "^3.0.0",
+    "@types/supertest": "^2.0.12",
     "altair-koa-middleware": "^4.0.0",
     "aws-sdk": "^2.507.0",
     "axios": "^0.21.1",
@@ -80,6 +81,7 @@
     "koa-router": "^10.0.0",
     "memory-cache": "^0.2.0",
     "moment": "^2.24.0",
+    "path": "^0.12.7",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "reflect-metadata": "^0.1.13",

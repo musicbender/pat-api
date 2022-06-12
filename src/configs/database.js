@@ -1,5 +1,7 @@
-const path = require('path');
+import path from "path";
+
 let dotenv;
+console.log('-------this')
 
 if (process.env.NODE_ENV === 'production') {
   dotenv = require('dotenv').config({
@@ -9,6 +11,6 @@ if (process.env.NODE_ENV === 'production') {
   dotenv = require('dotenv').config();
 }
 
-module.exports = require('../database.ts').getDBConfig({
+export default require('../database.ts').getDBConfig({
   externalAccess: true
 });

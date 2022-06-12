@@ -11,7 +11,7 @@ export default class BaseModel<T = any, T2 = any> extends Model<BaseModel> {
   @IsUUID(4)
   @PrimaryKey
   @Column
-  id: string;
+  declare id: string;
 
   @Default(moment().toISOString())
   @Column
