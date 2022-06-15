@@ -31,7 +31,8 @@ export const getDBConfig = (options: DatabaseConfigOptions = {}): any => {
   const config = {
     dialect: 'postgres',
     database: process.env.PATAPI_DB_NAME,
-    models: [`${__dirname}/models/**/*.model.ts`]
+    models: [`${__dirname}/models/**/*.model.ts`],
+    logging: process.env.NODE_ENV !== 'test',
   };
 
   return process.env.PATAPI_DATABASE_URI
@@ -55,7 +56,8 @@ export const getDBConfig = (options: DatabaseConfigOptions = {}): any => {
 
 export const connectDatabase = () => {
   try {
-    sequelize = new Sequelize(getDBConfig());
+    const conf = getDBConfig();
+    sequelize = new Sequelize(conf);
     return sequelize.sync();
   } catch (err) {
     throw new Error(`Database could not connect: ${err}`);

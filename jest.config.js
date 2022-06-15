@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   runner: 'groups',
   roots: ['<rootDir>/src', '<rootDir>/test'],
   testEnvironment: 'node',

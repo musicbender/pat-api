@@ -1,6 +1,6 @@
 export const GRAPHQL_PATH = '/graphql';
 
-export const VERSION_PATH = '/verion';
+export const VERSION_PATH = '/version';
 
 export const INFO_PATH = '/info';
 

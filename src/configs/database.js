@@ -1,7 +1,6 @@
 import path from "path";
 
 let dotenv;
-console.log('-------this')
 
 if (process.env.NODE_ENV === 'production') {
   dotenv = require('dotenv').config({

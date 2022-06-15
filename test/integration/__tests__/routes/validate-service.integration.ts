@@ -1,5 +1,5 @@
 import { Server } from 'http';
-import supertest, { SuperTest, Test } from 'supertest';
+import * as supertest from 'supertest';
 import app from '../../../../src/server';
 import { connectDatabase, closeDatabase } from '../../../../src/database';
 import { VERSION_PATH } from '../../constants';
@@ -12,7 +12,7 @@ import { VERSION_PATH } from '../../constants';
 
 console.log('----- debug port ----- ', process.env.PATAPI_PORT);
 
-let request: SuperTest<Test>;
+let request: supertest.SuperTest<supertest.Test>;
 let server: Server;
 
 describe('Validate Service Routes', () => {
