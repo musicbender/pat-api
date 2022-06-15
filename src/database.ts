@@ -1,6 +1,7 @@
 import { Sequelize } from 'sequelize-typescript';
 import * as fs from 'fs';
 import { DatabaseConfigOptions, DbSSLConfigType, DbSSLType } from './types';
+import logger from './utils/logger';
 
 let sequelize: Sequelize;
 
@@ -54,16 +55,19 @@ export const getDBConfig = (options: DatabaseConfigOptions = {}): any => {
       };
 }
 
-export const connectDatabase = () => {
+export const connectDatabase = async (): Promise<Sequelize> => {
   try {
     const conf = getDBConfig();
     sequelize = new Sequelize(conf);
-    return sequelize.sync();
+    const seq: Sequelize = await sequelize.sync();
+    logger.info('The connection from pat-api to database successful')
+    return seq;
   } catch (err) {
-    throw new Error(`Database could not connect: ${err}`);
+    logger.error(`Database could not connect: ${err}`);
   }
 }
 
-export const closeDatabase = async () => {
+export const closeDatabase = async (): Promise<void> => {
   await sequelize.close();
+  logger.info('Database connection closed');
 }
