@@ -2,8 +2,9 @@ import * as Router from 'koa-router';
 import axios from 'axios';
 import { restResponse } from '../utils/util';
 import { KoaContext } from 'types';
+import logger from '../utils/logger';
+import externalConf from '../configs/external';
 const pkg = require('../../package.json');
-const externalConfig = require('../configs/external.json');
 
 const router = new Router();
 
@@ -31,15 +32,16 @@ router.get('/info', async (ctx: KoaContext): Promise<void> => {
   let randomDadJoke = "No dad jokes today.";
 
   try {
-      const dadJokeRes = await axios.get(externalConfig.dadJokesApiUri, {
-        headers: {
-          "Accept": "text/plain"
-        }
-      });
+    const dadJokeRes = await axios.get(externalConf.urls.dadJokesApiUri, {
+      headers: {
+        'Accept': 'text/plain',
+        'User-Agent': externalConf.config.customUserAgent,
+      }
+    });
 
-      randomDadJoke = dadJokeRes.data;
+    randomDadJoke = dadJokeRes.data;
   } catch (err) {
-    console.error("Error fetching a dad joke", err);
+    logger.error("Error fetching a dad joke", err);
   }
 
   const data = {

@@ -68,6 +68,6 @@ export const connectDatabase = async (): Promise<Sequelize> => {
 }
 
 export const closeDatabase = async (): Promise<void> => {
-  await sequelize.close();
   logger.info('Database connection closed');
+  await sequelize.close();
 }
