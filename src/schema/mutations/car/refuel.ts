@@ -1,5 +1,6 @@
 import { GraphQLNonNull, GraphQLID } from 'graphql';
-import { addCarItem, updateCarItem } from '../../../controllers/car';
+import { DeleteType } from 'schema/types/delete-type';
+import { addCarItem, deleteCarItem, updateCarItem } from '../../../controllers/car';
 import { RefuelType, RefuelInputType, ResponseUnionType, RefuelInputUpdateType } from '../../types';
 const carConf = require('../../../configs/cars.json');
 
@@ -51,3 +52,30 @@ export const updateRefuel = {
       }
     }
   }
+
+  export const deleteRefuel = {
+    name: `delete${name}`,
+    description: `Delete a ${name} node`,
+    type: ResponseUnionType({
+      name: `delete${name}`,
+      responseType: DeleteType
+    }),
+    args: {
+      id: {
+        type: new GraphQLNonNull(GraphQLID)
+      }
+    },
+    async resolve(parentValue, { id }) {
+      try {
+        await deleteCarItem(id, carConf.refuel);
+        return { response: {
+            id,
+            configID: carConf.refuel.id,
+          } 
+        };
+      } catch (err) {
+        throw err;
+      }
+    }
+  }
+

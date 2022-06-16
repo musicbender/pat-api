@@ -51,7 +51,10 @@
     "description": "An error occured trying to add car average mpg"
   },
   "UPDATE_CAR_ERROR": {
-    "description": "An error occured trying to update a car average mpg item"
+    "description": "An error occured trying to update a car data item"
+  },
+  "DELETE_CAR_ERROR": {
+    "description": "An error occured trying to delete a car data item"
   },
   "DISABLED_CBC_TYPE": {
     "description": "CBC type has been disabled"

@@ -44,3 +44,15 @@ export const updateCarItem = async (id: string, input: CarInputUpdateType, confi
     throw new ExpectedError('UPDATE_CAR_ERROR');
   }
 }
+
+// delete car item
+export const deleteCarItem = async(id: string, config: CarConfigType): Promise<void> => {
+  if (config.disabled) throw new ExpectedError('DISABLED_CAR_TYPE');
+
+  try {
+    const item = models[config.modelID];
+    await item.destroy({ where: {id }});
+  } catch (err) {
+    throw new ExpectedError('DELETE_CAR_ERROR');
+  }
+}

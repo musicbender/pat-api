@@ -1,5 +1,6 @@
 import { GraphQLNonNull, GraphQLID } from 'graphql';
-import { addCarItem, updateCarItem } from '../../../controllers/car';
+import { DeleteType } from 'schema/types/delete-type';
+import { addCarItem, deleteCarItem, updateCarItem } from '../../../controllers/car';
 import { DrivingScoreType, DrivingScoreInputType, ResponseUnionType, DrivingScoreInputUpdateType } from '../../types';
 const carConf = require('../../../configs/cars.json');
 
@@ -46,6 +47,32 @@ export const updateDrivingScore = {
       try {
         const response = await updateCarItem(id, input, carConf.drivingScore);
         return { response };
+      } catch (err) {
+        throw err;
+      }
+    }
+  }
+
+  export const deleteDrivingScore = {
+    name: `delete${name}`,
+    description: `Delete a ${name} node`,
+    type: ResponseUnionType({
+      name: `delete${name}`,
+      responseType: DeleteType
+    }),
+    args: {
+      id: {
+        type: new GraphQLNonNull(GraphQLID)
+      }
+    },
+    async resolve(parentValue, { id }) {
+      try {
+        await deleteCarItem(id, carConf.drivingScore);
+        return { response: {
+            id,
+            configID: carConf.drivingScore.id,
+          } 
+        };
       } catch (err) {
         throw err;
       }
