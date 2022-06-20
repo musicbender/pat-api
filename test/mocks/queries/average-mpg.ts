@@ -1,3 +1,25 @@
+export const getAverageMPG = `
+  query GetAverageMPG ($id: String, $date: Date) {
+    averageMPG(id: $id, date: $date){
+      ... on averageMPGResponse {
+          response {
+            id
+            value
+            vehicle
+            sampledOn
+            createdOn
+            updatedOn
+            configID
+          }
+      }
+      ... on averageMPGError {
+        errorCode
+        errorDesc
+      }
+    }
+  }
+`;
+
 export const addAverageMPG = `
   mutation AddAverageMPG ($input: AverageMPGInputType!) {
     addAverageMPG(input: $input){
@@ -9,6 +31,7 @@ export const addAverageMPG = `
             sampledOn
             createdOn
             updatedOn
+            configID
           }
       }
       ... on addAverageMPGError {

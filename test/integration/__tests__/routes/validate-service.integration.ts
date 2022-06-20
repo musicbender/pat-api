@@ -2,7 +2,7 @@ import { Server } from 'http';
 import * as supertest from 'supertest';
 import app from '../../../../src/server';
 import { connectDatabase, closeDatabase } from '../../../../src/database';
-import { INFO_PATH, LIVENESS_PATH, READINESS_PATH, TEST_PATH, VERSION_PATH } from '../../constants';
+import { INFO_PATH, LIVENESS_PATH, READINESS_PATH, TEST_PATH, VERSION_PATH } from '../../lib/constants';
 const pkg = require('../../../../package.json');
 
 /**

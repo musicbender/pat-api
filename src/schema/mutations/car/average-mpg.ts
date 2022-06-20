@@ -1,7 +1,8 @@
 import { GraphQLNonNull, GraphQLID } from 'graphql';
-import { DeleteType } from 'schema/types/delete-type';
+import { DeleteType } from '../../types';
 import { addCarItem, deleteCarItem, updateCarItem } from '../../../controllers/car';
 import { AverageMPGType, AverageMPGInputType, ResponseUnionType, AverageMPGInputUpdateType } from '../../types';
+import { appendResponse } from '../../utils/global';
 const carConf = require('../../../configs/cars.json');
 
 const name = carConf.averageMPG.modelID;
@@ -21,7 +22,7 @@ export const addAverageMPG = {
   async resolve(parentValue, { input }) {
     try {
       const response = await addCarItem(input, carConf.averageMPG);
-      return { response };
+      return { response: appendResponse(response, carConf.averageMPG) };
     } catch (err) {
       throw err;
     }
@@ -46,7 +47,7 @@ export const updateAverageMPG = {
     async resolve(parentValue, { id, input }) {
       try {
         const response = await updateCarItem(id, input, carConf.averageMPG);
-        return { response };
+        return { response: appendResponse(response, carConf.averageMPG) };
       } catch (err) {
         throw err;
       }

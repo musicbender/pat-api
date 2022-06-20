@@ -1,5 +1,5 @@
 import { GraphQLNonNull, GraphQLID } from 'graphql';
-import { DeleteType } from 'schema/types/delete-type';
+import { DeleteType } from '../../types';
 import { addCarItem, deleteCarItem, updateCarItem } from '../../../controllers/car';
 import { DrivingScoreType, DrivingScoreInputType, ResponseUnionType, DrivingScoreInputUpdateType } from '../../types';
 const carConf = require('../../../configs/cars.json');

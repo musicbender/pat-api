@@ -23,6 +23,7 @@ const logMiddleware = (winstonInstance: winston.Logger) => {
         const msg: string = `${ctx.method} ${ctx.originalUrl} ${ctx.status} ${ms}ms reqID(${ctx.state.reqID})`;
 
         winstonInstance.configure({
+          silent: process.env.NODE_ENV === 'test',
           level: process.env.PATPI_LOGGING_DEBUG ? 'debug' : 'info',
           transports: [
             //

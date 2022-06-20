@@ -3,7 +3,7 @@ import { AverageMPGType } from '../../types';
 const carConf = require('../../../configs/cars.json');
 
 const options = {
-  name: carConf.averageMPG.modelID, 
+  name: 'averageMPG', 
   type: AverageMPGType, 
   config: carConf.averageMPG,
 };

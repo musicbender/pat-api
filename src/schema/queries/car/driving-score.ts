@@ -3,7 +3,7 @@ import { DrivingScoreType } from '../../types';
 const carConf = require('../../../configs/cars.json');
 
 const options = {
-  name: carConf.drivingScore.modelID, 
+  name: 'drivingScore',
   type: DrivingScoreType,
   config: carConf.drivingScore,
 };

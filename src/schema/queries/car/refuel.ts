@@ -3,7 +3,7 @@ import { RefuelType } from '../../types';
 const carConf = require('../../../configs/cars.json');
 
 const options = {
-  name: carConf.refuel.modelID, 
+  name: 'refuel', 
   type: RefuelType, 
   config: carConf.refuel,
 };
