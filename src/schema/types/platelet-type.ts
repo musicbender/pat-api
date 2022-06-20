@@ -5,6 +5,7 @@ import {
   GraphQLString,
   GraphQLNonNull
 } from 'graphql';
+import * as GraphQLDate from 'graphql-date';
 import { CbcType } from './cbc-type';
 import { UnitType } from './unit-type';
 import { globalTypeFields } from '../utils/global';
@@ -14,7 +15,7 @@ export const PlateletInputType = new GraphQLInputObjectType({
   description: 'Health data input',
   fields: () => ({
     value: { type: new GraphQLNonNull(GraphQLFloat) },
-    sampledOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
   })
 });
 
@@ -24,8 +25,8 @@ export const PlateletInputUpdateType = new GraphQLInputObjectType({
   fields: () => ({
     value: { type: GraphQLFloat },
     unit: { type: UnitType },
-    sampledOn: { type: GraphQLString },
-    createdOn: { type: GraphQLString }
+    sampledOn: { type: GraphQLDate },
+    createdOn: { type: GraphQLDate }
   })
 });
 

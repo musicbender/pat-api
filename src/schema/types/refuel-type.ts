@@ -5,6 +5,7 @@ import {
   GraphQLString,
   GraphQLNonNull
 } from 'graphql';
+import * as GraphQLDate from 'graphql-date';
 import { VehicleType } from './vehicles-type';
 import { globalTypeFields } from '../utils/global';
 
@@ -15,19 +16,19 @@ export const RefuelInputType = new GraphQLInputObjectType({
     gallons: { type: GraphQLNonNull(GraphQLFloat) },
     cost: { type: GraphQLFloat },
     vehicle: { type: VehicleType },
-    sampledOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
   })
 });
 
 export const RefuelInputUpdateType = new GraphQLInputObjectType({
-  name: 'RefuelInputUpdaetType',
+  name: 'RefuelInputUpdateType',
   description: 'Car gas refuel input for updating',
   fields: () => ({
     gallons: { type: GraphQLFloat },
     cost: { type: GraphQLFloat },
     vehicle: { type: VehicleType },
-    sampledOn: { type: GraphQLString },
-    updatedOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
+    updatedOn: { type: GraphQLDate },
   })
 });
 

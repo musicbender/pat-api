@@ -2,6 +2,7 @@ import { GraphQLNonNull, GraphQLID } from 'graphql';
 import { DeleteType } from '../../types';
 import { addCarItem, deleteCarItem, updateCarItem } from '../../../controllers/car';
 import { RefuelType, RefuelInputType, ResponseUnionType, RefuelInputUpdateType } from '../../types';
+import { appendResponse } from '../../utils/global';
 const carConf = require('../../../configs/cars.json');
 
 const name = carConf.refuel.modelID;
@@ -21,7 +22,7 @@ export const addRefuel = {
   async resolve(parentValue, { input }) {
     try {
       const response = await addCarItem(input, carConf.refuel);
-      return { response };
+      return { response: appendResponse(response, carConf.refuel) };
     } catch (err) {
       throw err;
     }
@@ -46,7 +47,7 @@ export const updateRefuel = {
     async resolve(parentValue, { id, input }) {
       try {
         const response = await updateCarItem(id, input, carConf.refuel);
-        return { response };
+        return { response: appendResponse(response.get(), carConf.refuel) };
       } catch (err) {
         throw err;
       }

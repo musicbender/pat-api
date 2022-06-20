@@ -4,6 +4,7 @@ import {
   GraphQLFloat,
   GraphQLString
 } from 'graphql';
+import * as GraphQLDate from 'graphql-date';
 import { globalTypeFields } from '../utils/global';
 import { PlateletType } from './platelet-type';
 
@@ -11,7 +12,7 @@ export const CbcInputType = new GraphQLInputObjectType({
   name: 'CbcInputType',
   description: 'Complete blood count data input',
   fields: () => ({
-    sampledOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
     wbcCount: { type: GraphQLFloat },
     rbcCount: { type: GraphQLFloat },
     hematrocrit: { type: GraphQLFloat },
@@ -35,8 +36,8 @@ export const CbcInputUpdateType = new GraphQLInputObjectType({
   name: 'CbcInputUpdateType',
   description: 'Complete blood count data update input',
   fields: () => ({
-    sampledOn: { type: GraphQLString },
-    updatedOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
+    updatedOn: { type: GraphQLDate },
     wbcCount: { type: GraphQLFloat },
     rbcCount: { type: GraphQLFloat },
     hematrocrit: { type: GraphQLFloat },

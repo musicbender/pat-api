@@ -5,6 +5,7 @@ import {
   GraphQLString,
   GraphQLNonNull
 } from 'graphql';
+import * as GraphQLDate from 'graphql-date';
 import { VehicleType } from './vehicles-type';
 import { globalTypeFields } from '../utils/global';
 
@@ -17,7 +18,7 @@ export const DrivingScoreInputType = new GraphQLInputObjectType({
     breakingScore: { type: GraphQLInt },
     totalScore: { type: GraphQLNonNull(GraphQLInt) },
     vehicle: { type: VehicleType },
-    sampledOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
   })
 });
 
@@ -30,8 +31,8 @@ export const DrivingScoreInputUpdateType = new GraphQLInputObjectType({
     breakingScore: { type: GraphQLInt },
     totalScore: { type: GraphQLInt },
     vehicle: { type: VehicleType },
-    sampledOn: { type: GraphQLString },
-    updatedOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
+    updatedOn: { type: GraphQLDate },
   })
 });
 

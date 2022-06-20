@@ -1,4 +1,5 @@
 import { globalTypeFields } from '../utils/global';
+import * as GraphQLDate from 'graphql-date';
 import {
   GraphQLObjectType,
   GraphQLInputObjectType,
@@ -11,7 +12,7 @@ export const ActivityInputType = new GraphQLInputObjectType({
   name: 'ActivityInputType',
   description: 'Fitness activity input',
   fields: () => ({
-    sampledOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
     energy: { type: GraphQLFloat },
     energyUnit: { type: GraphQLString },
     energyGoal: { type: GraphQLFloat },
@@ -34,7 +35,7 @@ export const ActivityInputUpdateType = new GraphQLInputObjectType({
   name: 'ActivityInputUpdateType',
   description: 'Fitness activity update input',
   fields: () => ({
-    sampledOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
     updatedOn: { type: GraphQLString },
     energy: { type: GraphQLFloat },
     energyUnit: { type: GraphQLString },

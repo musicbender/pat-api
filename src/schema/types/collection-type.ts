@@ -5,6 +5,7 @@ import {
   GraphQLInt,
   GraphQLList
 } from 'graphql';
+import * as GraphQLDate from 'graphql-date';
 import { globalTypeFields } from '../utils/global';
 
 export const CollectionInputType = new GraphQLInputObjectType({
@@ -15,7 +16,7 @@ export const CollectionInputType = new GraphQLInputObjectType({
     description: { type: GraphQLString },
     tags: { type: new GraphQLList(GraphQLString) },
     count: { type: GraphQLInt },
-    sampledOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
   })
 });
 
@@ -28,8 +29,8 @@ export const CollectionInputUpdateType = new GraphQLInputObjectType({
     description: { type: GraphQLString },
     tags: { type: new GraphQLList(GraphQLString) },
     count: { type: GraphQLInt },
-    sampledOn: { type: GraphQLString },
-    createdOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
+    createdOn: { type: GraphQLDate },
   })
 });
 

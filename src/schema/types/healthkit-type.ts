@@ -7,6 +7,7 @@ import {
   GraphQLString,
   GraphQLNonNull
 } from 'graphql';
+import * as GraphQLDate from 'graphql-date';
 import { BloodPressureType } from './blood-pressure-type';
 import { UnitType } from './unit-type';
 import { globalTypeFields } from '../utils/global'
@@ -30,7 +31,7 @@ export const HealthKitInputType = new GraphQLInputObjectType({
     unit: { type: UnitType },
     sampleList: { type: new GraphQLList(HealthKitInputSampleType) },
     sample: { type: HealthKitInputSampleType },
-    sampledOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
     validSources: { type: new GraphQLList(GraphQLString) }
   })
 });
@@ -45,8 +46,8 @@ export const HealthKitInputUpdateType = new GraphQLInputObjectType({
     averageSampleValue: { type: GraphQLFloat },
     highestSampleValue: { type: GraphQLFloat },
     lowestSampleValue: { type: GraphQLFloat },
-    sampledOn: { type: GraphQLString },
-    createdOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
+    createdOn: { type: GraphQLDate },
     sources: { type: new GraphQLList(GraphQLString) },
     unit: { type: UnitType },
     totalDuration: { type: GraphQLString }

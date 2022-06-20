@@ -5,6 +5,7 @@ import {
   GraphQLString
 } from 'graphql';
 import { UnitType } from './unit-type';
+import * as GraphQLDate from 'graphql-date';
 import { globalTypeFields } from '../utils/global';
 
 export const BloodPressureInputType = new GraphQLInputObjectType({
@@ -13,7 +14,7 @@ export const BloodPressureInputType = new GraphQLInputObjectType({
   fields: () => ({
     systolic: { type: GraphQLFloat },
     diastolic: { type: GraphQLFloat },
-    sampledOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
   })
 });
 
@@ -23,8 +24,8 @@ export const BloodPressureInputUpdateType = new GraphQLInputObjectType({
   fields: () => ({
     systolic: { type: GraphQLFloat },
     diastolic: { type: GraphQLFloat },
-    sampledOn: { type: GraphQLString },
-    createdOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
+    createdOn: { type: GraphQLDate },
     unit: { type: UnitType }
   })
 });

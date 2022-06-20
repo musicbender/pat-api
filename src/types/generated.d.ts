@@ -4836,7 +4836,7 @@ export type MutationAddRefuelArgs = {
 
 export type MutationUpdateRefuelArgs = {
   id: Scalars['ID'],
-  input: RefuelInputUpdaetType
+  input: RefuelInputUpdateType
 };
 
 
@@ -5297,7 +5297,7 @@ export type RefuelInputType = {
 };
 
 /** Car gas refuel input for updating */
-export type RefuelInputUpdaetType = {
+export type RefuelInputUpdateType = {
   gallons?: Maybe<Scalars['Float']>,
   cost?: Maybe<Scalars['Float']>,
   vehicle?: Maybe<VehicleType>,
@@ -9632,7 +9632,7 @@ export type ResolversTypes = {
   addRefuelResponse: ResolverTypeWrapper<AddRefuelResponse>,
   addRefuelError: ResolverTypeWrapper<AddRefuelError>,
   addRefuelErrorErrorCodesType: AddRefuelErrorErrorCodesType,
-  RefuelInputUpdaetType: RefuelInputUpdaetType,
+  RefuelInputUpdateType: RefuelInputUpdateType,
   updateRefuelUnion: ResolversTypes['updateRefuelResponse'] | ResolversTypes['updateRefuelError'],
   updateRefuelResponse: ResolverTypeWrapper<UpdateRefuelResponse>,
   updateRefuelError: ResolverTypeWrapper<UpdateRefuelError>,
@@ -10142,7 +10142,7 @@ export type ResolversParentTypes = {
   addRefuelResponse: AddRefuelResponse,
   addRefuelError: AddRefuelError,
   addRefuelErrorErrorCodesType: AddRefuelErrorErrorCodesType,
-  RefuelInputUpdaetType: RefuelInputUpdaetType,
+  RefuelInputUpdateType: RefuelInputUpdateType,
   updateRefuelUnion: ResolversTypes['updateRefuelResponse'] | ResolversTypes['updateRefuelError'],
   updateRefuelResponse: UpdateRefuelResponse,
   updateRefuelError: UpdateRefuelError,

@@ -4,6 +4,7 @@ import {
   GraphQLFloat,
   GraphQLString
 } from 'graphql';
+import * as GraphQLDate from 'graphql-date';
 import { UnitType } from './unit-type';
 import { globalTypeFields } from '../utils/global';
 
@@ -12,7 +13,7 @@ export const HealthInputType = new GraphQLInputObjectType({
   description: 'Health data input',
   fields: () => ({
     value: { type: GraphQLFloat },
-    sampledOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
   })
 });
 
@@ -21,8 +22,8 @@ export const HealthInputUpdateType = new GraphQLInputObjectType({
   description: 'Health data input for updating',
   fields: () => ({
     value: { type: GraphQLFloat },
-    sampledOn: { type: GraphQLString },
-    createdOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
+    createdOn: { type: GraphQLDate },
     unit: { type: UnitType }
   })
 });

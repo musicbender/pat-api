@@ -62,7 +62,7 @@ export const updateAverageMPG = `
       }
     }
   }
-`
+`;
 
 export const deleteAverageMPG = `
   mutation DeleteAverageMPG ($id: ID!) {
@@ -79,4 +79,4 @@ export const deleteAverageMPG = `
       }
     }
   }
-`
+`;

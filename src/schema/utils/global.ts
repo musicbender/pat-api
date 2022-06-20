@@ -14,9 +14,9 @@ export const appendResponse = (resData: Object, config: AnyConfig) => {
 
 export const globalTypeFields = {
     id: { type: GraphQLString },
-    sampledOn: { type: GraphQLString },
-    createdOn: { type: GraphQLString },
-    updatedOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
+    createdOn: { type: GraphQLDate },
+    updatedOn: { type: GraphQLDate },
     configID: { type: GraphQLString },
 }
 

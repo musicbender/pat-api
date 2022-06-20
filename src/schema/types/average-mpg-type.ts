@@ -5,6 +5,7 @@ import {
   GraphQLString,
   GraphQLNonNull
 } from 'graphql';
+import * as GraphQLDate from 'graphql-date';
 import { VehicleType } from './vehicles-type';
 
 export const AverageMPGInputType = new GraphQLInputObjectType({
@@ -13,7 +14,7 @@ export const AverageMPGInputType = new GraphQLInputObjectType({
   fields: () => ({
     value: { type: new GraphQLNonNull(GraphQLFloat) },
     vehicle: { type: VehicleType },
-    sampledOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
   })
 });
 
@@ -23,8 +24,8 @@ export const AverageMPGInputUpdateType = new GraphQLInputObjectType({
   fields: () => ({
     value: { type: GraphQLFloat },
     vehicle: { type: VehicleType },
-    sampledOn: { type: GraphQLString },
-    updatedOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
+    updatedOn: { type: GraphQLDate },
   })
 });
 
@@ -35,9 +36,9 @@ export const AverageMPGType = new GraphQLObjectType({
     id: { type: GraphQLString },
     value: { type: GraphQLFloat },
     vehicle: { type: VehicleType },
-    sampledOn: { type: GraphQLString },
-    createdOn: { type: GraphQLString },
-    updatedOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
+    createdOn: { type: GraphQLDate },
+    updatedOn: { type: GraphQLDate },
     configID: { type: GraphQLString },
   })
 });
