@@ -1,15 +1,18 @@
 {
   "addAverageMPG": [{
-      "input": {
-        "value": 130.5,
-        "vehicle": "priusPrime"
-      }
+      "value": 130.5,
+      "vehicle": "priusPrime"
     },
     {
-      "input": {
-        "value": 10,
-        "vehicle": "crv"
-      }
+      "value": 10,
+      "vehicle": "crv"
+    }
+  ],
+  "updateAverageMPG": [{
+      "value": 201
+    },
+    {
+      "vehicle": "priusPrime"
     }
   ]
 }

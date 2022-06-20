@@ -4,7 +4,7 @@ import { SuperTest, Test } from 'supertest';
 import app from '../../../../../src/server';
 import { connectDatabase, closeDatabase } from '../../../../../src/database';
 import { GRAPHQL_PATH } from '../../../lib/constants';
-import { addAverageMPG, getAverageMPG } from '../../../../mocks/queries/average-mpg';
+import { addAverageMPG, getAverageMPG, deleteAverageMPG, updateAverageMPG } from '../../../../mocks/queries/average-mpg';
 import * as moment from 'moment';
 import { gqlPlugin } from '../../../lib/plugins';
 const inputs = require('../../../../mocks/inputs/averageMPG.json'); 
@@ -42,7 +42,7 @@ describe('Car - Average MPG', () => {
         .use(gqlPlugin)
         .send({
           query: addAverageMPG,
-          variables: inputs.addAverageMPG[0]
+          variables: { input: inputs.addAverageMPG[0] }
         });
 
       const { response: data } = res.body.data.addAverageMPG;
@@ -64,7 +64,7 @@ describe('Car - Average MPG', () => {
         .use(gqlPlugin)
         .send({
           query: addAverageMPG,
-          variables: inputs.addAverageMPG[1]
+          variables: { input: inputs.addAverageMPG[1] }
         });
 
       const { response: data } = res.body.data.addAverageMPG;
@@ -123,11 +123,85 @@ describe('Car - Average MPG', () => {
     })
   });
 
-  // describe('update mutation', () => {
-    
-  // });
+  describe('update mutation', () => {
+    it('can change value for item 1', async () => {
+      const res = await request
+        .post(GRAPHQL_PATH)
+        .use(gqlPlugin)
+        .send({
+          query: updateAverageMPG,
+          variables: {
+            input: inputs.updateAverageMPG[0],
+            id: itemIDs[0],
+          }
+        });
 
-  // describe('delete mutation', () => {
-    
-  // });
+      const { response: data } = res.body.data.updateAverageMPG;
+
+      expect(data.id).toEqual(itemIDs[0]);
+      expect(data.value).toEqual(201);
+      expect(data.vehicle).toEqual('priusPrime');
+      expect(moment.unix(data.sampledOn).isValid()).toBeTruthy();
+      expect(moment.unix(data.createdOn).isValid()).toBeTruthy();
+      expect(moment.unix(data.updatedOn).isValid()).toBeTruthy();
+      expect(data.configID).toEqual('car-average-mpg');
+    });
+
+    it('can change vehicle for item 2', async () => {
+      const res = await request
+        .post(GRAPHQL_PATH)
+        .use(gqlPlugin)
+        .send({
+          query: updateAverageMPG,
+          variables: {
+            input: inputs.updateAverageMPG[1],
+            id: itemIDs[1],
+          }
+        });
+
+      const { response: data } = res.body.data.updateAverageMPG;
+
+      expect(data.id).toEqual(itemIDs[1]);
+      expect(data.value).toEqual(10);
+      expect(data.vehicle).toEqual('priusPrime');
+      expect(moment.unix(data.sampledOn).isValid()).toBeTruthy();
+      expect(moment.unix(data.createdOn).isValid()).toBeTruthy();
+      expect(moment.unix(data.updatedOn).isValid()).toBeTruthy();
+      expect(data.configID).toEqual('car-average-mpg');
+    });
+  });
+
+  describe('delete mutation', () => {
+    it('can remove item 1', async () => {
+      const res = await request
+        .post(GRAPHQL_PATH)
+        .use(gqlPlugin)
+        .send({
+          query: deleteAverageMPG,
+          variables: { id: itemIDs[0] }
+        });
+
+      const { response: data } = res.body.data.deleteAverageMPG;
+      
+      expect(res.status).toEqual(200);
+      expect(data.id).toEqual(itemIDs[0]);
+      expect(data.configID).toEqual('car-average-mpg');
+    });
+
+    it('can remove item 1', async () => {
+      const res = await request
+        .post(GRAPHQL_PATH)
+        .use(gqlPlugin)
+        .send({
+          query: deleteAverageMPG,
+          variables: { id: itemIDs[1] }
+        });
+
+      const { response: data } = res.body.data.deleteAverageMPG;
+      
+      expect(res.status).toEqual(200);
+      expect(data.id).toEqual(itemIDs[1]);
+      expect(data.configID).toEqual('car-average-mpg');
+    });
+  });
 });

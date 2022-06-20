@@ -47,7 +47,7 @@ export const updateAverageMPG = {
     async resolve(parentValue, { id, input }) {
       try {
         const response = await updateCarItem(id, input, carConf.averageMPG);
-        return { response: appendResponse(response, carConf.averageMPG) };
+        return { response: appendResponse(response.get(), carConf.averageMPG) };
       } catch (err) {
         throw err;
       }

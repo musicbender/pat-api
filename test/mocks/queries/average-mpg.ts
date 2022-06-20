@@ -53,9 +53,27 @@ export const updateAverageMPG = `
             sampledOn
             createdOn
             updatedOn
+            configID
           }
       }
       ... on updateAverageMPGError {
+        errorCode
+        errorDesc
+      }
+    }
+  }
+`
+
+export const deleteAverageMPG = `
+  mutation DeleteAverageMPG ($id: ID!) {
+    deleteAverageMPG(id: $id) {
+      ... on deleteAverageMPGResponse {
+          response {
+            id
+            configID
+          }
+      }
+      ... on deleteAverageMPGError {
         errorCode
         errorDesc
       }

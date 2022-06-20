@@ -34,11 +34,11 @@ export const addCarItem = async (input: CarInputType, config: CarConfigType): Pr
 export const updateCarItem = async (id: string, input: CarInputUpdateType, config: CarConfigType): Promise<Model> => {
   if (config.disabled) throw new ExpectedError('DISABLED_CAR_TYPE');
 
-  const item = models[config.modelID];
+  const CarItem = models[config.modelID];
   let data = { ...input, updatedOn: moment().toISOString() }
 
   try {
-    const [rows, [ updatedItem ]]: any = await item.update({ ...data }, { where: { id }, returning: true });
+    const [rows, [ updatedItem ]]: any = await CarItem.update({ ...data }, { where: { id }, returning: true });
     return updatedItem;
   } catch (err) {
     throw new ExpectedError('UPDATE_CAR_ERROR');

@@ -21,7 +21,7 @@ export const AverageMPGInputUpdateType = new GraphQLInputObjectType({
   name: 'AverageMPGInputUpdateType',
   description: 'Average MPG data update input',
   fields: () => ({
-    value: { type: new GraphQLNonNull(GraphQLFloat) },
+    value: { type: GraphQLFloat },
     vehicle: { type: VehicleType },
     sampledOn: { type: GraphQLString },
     updatedOn: { type: GraphQLString },
