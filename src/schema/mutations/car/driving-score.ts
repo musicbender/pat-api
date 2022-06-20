@@ -2,6 +2,7 @@ import { GraphQLNonNull, GraphQLID } from 'graphql';
 import { DeleteType } from '../../types';
 import { addCarItem, deleteCarItem, updateCarItem } from '../../../controllers/car';
 import { DrivingScoreType, DrivingScoreInputType, ResponseUnionType, DrivingScoreInputUpdateType } from '../../types';
+import { appendResponse } from '../../utils/global';
 const carConf = require('../../../configs/cars.json');
 
 const name = carConf.drivingScore.modelID;
@@ -21,7 +22,7 @@ export const addDrivingScore = {
   async resolve(parentValue, { input }) {
     try {
       const response = await addCarItem(input, carConf.drivingScore);
-      return { response };
+      return { response: appendResponse(response, carConf.drivingScore) };
     } catch (err) {
       throw err;
     }
@@ -46,7 +47,7 @@ export const updateDrivingScore = {
     async resolve(parentValue, { id, input }) {
       try {
         const response = await updateCarItem(id, input, carConf.drivingScore);
-        return { response };
+        return { response: appendResponse(response.get(), carConf.drivingScore) };
       } catch (err) {
         throw err;
       }

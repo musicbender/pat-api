@@ -28,7 +28,7 @@ export default class DrivingScore extends BaseModel<DrivingScore> {
   @Column
   totalScore: number;
 
-  @Default('prius prime')
+  @Default('priusPrime')
   @Column
   vehicle: string;
 

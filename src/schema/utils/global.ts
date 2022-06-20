@@ -13,11 +13,11 @@ export const appendResponse = (resData: Object, config: AnyConfig) => {
 }
 
 export const globalTypeFields = {
-    id: { type: GraphQLString },
-    sampledOn: { type: GraphQLDate },
-    createdOn: { type: GraphQLDate },
-    updatedOn: { type: GraphQLDate },
-    configID: { type: GraphQLString },
+  id: { type: GraphQLString },
+  sampledOn: { type: GraphQLDate },
+  createdOn: { type: GraphQLDate },
+  updatedOn: { type: GraphQLDate },
+  configID: { type: GraphQLString },
 }
 
 export const composeQuery = (options: ComposeQueryOptions) => {

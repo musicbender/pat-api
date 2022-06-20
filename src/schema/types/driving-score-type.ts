@@ -46,5 +46,6 @@ export const DrivingScoreType = new GraphQLObjectType({
     breakingScore: { type: GraphQLInt },
     totalScore: { type: GraphQLInt },
     vehicle: { type: VehicleType },
+    configID: { type: GraphQLString },
   })
 });
