@@ -1,14 +1,14 @@
 import * as moment from 'moment';
 import { v4 as uuid } from 'uuid';
-import { ExpectedError } from '../utils/errors';
-import { aggregateHealthData } from '../utils/sample';
+import { ExpectedError } from '@utils/errors';
+import { aggregateHealthData } from '@utils/sample';
 import { findItemByDate } from './global';
 import { addHealthItem } from './health';
-import models from '../models';
+import models from '@models';
 import { Model } from 'sequelize-typescript';
-import { appendResponse } from '../schema/utils/global';
-const { healthTypes } = require('../configs/healthkit.json');
-const healthConfig = require('../configs/health.json');
+import { appendResponse } from '@schema/utils/global';
+const { healthTypes } = require('@configs/healthkit.json');
+const healthConfig = require('@configs/health.json');
 
 import { 
   HealthKitType, 
@@ -20,7 +20,7 @@ import {
   HealthkitInputAndConfig,
   HealthTypes,
   HealthType,
-} from '../types';
+} from '@types';
 
 // add health item
 export const addHealthKitItem = async (

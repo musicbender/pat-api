@@ -1,7 +1,7 @@
 import * as Router from 'koa-router';
 import * as graphqlHTTP from 'koa-graphql';
 import * as bodyParser from 'koa-bodyparser';
-import schema from '../schema';
+import schema from '@schema';
 
 const router = new Router();
 

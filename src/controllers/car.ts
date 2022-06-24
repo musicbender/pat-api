@@ -1,9 +1,9 @@
 import { v4 as uuid } from 'uuid';
 import * as moment from 'moment';
-import { CarType, CarInputType, CarInputUpdateType, CarConfigType } from '../types';
-import models from '../models';
+import { CarType, CarInputType, CarInputUpdateType, CarConfigType } from '@types';
+import models from '@models';
 import { Model } from 'sequelize-typescript';
-import { ExpectedError } from '../utils/errors';
+import { ExpectedError } from '@utils/errors';
 
 // add car item
 export const addCarItem = async (input: CarInputType, config: CarConfigType): Promise<CarType> => {

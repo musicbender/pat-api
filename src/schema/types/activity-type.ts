@@ -1,11 +1,11 @@
-import { globalTypeFields } from '../utils/global';
+import { globalTypeFields } from '@schema/utils/global';
 import * as GraphQLDate from 'graphql-date';
 import {
   GraphQLObjectType,
   GraphQLInputObjectType,
   GraphQLFloat,
   GraphQLString,
-  GraphQLBoolean
+  GraphQLBoolean,
 } from 'graphql';
 
 export const ActivityInputType = new GraphQLInputObjectType({
@@ -28,7 +28,7 @@ export const ActivityInputType = new GraphQLInputObjectType({
     exerciseComplete: { type: GraphQLBoolean },
     ringsProgress: { type: GraphQLFloat },
     ringsComplete: { type: GraphQLBoolean },
-  })
+  }),
 });
 
 export const ActivityInputUpdateType = new GraphQLInputObjectType({
@@ -52,7 +52,7 @@ export const ActivityInputUpdateType = new GraphQLInputObjectType({
     exerciseComplete: { type: GraphQLBoolean },
     ringsProgress: { type: GraphQLFloat },
     ringsComplete: { type: GraphQLBoolean },
-  })
+  }),
 });
 
 export const ActivityType = new GraphQLObjectType({
@@ -75,5 +75,5 @@ export const ActivityType = new GraphQLObjectType({
     exerciseComplete: { type: GraphQLBoolean },
     ringsProgress: { type: GraphQLFloat },
     ringsComplete: { type: GraphQLBoolean },
-  })
+  }),
 });

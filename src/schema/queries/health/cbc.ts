@@ -1,6 +1,6 @@
-import { CbcType } from '../../types';
-import { composeQuery, composeQueryAll } from '../../utils/global';
-const healthTypes = require('../../../configs/health.json');
+import { CbcType } from '@schema/types';
+import { composeQuery, composeQueryAll } from '@schema/utils/global';
+const healthTypes = require('@configs/health.json');
 
 const options = {
   type: CbcType,

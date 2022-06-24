@@ -3,12 +3,12 @@ import {
   GraphQLInputObjectType,
   GraphQLFloat,
   GraphQLString,
-  GraphQLNonNull
+  GraphQLNonNull,
 } from 'graphql';
 import * as GraphQLDate from 'graphql-date';
 import { CbcType } from './cbc-type';
 import { UnitType } from './unit-type';
-import { globalTypeFields } from '../utils/global';
+import { globalTypeFields } from '@schema/utils/global';
 
 export const PlateletInputType = new GraphQLInputObjectType({
   name: 'PlateletInputType',
@@ -16,7 +16,7 @@ export const PlateletInputType = new GraphQLInputObjectType({
   fields: () => ({
     value: { type: new GraphQLNonNull(GraphQLFloat) },
     sampledOn: { type: GraphQLDate },
-  })
+  }),
 });
 
 export const PlateletInputUpdateType = new GraphQLInputObjectType({
@@ -26,8 +26,8 @@ export const PlateletInputUpdateType = new GraphQLInputObjectType({
     value: { type: GraphQLFloat },
     unit: { type: UnitType },
     sampledOn: { type: GraphQLDate },
-    createdOn: { type: GraphQLDate }
-  })
+    createdOn: { type: GraphQLDate },
+  }),
 });
 
 export const PlateletType = new GraphQLObjectType({
@@ -39,6 +39,5 @@ export const PlateletType = new GraphQLObjectType({
     unit: { type: UnitType },
     cbc: { type: CbcType },
     cbcId: { type: GraphQLString },
-  })
+  }),
 });
-

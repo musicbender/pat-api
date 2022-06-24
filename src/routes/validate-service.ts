@@ -1,9 +1,9 @@
 import * as Router from 'koa-router';
 import axios from 'axios';
-import { restResponse } from '../utils/util';
-import { KoaContext } from 'types';
-import logger from '../utils/logger';
-import externalConf from '../configs/external';
+import { restResponse } from '@utils/util';
+import { KoaContext } from '@types';
+import logger from '@utils/logger';
+import externalConf from '@configs/external';
 const pkg = require('../../package.json');
 
 const router = new Router();

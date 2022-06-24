@@ -1,13 +1,13 @@
 import * as Koa from 'koa';
 import * as bodyParser from 'koa-bodyparser';
 import * as helmet from 'koa-helmet';
-import logger from './utils/logger';
+import logger from '@utils/logger';
 import { router } from './routes';
 import {
   corsMiddleware,
   logMiddleware,
   requestIDMiddleware,
-  headersMiddleware
+  headersMiddleware,
 } from './middleware';
 
 // init

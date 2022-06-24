@@ -6,17 +6,26 @@
     "sourceMap": true,
     "target": "esnext",
     "outDir": "./dist",
-    "baseUrl": "./src",
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    "paths": {
+      "@configs/*": ["src/configs/*"],
+      "@controllers/*": ["src/controllers/*"],
+      "@models": ["src/models/index.ts"],
+      "@schema": ["src/schema/index.ts"],
+      "@schema/*": ["src/schema/*"],
+      "@types": ["src/types/index.d.ts"],
+      "@utils/*": ["src/utils/*"],
+      "@test/*": ["test/*"],
+      "@integration/*": ["test/integration/*"],
+      "@mocks/*": ["test/mocks/*"],
+      "@database": ["src/database.ts"],
+      "@server": ["src/server.ts"]
+    }
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }

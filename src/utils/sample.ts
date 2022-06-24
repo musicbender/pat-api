@@ -7,7 +7,7 @@ import {
   HealthKitInputSampleType, 
   HealthKitInputType, 
   HealthKitConfigType 
-} from '../types';
+} from '@types';
 
 export const isWithinInterval = (interval: moment.unitOfTime.StartOf, date: string, sampledOn: string): boolean => {
     if (!interval) return true;

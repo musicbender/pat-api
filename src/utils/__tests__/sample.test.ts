@@ -1,6 +1,6 @@
 import { isWithinInterval, getValidSources, getAverage, findOutterValues, aggregateHealthData } from '../sample';
 import * as moment from 'moment';
-import { TestItem } from '../../types';
+import { TestItem } from '@types';
 
 /**
  * Samples util unit tests
@@ -8,7 +8,7 @@ import { TestItem } from '../../types';
  * @group unit/util
  */
 
-const { healthTypes } = require('../../configs/healthkit.json');
+const { healthTypes } = require('@configs/healthkit.json');
 
 // mocks
 const mockStepData = require( '../../../test/mocks/step-data-1.json');

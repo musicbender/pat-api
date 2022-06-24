@@ -1,10 +1,10 @@
 import { v4 as uuid } from 'uuid';
 import * as moment from 'moment';
-import models from '../models';
+import models from '@models';
 import { Model } from 'sequelize-typescript';
 import { findItemByDate } from './global';
-import { ExpectedError } from '../utils/errors';
-import { HealthTypes, HealthInputTypes, HealthInputUpdateTypes, HealthConfigType } from '../types';
+import { ExpectedError } from '@utils/errors';
+import { HealthTypes, HealthInputTypes, HealthInputUpdateTypes, HealthConfigType } from '@types';
 
 // add health item
 export const addHealthItem = async (input: HealthInputTypes, config: HealthConfigType): Promise<HealthTypes> => {

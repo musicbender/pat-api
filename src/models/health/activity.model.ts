@@ -1,13 +1,8 @@
 import * as moment from 'moment';
 import { baseTable } from '../prototypes/base-table';
 import BaseModel from '../prototypes/base-model';
-const healthTypes = require('../../configs/health.json');
-import { 
-  Table,
-  Column, 
-  Default,
-  DataType,
-} from 'sequelize-typescript';
+const healthTypes = require('@configs/health.json');
+import { Table, Column, Default, DataType } from 'sequelize-typescript';
 
 @Table({
   ...baseTable,

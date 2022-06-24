@@ -1,5 +1,5 @@
-import logger from '../../utils/logger';
-import { ExpectedError } from '../../utils/errors';
+import logger from '@utils/logger';
+import { ExpectedError } from '@utils/errors';
 
 const errorMiddleware = async (resolve, root, args, context, info) => {
   if (info.excludeMiddleware) {

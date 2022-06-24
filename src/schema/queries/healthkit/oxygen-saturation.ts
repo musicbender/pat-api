@@ -1,6 +1,6 @@
-import { composeQuery, composeQueryAll } from '../../utils/global';
-import { HealthType } from '../../types';
-const { healthTypes } = require('../../../configs/healthkit.json');
+import { composeQuery, composeQueryAll } from '@schema/utils/global';
+import { HealthType } from '@schema/types';
+const { healthTypes } = require('@configs/healthkit.json');
 
 const options = {
   type: HealthType,

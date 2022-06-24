@@ -1,10 +1,10 @@
 import { v4 as uuid } from 'uuid';
 import * as shortid from 'shortid';
 import * as moment from 'moment';
-import { CollectionType, CollectionInputType, CollectionInputUpdateType, CollectionConfigType, CollectionInputIncrementType } from '../types';
-import models from '../models';
+import { CollectionType, CollectionInputType, CollectionInputUpdateType, CollectionConfigType, CollectionInputIncrementType } from '@types';
+import models from '@models';
 import { Model } from 'sequelize-typescript';
-import { ExpectedError } from '../utils/errors';
+import { ExpectedError } from '@utils/errors';
 import { findItemById } from './global';
 
 // add collection item

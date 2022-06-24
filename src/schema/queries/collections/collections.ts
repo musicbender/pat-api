@@ -1,10 +1,10 @@
-import { composeQuery, composeQueryAll } from '../../utils/global';
-import { CollectionType } from '../../types';
-const collectionConf = require('../../../configs/collections.json');
+import { composeQuery, composeQueryAll } from '@schema/utils/global';
+import { CollectionType } from '@schema/types';
+const collectionConf = require('@configs/collections.json');
 
 const options = {
-  name: collectionConf.collections.modelID, 
-  type: CollectionType, 
+  name: collectionConf.collections.modelID,
+  type: CollectionType,
   config: collectionConf.collections,
 };
 

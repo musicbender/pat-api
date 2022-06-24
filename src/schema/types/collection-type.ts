@@ -3,10 +3,10 @@ import {
   GraphQLInputObjectType,
   GraphQLString,
   GraphQLInt,
-  GraphQLList
+  GraphQLList,
 } from 'graphql';
 import * as GraphQLDate from 'graphql-date';
-import { globalTypeFields } from '../utils/global';
+import { globalTypeFields } from '@schema/utils/global';
 
 export const CollectionInputType = new GraphQLInputObjectType({
   name: 'CollectionInputType',
@@ -17,7 +17,7 @@ export const CollectionInputType = new GraphQLInputObjectType({
     tags: { type: new GraphQLList(GraphQLString) },
     count: { type: GraphQLInt },
     sampledOn: { type: GraphQLDate },
-  })
+  }),
 });
 
 export const CollectionInputUpdateType = new GraphQLInputObjectType({
@@ -31,7 +31,7 @@ export const CollectionInputUpdateType = new GraphQLInputObjectType({
     count: { type: GraphQLInt },
     sampledOn: { type: GraphQLDate },
     createdOn: { type: GraphQLDate },
-  })
+  }),
 });
 
 export const CollectionInputIncrementType = new GraphQLInputObjectType({
@@ -39,7 +39,7 @@ export const CollectionInputIncrementType = new GraphQLInputObjectType({
   description: 'Collection data input for incrementing count',
   fields: () => ({
     increment: { type: GraphQLInt },
-  })
+  }),
 });
 
 export const CollectionType = new GraphQLObjectType({
@@ -52,6 +52,5 @@ export const CollectionType = new GraphQLObjectType({
     description: { type: GraphQLString },
     tags: { type: new GraphQLList(GraphQLString) },
     count: { type: GraphQLInt },
-  })
+  }),
 });
-

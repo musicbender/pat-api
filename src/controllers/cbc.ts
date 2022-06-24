@@ -1,9 +1,9 @@
 import { v4 as uuid } from 'uuid';
 import * as moment from 'moment';
-import { CbcType, CbcInputType, CbcInputUpdateType } from '../types';
-import models from '../models';
-import { ExpectedError } from '../utils/errors';
-const healthConfig = require('../configs/health.json');
+import { CbcType, CbcInputType, CbcInputUpdateType } from '@types';
+import models from '@models';
+import { ExpectedError } from '@utils/errors';
+const healthConfig = require('@configs/health.json');
 
 export const addCbcItem = async (input: CbcInputType): Promise<CbcType> => {
   // if type has been disabled in config

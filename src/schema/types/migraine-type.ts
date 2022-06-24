@@ -3,10 +3,10 @@ import {
   GraphQLInputObjectType,
   GraphQLInt,
   GraphQLString,
-  GraphQLList
+  GraphQLList,
 } from 'graphql';
 import * as GraphQLDate from 'graphql-date';
-import { globalTypeFields } from '../utils/global';
+import { globalTypeFields } from '@schema/utils/global';
 
 export const MigraineInputType = new GraphQLInputObjectType({
   name: 'MigraineInputType',
@@ -19,7 +19,7 @@ export const MigraineInputType = new GraphQLInputObjectType({
     description: { type: GraphQLString },
     totalDuration: { type: GraphQLString },
     sampledOn: { type: GraphQLDate },
-  })
+  }),
 });
 
 export const MigraineInputUpdateType = new GraphQLInputObjectType({
@@ -34,7 +34,7 @@ export const MigraineInputUpdateType = new GraphQLInputObjectType({
     totalDuration: { type: GraphQLString },
     sampledOn: { type: GraphQLDate },
     createdOn: { type: GraphQLDate },
-  })
+  }),
 });
 
 export const MigraineType = new GraphQLObjectType({
@@ -48,7 +48,5 @@ export const MigraineType = new GraphQLObjectType({
     auraTags: { type: new GraphQLList(GraphQLString) },
     description: { type: GraphQLString },
     totalDuration: { type: GraphQLString },
-  })
+  }),
 });
-
-
