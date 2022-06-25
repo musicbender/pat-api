@@ -1,17 +1,22 @@
 import { Server } from 'http';
 import * as supertest from 'supertest';
 import { SuperTest, Test } from 'supertest';
-import app from '../../../../../src/server';
-import { connectDatabase, closeDatabase } from '../../../../../src/database';
-import { GRAPHQL_PATH } from '../../../lib/constants';
-import { addMutation, getQuery, deleteMutation, updateMutation } from '../../../../mocks/queries/driving-score';
+import app from '@server';
+import { connectDatabase, closeDatabase } from '@database';
+import { GRAPHQL_PATH } from '@integration/lib/constants';
+import {
+  addMutation,
+  getQuery,
+  deleteMutation,
+  updateMutation,
+} from '@mocks/queries/driving-score';
 import * as moment from 'moment';
-import { gqlPlugin } from '../../../lib/plugins';
-const inputs = require('../../../../mocks/inputs/driving-score.json'); 
+import { gqlPlugin } from '@integration/lib/plugins';
+const inputs = require('@mocks/inputs/driving-score.json');
 
 /**
  * Validate service e2e tests
- * 
+ *
  * @group integration/graphql/car
  */
 
@@ -22,15 +27,15 @@ describe('Car - Driving Score', () => {
   let itemIDs: string[] = [];
   let itemDate: number;
 
-  beforeAll(async () => { 
+  beforeAll(async () => {
     await connectDatabase();
     server = app.listen(process.env.PATAPI_PORT);
     app.context.isReady = true;
   });
 
-  afterAll(async () => { 
+  afterAll(async () => {
     await closeDatabase();
-    await server.close() 
+    await server.close();
   });
 
   beforeEach(async () => {
@@ -44,7 +49,7 @@ describe('Car - Driving Score', () => {
         .use(gqlPlugin)
         .send({
           query: addMutation,
-          variables: { input: inputs.addMutation[0] }
+          variables: { input: inputs.addMutation[0] },
         });
 
       const { response: data } = res.body.data.addDrivingScore;
@@ -73,7 +78,7 @@ describe('Car - Driving Score', () => {
         .use(gqlPlugin)
         .send({
           query: getQuery,
-          variables: { id: itemIDs[0] }
+          variables: { id: itemIDs[0] },
         });
 
       const { response: data } = res.body.data.drivingScore;
@@ -96,11 +101,11 @@ describe('Car - Driving Score', () => {
         .use(gqlPlugin)
         .send({
           query: getQuery,
-          variables: { date: itemDate }
+          variables: { date: itemDate },
         });
 
       const { response: data } = res.body.data.drivingScore;
-      
+
       expect(data.id).toEqual(itemIDs[0]);
       expect(data.accelerationScore).toEqual(5);
       expect(data.coastingScore).toEqual(3);
@@ -124,7 +129,7 @@ describe('Car - Driving Score', () => {
           variables: {
             input: inputs.updateMutation[0],
             id: itemIDs[0],
-          }
+          },
         });
 
       const { response: data } = res.body.data.updateDrivingScore;
@@ -149,11 +154,11 @@ describe('Car - Driving Score', () => {
         .use(gqlPlugin)
         .send({
           query: deleteMutation,
-          variables: { id: itemIDs[0] }
+          variables: { id: itemIDs[0] },
         });
 
       const { response: data } = res.body.data.deleteDrivingScore;
-      
+
       expect(res.status).toEqual(200);
       expect(data.id).toEqual(itemIDs[0]);
       expect(data.configID).toEqual(CONFIG_ID);

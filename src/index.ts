@@ -1,6 +1,6 @@
 import logger from './utils/logger';
-import { connectDatabase } from '@database';
-import app from '@server';
+import { connectDatabase } from './database';
+import app from './server';
 
 (async () => {
   await connectDatabase();

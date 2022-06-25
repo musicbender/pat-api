@@ -1,0 +1,5 @@
+node_modules
+public
+scripts
+static
+src/types/graphql-types.d.ts

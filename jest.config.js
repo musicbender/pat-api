@@ -1,13 +1,18 @@
+const tsconfig = require('./tsconfig.json');
+const moduleNameMapper = require('tsconfig-paths-jest')(tsconfig);
+
 module.exports = {
   runner: 'groups',
   roots: ['<rootDir>/src', '<rootDir>/test'],
-  testEnvironment: 'node',
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
   testRegex: '(/__tests__/.*|(\\.|/)(test|integration))\\.ts$',
   moduleFileExtensions: ['ts', 'js', 'json', 'node'],
   extensionsToTreatAsEsm: ['.ts'],
+  modulePaths: ['node_modules', '<rootDir>/src', '<rootDir>/test'],
   transform: {
     '^.+\\.ts$': 'ts-jest',
   },
-  verbose: true
-}
+  verbose: true,
+  globalSetup: '<rootDir>/test/lib/global-setup.js',
+  moduleNameMapper,
+};

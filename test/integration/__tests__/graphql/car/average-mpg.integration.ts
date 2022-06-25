@@ -1,17 +1,22 @@
 import { Server } from 'http';
 import * as supertest from 'supertest';
 import { SuperTest, Test } from 'supertest';
-import app from '../../../../../src/server';
-import { connectDatabase, closeDatabase } from '../../../../../src/database';
-import { GRAPHQL_PATH } from '../../../lib/constants';
-import { addAverageMPG, getAverageMPG, deleteAverageMPG, updateAverageMPG } from '../../../../mocks/queries/average-mpg';
+import app from '@server';
+import { connectDatabase, closeDatabase } from '@database';
+import { GRAPHQL_PATH } from '@integration/lib/constants';
+import {
+  addAverageMPG,
+  getAverageMPG,
+  deleteAverageMPG,
+  updateAverageMPG,
+} from '@mocks/queries/average-mpg';
 import * as moment from 'moment';
-import { gqlPlugin } from '../../../lib/plugins';
-const inputs = require('../../../../mocks/inputs/averageMPG.json'); 
+import { gqlPlugin } from '@integration/lib/plugins';
+const inputs = require('@mocks/inputs/averageMPG.json');
 
 /**
  * Validate service e2e tests
- * 
+ *
  * @group integration/graphql/car
  */
 let request: SuperTest<Test>;
@@ -20,15 +25,15 @@ let server: Server;
 describe('Car - Average MPG', () => {
   let itemIDs: string[] = [];
 
-  beforeAll(async () => { 
+  beforeAll(async () => {
     await connectDatabase();
     server = app.listen(process.env.PATAPI_PORT);
     app.context.isReady = true;
   });
 
-  afterAll(async () => { 
+  afterAll(async () => {
     await closeDatabase();
-    await server.close() 
+    await server.close();
   });
 
   beforeEach(async () => {
@@ -42,7 +47,7 @@ describe('Car - Average MPG', () => {
         .use(gqlPlugin)
         .send({
           query: addAverageMPG,
-          variables: { input: inputs.addAverageMPG[0] }
+          variables: { input: inputs.addAverageMPG[0] },
         });
 
       const { response: data } = res.body.data.addAverageMPG;
@@ -64,7 +69,7 @@ describe('Car - Average MPG', () => {
         .use(gqlPlugin)
         .send({
           query: addAverageMPG,
-          variables: { input: inputs.addAverageMPG[1] }
+          variables: { input: inputs.addAverageMPG[1] },
         });
 
       const { response: data } = res.body.data.addAverageMPG;
@@ -88,7 +93,7 @@ describe('Car - Average MPG', () => {
         .use(gqlPlugin)
         .send({
           query: getAverageMPG,
-          variables: { id: itemIDs[0] }
+          variables: { id: itemIDs[0] },
         });
 
       const { response: data } = res.body.data.averageMPG;
@@ -100,7 +105,7 @@ describe('Car - Average MPG', () => {
       expect(moment(data.createdOn).isValid()).toBeTruthy();
       expect(moment(data.updatedOn).isValid()).toBeTruthy();
       expect(data.configID).toEqual('car-average-mpg');
-    })
+    });
 
     it('query for item 2', async () => {
       const res = await request
@@ -108,7 +113,7 @@ describe('Car - Average MPG', () => {
         .use(gqlPlugin)
         .send({
           query: getAverageMPG,
-          variables: { id: itemIDs[1] }
+          variables: { id: itemIDs[1] },
         });
 
       const { response: data } = res.body.data.averageMPG;
@@ -120,7 +125,7 @@ describe('Car - Average MPG', () => {
       expect(moment(data.createdOn).isValid()).toBeTruthy();
       expect(moment(data.updatedOn).isValid()).toBeTruthy();
       expect(data.configID).toEqual('car-average-mpg');
-    })
+    });
   });
 
   describe('update mutation', () => {
@@ -133,7 +138,7 @@ describe('Car - Average MPG', () => {
           variables: {
             input: inputs.updateAverageMPG[0],
             id: itemIDs[0],
-          }
+          },
         });
 
       const { response: data } = res.body.data.updateAverageMPG;
@@ -156,7 +161,7 @@ describe('Car - Average MPG', () => {
           variables: {
             input: inputs.updateAverageMPG[1],
             id: itemIDs[1],
-          }
+          },
         });
 
       const { response: data } = res.body.data.updateAverageMPG;
@@ -178,11 +183,11 @@ describe('Car - Average MPG', () => {
         .use(gqlPlugin)
         .send({
           query: deleteAverageMPG,
-          variables: { id: itemIDs[0] }
+          variables: { id: itemIDs[0] },
         });
 
       const { response: data } = res.body.data.deleteAverageMPG;
-      
+
       expect(res.status).toEqual(200);
       expect(data.id).toEqual(itemIDs[0]);
       expect(data.configID).toEqual('car-average-mpg');
@@ -194,11 +199,11 @@ describe('Car - Average MPG', () => {
         .use(gqlPlugin)
         .send({
           query: deleteAverageMPG,
-          variables: { id: itemIDs[1] }
+          variables: { id: itemIDs[1] },
         });
 
       const { response: data } = res.body.data.deleteAverageMPG;
-      
+
       expect(res.status).toEqual(200);
       expect(data.id).toEqual(itemIDs[1]);
       expect(data.configID).toEqual('car-average-mpg');

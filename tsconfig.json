@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "moduleResolution": "node",
     "pretty": true,
     "sourceMap": true,
     "target": "esnext",
@@ -15,7 +14,6 @@
       "@configs/*": ["src/configs/*"],
       "@controllers/*": ["src/controllers/*"],
       "@models": ["src/models/index.ts"],
-      "@schema": ["src/schema/index.ts"],
       "@schema/*": ["src/schema/*"],
       "@types": ["src/types/index.d.ts"],
       "@utils/*": ["src/utils/*"],
@@ -26,6 +24,6 @@
       "@server": ["src/server.ts"]
     }
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*", "test/**/*"],
   "exclude": ["node_modules", "dist"]
 }

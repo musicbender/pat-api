@@ -22,3 +22,6 @@ dist
 
 # docker
 docker/secrets
+
+# VS Code
+.vscode

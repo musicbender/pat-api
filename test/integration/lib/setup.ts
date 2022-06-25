@@ -1,20 +1,17 @@
 const { promises: fs } = require('fs');
-const path = require('path')
+const path = require('path');
 
 const dotenvPath = path.resolve(process.cwd(), '.env.test');
 
 const dotenvExists = () => {
-   try {
+  try {
     fs.access(dotenvPath);
     return true;
-   } catch {
+  } catch {
     return false;
-   }
-}
+  }
+};
 
 if (dotenvExists()) {
   require('dotenv').config({ path: dotenvPath });
 }
-
-
-
