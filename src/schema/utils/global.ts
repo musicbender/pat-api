@@ -1,17 +1,9 @@
 import * as GraphQLDate from 'graphql-date';
-import {
-  GraphQLID,
-  GraphQLString,
-  GraphQLNonNull,
-  GraphQLInt,
-  GraphQLDirective,
-  GraphQLBoolean,
-  GraphQLList,
-} from 'graphql';
-import { findItemById, findItemByDate, findAllItems } from '@controllers/global';
+import { GraphQLID, GraphQLString, GraphQLNonNull, GraphQLInt, GraphQLList } from 'graphql';
+import { findItemById, findItemByDate, findAllItems, deleteItem } from '@controllers/global';
 import { ExpectedError } from '@utils/errors';
 import { ComposeQueryOptions, ComposeMutationOptions, AnyConfig } from '@types';
-import { ResponseUnionType } from '@schema/types';
+import { DeleteType, ResponseUnionType } from '@schema/types';
 
 export const appendResponse = (resData: Object, config: AnyConfig) => {
   return {
@@ -131,7 +123,7 @@ export const composeAddMutation = (options: ComposeMutationOptions) => {
     async resolve(parentValue, { input }) {
       try {
         const response = await options.controller(input, options.config || {});
-        return { response: appendResponse(response, options.config) };
+        return { response: appendResponse(response.get(), options.config) };
       } catch (err) {
         throw err;
       }
@@ -159,7 +151,7 @@ export const composeUpdateMutation = (options: ComposeMutationOptions) => {
     async resolve(parentValue, { id, input }) {
       try {
         const response = await options.controller(id, input, options.config || {});
-        return { response: appendResponse(response, options.config) };
+        return { response: appendResponse(response.get(), options.config) };
       } catch (err) {
         throw err;
       }
@@ -187,7 +179,37 @@ export const composeIncrementMutation = (options: ComposeMutationOptions) => {
     async resolve(parentValue, { id, input }) {
       try {
         const response = await options.controller(id, input, options.config || {});
-        return { response: appendResponse(response, options.config) };
+        return { response: appendResponse(response.get(), options.config) };
+      } catch (err) {
+        throw err;
+      }
+    },
+  };
+};
+
+export const composeDeleteMutation = (options: ComposeMutationOptions) => {
+  const name = `delete${options.name}`;
+  return {
+    name,
+    description: options.description || `Delete a ${options.name} node`,
+    type: ResponseUnionType({
+      name,
+      responseType: DeleteType,
+    }),
+    args: {
+      id: {
+        type: new GraphQLNonNull(GraphQLID),
+      },
+    },
+    async resolve(parentValue, { id }) {
+      try {
+        await deleteItem(id, options.config);
+        return {
+          response: {
+            id,
+            configID: options.config.id,
+          },
+        };
       } catch (err) {
         throw err;
       }

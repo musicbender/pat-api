@@ -17,19 +17,17 @@ const inputs = require('@mocks/inputs/weight.json');
 
 describe('Health - Weight', () => {
   const CONFIG_ID = 'weight';
+  const MOCK_SAMPLED_ON: string = moment().toISOString();
   let request: SuperTest<Test>;
   let server: Server;
   let itemIDs: string[] = [];
-  let itemDate: number;
 
   beforeAll(async () => {
-    await connectDatabase();
     server = app.listen(process.env.PATAPI_PORT);
     app.context.isReady = true;
   });
 
   afterAll(async () => {
-    await closeDatabase();
     await server.close();
   });
 
@@ -39,18 +37,23 @@ describe('Health - Weight', () => {
 
   describe('create mutation', () => {
     it('works with input variation 1', async () => {
+      console.log('wut', globalThis.wut);
       const res = await request
         .post(GRAPHQL_PATH)
         .use(gqlPlugin)
         .send({
           query: addMutation,
-          variables: { input: inputs.addMutation[0] },
+          variables: {
+            input: {
+              ...inputs.addMutation[0],
+              sampledOn: MOCK_SAMPLED_ON,
+            },
+          },
         });
 
       const { response: data } = res.body.data.addWeight;
 
       if (data.id) itemIDs.push(data.id);
-      if (data.sampledOn) itemDate = data.sampledOn;
 
       expect(typeof data.id).toEqual('string');
       expect(data.id.length).toEqual(36);
@@ -67,7 +70,12 @@ describe('Health - Weight', () => {
         .use(gqlPlugin)
         .send({
           query: addMutation,
-          variables: { input: inputs.addMutation[1] },
+          variables: {
+            input: {
+              ...inputs.addMutation[1],
+              sampledOn: MOCK_SAMPLED_ON,
+            },
+          },
         });
 
       const { response: data } = res.body.data.addWeight;
@@ -129,10 +137,10 @@ describe('Health - Weight', () => {
         .use(gqlPlugin)
         .send({
           query: getQuery,
-          variables: { date: itemDate },
+          variables: { date: MOCK_SAMPLED_ON },
         });
 
-      const { response: data } = res.body.data.drivingScore;
+      const { response: data } = res.body.data.weight;
 
       expect(data.id).toEqual(itemIDs[0]);
       expect(data.value).toEqual(158);
@@ -156,7 +164,9 @@ describe('Health - Weight', () => {
           },
         });
 
-      const { response: data } = res.body.data.updateDrivingScore;
+      console.log('update 1 -----', JSON.stringify(res.body));
+
+      const { response: data } = res.body.data.updateWeight;
 
       expect(data.id).toEqual(itemIDs[0]);
       expect(data.value).toEqual(145);
@@ -178,7 +188,7 @@ describe('Health - Weight', () => {
           },
         });
 
-      const { response: data } = res.body.data.updateDrivingScore;
+      const { response: data } = res.body.data.updateWeight;
 
       expect(data.id).toEqual(itemIDs[1]);
       expect(data.value).toEqual(1000);
@@ -199,7 +209,7 @@ describe('Health - Weight', () => {
           variables: { id: itemIDs[0] },
         });
 
-      const { response: data } = res.body.data.deleteDrivingScore;
+      const { response: data } = res.body.data.deleteWeight;
 
       expect(res.status).toEqual(200);
       expect(data.id).toEqual(itemIDs[0]);
@@ -215,7 +225,7 @@ describe('Health - Weight', () => {
           variables: { id: itemIDs[1] },
         });
 
-      const { response: data } = res.body.data.deleteDrivingScore;
+      const { response: data } = res.body.data.deleteWeight;
 
       expect(res.status).toEqual(200);
       expect(data.id).toEqual(itemIDs[1]);

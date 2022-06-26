@@ -1,4 +1,8 @@
-import { composeAddMutation, composeUpdateMutation } from '@schema/utils/global';
+import {
+  composeAddMutation,
+  composeDeleteMutation,
+  composeUpdateMutation,
+} from '@schema/utils/global';
 import { baseAddHealthOptions, baseUpdateHealthOptions } from '@schema/utils/health';
 const healthTypes = require('@configs/health.json');
 
@@ -12,3 +16,4 @@ export const updateWaistCircumference = composeUpdateMutation({
   ...baseUpdateHealthOptions,
   ...options,
 });
+export const deleteWaistCircumference = composeDeleteMutation(options);

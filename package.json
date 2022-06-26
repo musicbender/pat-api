@@ -13,7 +13,7 @@
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "tdd": "jest --group=unit --watch",
     "test": "jest --group=unit",
-    "test:int": "jest --group=integration --setupFiles ./test/integration/lib/setup.ts",
+    "test:int": "jest --group=integration -c jest.integration.config.js --setupFiles ./test/integration/lib/setup.ts --setupFilesAfterEnv ./test/integration/lib/setup-after-env.ts",
     "generate": "graphql-codegen -r dotenv/config",
     "postversion": "sh .deployment/scripts/version.sh"
   },

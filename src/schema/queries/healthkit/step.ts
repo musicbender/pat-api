@@ -2,8 +2,6 @@ import { composeQuery, composeQueryAll } from '@schema/utils/global';
 import { HealthKitType } from '@schema/types';
 const { healthTypes } = require('@configs/healthkit.json');
 
-console.log(composeQuery);
-
 const options = {
   type: HealthKitType,
   name: 'steps',

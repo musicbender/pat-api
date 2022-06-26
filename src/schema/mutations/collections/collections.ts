@@ -2,6 +2,7 @@ import {
   composeAddMutation,
   composeUpdateMutation,
   composeIncrementMutation,
+  composeDeleteMutation,
 } from '@schema/utils/global';
 import {
   baseAddCollectionOptions,
@@ -16,11 +17,15 @@ const options = {
 };
 
 export const addCollection = composeAddMutation({ ...baseAddCollectionOptions, ...options });
+
 export const updateCollection = composeUpdateMutation({
   ...baseUpdateCollectionOptions,
   ...options,
 });
+
 export const incrementCollection = composeIncrementMutation({
   ...baseIncrementCollectionOptions,
   ...options,
 });
+
+export const deleteCollection = composeDeleteMutation(options);

@@ -1,9 +1,8 @@
 import { GraphQLNonNull, GraphQLID } from 'graphql';
 import { addCarItem, deleteCarItem, updateCarItem } from '@controllers/car';
-import { appendResponse } from '@schema/utils/global';
+import { appendResponse, composeDeleteMutation } from '@schema/utils/global';
 import {
   DrivingScoreType,
-  DeleteType,
   DrivingScoreInputType,
   ResponseUnionType,
   DrivingScoreInputUpdateType,
@@ -59,29 +58,7 @@ export const updateDrivingScore = {
   },
 };
 
-export const deleteDrivingScore = {
-  name: `delete${name}`,
-  description: `Delete a ${name} node`,
-  type: ResponseUnionType({
-    name: `delete${name}`,
-    responseType: DeleteType,
-  }),
-  args: {
-    id: {
-      type: new GraphQLNonNull(GraphQLID),
-    },
-  },
-  async resolve(parentValue, { id }) {
-    try {
-      await deleteCarItem(id, carConf.drivingScore);
-      return {
-        response: {
-          id,
-          configID: carConf.drivingScore.id,
-        },
-      };
-    } catch (err) {
-      throw err;
-    }
-  },
-};
+export const deleteDrivingScore = composeDeleteMutation({
+  name,
+  config: carConf.drivingScore,
+});

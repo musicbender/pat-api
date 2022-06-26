@@ -3,9 +3,10 @@ import {
   GraphQLInputObjectType,
   GraphQLFloat,
   GraphQLString,
-  GraphQLNonNull
+  GraphQLNonNull,
 } from 'graphql';
 import * as GraphQLDate from 'graphql-date';
+import { globalTypeFields } from '@schema/utils/global';
 import { VehicleType } from './vehicles-type';
 
 export const AverageMPGInputType = new GraphQLInputObjectType({
@@ -15,7 +16,7 @@ export const AverageMPGInputType = new GraphQLInputObjectType({
     value: { type: new GraphQLNonNull(GraphQLFloat) },
     vehicle: { type: VehicleType },
     sampledOn: { type: GraphQLDate },
-  })
+  }),
 });
 
 export const AverageMPGInputUpdateType = new GraphQLInputObjectType({
@@ -26,19 +27,16 @@ export const AverageMPGInputUpdateType = new GraphQLInputObjectType({
     vehicle: { type: VehicleType },
     sampledOn: { type: GraphQLDate },
     updatedOn: { type: GraphQLDate },
-  })
+  }),
 });
 
 export const AverageMPGType = new GraphQLObjectType({
   name: 'AverageMPGType',
   description: 'Average MPG sample for car',
   fields: () => ({
+    ...globalTypeFields,
     id: { type: GraphQLString },
     value: { type: GraphQLFloat },
     vehicle: { type: VehicleType },
-    sampledOn: { type: GraphQLDate },
-    createdOn: { type: GraphQLDate },
-    updatedOn: { type: GraphQLDate },
-    configID: { type: GraphQLString },
-  })
+  }),
 });

@@ -1,4 +1,8 @@
-import { composeAddMutation, composeUpdateMutation } from '@schema/utils/global';
+import {
+  composeAddMutation,
+  composeDeleteMutation,
+  composeUpdateMutation,
+} from '@schema/utils/global';
 import { baseAddHealthOptions, baseUpdateHealthOptions } from '@schema/utils/health';
 import { ActivityInputType, ActivityInputUpdateType, ActivityType } from '@schema/types';
 const healthTypes = require('@configs/health.json');
@@ -20,3 +24,5 @@ export const updateActivity = composeUpdateMutation({
   ...options,
   inputType: ActivityInputUpdateType,
 });
+
+export const deleteActivity = composeDeleteMutation(options);

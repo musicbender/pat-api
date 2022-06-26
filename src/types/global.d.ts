@@ -7,63 +7,67 @@ import { HealthConfigType } from './health';
 import { HealthKitConfigType } from './healthkit';
 
 export type ComposeQueryOptions = {
-  type: GraphQLObjectType,
-  name?: string,
-  config?: AnyConfig,
-  description?: string,
-  findInclude?: string,
-}
+  type: GraphQLObjectType;
+  name?: string;
+  config?: AnyConfig;
+  description?: string;
+  findInclude?: string;
+};
 
 export type ComposeMutationOptions = {
-  type: GraphQLObjectType,
-  inputType?: GraphQLInputObjectType
-  name?: string,
-  description?: string,
-  config?: AnyConfig,
-  controller?: any,
-}
+  type?: GraphQLObjectType;
+  inputType?: GraphQLInputObjectType;
+  name?: string;
+  description?: string;
+  config?: AnyConfig;
+  controller?: any;
+};
 
 export type QueryAllOptions = {
-  limit?: number,
-  offset?: number,
-  after?: string,
-  before?: string,
-  sortBy?: OrderItem,
-  dateBy?: string,
-}
+  limit?: number;
+  offset?: number;
+  after?: string;
+  before?: string;
+  sortBy?: OrderItem;
+  dateBy?: string;
+};
 
 export type WhereDb = {
-  [key: string]: any
-}
+  [key: string]: any;
+};
 
 export type DateInterval = 'hour' | 'day' | 'week' | 'month' | 'year';
 
-export type AnyConfig = HealthKitConfigType | HealthConfigType | CarConfigType | CollectionConfigType;
+export type AnyConfig =
+  | HealthKitConfigType
+  | HealthConfigType
+  | CarConfigType
+  | CollectionConfigType;
 
 export type DatabaseConfigOptions = {
-  externalAccess?: boolean
-}
+  externalAccess?: boolean;
+};
 
 export type DbSSLConfigType = {
-  key?: string,
-  cert?: string,
-  ca?: string
-}
+  key?: string;
+  cert?: string;
+  ca?: string;
+};
 
 export type DbSSLType = {
-  key?: Buffer,
-  cert?: Buffer,
-  ca?: Buffer
-}
+  key?: Buffer;
+  cert?: Buffer;
+  ca?: Buffer;
+};
 
 export type TestItem = {
-  assert: any,
-  expected: any,
-  description?: string
-}
+  assert: any;
+  expected: any;
+  description?: string;
+};
 
 export type KoaCustomContext = {
-  isReady?: boolean
-}
+  isReady?: boolean;
+};
 
 export type KoaContext = BaseContext & KoaCustomContext;

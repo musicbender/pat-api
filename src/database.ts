@@ -61,6 +61,7 @@ export const connectDatabase = async (): Promise<Sequelize> => {
     const conf = getDBConfig();
     sequelize = new Sequelize(conf);
     const seq: Sequelize = await sequelize.sync();
+    sequelize.truncate;
     logger.info('The connection from pat-api to database successful');
     return seq;
   } catch (err) {
@@ -69,6 +70,25 @@ export const connectDatabase = async (): Promise<Sequelize> => {
 };
 
 export const closeDatabase = async (): Promise<void> => {
-  logger.info('Database connection closed');
-  await sequelize.close();
+  try {
+    await sequelize.close();
+    logger.info('Database connection closed');
+  } catch (err) {
+    logger.error(`Database connection from pat-api could not close: ${err}`);
+  }
+};
+
+export const clearDatabase = async (): Promise<void> => {
+  if (process.env.NODE_ENV !== 'test') {
+    logger.warning('Attempting to clear database when not in test environment is not allowed.');
+    return;
+  }
+
+  try {
+    const tableNames = Object.values(sequelize.models).map((model) => `"${model.tableName}"`);
+    await sequelize.query('TRUNCATE TABLE ' + tableNames.join(', '));
+    logger.info('All database tables cleared.');
+  } catch (err) {
+    logger.error(`There was an error clearing pat-api database: ${err}`);
+  }
 };

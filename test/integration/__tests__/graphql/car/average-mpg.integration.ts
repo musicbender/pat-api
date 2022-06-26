@@ -15,7 +15,7 @@ import { gqlPlugin } from '@integration/lib/plugins';
 const inputs = require('@mocks/inputs/averageMPG.json');
 
 /**
- * Validate service e2e tests
+ * Car mpg integration tests
  *
  * @group integration/graphql/car
  */
@@ -23,16 +23,16 @@ let request: SuperTest<Test>;
 let server: Server;
 
 describe('Car - Average MPG', () => {
+  const CONFIG_ID = 'car-average-mpg';
+  const MOCK_SAMPLED_ON: string = moment().toISOString();
   let itemIDs: string[] = [];
 
   beforeAll(async () => {
-    await connectDatabase();
     server = app.listen(process.env.PATAPI_PORT);
     app.context.isReady = true;
   });
 
   afterAll(async () => {
-    await closeDatabase();
     await server.close();
   });
 
@@ -47,7 +47,12 @@ describe('Car - Average MPG', () => {
         .use(gqlPlugin)
         .send({
           query: addAverageMPG,
-          variables: { input: inputs.addAverageMPG[0] },
+          variables: {
+            input: {
+              ...inputs.addAverageMPG[0],
+              sampledOn: MOCK_SAMPLED_ON,
+            },
+          },
         });
 
       const { response: data } = res.body.data.addAverageMPG;
@@ -60,7 +65,7 @@ describe('Car - Average MPG', () => {
       expect(moment(data.sampledOn).isValid()).toBeTruthy();
       expect(moment(data.createdOn).isValid()).toBeTruthy();
       expect(moment(data.updatedOn).isValid()).toBeTruthy();
-      expect(data.configID).toEqual('car-average-mpg');
+      expect(data.configID).toEqual(CONFIG_ID);
     });
 
     it('works with input variation 2', async () => {
@@ -69,7 +74,12 @@ describe('Car - Average MPG', () => {
         .use(gqlPlugin)
         .send({
           query: addAverageMPG,
-          variables: { input: inputs.addAverageMPG[1] },
+          variables: {
+            input: {
+              ...inputs.addAverageMPG[1],
+              sampledOn: MOCK_SAMPLED_ON,
+            },
+          },
         });
 
       const { response: data } = res.body.data.addAverageMPG;
@@ -82,7 +92,7 @@ describe('Car - Average MPG', () => {
       expect(moment(data.sampledOn).isValid()).toBeTruthy();
       expect(moment(data.createdOn).isValid()).toBeTruthy();
       expect(moment(data.updatedOn).isValid()).toBeTruthy();
-      expect(data.configID).toEqual('car-average-mpg');
+      expect(data.configID).toEqual(CONFIG_ID);
     });
   });
 
@@ -104,7 +114,7 @@ describe('Car - Average MPG', () => {
       expect(moment(data.sampledOn).isValid()).toBeTruthy();
       expect(moment(data.createdOn).isValid()).toBeTruthy();
       expect(moment(data.updatedOn).isValid()).toBeTruthy();
-      expect(data.configID).toEqual('car-average-mpg');
+      expect(data.configID).toEqual(CONFIG_ID);
     });
 
     it('query for item 2', async () => {
@@ -124,7 +134,7 @@ describe('Car - Average MPG', () => {
       expect(moment(data.sampledOn).isValid()).toBeTruthy();
       expect(moment(data.createdOn).isValid()).toBeTruthy();
       expect(moment(data.updatedOn).isValid()).toBeTruthy();
-      expect(data.configID).toEqual('car-average-mpg');
+      expect(data.configID).toEqual(CONFIG_ID);
     });
   });
 
@@ -149,7 +159,7 @@ describe('Car - Average MPG', () => {
       expect(moment(data.sampledOn).isValid()).toBeTruthy();
       expect(moment(data.createdOn).isValid()).toBeTruthy();
       expect(moment(data.updatedOn).isValid()).toBeTruthy();
-      expect(data.configID).toEqual('car-average-mpg');
+      expect(data.configID).toEqual(CONFIG_ID);
     });
 
     it('can change vehicle for item 2', async () => {
@@ -172,7 +182,7 @@ describe('Car - Average MPG', () => {
       expect(moment(data.sampledOn).isValid()).toBeTruthy();
       expect(moment(data.createdOn).isValid()).toBeTruthy();
       expect(moment(data.updatedOn).isValid()).toBeTruthy();
-      expect(data.configID).toEqual('car-average-mpg');
+      expect(data.configID).toEqual(CONFIG_ID);
     });
   });
 
@@ -190,7 +200,7 @@ describe('Car - Average MPG', () => {
 
       expect(res.status).toEqual(200);
       expect(data.id).toEqual(itemIDs[0]);
-      expect(data.configID).toEqual('car-average-mpg');
+      expect(data.configID).toEqual(CONFIG_ID);
     });
 
     it('can remove item 1', async () => {
@@ -206,7 +216,7 @@ describe('Car - Average MPG', () => {
 
       expect(res.status).toEqual(200);
       expect(data.id).toEqual(itemIDs[1]);
-      expect(data.configID).toEqual('car-average-mpg');
+      expect(data.configID).toEqual(CONFIG_ID);
     });
   });
 });

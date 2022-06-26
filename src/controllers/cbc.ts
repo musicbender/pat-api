@@ -15,16 +15,17 @@ export const addCbcItem = async (input: CbcInputType): Promise<CbcType> => {
   let data: CbcType = {
     ...input,
     id: uuid(),
+    sampledOn: input.sampledOn || null,
     createdOn: currentDate,
     updatedOn: currentDate,
     plateletsId: plateletId,
     platelets: {
       id: plateletId,
       value: input.plateletCount,
-      sampledOn: input.sampledOn,
-      createdOn: currentDate, 
-      unit: healthConfig.platelets.unit
-    }
+      sampledOn: input.sampledOn || null,
+      createdOn: currentDate,
+      unit: healthConfig.platelets.unit,
+    },
   };
 
   const item = models[healthConfig.cbc.modelID];
@@ -35,20 +36,25 @@ export const addCbcItem = async (input: CbcInputType): Promise<CbcType> => {
   } catch (err) {
     throw new ExpectedError('ADD_CBC_ERROR');
   }
-}
+};
 
 export const updateCbcItem = async (id: string, input: CbcInputUpdateType): Promise<CbcType> => {
   if (healthConfig.cbc.disabled) throw new ExpectedError('DISABLED_CBC_TYPE');
 
   const item = models[healthConfig.cbc.modelID];
-  let data = { ...input, updatedOn: moment().toISOString() }
+  let data = { ...input, updatedOn: moment().toISOString() };
 
   try {
-    let [rows, [ updatedItem ]]: any = await item.update({ ...data }, { where: { id }, returning: true });
-    const platelets = await models[healthConfig.platelets.modelID].findOne({ where: { id: updatedItem.plateletsId } })
+    let [rows, [updatedItem]]: any = await item.update(
+      { ...data },
+      { where: { id }, returning: true },
+    );
+    const platelets = await models[healthConfig.platelets.modelID].findOne({
+      where: { id: updatedItem.plateletsId },
+    });
     updatedItem.platelets = platelets;
-    return updatedItem
+    return updatedItem;
   } catch (err) {
     throw new ExpectedError('UPDATE_CBC_ERROR');
   }
-}
+};

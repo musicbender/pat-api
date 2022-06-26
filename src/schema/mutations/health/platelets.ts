@@ -1,4 +1,8 @@
-import { composeAddMutation, composeUpdateMutation } from '@schema/utils/global';
+import {
+  composeAddMutation,
+  composeDeleteMutation,
+  composeUpdateMutation,
+} from '@schema/utils/global';
 import { baseAddHealthOptions, baseUpdateHealthOptions } from '@schema/utils/health';
 import { PlateletType, PlateletInputType, PlateletInputUpdateType } from '@schema/types';
 const healthTypes = require('@configs/health.json');
@@ -20,3 +24,5 @@ export const updatePlatelets = composeUpdateMutation({
   ...options,
   inputType: PlateletInputUpdateType,
 });
+
+export const deletePlatelets = composeDeleteMutation(options);

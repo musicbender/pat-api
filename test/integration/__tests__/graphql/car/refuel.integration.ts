@@ -2,7 +2,7 @@ import { Server } from 'http';
 import * as supertest from 'supertest';
 import { SuperTest, Test } from 'supertest';
 import app from '@server';
-import { connectDatabase, closeDatabase } from '@database';
+import { connectDatabase, closeDatabase, clearDatabase } from '@database';
 import { GRAPHQL_PATH } from '@integration/lib/constants';
 import { addMutation, getQuery, deleteMutation, updateMutation } from '@mocks/queries/refuel';
 import * as moment from 'moment';
@@ -10,26 +10,24 @@ import { gqlPlugin } from '@integration/lib/plugins';
 const inputs = require('@mocks/inputs/refuel.json');
 
 /**
- * Validate service e2e tests
+ * Car refuel integration tests
  *
  * @group integration/graphql/car
  */
 
 describe('Car - Refuel', () => {
   const CONFIG_ID = 'car-refuel';
+  const MOCK_SAMPLED_ON: string = moment().toISOString();
   let request: SuperTest<Test>;
   let server: Server;
   let itemIDs: string[] = [];
-  let itemDate: number;
 
   beforeAll(async () => {
-    await connectDatabase();
     server = app.listen(process.env.PATAPI_PORT);
     app.context.isReady = true;
   });
 
   afterAll(async () => {
-    await closeDatabase();
     await server.close();
   });
 
@@ -44,13 +42,14 @@ describe('Car - Refuel', () => {
         .use(gqlPlugin)
         .send({
           query: addMutation,
-          variables: { input: inputs.addMutation[0] },
+          variables: {
+            input: { ...inputs.addMutation[0], sampledOn: MOCK_SAMPLED_ON },
+          },
         });
 
       const { response: data } = res.body.data.addRefuel;
 
       if (data.id) itemIDs.push(data.id);
-      if (data.sampledOn) itemDate = data.sampledOn;
 
       expect(typeof data.id).toEqual('string');
       expect(data.id.length).toEqual(36);
@@ -69,7 +68,12 @@ describe('Car - Refuel', () => {
         .use(gqlPlugin)
         .send({
           query: addMutation,
-          variables: { input: inputs.addMutation[1] },
+          variables: {
+            input: {
+              ...inputs.addMutation[1],
+              sampledOn: MOCK_SAMPLED_ON,
+            },
+          },
         });
 
       const { response: data } = res.body.data.addRefuel;
@@ -136,7 +140,7 @@ describe('Car - Refuel', () => {
         .use(gqlPlugin)
         .send({
           query: getQuery,
-          variables: { date: itemDate },
+          variables: { date: MOCK_SAMPLED_ON },
         });
 
       const { response: data } = res.body.data.refuel;

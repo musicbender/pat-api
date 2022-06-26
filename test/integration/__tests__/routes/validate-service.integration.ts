@@ -1,13 +1,18 @@
 import { Server } from 'http';
 import * as supertest from 'supertest';
-import app from '../../../../src/server';
-import { connectDatabase, closeDatabase } from '../../../../src/database';
-import { INFO_PATH, LIVENESS_PATH, READINESS_PATH, TEST_PATH, VERSION_PATH } from '../../lib/constants';
+import app from '@server';
+import {
+  INFO_PATH,
+  LIVENESS_PATH,
+  READINESS_PATH,
+  TEST_PATH,
+  VERSION_PATH,
+} from '@integration/lib/constants';
 const pkg = require('../../../../package.json');
 
 /**
  * Validate service e2e tests
- * 
+ *
  * @group integration/routes
  */
 
@@ -15,28 +20,18 @@ let request: supertest.SuperTest<supertest.Test>;
 let server: Server;
 
 describe('Validate Service Routes', () => {
-  const OLD_ENV = process.env;
-
-  beforeAll(async () => { 
-    await connectDatabase();
+  beforeAll(async () => {
     server = app.listen(process.env.PATAPI_PORT);
     app.context.isReady = true;
   });
 
-  afterAll(async () => { 
-    await closeDatabase();
-    server.close() 
+  afterAll(async () => {
+    server.close();
   });
 
   beforeEach(async () => {
-    // jest.resetModules();
-    process.env = { ...OLD_ENV };
-    request = supertest(server)
+    request = supertest(server);
   });
-
-  afterEach(() => {
-    process.env = OLD_ENV;
-  })
 
   describe('/version', () => {
     it('returns 200', async () => {
@@ -80,10 +75,6 @@ describe('Validate Service Routes', () => {
     });
 
     it('should return info data', async () => {
-      process.env.PATAPI_BUILD_NUMBER = '123';
-      process.env.PATAPI_COMMIT_HASH = '7777777';
-      process.env.PATAPI_LAST_DEPLOY_DATE = '9/9/2016';
-
       const response = await request.get(INFO_PATH);
       const { data } = response.body;
       expect(data.version).toEqual(pkg.version);

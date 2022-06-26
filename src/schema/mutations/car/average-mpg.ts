@@ -1,6 +1,6 @@
 import { GraphQLNonNull, GraphQLID } from 'graphql';
 import { addCarItem, deleteCarItem, updateCarItem } from '@controllers/car';
-import { appendResponse } from '@schema/utils/global';
+import { appendResponse, composeDeleteMutation } from '@schema/utils/global';
 import {
   DeleteType,
   AverageMPGType,
@@ -59,29 +59,7 @@ export const updateAverageMPG = {
   },
 };
 
-export const deleteAverageMPG = {
-  name: `delete${name}`,
-  description: `Delete a ${name} node`,
-  type: ResponseUnionType({
-    name: `delete${name}`,
-    responseType: DeleteType,
-  }),
-  args: {
-    id: {
-      type: new GraphQLNonNull(GraphQLID),
-    },
-  },
-  async resolve(parentValue, { id }) {
-    try {
-      await deleteCarItem(id, carConf.averageMPG);
-      return {
-        response: {
-          id,
-          configID: carConf.averageMPG.id,
-        },
-      };
-    } catch (err) {
-      throw err;
-    }
-  },
-};
+export const deleteAverageMPG = composeDeleteMutation({
+  name,
+  config: carConf.addAverageMPG,
+});

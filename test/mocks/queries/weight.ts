@@ -21,7 +21,7 @@ export const getQuery = `
 `;
 
 export const addMutation = `
-  mutation AddWeight ($input: WeightInputType!) {
+  mutation AddWeight ($input: HealthInputType!) {
     addWeight(input: $input){
       ... on addWeightResponse {
           response {
@@ -42,7 +42,7 @@ export const addMutation = `
 `;
 
 export const updateMutation = `
-  mutation UpdateWeight ($input: WeightInputUpdateType!, $id: ID!) {
+  mutation UpdateWeight ($input: HealthInputUpdateType!, $id: ID!) {
     updateWeight(input: $input, id: $id) {
       ... on updateWeightResponse {
           response {

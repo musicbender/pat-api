@@ -1,4 +1,8 @@
-import { composeAddMutation, composeUpdateMutation } from '@schema/utils/global';
+import {
+  composeAddMutation,
+  composeDeleteMutation,
+  composeUpdateMutation,
+} from '@schema/utils/global';
 import { baseAddHealthOptions, baseUpdateHealthOptions } from '@schema/utils/health';
 import {
   BloodPressureInputType,
@@ -24,3 +28,5 @@ export const updateBloodPressure = composeUpdateMutation({
   ...options,
   inputType: BloodPressureInputUpdateType,
 });
+
+export const deleteBloodPressure = composeDeleteMutation(options);

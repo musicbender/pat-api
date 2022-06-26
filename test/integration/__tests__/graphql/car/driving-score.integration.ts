@@ -15,26 +15,24 @@ import { gqlPlugin } from '@integration/lib/plugins';
 const inputs = require('@mocks/inputs/driving-score.json');
 
 /**
- * Validate service e2e tests
+ * Driving score integration tests
  *
  * @group integration/graphql/car
  */
 
 describe('Car - Driving Score', () => {
   const CONFIG_ID = 'car-driving-score';
+  const MOCK_SAMPLED_ON: string = moment().toISOString();
   let request: SuperTest<Test>;
   let server: Server;
   let itemIDs: string[] = [];
-  let itemDate: number;
 
   beforeAll(async () => {
-    await connectDatabase();
     server = app.listen(process.env.PATAPI_PORT);
     app.context.isReady = true;
   });
 
   afterAll(async () => {
-    await closeDatabase();
     await server.close();
   });
 
@@ -49,13 +47,17 @@ describe('Car - Driving Score', () => {
         .use(gqlPlugin)
         .send({
           query: addMutation,
-          variables: { input: inputs.addMutation[0] },
+          variables: {
+            input: {
+              ...inputs.addMutation[0],
+              sampledOn: MOCK_SAMPLED_ON,
+            },
+          },
         });
 
       const { response: data } = res.body.data.addDrivingScore;
 
       if (data.id) itemIDs.push(data.id);
-      if (data.sampledOn) itemDate = data.sampledOn;
 
       expect(typeof data.id).toEqual('string');
       expect(data.id.length).toEqual(36);
@@ -101,7 +103,7 @@ describe('Car - Driving Score', () => {
         .use(gqlPlugin)
         .send({
           query: getQuery,
-          variables: { date: itemDate },
+          variables: { date: MOCK_SAMPLED_ON },
         });
 
       const { response: data } = res.body.data.drivingScore;

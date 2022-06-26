@@ -3,16 +3,15 @@ const moduleNameMapper = require('tsconfig-paths-jest')(tsconfig);
 
 module.exports = {
   runner: 'groups',
-  roots: ['<rootDir>/src', '<rootDir>/test'],
+  roots: ['<rootDir>/src'],
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
-  testRegex: '(/__tests__/.*|(\\.|/)(test|integration))\\.ts$',
+  testRegex: '(/__tests__/.*|(\\.|/)(test))\\.ts$',
   moduleFileExtensions: ['ts', 'js', 'json', 'node'],
   extensionsToTreatAsEsm: ['.ts'],
-  modulePaths: ['node_modules', '<rootDir>/src', '<rootDir>/test'],
+  modulePaths: ['node_modules', '<rootDir>/src'],
   transform: {
     '^.+\\.ts$': 'ts-jest',
   },
   verbose: true,
-  globalSetup: '<rootDir>/test/lib/global-setup.js',
   moduleNameMapper,
 };

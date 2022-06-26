@@ -7,7 +7,7 @@ import {
   ResponseUnionType,
   RefuelInputUpdateType,
 } from '@schema/types';
-import { appendResponse } from '@schema/utils/global';
+import { appendResponse, composeDeleteMutation } from '@schema/utils/global';
 const carConf = require('@configs/cars.json');
 
 const name = carConf.refuel.modelID;
@@ -59,29 +59,7 @@ export const updateRefuel = {
   },
 };
 
-export const deleteRefuel = {
-  name: `delete${name}`,
-  description: `Delete a ${name} node`,
-  type: ResponseUnionType({
-    name: `delete${name}`,
-    responseType: DeleteType,
-  }),
-  args: {
-    id: {
-      type: new GraphQLNonNull(GraphQLID),
-    },
-  },
-  async resolve(parentValue, { id }) {
-    try {
-      await deleteCarItem(id, carConf.refuel);
-      return {
-        response: {
-          id,
-          configID: carConf.refuel.id,
-        },
-      };
-    } catch (err) {
-      throw err;
-    }
-  },
-};
+export const deleteRefuel = composeDeleteMutation({
+  name,
+  config: carConf.refuel,
+});
