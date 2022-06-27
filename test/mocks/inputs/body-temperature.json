@@ -1,0 +1,16 @@
+{
+  "addMutation": [{
+      "value": 98.6
+    },
+    {
+      "value": 97
+    }
+  ],
+  "updateMutation": [{
+      "value": 101.2
+    },
+    {
+      "value": 98.0
+    }
+  ]
+}
