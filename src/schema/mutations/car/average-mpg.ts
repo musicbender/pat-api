@@ -61,5 +61,5 @@ export const updateAverageMPG = {
 
 export const deleteAverageMPG = composeDeleteMutation({
   name,
-  config: carConf.addAverageMPG,
+  config: carConf.averageMPG,
 });

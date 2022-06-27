@@ -1,8 +1,6 @@
-import { Server } from 'http';
 import * as supertest from 'supertest';
 import { SuperTest, Test } from 'supertest';
-import app from '@server';
-import { connectDatabase, closeDatabase } from '@database';
+import { clearTable } from '@database';
 import { GRAPHQL_PATH } from '@integration/lib/constants';
 import { addMutation, getQuery, deleteMutation, updateMutation } from '@mocks/queries/weight';
 import * as moment from 'moment';
@@ -10,7 +8,7 @@ import { gqlPlugin } from '@integration/lib/plugins';
 const inputs = require('@mocks/inputs/weight.json');
 
 /**
- * Validate service e2e tests
+ * Weight integreation tests
  *
  * @group integration/graphql/health
  */
@@ -18,26 +16,19 @@ const inputs = require('@mocks/inputs/weight.json');
 describe('Health - Weight', () => {
   const CONFIG_ID = 'weight';
   const MOCK_SAMPLED_ON: string = moment().toISOString();
+  const itemIDs: string[] = [];
   let request: SuperTest<Test>;
-  let server: Server;
-  let itemIDs: string[] = [];
 
   beforeAll(async () => {
-    server = app.listen(process.env.PATAPI_PORT);
-    app.context.isReady = true;
-  });
-
-  afterAll(async () => {
-    await server.close();
+    await clearTable(CONFIG_ID);
   });
 
   beforeEach(async () => {
-    request = supertest(server);
+    request = supertest(globalThis.patApiServer);
   });
 
   describe('create mutation', () => {
     it('works with input variation 1', async () => {
-      console.log('wut', globalThis.wut);
       const res = await request
         .post(GRAPHQL_PATH)
         .use(gqlPlugin)
@@ -163,8 +154,6 @@ describe('Health - Weight', () => {
             id: itemIDs[0],
           },
         });
-
-      console.log('update 1 -----', JSON.stringify(res.body));
 
       const { response: data } = res.body.data.updateWeight;
 

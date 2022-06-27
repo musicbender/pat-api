@@ -22,10 +22,7 @@ const getSSLFiles = (files: DbSSLConfigType): DbSSLType => {
   return ssl;
 };
 
-const getAccessProperty = (
-  externalAccess: boolean = false,
-  property: string = 'PORT',
-): string | number => {
+const getAccessProperty = (externalAccess = false, property = 'PORT'): string | number => {
   return externalAccess && process.env[`PATAPI_DB_EXTERNAL_${property}`]
     ? process.env[`PATAPI_DB_EXTERNAL_${property}`]
     : process.env[`PATAPI_DB_${property}`] || '';
@@ -61,7 +58,6 @@ export const connectDatabase = async (): Promise<Sequelize> => {
     const conf = getDBConfig();
     sequelize = new Sequelize(conf);
     const seq: Sequelize = await sequelize.sync();
-    sequelize.truncate;
     logger.info('The connection from pat-api to database successful');
     return seq;
   } catch (err) {
@@ -75,6 +71,20 @@ export const closeDatabase = async (): Promise<void> => {
     logger.info('Database connection closed');
   } catch (err) {
     logger.error(`Database connection from pat-api could not close: ${err}`);
+  }
+};
+
+export const clearTable = async (tableName: string): Promise<void> => {
+  if (process.env.NODE_ENV !== 'test') {
+    logger.warning('Attempting to clear table when not in test environment is not allowed.');
+    return;
+  }
+
+  try {
+    await sequelize.query(`TRUNCATE TABLE "${tableName}"`);
+    logger.info(`Database table "${tableName}" cleared.`);
+  } catch (err) {
+    logger.error(`There was an error clearing table "${tableName}" on database: ${err}`);
   }
 };
 
