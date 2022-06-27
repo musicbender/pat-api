@@ -7,4 +7,7 @@ const healthTypes = require('@configs/health.json');
   ...baseTable,
   tableName: healthTypes.waistCircumference.id,
 })
-export default class WaistCircumference<T = any, T2 = any> extends BasicHealth<WaistCircumference> {}
+export default class WaistCircumference<
+  T = any,
+  T2 = any,
+> extends BasicHealth<WaistCircumference> {}

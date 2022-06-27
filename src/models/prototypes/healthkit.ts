@@ -1,10 +1,6 @@
 import * as moment from 'moment';
 import BaseModel from './base-model';
-import { 
-  DataType,
-  Column, 
-  Default,
-} from 'sequelize-typescript';
+import { DataType, Column, Default } from 'sequelize-typescript';
 
 export default class Healthkit<T = any, T2 = any> extends BaseModel<Healthkit> {
   @Default(0)
@@ -13,7 +9,7 @@ export default class Healthkit<T = any, T2 = any> extends BaseModel<Healthkit> {
 
   @Default('totalSampleValue')
   @Column
-  valueType: string
+  valueType: string;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
@@ -33,7 +29,7 @@ export default class Healthkit<T = any, T2 = any> extends BaseModel<Healthkit> {
 
   @Default(moment().toISOString())
   @Column
-  sampledOn: Date
+  sampledOn: Date;
 
   @Column(DataType.ARRAY(DataType.STRING))
   sources: string[];

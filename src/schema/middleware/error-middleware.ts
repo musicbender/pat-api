@@ -11,14 +11,14 @@ const errorMiddleware = async (resolve, root, args, context, info) => {
   } catch (err) {
     if (err instanceof ExpectedError) {
       const errorOutput = {
-        errorCode: err.message,
-        errorDesc: err.errorDesc || err.desc || null
+        errorCode: err.message || 'INTERNAL_ERROR',
+        errorDesc: err.errorDesc || err.desc || null,
       };
 
-      logger.error(`${errorOutput.errorCode} - ${errorOutput.errorDesc}`);
+      logger.error(`${errorOutput.errorCode} --- ${errorOutput.errorDesc}`);
       return errorOutput;
     } else {
-      logger.error(err);
+      logger.error(err || 'Unknown error occurred with this graphql request');
       throw err;
     }
   }

@@ -28,7 +28,7 @@ export const addHealthItem = async (
 
   const currentDate: string = moment().toISOString();
 
-  let data: HealthTypes = {
+  const data: HealthTypes = {
     ...input,
     id: uuid(),
     unit: config.unit,
@@ -80,7 +80,7 @@ export const updateHealthItem = async (
   }
 
   const HealthItem = models[config.modelID];
-  let data = { ...input, updatedOn: moment().toISOString() };
+  const data = { ...input, updatedOn: moment().toISOString() };
 
   try {
     const [rows, [updatedItem]]: any = await HealthItem.update(

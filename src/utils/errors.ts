@@ -1,5 +1,4 @@
 import logger from './logger';
-
 const errors = require('../configs/error-codes.json');
 
 export class ExpectedError extends Error {
@@ -10,7 +9,6 @@ export class ExpectedError extends Error {
 
   constructor(message: string, desc?: string) {
     super(message);
-    logger.warning("error", message, errors[message]);
     this.message = errors.hasOwnProperty(message) ? message : 'INTERNAL_ERROR';
     this.desc = desc || errors[this.message].description || errors.INTERNAL_ERROR.description;
     this.name = this.constructor.name;

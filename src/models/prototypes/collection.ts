@@ -1,11 +1,6 @@
 import * as moment from 'moment';
 import BaseModel from './base-model';
-import { 
-  Column, 
-  Default,
-  Length,
-  DataType
-} from 'sequelize-typescript';
+import { Column, Default, Length, DataType } from 'sequelize-typescript';
 
 export default class BaseCollection<T = any, T2 = any> extends BaseModel<BaseCollection> {
   @Column
@@ -27,9 +22,9 @@ export default class BaseCollection<T = any, T2 = any> extends BaseModel<BaseCol
 
   @Default(0)
   @Column
-  count: number
+  count: number;
 
   @Default(moment().toISOString())
   @Column
-  sampledOn: Date
+  sampledOn: Date;
 }

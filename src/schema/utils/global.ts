@@ -5,7 +5,7 @@ import { ExpectedError } from '@utils/errors';
 import { ComposeQueryOptions, ComposeMutationOptions, AnyConfig } from '@types';
 import { DeleteType, ResponseUnionType } from '@schema/types';
 
-export const appendResponse = (resData: Object, config: AnyConfig) => {
+export const appendResponse = (resData: any, config: AnyConfig) => {
   return {
     ...resData,
     configID: config.id,
@@ -123,7 +123,8 @@ export const composeAddMutation = (options: ComposeMutationOptions) => {
     async resolve(parentValue, { input }) {
       try {
         const response = await options.controller(input, options.config || {});
-        return { response: appendResponse(response.get(), options.config) };
+        const output = response.get ? response.get() : response;
+        return { response: appendResponse(output, options.config) };
       } catch (err) {
         throw err;
       }
@@ -151,7 +152,10 @@ export const composeUpdateMutation = (options: ComposeMutationOptions) => {
     async resolve(parentValue, { id, input }) {
       try {
         const response = await options.controller(id, input, options.config || {});
-        return { response: appendResponse(response.get(), options.config) };
+        const output = response.get ? response.get() : response;
+        return {
+          response: appendResponse(output, options.config),
+        };
       } catch (err) {
         throw err;
       }
@@ -179,7 +183,10 @@ export const composeIncrementMutation = (options: ComposeMutationOptions) => {
     async resolve(parentValue, { id, input }) {
       try {
         const response = await options.controller(id, input, options.config || {});
-        return { response: appendResponse(response.get(), options.config) };
+        const output = response.get ? response.get() : response;
+        return {
+          response: appendResponse(output, options.config),
+        };
       } catch (err) {
         throw err;
       }
