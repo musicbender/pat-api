@@ -1,0 +1,49 @@
+{
+  "addMutation": [{
+      "wbcCount": 9.1,
+      "rbcCount": 4.19,
+      "hematrocrit": 38.9,
+      "hgb": 12.6,
+      "mvc": 92.7,
+      "mch": 30,
+      "mchc": 32.3,
+      "redCellDistributionWidth": 15.3,
+      "meanPlateletVolume": 7.6,
+      "granulocytes": 6.1,
+      "lymphocytes": 2.5,
+      "monocytes": 0.5,
+      "neutrophil": 66.8,
+      "lymphocytePercent": 27.7,
+      "monocytePercent": 5.5,
+      "plateletCount": 1350
+    },
+    {
+      "wbcCount": 11,
+      "rbcCount": 4.36,
+      "hematrocrit": 40,
+      "hgb": 15,
+      "mvc": 90,
+      "mch": 31.9,
+      "mchc": 32,
+      "redCellDistributionWidth": 10.1,
+      "meanPlateletVolume": 7,
+      "granulocytes": 5.7,
+      "lymphocytes": 2.85,
+      "monocytes": 0.22,
+      "neutrophil": 70.1,
+      "lymphocytePercent": 27.6,
+      "monocytePercent": 5,
+      "plateletCount": 1401
+    }
+  ],
+  "updateMutation": [{
+      "wbcCount": 5,
+      "rbcCount": 4.5,
+      "hematrocrit": 39.75,
+      "hgb": 18
+    },
+    {
+      "plateletCount": 1500
+    }
+  ]
+}
