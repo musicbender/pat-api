@@ -1,6 +1,18 @@
 {
-  "input": {
-    "systolic": 115,
-    "diastolic": 80
-  }
+  "addMutation": [{
+      "systolic": 115,
+      "diastolic": 80
+    },
+    {
+      "systolic": 140,
+      "diastolic": 91
+    }
+  ],
+  "updateMutation": [{
+      "systolic": 100
+    },
+    {
+      "diastolic": 82
+    }
+  ]
 }

@@ -22,20 +22,6 @@ const logMiddleware = (winstonInstance: winston.Logger) => {
 
     const msg = `${ctx.method} ${ctx.originalUrl} ${ctx.status} ${ms}ms reqID(${ctx.state.reqID})`;
 
-    winstonInstance.configure({
-      level: process.env.PATPI_LOGGING_DEBUG ? 'debug' : 'info',
-      transports: [
-        //
-        // Write all logs error (and below) to `error.log`.
-        new winston.transports.File({ filename: 'error.log', level: 'error' }),
-        //
-        // Write to all logs with specified level to console.
-        new winston.transports.Console({
-          format: winston.format.combine(winston.format.colorize(), winston.format.simple()),
-        }),
-      ],
-    });
-
     if (process.env.NODE_ENV !== 'test') {
       winstonInstance.log(logLevel, msg);
     }

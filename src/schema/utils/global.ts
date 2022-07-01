@@ -51,9 +51,22 @@ export const composeQuery = (options: ComposeQueryOptions) => {
           response = await findItemByDate(args.date, modelID, options.findInclude);
         }
 
+        let output = response.get();
+
+        if (
+          options.findInclude &&
+          options.includeResponseKey &&
+          output[options.includeResponseKey]?.get
+        ) {
+          output = {
+            ...output,
+            [options.includeResponseKey]: output[options.includeResponseKey].get(),
+          };
+        }
+
         if (!response) throw new ExpectedError('NOT_FOUND');
 
-        return { response: appendResponse(response.get(), options.config) };
+        return { response: appendResponse(output, options.config) };
       } catch (err) {
         throw err;
       }
@@ -64,7 +77,7 @@ export const composeQuery = (options: ComposeQueryOptions) => {
 export const composeQueryAll = (options: ComposeQueryOptions) => {
   const id = options.name || options.type.name;
   const name = `${id}All`;
-  const description = `Get a multiple ${id} entries`;
+  const description = `Get multiple ${id} entries`;
   return {
     name,
     type: ResponseUnionType({
@@ -209,8 +222,9 @@ export const composeDeleteMutation = (options: ComposeMutationOptions) => {
       },
     },
     async resolve(parentValue, { id }) {
+      const controller = options.controller || deleteItem;
       try {
-        await deleteItem(id, options.config);
+        await controller(id, options.config);
         return {
           response: {
             id,

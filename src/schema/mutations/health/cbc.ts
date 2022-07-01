@@ -1,10 +1,16 @@
-import { composeAddMutation, composeUpdateMutation } from '@schema/utils/global';
+import {
+  composeAddMutation,
+  composeDeleteMutation,
+  composeUpdateMutation,
+} from '@schema/utils/global';
 import { CbcType, CbcInputType, CbcInputUpdateType } from '@schema/types';
-import { addCbcItem, updateCbcItem } from '@controllers/cbc';
+import { addCbcItem, deleteCbcItem, updateCbcItem } from '@controllers/cbc';
+const healthTypes = require('@configs/health.json');
 
 const options = {
   name: 'Cbc',
   type: CbcType,
+  config: healthTypes.cbc,
 };
 
 export const addCbc = composeAddMutation({
@@ -17,4 +23,9 @@ export const updateCbc = composeUpdateMutation({
   ...options,
   inputType: CbcInputUpdateType,
   controller: updateCbcItem,
+});
+
+export const deleteCbc = composeDeleteMutation({
+  ...options,
+  controller: deleteCbcItem,
 });

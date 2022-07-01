@@ -12,7 +12,7 @@ export const addCbcItem = async (input: CbcInputType): Promise<CbcType> => {
   const currentDate = moment().toISOString();
   const plateletId = uuid();
 
-  let data: CbcType = {
+  const data: CbcType = {
     ...input,
     id: uuid(),
     sampledOn: input.sampledOn || null,
@@ -32,7 +32,11 @@ export const addCbcItem = async (input: CbcInputType): Promise<CbcType> => {
 
   try {
     const res: any = await item.create(data, { include: models[healthConfig.platelets.modelID] });
-    return { ...res.dataValues, configID: healthConfig.platelets.id };
+    const cbcOutput = res.get();
+    return {
+      ...cbcOutput,
+      platelets: cbcOutput.platelets.get(),
+    };
   } catch (err) {
     throw new ExpectedError('ADD_CBC_ERROR');
   }
@@ -42,19 +46,47 @@ export const updateCbcItem = async (id: string, input: CbcInputUpdateType): Prom
   if (healthConfig.cbc.disabled) throw new ExpectedError('DISABLED_CBC_TYPE');
 
   const item = models[healthConfig.cbc.modelID];
-  let data = { ...input, updatedOn: moment().toISOString() };
+  const plateletItem = models[healthConfig.platelets.modelID];
+  const { plateletCount, ...inputCbc } = input;
+  const data = { ...inputCbc, updatedOn: moment().toISOString() };
+  let platelets;
 
   try {
-    let [rows, [updatedItem]]: any = await item.update(
+    const [rows, [updatedItem]]: any = await item.update(
       { ...data },
       { where: { id }, returning: true },
     );
-    const platelets = await models[healthConfig.platelets.modelID].findOne({
-      where: { id: updatedItem.plateletsId },
-    });
-    updatedItem.platelets = platelets;
-    return updatedItem;
+
+    if (plateletCount) {
+      const [plateletRows, [updatedPlatelets]]: any = await plateletItem.update(
+        { value: plateletCount },
+        { where: { id: updatedItem.get().plateletsId }, returning: true },
+      );
+      platelets = updatedPlatelets;
+    } else {
+      platelets = await models[healthConfig.platelets.modelID].findOne({
+        where: { id: updatedItem.get().plateletsId },
+      });
+    }
+
+    return {
+      ...updatedItem.get(),
+      platelets: platelets.get(),
+    };
   } catch (err) {
     throw new ExpectedError('UPDATE_CBC_ERROR');
+  }
+};
+
+// delete health item
+export const deleteCbcItem = async (id: string): Promise<void> => {
+  if (healthConfig.cbc.disabled) throw new ExpectedError('DISABLED_TYPE');
+  try {
+    const item = models[healthConfig.cbc.modelID];
+    const plateletItem = models[healthConfig.platelets.modelID];
+    await item.destroy({ where: { id } });
+    await plateletItem.destroy({ where: { cbcId: id } });
+  } catch (err) {
+    throw new ExpectedError('DELETE_ERROR');
   }
 };

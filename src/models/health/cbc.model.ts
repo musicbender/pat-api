@@ -1,20 +1,12 @@
 import * as moment from 'moment';
 import { baseTable } from '../prototypes/base-table';
 import BaseModel from '../prototypes/base-model';
-import { 
-  Table,
-  IsUUID, 
-  ForeignKey,
-  Column, 
-  Default,
-  DataType,
-  HasOne
-} from 'sequelize-typescript';
+import { Table, IsUUID, ForeignKey, Column, Default, DataType, HasOne } from 'sequelize-typescript';
 import Platelets from './platelets.model';
 
 @Table({
   ...baseTable,
-  tableName: 'cbc'
+  tableName: 'cbc',
 })
 export default class Cbc extends BaseModel<Cbc> {
   @Default(0)
@@ -28,7 +20,7 @@ export default class Cbc extends BaseModel<Cbc> {
   @Default(0)
   @Column({ type: DataType.FLOAT })
   hematrocrit: number;
-  
+
   @Default(0)
   @Column({ type: DataType.FLOAT })
   hgb: number;
@@ -72,7 +64,7 @@ export default class Cbc extends BaseModel<Cbc> {
   @Default(0)
   @Column({ type: DataType.FLOAT })
   monocytes: number;
- 
+
   @Default(0)
   @Column({ type: DataType.FLOAT })
   neutrophil: number;
@@ -87,5 +79,5 @@ export default class Cbc extends BaseModel<Cbc> {
 
   @Default(moment().toISOString())
   @Column
-  sampledOn: Date
+  sampledOn: Date;
 }

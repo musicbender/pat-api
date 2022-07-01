@@ -6,8 +6,12 @@ import { WhereDb, DateInterval, QueryAllOptions, AnyConfig } from '@types';
 import { ExpectedError } from '@utils/errors';
 
 // find by id
-export const findItemById = (id: string, modelID: string, include?: string): Promise<Model> => {
-  let dbOptions: FindOptions = { where: { id } };
+export const findItemById = async (
+  id: string,
+  modelID: string,
+  include?: string,
+): Promise<Model> => {
+  const dbOptions: FindOptions = { where: { id } };
   if (include) dbOptions.include = models[include];
   return models[modelID].findOne(dbOptions);
 };
@@ -22,7 +26,7 @@ export const findItemByDate = (
   const start = moment(date).startOf(interval).toDate();
   const end = moment(date).endOf(interval).toDate();
 
-  let dbOptions: FindOptions = {
+  const dbOptions: FindOptions = {
     where: {
       sampledOn: { [Op.gte]: start, [Op.lte]: end },
     },
@@ -35,7 +39,7 @@ export const findItemByDate = (
 
 // find by item by any key/value
 export const findItem = (where: WhereDb, modelID: string, include?: string): Promise<Model> => {
-  let dbOptions: FindOptions = { where };
+  const dbOptions: FindOptions = { where };
   if (include) dbOptions.include = models[include];
   return models[modelID].findOne(dbOptions);
 };
@@ -46,7 +50,7 @@ export const findAllItems = (
   modelID: string,
   include?: string,
 ): Promise<Model[]> => {
-  let dbOptions: FindOptions = {};
+  const dbOptions: FindOptions = {};
 
   if (options.after || options.before) {
     const dateBy: string = options.dateBy || 'sampledOn';

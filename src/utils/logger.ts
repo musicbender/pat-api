@@ -1,13 +1,21 @@
-import { createLogger, format, transports } from 'winston';
+import { createLogger, format, Logger, transports } from 'winston';
 
-const logger = createLogger({
-  transports: [new transports.Console()],
-  silent: false,
+const logger: Logger = createLogger({
+  transports: [
+    new transports.Console({
+      silent: process.env.NODE_ENV === 'test',
+    }),
+    new transports.Console({
+      silent: process.env.NODE_ENV !== 'test',
+      level: 'error',
+    }),
+  ],
   format: format.combine(
     format.colorize(),
     format.timestamp(),
+    format.prettyPrint(),
     format.printf(({ timestamp, level, message }) => {
-      return `${level}: ${message} [${timestamp}]`;
+      return `[${timestamp}] ${level}: ${message}`;
     }),
   ),
 });

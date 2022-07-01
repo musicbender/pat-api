@@ -12,6 +12,7 @@ export type ComposeQueryOptions = {
   config?: AnyConfig;
   description?: string;
   findInclude?: string;
+  includeResponseKey?: string;
 };
 
 export type ComposeMutationOptions = {

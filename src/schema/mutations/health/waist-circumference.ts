@@ -12,8 +12,10 @@ const options = {
 };
 
 export const addWaistCircumference = composeAddMutation({ ...baseAddHealthOptions, ...options });
+
 export const updateWaistCircumference = composeUpdateMutation({
   ...baseUpdateHealthOptions,
   ...options,
 });
+
 export const deleteWaistCircumference = composeDeleteMutation(options);
