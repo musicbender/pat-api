@@ -2,7 +2,7 @@
   "steins": {
     "id": "collection-steins",
     "modelID": "Steins",
-    "disabled": false
+    "disabled": true
   },
   "collections": {
     "id": "collections",

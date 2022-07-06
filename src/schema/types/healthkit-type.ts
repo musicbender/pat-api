@@ -73,7 +73,7 @@ export const HealthKitType = new GraphQLObjectType({
 
 export const HealthKitUnionType = new GraphQLUnionType({
   name: 'HealthKitUnionType',
-  description: `Return either HealthKittype item or Blood Pressure item`,
+  description: 'Return either HealthKittype item or Blood Pressure item',
   types: [HealthKitType, BloodPressureType],
   resolveType: (value) => {
     if (value.systolic || value.dystolic) return 'BloodPressureType';

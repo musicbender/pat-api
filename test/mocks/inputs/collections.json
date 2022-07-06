@@ -1,0 +1,26 @@
+{
+  "addMutation": [{
+    "name": "my-things",
+    "description": "Things I has",
+    "tags": ["thing", "mine", "not-yours"],
+    "count": 3
+  }, {
+    "name": "hand-saws",
+    "description": "All my neat hand saws",
+    "tags": ["panel", "crosscut"],
+    "count": 100
+  }],
+  "incrementMutation": [{
+      "increment": 1
+    },
+    {
+      "increment": 50
+    }
+  ],
+  "updateMutation": [{
+    "description": "Things I has plus moar",
+    "count": 7
+  }, {
+    "tags": ["panel", "crosscut", "japanese"]
+  }]
+}

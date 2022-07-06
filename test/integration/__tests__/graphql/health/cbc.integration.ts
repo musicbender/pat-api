@@ -23,8 +23,8 @@ describe('Health - Cbc', () => {
   let request: SuperTest<Test>;
 
   beforeAll(async () => {
-    await clearTable(CONFIG_ID);
     await clearTable(PLATELETS_ID);
+    await clearTable(CONFIG_ID);
   });
 
   beforeEach(async () => {

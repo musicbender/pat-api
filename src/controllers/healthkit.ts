@@ -10,10 +10,10 @@ import { appendResponse } from '@schema/utils/global';
 const { healthTypes } = require('@configs/healthkit.json');
 const healthConfig = require('@configs/health.json');
 
-import { 
-  HealthKitType, 
-  HealthKitInputType, 
-  HealthKitInputUpdateType, 
+import {
+  HealthKitType,
+  HealthKitInputType,
+  HealthKitInputUpdateType,
   HealthKitConfigType,
   BloodPressureType,
   HealthKitTypeWithItemType,
@@ -24,9 +24,9 @@ import {
 
 // add health item
 export const addHealthKitItem = async (
-  input: HealthKitInputType, 
-  config: HealthKitConfigType, 
-  doSave = true
+  input: HealthKitInputType,
+  config: HealthKitConfigType,
+  doSave = true,
 ): Promise<HealthKitType> => {
   // if type is not valid
   if (!input.type || input.type !== config.healthkitID) {
@@ -41,16 +41,17 @@ export const addHealthKitItem = async (
   if (config.interval && !doSave) {
     const dupeItem: any = await findItemByDate(input.sampledOn, config.modelID);
 
-    const id = dupeItem && dupeItem.id 
-      ? dupeItem.id
-      : dupeItem && dupeItem.dataValues 
-      ? dupeItem.dataValues.id 
-      : null;
+    const id =
+      dupeItem && dupeItem.id
+        ? dupeItem.id
+        : dupeItem && dupeItem.dataValues
+        ? dupeItem.dataValues.id
+        : null;
 
     if (dupeItem) return replaceHealthKitItem(id, input, config, doSave);
   }
 
-  let data: HealthKitType = aggregateHealthData(input, config);
+  const data: HealthKitType = aggregateHealthData(input, config);
   const currentDate: string = moment().toISOString();
 
   data.id = uuid();
@@ -71,17 +72,17 @@ export const addHealthKitItem = async (
   } catch (err) {
     throw new ExpectedError('ADD_HEALTHKIT_ERROR');
   }
-}
+};
 
 // replace health item
 export const replaceHealthKitItem = async (
-  id: string, 
-  input: HealthKitInputType, 
+  id: string,
+  input: HealthKitInputType,
   config: HealthKitConfigType,
   doSave = false,
 ): Promise<Model | HealthKitType> => {
   if (!input.type || input.type !== config.healthkitID) {
-    throw new ExpectedError('INVALID_HEALTH_TYPE'); 
+    throw new ExpectedError('INVALID_HEALTH_TYPE');
   }
 
   if (config.disabled) {
@@ -90,77 +91,94 @@ export const replaceHealthKitItem = async (
 
   const data: HealthKitType = aggregateHealthData(input, config);
   data.updatedOn = moment().toISOString();
-  
+
   if (!doSave) return data;
 
   const HealthItem = models[config.modelID];
 
   try {
-    const [rows, [ updatedItem ]]: any = await HealthItem.update({ ...data }, { where: { id }, returning: true });
+    const [rows, [updatedItem]]: any = await HealthItem.update(
+      { ...data },
+      { where: { id }, returning: true },
+    );
     return updatedItem;
   } catch (err) {
     throw new ExpectedError('REPLACE_HEALTHKIT_ERROR');
   }
-}
+};
 
 // update health item
-export const updateHealthKitItem = async (id: string, input: HealthKitInputUpdateType, config: HealthKitConfigType): Promise<Model> => {
+export const updateHealthKitItem = async (
+  id: string,
+  input: HealthKitInputUpdateType,
+  config: HealthKitConfigType,
+): Promise<Model> => {
   if (config.disabled) {
     throw new ExpectedError('DISABLED_HEALTH_TYPE');
   }
 
   const HealthItem = models[config.modelID];
-  let data = { ...input, updatedOn: moment().toISOString() }
+  const data = { ...input, updatedOn: moment().toISOString() };
 
   try {
-    const [rows, [ updatedItem ]]: any = await HealthItem.update({ ...data }, { where: { id }, returning: true });
+    const [rows, [updatedItem]]: any = await HealthItem.update(
+      { ...data },
+      { where: { id }, returning: true },
+    );
     return updatedItem;
   } catch (err) {
     throw new ExpectedError('UPDATE_HEALTHKIT_ERROR');
   }
-}
+};
 
-const addHealthkitBloodPressure = async (healthItems: HealthkitInputAndConfig[]): Promise<HealthTypes> => {
+const addHealthkitBloodPressure = async (
+  healthItems: HealthkitInputAndConfig[],
+): Promise<HealthTypes> => {
   const bpConfig = healthConfig.bloodPressure;
   const processedItems: Promise<HealthKitTypeWithItemType[]> = Promise.all(
     healthItems.map(async (item: HealthkitInputAndConfig): Promise<HealthKitTypeWithItemType> => {
       const { input, config } = item;
       const processedItem = await addHealthKitItem(input, config, false);
       return {
-        ...processedItem, 
+        ...processedItem,
         healthkitType: config.id,
-      }
-    })
+      };
+    }),
   );
 
-  const output = (await processedItems).reduce((result: BloodPressureType, currentItem: HealthKitTypeWithItemType) => {
-    const validTypes = [
-      healthTypes.systolicBloodPressure.id, 
-      healthTypes.diastolicBloodPressure.id,
-    ];
+  const output = (await processedItems).reduce(
+    (result: BloodPressureType, currentItem: HealthKitTypeWithItemType) => {
+      const validTypes = [
+        healthTypes.systolicBloodPressure.id,
+        healthTypes.diastolicBloodPressure.id,
+      ];
 
-    if (validTypes.indexOf(currentItem.healthkitType) < 0) return;
+      if (validTypes.indexOf(currentItem.healthkitType) < 0) return;
 
-    if (Object.keys(result).length < 1) {
-      result = { 
-        sampledOn: currentItem.sampledOn, 
-        unit: currentItem.unit,
+      if (Object.keys(result).length < 1) {
+        result = {
+          sampledOn: currentItem.sampledOn,
+          unit: currentItem.unit,
+        };
       }
-    }
 
-    const valueType: string = currentItem.healthkitType === healthTypes.systolicBloodPressure.id 
-      ? "systolic" 
-      : "diastolic";
+      const valueType: string =
+        currentItem.healthkitType === healthTypes.systolicBloodPressure.id
+          ? 'systolic'
+          : 'diastolic';
 
-    result = { ...result, [valueType]: currentItem.value };
+      result = { ...result, [valueType]: currentItem.value };
 
-    return result;
-  }, {});
+      return result;
+    },
+    {},
+  );
 
-  const addResult: Model & HealthType = await addHealthItem(output, bpConfig) as Model & HealthType;
+  const addResult: Model & HealthType = (await addHealthItem(output, bpConfig)) as Model &
+    HealthType;
   const result = addResult.get ? addResult.get() : addResult;
   return appendResponse(result, bpConfig);
-}
+};
 
 export const addHealthKitItems = async (inputs: HealthKitInputType[]) => {
   if (!inputs) throw new ExpectedError('INVALID_HEALTHKIT_INPUT');
@@ -168,22 +186,25 @@ export const addHealthKitItems = async (inputs: HealthKitInputType[]) => {
   let bloodPressuremItems: HealthkitInputAndConfig[] = [];
   let healthkitItems: HealthKitType[] = [];
 
-  await Promise.all(inputs.map(async (input: HealthKitInputType): Promise<void> => {
-    const { type } = input;
-    const config = healthTypes[Object.keys(healthTypes).find(c => healthTypes[c].healthkitID === type)];
+  await Promise.all(
+    inputs.map(async (input: HealthKitInputType): Promise<void> => {
+      const { type } = input;
+      const config =
+        healthTypes[Object.keys(healthTypes).find((c) => healthTypes[c].healthkitID === type)];
 
-    if (!config) new ExpectedError('INVALID_HEALTHKIT_TYPE');
-    if (config.disabled) return null; 
+      if (!config) new ExpectedError('INVALID_HEALTHKIT_TYPE');
+      if (config.disabled) return null;
 
-    if (config.modelID === healthConfig.bloodPressure.modelID) {
-      bloodPressuremItems = [ ...bloodPressuremItems, { input, config } ];
-    } else {
-      const newItem = await addHealthKitItem(input, config);
-      healthkitItems = [ ...healthkitItems, appendResponse(newItem, config) ];
-    }
-  }));
+      if (config.modelID === healthConfig.bloodPressure.modelID) {
+        bloodPressuremItems = [...bloodPressuremItems, { input, config }];
+      } else {
+        const newItem = await addHealthKitItem(input, config);
+        healthkitItems = [...healthkitItems, appendResponse(newItem, config)];
+      }
+    }),
+  );
 
-  let output: (HealthTypes | HealthKitType)[] = healthkitItems;
+  const output: (HealthTypes | HealthKitType)[] = healthkitItems;
 
   if (bloodPressuremItems.length > 0) {
     const bloodPressureOutput = await addHealthkitBloodPressure(bloodPressuremItems);
@@ -191,4 +212,4 @@ export const addHealthKitItems = async (inputs: HealthKitInputType[]) => {
   }
 
   return { response: output };
-}
+};

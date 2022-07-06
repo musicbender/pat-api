@@ -1,9 +1,0 @@
-{
-  "input": {
-    "name": "my-things",
-    "description": "Things I has",
-    "tags": ["thing", "mine"],
-    "count": 3,
-    "sampledOn": "4/27/2020"
-  }
-}
