@@ -46,8 +46,6 @@ describe('Health - Cbc', () => {
           },
         });
 
-      console.log('cbc test-----', JSON.stringify(res.body));
-
       const { response: data } = res.body.data.addCbc;
 
       if (data.id) itemIDs.push(data.id);
@@ -140,8 +138,6 @@ describe('Health - Cbc', () => {
           query: getQuery,
           variables: { id: itemIDs[0] },
         });
-
-      console.log('q ---', JSON.stringify(res.body));
 
       const { response: data } = res.body.data.cbc;
 

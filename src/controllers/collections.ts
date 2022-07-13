@@ -72,7 +72,7 @@ export const incrementCollectionItem = async (
   if (config.disabled) throw new ExpectedError('DISABLED_COLLECTION_TYPE');
 
   const item = models[config.modelID];
-  const data: any = await findItemById(id, config.modelID);
+  const data: any = await (await findItemById(id, config.modelID)).get();
 
   if (!data) throw new ExpectedError('INCREMENT_COLLECTION_ERROR');
 
