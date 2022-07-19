@@ -1,8 +1,12 @@
 import * as moment from 'moment';
 import BaseModel from './base-model';
-import { DataType, Column, Default } from 'sequelize-typescript';
+import { DataType, Column, Default, PrimaryKey } from 'sequelize-typescript';
 
 export default class Healthkit<T = any, T2 = any> extends BaseModel<Healthkit> {
+  @PrimaryKey
+  @Column
+  hkid: string;
+
   @Default(0)
   @Column({ type: DataType.FLOAT })
   value: number;

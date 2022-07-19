@@ -59,6 +59,7 @@ export const HealthKitType = new GraphQLObjectType({
   description: 'Health data',
   fields: () => ({
     ...globalTypeFields,
+    hkid: { type: GraphQLString },
     value: { type: GraphQLFloat },
     valueType: { type: GraphQLString },
     totalSampleValue: { type: GraphQLFloat },

@@ -6,6 +6,10 @@ import { CollectionConfigType } from './collection';
 import { HealthConfigType } from './health';
 import { HealthKitConfigType } from './healthkit';
 
+declare module 'nanoid' {
+  export function nanoid(size?: number): string;
+}
+
 export type ComposeQueryOptions = {
   type: GraphQLObjectType;
   name?: string;

@@ -1,5 +1,5 @@
 import { v4 as uuid } from 'uuid';
-import * as shortid from 'shortid';
+import { nanoid } from 'nanoid';
 import * as moment from 'moment';
 import {
   CollectionType,
@@ -26,7 +26,7 @@ export const addCollectionItem = async (
   const data: CollectionType = {
     ...input,
     id: uuid(),
-    shortId: shortid.generate(),
+    shortId: nanoid(5),
     createdOn: currentDate,
     updatedOn: currentDate,
   };
