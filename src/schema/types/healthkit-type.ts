@@ -81,3 +81,12 @@ export const HealthKitUnionType = new GraphQLUnionType({
     return 'HealthKitType';
   },
 });
+
+export const HealthKitDeleteType = new GraphQLObjectType({
+  name: 'HealthKitDeleteType',
+  description: 'Healthkit deletion data',
+  fields: () => ({
+    hkid: { type: GraphQLString },
+    configIDs: { type: new GraphQLList(GraphQLString) },
+  }),
+});

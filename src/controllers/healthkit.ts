@@ -21,6 +21,7 @@ import {
   HealthkitInputAndConfig,
   HealthTypes,
   HealthType,
+  HealthKitDeleteType,
 } from '@types';
 
 // add health item
@@ -217,4 +218,24 @@ export const addHealthKitItems = async (inputs: HealthKitInputType[]) => {
   }
 
   return { response: output };
+};
+
+export const deleteHealthkitItems = async (hkid: string): Promise<HealthKitDeleteType> => {
+  const configIDs: string[] = await Promise.all(
+    Object.keys(healthTypes).map(async (hkType: string): Promise<string> => {
+      if (healthTypes[hkType].disabled) return null;
+      try {
+        const item = models[healthTypes[hkType].modelID];
+        await item.destroy({ where: { hkid } });
+        return healthTypes[hkType].id;
+      } catch (err) {
+        throw new ExpectedError('DELETE_ERROR');
+      }
+    }),
+  );
+
+  return {
+    hkid,
+    configIDs,
+  };
 };

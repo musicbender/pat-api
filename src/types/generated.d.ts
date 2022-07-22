@@ -450,6 +450,13 @@ export type HealthInputUpdateType = {
   unit?: Maybe<UnitType>;
 };
 
+/** Healthkit deletion data */
+export type HealthKitDeleteType = {
+  __typename?: 'HealthKitDeleteType';
+  hkid?: Maybe<Scalars['String']>;
+  configIDs?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
 /** Sample item in health data */
 export type HealthKitInputSampleType = {
   date?: Maybe<Scalars['String']>;
@@ -585,6 +592,8 @@ export type Mutation = {
   deleteHeartRateVariability?: Maybe<DeleteHeartRateVariabilityUnion>;
   /** Add multiple HealthKit data types */
   addHealthKit?: Maybe<AddHealthKitUnion>;
+  /** Delete multiple HealthKit data types by hkid */
+  deleteHealthKit?: Maybe<DeleteHealthKitUnion>;
   /** Add a ActiveEnergy node */
   addActiveEnergy?: Maybe<AddActiveEnergyUnion>;
   /** Update a ActiveEnergy node */
@@ -796,6 +805,11 @@ export type MutationDeleteHeartRateVariabilityArgs = {
 
 export type MutationAddHealthKitArgs = {
   input?: Maybe<Array<Maybe<HealthKitInputType>>>;
+};
+
+
+export type MutationDeleteHealthKitArgs = {
+  hkid?: Maybe<Scalars['String']>;
 };
 
 
@@ -5941,6 +5955,78 @@ export type DeleteFlightsClimbedResponse = {
 
 /** Return either be response data or error data for deleteFlightsClimbed */
 export type DeleteFlightsClimbedUnion = DeleteFlightsClimbedResponse | DeleteFlightsClimbedError;
+
+export type DeleteHealthKitError = {
+  __typename?: 'deleteHealthKitError';
+  errorCode?: Maybe<DeleteHealthKitErrorErrorCodesType>;
+  errorDesc?: Maybe<Scalars['String']>;
+};
+
+export enum DeleteHealthKitErrorErrorCodesType {
+  /** Oh noes. There was an internal error. */
+  InternalError = 'INTERNAL_ERROR',
+  /** Server timeout error */
+  ServerTimeout = 'SERVER_TIMEOUT',
+  /** Authorization failed. */
+  Unauthorized = 'UNAUTHORIZED',
+  /** Unable to find the thing */
+  NotFound = 'NOT_FOUND',
+  /** Arguments given were not valid */
+  InvalidArguments = 'INVALID_ARGUMENTS',
+  /** An error occured trying to delete this item */
+  DeleteError = 'DELETE_ERROR',
+  /** Item type has been disabled */
+  DisabledType = 'DISABLED_TYPE',
+  /** An error occured trying to add healthkit item */
+  AddHealthkitError = 'ADD_HEALTHKIT_ERROR',
+  /** An error occured trying to replace a healthkit item */
+  ReplaceHealthkitError = 'REPLACE_HEALTHKIT_ERROR',
+  /** An error occured trying to update a healthkit item */
+  UpdateHealthkitError = 'UPDATE_HEALTHKIT_ERROR',
+  /** Not a valid healthkit type */
+  InvalidHealthkitType = 'INVALID_HEALTHKIT_TYPE',
+  /** Healthkit type has been disabled */
+  DisabledHealthkitType = 'DISABLED_HEALTHKIT_TYPE',
+  /** An error occured trying to add health item */
+  AddHealthError = 'ADD_HEALTH_ERROR',
+  /** An error occured trying to replace a health item */
+  ReplaceHealthError = 'REPLACE_HEALTH_ERROR',
+  /** An error occured trying to update a health item */
+  UpdateHealthError = 'UPDATE_HEALTH_ERROR',
+  /** Health type has been disabled */
+  DisabledHealthType = 'DISABLED_HEALTH_TYPE',
+  /** Input is invalid or empty */
+  InvalidHealthkitInput = 'INVALID_HEALTHKIT_INPUT',
+  /** Car type has been disabled */
+  DisabledCarType = 'DISABLED_CAR_TYPE',
+  /** An error occured trying to add car average mpg */
+  AddCarError = 'ADD_CAR_ERROR',
+  /** An error occured trying to update a car data item */
+  UpdateCarError = 'UPDATE_CAR_ERROR',
+  /** CBC type has been disabled */
+  DisabledCbcType = 'DISABLED_CBC_TYPE',
+  /** An error occured trying to add CBC item */
+  AddCbcError = 'ADD_CBC_ERROR',
+  /** An error occured trying to update a CBC item */
+  UpdateCbcError = 'UPDATE_CBC_ERROR',
+  /** This collection type has been disabled */
+  DisabledCollectionType = 'DISABLED_COLLECTION_TYPE',
+  /** An error occured trying to add collection item */
+  AddCollectionError = 'ADD_COLLECTION_ERROR',
+  /** An error occured trying to update a collection item */
+  UpdateCollectionError = 'UPDATE_COLLECTION_ERROR',
+  /** An error occured trying to increment a collection item */
+  IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
+}
+
+/** Response data for deleteHealthKit */
+export type DeleteHealthKitResponse = {
+  __typename?: 'deleteHealthKitResponse';
+  response?: Maybe<HealthKitDeleteType>;
+};
+
+/** Return either be response data or error data for deleteHealthKit */
+export type DeleteHealthKitUnion = DeleteHealthKitResponse | DeleteHealthKitError;
 
 export type DeleteHeartRateError = {
   __typename?: 'deleteHeartRateError';
@@ -11887,6 +11973,7 @@ export type ResolversTypes = {
   DrivingScoreType: ResolverTypeWrapper<DrivingScoreType>;
   HealthInputType: HealthInputType;
   HealthInputUpdateType: HealthInputUpdateType;
+  HealthKitDeleteType: ResolverTypeWrapper<HealthKitDeleteType>;
   HealthKitInputSampleType: HealthKitInputSampleType;
   HealthKitInputType: HealthKitInputType;
   HealthKitInputUpdateType: HealthKitInputUpdateType;
@@ -12135,6 +12222,10 @@ export type ResolversTypes = {
   deleteFlightsClimbedErrorErrorCodesType: DeleteFlightsClimbedErrorErrorCodesType;
   deleteFlightsClimbedResponse: ResolverTypeWrapper<DeleteFlightsClimbedResponse>;
   deleteFlightsClimbedUnion: ResolversTypes['deleteFlightsClimbedResponse'] | ResolversTypes['deleteFlightsClimbedError'];
+  deleteHealthKitError: ResolverTypeWrapper<DeleteHealthKitError>;
+  deleteHealthKitErrorErrorCodesType: DeleteHealthKitErrorErrorCodesType;
+  deleteHealthKitResponse: ResolverTypeWrapper<DeleteHealthKitResponse>;
+  deleteHealthKitUnion: ResolversTypes['deleteHealthKitResponse'] | ResolversTypes['deleteHealthKitError'];
   deleteHeartRateError: ResolverTypeWrapper<DeleteHeartRateError>;
   deleteHeartRateErrorErrorCodesType: DeleteHeartRateErrorErrorCodesType;
   deleteHeartRateResponse: ResolverTypeWrapper<DeleteHeartRateResponse>;
@@ -12496,6 +12587,7 @@ export type ResolversParentTypes = {
   DrivingScoreType: DrivingScoreType;
   HealthInputType: HealthInputType;
   HealthInputUpdateType: HealthInputUpdateType;
+  HealthKitDeleteType: HealthKitDeleteType;
   HealthKitInputSampleType: HealthKitInputSampleType;
   HealthKitInputType: HealthKitInputType;
   HealthKitInputUpdateType: HealthKitInputUpdateType;
@@ -12685,6 +12777,9 @@ export type ResolversParentTypes = {
   deleteFlightsClimbedError: DeleteFlightsClimbedError;
   deleteFlightsClimbedResponse: DeleteFlightsClimbedResponse;
   deleteFlightsClimbedUnion: ResolversParentTypes['deleteFlightsClimbedResponse'] | ResolversParentTypes['deleteFlightsClimbedError'];
+  deleteHealthKitError: DeleteHealthKitError;
+  deleteHealthKitResponse: DeleteHealthKitResponse;
+  deleteHealthKitUnion: ResolversParentTypes['deleteHealthKitResponse'] | ResolversParentTypes['deleteHealthKitError'];
   deleteHeartRateError: DeleteHeartRateError;
   deleteHeartRateResponse: DeleteHeartRateResponse;
   deleteHeartRateUnion: ResolversParentTypes['deleteHeartRateResponse'] | ResolversParentTypes['deleteHeartRateError'];
@@ -13071,6 +13166,12 @@ export type DrivingScoreTypeResolvers<ContextType = any, ParentType extends Reso
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type HealthKitDeleteTypeResolvers<ContextType = any, ParentType extends ResolversParentTypes['HealthKitDeleteType'] = ResolversParentTypes['HealthKitDeleteType']> = {
+  hkid?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  configIDs?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type HealthKitTypeResolvers<ContextType = any, ParentType extends ResolversParentTypes['HealthKitType'] = ResolversParentTypes['HealthKitType']> = {
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   sampledOn?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
@@ -13134,6 +13235,7 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
   updateHeartRateVariability?: Resolver<Maybe<ResolversTypes['updateHeartRateVariabilityUnion']>, ParentType, ContextType, RequireFields<MutationUpdateHeartRateVariabilityArgs, 'id' | 'input'>>;
   deleteHeartRateVariability?: Resolver<Maybe<ResolversTypes['deleteHeartRateVariabilityUnion']>, ParentType, ContextType, RequireFields<MutationDeleteHeartRateVariabilityArgs, 'id'>>;
   addHealthKit?: Resolver<Maybe<ResolversTypes['addHealthKitUnion']>, ParentType, ContextType, RequireFields<MutationAddHealthKitArgs, never>>;
+  deleteHealthKit?: Resolver<Maybe<ResolversTypes['deleteHealthKitUnion']>, ParentType, ContextType, RequireFields<MutationDeleteHealthKitArgs, never>>;
   addActiveEnergy?: Resolver<Maybe<ResolversTypes['addActiveEnergyUnion']>, ParentType, ContextType, RequireFields<MutationAddActiveEnergyArgs, 'input'>>;
   updateActiveEnergy?: Resolver<Maybe<ResolversTypes['updateActiveEnergyUnion']>, ParentType, ContextType, RequireFields<MutationUpdateActiveEnergyArgs, 'id' | 'input'>>;
   deleteActiveEnergy?: Resolver<Maybe<ResolversTypes['deleteActiveEnergyUnion']>, ParentType, ContextType, RequireFields<MutationDeleteActiveEnergyArgs, 'id'>>;
@@ -14144,6 +14246,21 @@ export type DeleteFlightsClimbedResponseResolvers<ContextType = any, ParentType 
 
 export type DeleteFlightsClimbedUnionResolvers<ContextType = any, ParentType extends ResolversParentTypes['deleteFlightsClimbedUnion'] = ResolversParentTypes['deleteFlightsClimbedUnion']> = {
   __resolveType: TypeResolveFn<'deleteFlightsClimbedResponse' | 'deleteFlightsClimbedError', ParentType, ContextType>;
+};
+
+export type DeleteHealthKitErrorResolvers<ContextType = any, ParentType extends ResolversParentTypes['deleteHealthKitError'] = ResolversParentTypes['deleteHealthKitError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['deleteHealthKitErrorErrorCodesType']>, ParentType, ContextType>;
+  errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type DeleteHealthKitResponseResolvers<ContextType = any, ParentType extends ResolversParentTypes['deleteHealthKitResponse'] = ResolversParentTypes['deleteHealthKitResponse']> = {
+  response?: Resolver<Maybe<ResolversTypes['HealthKitDeleteType']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type DeleteHealthKitUnionResolvers<ContextType = any, ParentType extends ResolversParentTypes['deleteHealthKitUnion'] = ResolversParentTypes['deleteHealthKitUnion']> = {
+  __resolveType: TypeResolveFn<'deleteHealthKitResponse' | 'deleteHealthKitError', ParentType, ContextType>;
 };
 
 export type DeleteHeartRateErrorResolvers<ContextType = any, ParentType extends ResolversParentTypes['deleteHeartRateError'] = ResolversParentTypes['deleteHeartRateError']> = {
@@ -15376,6 +15493,7 @@ export type Resolvers<ContextType = any> = {
   Date?: GraphQLScalarType;
   DeleteType?: DeleteTypeResolvers<ContextType>;
   DrivingScoreType?: DrivingScoreTypeResolvers<ContextType>;
+  HealthKitDeleteType?: HealthKitDeleteTypeResolvers<ContextType>;
   HealthKitType?: HealthKitTypeResolvers<ContextType>;
   HealthKitUnionType?: HealthKitUnionTypeResolvers<ContextType>;
   HealthType?: HealthTypeResolvers<ContextType>;
@@ -15555,6 +15673,9 @@ export type Resolvers<ContextType = any> = {
   deleteFlightsClimbedError?: DeleteFlightsClimbedErrorResolvers<ContextType>;
   deleteFlightsClimbedResponse?: DeleteFlightsClimbedResponseResolvers<ContextType>;
   deleteFlightsClimbedUnion?: DeleteFlightsClimbedUnionResolvers<ContextType>;
+  deleteHealthKitError?: DeleteHealthKitErrorResolvers<ContextType>;
+  deleteHealthKitResponse?: DeleteHealthKitResponseResolvers<ContextType>;
+  deleteHealthKitUnion?: DeleteHealthKitUnionResolvers<ContextType>;
   deleteHeartRateError?: DeleteHeartRateErrorResolvers<ContextType>;
   deleteHeartRateResponse?: DeleteHeartRateResponseResolvers<ContextType>;
   deleteHeartRateUnion?: DeleteHeartRateUnionResolvers<ContextType>;
