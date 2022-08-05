@@ -16,7 +16,8 @@ const inputs = require('@mocks/inputs/collections.json');
 /**
  * Collections integreation tests
  *
- * @group integration/graphql/collections
+ * @group integration
+ * @group int/graphql/collections
  */
 
 describe('Collections', () => {

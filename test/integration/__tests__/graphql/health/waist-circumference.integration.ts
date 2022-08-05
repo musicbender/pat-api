@@ -15,7 +15,8 @@ const inputs = require('@mocks/inputs/waist-circumference.json');
 /**
  * WaistCircumference integreation tests
  *
- * @group integration/graphql/health
+ * @group integration
+ * @group int/graphql/health
  */
 
 describe('Health - Waist Circumference', () => {

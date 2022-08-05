@@ -10,7 +10,8 @@ const inputs = require('@mocks/inputs/cbc.json');
 /**
  * Cbc integreation tests
  *
- * @group integration/graphql/health
+ * @group integration
+ * @group int/graphql/health
  */
 
 describe('Health - Cbc', () => {

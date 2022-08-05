@@ -1,4 +1,4 @@
-import path from 'path';
+const path = require('path');
 
 switch (process.env.NODE_ENV) {
   case 'production':
@@ -14,6 +14,6 @@ switch (process.env.NODE_ENV) {
     require('dotenv').config();
 }
 
-export default require('../database.ts').getDBConfig({
+module.exports = require('../database.ts').getDBConfig({
   externalAccess: true,
 });

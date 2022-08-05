@@ -1,4 +1,4 @@
-'use strict';
+const { DataTypes } = require('sequelize');
 
 const COLUMN_NAME = 'hkid';
 
@@ -14,7 +14,7 @@ const tables = [
   'steps',
   'swimming-distance',
   'walking-heartrate-average',
-  'walking-running-distance.model',
+  'walking-running-distance',
   'blood-pressure',
 ];
 

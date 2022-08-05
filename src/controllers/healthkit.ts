@@ -7,6 +7,7 @@ import { addHealthItem } from './health';
 import models from '@models';
 import { nanoid } from 'nanoid';
 import { Model } from 'sequelize-typescript';
+import { FindOptions } from 'sequelize';
 import { appendResponse } from '@schema/utils/global';
 const { healthTypes } = require('@configs/healthkit.json');
 const healthConfig = require('@configs/health.json');
@@ -23,6 +24,13 @@ import {
   HealthType,
   HealthKitDeleteType,
 } from '@types';
+import logger from '@utils/logger';
+
+// find by hkid
+export const findItemByHkid = async (hkid: string, modelID: string): Promise<Model> => {
+  const dbOptions: FindOptions = { where: { hkid } };
+  return models[modelID].findOne(dbOptions);
+};
 
 // add health item
 export const addHealthKitItem = async (
@@ -183,6 +191,30 @@ const addHealthkitBloodPressure = async (
     HealthType;
   const result = addResult.get ? addResult.get() : addResult;
   return appendResponse(result, bpConfig);
+};
+
+// batch controllers
+export const findHealthkitItems = async (hkid: string) => {
+  if (!hkid) throw new ExpectedError('INVALID_HEALTHKIT_INPUT');
+
+  const hkConfigs = [...healthTypes, healthConfig.bloodPressure];
+
+  const healthkitItems: HealthKitType[] = await Promise.all(
+    Object.keys(hkConfigs).map(async (hkType: string): Promise<HealthKitType> => {
+      const config = healthTypes[hkType];
+
+      if (config.disabled) return null;
+
+      try {
+        const hkItem = await findItemByHkid(hkid, config.modelID);
+        return appendResponse(hkItem, config) as HealthKitType;
+      } catch (err) {
+        logger.error(err);
+      }
+    }),
+  );
+
+  return { response: healthkitItems };
 };
 
 export const addHealthKitItems = async (inputs: HealthKitInputType[]) => {

@@ -13,7 +13,8 @@ const pkg = require('../../../../package.json');
 /**
  * Validate service e2e tests
  *
- * @group integration/routes
+ * @group integration
+ * @group int/routes
  */
 
 let request: supertest.SuperTest<supertest.Test>;

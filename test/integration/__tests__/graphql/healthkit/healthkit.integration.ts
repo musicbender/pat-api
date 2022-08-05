@@ -2,23 +2,28 @@ import * as supertest from 'supertest';
 import { SuperTest, Test } from 'supertest';
 import { clearTable } from '@database';
 import { GRAPHQL_PATH } from '@integration/lib/constants';
-import { addMutation, getQuery, deleteMutation, updateMutation } from '@mocks/queries/healthkit';
-import * as moment from 'moment';
+import { addMutation, getQuery, deleteMutation } from '@mocks/queries/healthkit';
 import { gqlPlugin } from '@integration/lib/plugins';
-const inputs = require('@mocks/inputs/healthkit.json');
+import * as inputs from '@mocks/inputs/healthkit';
+const { healthTypes } = require('@configs/healthkit.json');
 
 /**
- * Weight integreation tests
+ * Healthkit integration tests
  *
- * @group integration/graphql/health
+ * @group integration
+ * @group int/graphql/healthkit
  */
 
 describe('Healthkit', () => {
-  const MOCK_SAMPLED_ON: string = moment().toISOString();
+  const hkTables = Object.keys(healthTypes).map((hk: string) => healthTypes[hk].id);
   let request: SuperTest<Test>;
 
   beforeAll(async () => {
-    await clearTable(CONFIG_ID);
+    await Promise.all(
+      hkTables.map(async (hkTable) => {
+        await clearTable(hkTable);
+      }),
+    );
   });
 
   beforeEach(async () => {
@@ -33,176 +38,70 @@ describe('Healthkit', () => {
         .send({
           query: addMutation,
           variables: {
-            input: {
-              ...inputs.addMutation[0],
-              sampledOn: MOCK_SAMPLED_ON,
-            },
+            input: inputs.hk1,
           },
         });
 
-      const { response: data } = res.body.data.addWeight;
+      console.log(res.body);
+      const { response: data } = res.body.data.addHealthkit;
 
-      expect(typeof data.id).toEqual('string');
-      expect(data.id.length).toEqual(36);
-    });
-
-    it('works with input variation 2', async () => {
-      const res = await request
-        .post(GRAPHQL_PATH)
-        .use(gqlPlugin)
-        .send({
-          query: addMutation,
-          variables: {
-            input: {
-              ...inputs.addMutation[1],
-              sampledOn: MOCK_SAMPLED_ON,
-            },
-          },
-        });
-
-      const { response: data } = res.body.data.addWeight;
-
-      expect(typeof data.id).toEqual('string');
-      expect(data.id.length).toEqual(36);
+      expect(data.length).toEqual(1);
+      expect(typeof data[0].id).toEqual('string');
+      expect(data[0].id.length).toEqual(36);
+      expect(typeof data[0].hkid).toEqual('string');
+      expect(data[0].hkid.length).toEqual(11);
+      expect(data[0].value).toEqual(2000);
+      expect(data[0].valueType).toEqual('sum');
+      expect(data[0].totalSampleValue).toEqual(2000);
+      expect(data[0].averageSampleValue).toEqual(2000);
+      expect(data[0].highestSampleValue).toEqual(2000);
+      expect(data[0].lowestSampleValue).toEqual(2);
+      expect(data[0].sampledOn).toEqual('2019-10-30T23:15:00-07:00');
+      expect(data[0].createdOn).toEqual('???');
+      expect(data[0].updatedOn).toEqual('???');
+      expect(data[0].sources).toEqual(['pat-apple-watch']);
+      expect(data[0].unit).toEqual('count');
+      expect(data[0].totalDuration).toEqual('1:30;20');
+      expect(data[0].configID).toEqual('steps');
     });
   });
 
-  describe('query', () => {
-    it('query for item 1', async () => {
-      const res = await request
-        .post(GRAPHQL_PATH)
-        .use(gqlPlugin)
-        .send({
-          query: getQuery,
-          variables: { id: itemIDs[0] },
-        });
+  // describe('query', () => {
+  //   it('query for item 1', async () => {
+  //     const res = await request
+  //       .post(GRAPHQL_PATH)
+  //       .use(gqlPlugin)
+  //       .send({
+  //         query: getQuery,
+  //         variables: { id: itemIDs[0] },
+  //       });
 
-      const { response: data } = res.body.data.weight;
+  //     const { response: data } = res.body.data.healthkit;
 
-      expect(data.id).toEqual(itemIDs[0]);
-      expect(data.value).toEqual(158);
-      expect(moment(data.sampledOn).isValid()).toBeTruthy();
-      expect(moment(data.createdOn).isValid()).toBeTruthy();
-      expect(moment(data.updatedOn).isValid()).toBeTruthy();
-      expect(data.configID).toEqual(CONFIG_ID);
-    });
+  //     expect(data.id).toEqual(itemIDs[0]);
+  //     expect(data.value).toEqual(158);
+  //     expect(moment(data.sampledOn).isValid()).toBeTruthy();
+  //     expect(moment(data.createdOn).isValid()).toBeTruthy();
+  //     expect(moment(data.updatedOn).isValid()).toBeTruthy();
+  //     expect(data.configID).toEqual(CONFIG_ID);
+  //   });
+  // });
 
-    it('query for item 2', async () => {
-      const res = await request
-        .post(GRAPHQL_PATH)
-        .use(gqlPlugin)
-        .send({
-          query: getQuery,
-          variables: { id: itemIDs[1] },
-        });
+  // describe('delete mutation', () => {
+  //   it('can remove item 1', async () => {
+  //     const res = await request
+  //       .post(GRAPHQL_PATH)
+  //       .use(gqlPlugin)
+  //       .send({
+  //         query: deleteMutation,
+  //         variables: { id: itemIDs[0] },
+  //       });
 
-      const { response: data } = res.body.data.weight;
+  //     const { response: data } = res.body.data.deleteHealthkit;
 
-      expect(data.id).toEqual(itemIDs[1]);
-      expect(data.value).toEqual(1.5);
-      expect(moment(data.sampledOn).isValid()).toBeTruthy();
-      expect(moment(data.createdOn).isValid()).toBeTruthy();
-      expect(moment(data.updatedOn).isValid()).toBeTruthy();
-      expect(data.configID).toEqual(CONFIG_ID);
-    });
-
-    it('query for item by date', async () => {
-      const res = await request
-        .post(GRAPHQL_PATH)
-        .use(gqlPlugin)
-        .send({
-          query: getQuery,
-          variables: { date: MOCK_SAMPLED_ON },
-        });
-
-      const { response: data } = res.body.data.weight;
-
-      expect(data.id).toEqual(itemIDs[0]);
-      expect(data.value).toEqual(158);
-      expect(moment(data.sampledOn).isValid()).toBeTruthy();
-      expect(moment(data.createdOn).isValid()).toBeTruthy();
-      expect(moment(data.updatedOn).isValid()).toBeTruthy();
-      expect(data.configID).toEqual(CONFIG_ID);
-    });
-  });
-
-  describe('update mutation', () => {
-    it('can change value for item 1', async () => {
-      const res = await request
-        .post(GRAPHQL_PATH)
-        .use(gqlPlugin)
-        .send({
-          query: updateMutation,
-          variables: {
-            input: inputs.updateMutation[0],
-            id: itemIDs[0],
-          },
-        });
-
-      const { response: data } = res.body.data.updateWeight;
-
-      expect(data.id).toEqual(itemIDs[0]);
-      expect(data.value).toEqual(145);
-      expect(moment(data.sampledOn).isValid()).toBeTruthy();
-      expect(moment(data.createdOn).isValid()).toBeTruthy();
-      expect(moment(data.updatedOn).isValid()).toBeTruthy();
-      expect(data.configID).toEqual(CONFIG_ID);
-    });
-
-    it('can change value for item 2', async () => {
-      const res = await request
-        .post(GRAPHQL_PATH)
-        .use(gqlPlugin)
-        .send({
-          query: updateMutation,
-          variables: {
-            input: inputs.updateMutation[1],
-            id: itemIDs[1],
-          },
-        });
-
-      const { response: data } = res.body.data.updateWeight;
-
-      expect(data.id).toEqual(itemIDs[1]);
-      expect(data.value).toEqual(1000);
-      expect(moment(data.sampledOn).isValid()).toBeTruthy();
-      expect(moment(data.createdOn).isValid()).toBeTruthy();
-      expect(moment(data.updatedOn).isValid()).toBeTruthy();
-      expect(data.configID).toEqual(CONFIG_ID);
-    });
-  });
-
-  describe('delete mutation', () => {
-    it('can remove item 1', async () => {
-      const res = await request
-        .post(GRAPHQL_PATH)
-        .use(gqlPlugin)
-        .send({
-          query: deleteMutation,
-          variables: { id: itemIDs[0] },
-        });
-
-      const { response: data } = res.body.data.deleteWeight;
-
-      expect(res.status).toEqual(200);
-      expect(data.id).toEqual(itemIDs[0]);
-      expect(data.configID).toEqual(CONFIG_ID);
-    });
-
-    it('can remove item 2', async () => {
-      const res = await request
-        .post(GRAPHQL_PATH)
-        .use(gqlPlugin)
-        .send({
-          query: deleteMutation,
-          variables: { id: itemIDs[1] },
-        });
-
-      const { response: data } = res.body.data.deleteWeight;
-
-      expect(res.status).toEqual(200);
-      expect(data.id).toEqual(itemIDs[1]);
-      expect(data.configID).toEqual(CONFIG_ID);
-    });
-  });
+  //     expect(res.status).toEqual(200);
+  //     expect(data.id).toEqual(itemIDs[0]);
+  //     expect(data.configID).toEqual(CONFIG_ID);
+  //   });
+  // });
 });

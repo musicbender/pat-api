@@ -15,7 +15,8 @@ const inputs = require('@mocks/inputs/blood-pressure.json');
 /**
  * Blood Pressure integreation tests
  *
- * @group integration/graphql/health
+ * @group integration
+ * @group int/graphql/health
  */
 
 describe('Health - Blood Pressure', () => {

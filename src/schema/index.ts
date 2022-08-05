@@ -6,12 +6,7 @@ import { excludeMiddleware, errorMiddleware, authMiddleware } from './middleware
 
 const schema = new GraphQLSchema({
   query: RootQueryType,
-  mutation: mutations
+  mutation: mutations,
 });
 
-export default applyMiddleware(
-  schema,
-  excludeMiddleware,
-  errorMiddleware,
-  authMiddleware
-);
+export default applyMiddleware(schema, excludeMiddleware, errorMiddleware, authMiddleware);
