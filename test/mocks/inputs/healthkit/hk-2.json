@@ -16,7 +16,7 @@
       },
       {
         "date": "2019-10-22T18:00:59-09:00",
-        "source": "pat-apple-watch",
+        "source": "test-device",
         "value": "1",
         "duration": "3"
       }

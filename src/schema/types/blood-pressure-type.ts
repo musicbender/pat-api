@@ -33,5 +33,6 @@ export const BloodPressureType = new GraphQLObjectType({
     systolic: { type: GraphQLFloat },
     diastolic: { type: GraphQLFloat },
     unit: { type: UnitType },
+    hkid: { type: GraphQLString },
   }),
 });

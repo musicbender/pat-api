@@ -136,6 +136,7 @@ export type BloodPressureType = {
   systolic?: Maybe<Scalars['Float']>;
   diastolic?: Maybe<Scalars['Float']>;
   unit?: Maybe<UnitType>;
+  hkid?: Maybe<Scalars['String']>;
 };
 
 /** Complete blood count data input */
@@ -1306,7 +1307,7 @@ export type RootQueryType = {
   /** Get multiple oxygenSaturation entries */
   oxygenSaturationAll?: Maybe<OxygenSaturationAllUnion>;
   /** Get group of healthkit items by hkid */
-  healthkit?: Maybe<HealthkitUnion>;
+  healthkit?: Maybe<HealthKitUnion>;
   /** Get a single activity entry by either _id or date, _id taking priority */
   activity?: Maybe<ActivityUnion>;
   /** Get multiple activity entries */
@@ -7403,13 +7404,13 @@ export type FlightsClimbedResponse = {
 /** Return either be response data or error data for flightsClimbed */
 export type FlightsClimbedUnion = FlightsClimbedResponse | FlightsClimbedError;
 
-export type HealthkitError = {
-  __typename?: 'healthkitError';
-  errorCode?: Maybe<HealthkitErrorErrorCodesType>;
+export type HealthKitError = {
+  __typename?: 'healthKitError';
+  errorCode?: Maybe<HealthKitErrorErrorCodesType>;
   errorDesc?: Maybe<Scalars['String']>;
 };
 
-export enum HealthkitErrorErrorCodesType {
+export enum HealthKitErrorErrorCodesType {
   /** Oh noes. There was an internal error. */
   InternalError = 'INTERNAL_ERROR',
   /** Server timeout error */
@@ -7466,14 +7467,14 @@ export enum HealthkitErrorErrorCodesType {
   IncrementCollectionError = 'INCREMENT_COLLECTION_ERROR'
 }
 
-/** Response data for healthkit */
-export type HealthkitResponse = {
-  __typename?: 'healthkitResponse';
-  response?: Maybe<HealthKitType>;
+/** Response data for healthKit */
+export type HealthKitResponse = {
+  __typename?: 'healthKitResponse';
+  response?: Maybe<Array<Maybe<HealthKitUnionType>>>;
 };
 
-/** Return either be response data or error data for healthkit */
-export type HealthkitUnion = HealthkitResponse | HealthkitError;
+/** Return either be response data or error data for healthKit */
+export type HealthKitUnion = HealthKitResponse | HealthKitError;
 
 export type HeartrateAllError = {
   __typename?: 'heartrateAllError';
@@ -12381,10 +12382,10 @@ export type ResolversTypes = {
   flightsClimbedErrorErrorCodesType: FlightsClimbedErrorErrorCodesType;
   flightsClimbedResponse: ResolverTypeWrapper<FlightsClimbedResponse>;
   flightsClimbedUnion: ResolversTypes['flightsClimbedResponse'] | ResolversTypes['flightsClimbedError'];
-  healthkitError: ResolverTypeWrapper<HealthkitError>;
-  healthkitErrorErrorCodesType: HealthkitErrorErrorCodesType;
-  healthkitResponse: ResolverTypeWrapper<HealthkitResponse>;
-  healthkitUnion: ResolversTypes['healthkitResponse'] | ResolversTypes['healthkitError'];
+  healthKitError: ResolverTypeWrapper<HealthKitError>;
+  healthKitErrorErrorCodesType: HealthKitErrorErrorCodesType;
+  healthKitResponse: ResolverTypeWrapper<Omit<HealthKitResponse, 'response'> & { response?: Maybe<Array<Maybe<ResolversTypes['HealthKitUnionType']>>> }>;
+  healthKitUnion: ResolversTypes['healthKitResponse'] | ResolversTypes['healthKitError'];
   heartrateAllError: ResolverTypeWrapper<HeartrateAllError>;
   heartrateAllErrorErrorCodesType: HeartrateAllErrorErrorCodesType;
   heartrateAllResponse: ResolverTypeWrapper<HeartrateAllResponse>;
@@ -12920,9 +12921,9 @@ export type ResolversParentTypes = {
   flightsClimbedError: FlightsClimbedError;
   flightsClimbedResponse: FlightsClimbedResponse;
   flightsClimbedUnion: ResolversParentTypes['flightsClimbedResponse'] | ResolversParentTypes['flightsClimbedError'];
-  healthkitError: HealthkitError;
-  healthkitResponse: HealthkitResponse;
-  healthkitUnion: ResolversParentTypes['healthkitResponse'] | ResolversParentTypes['healthkitError'];
+  healthKitError: HealthKitError;
+  healthKitResponse: Omit<HealthKitResponse, 'response'> & { response?: Maybe<Array<Maybe<ResolversParentTypes['HealthKitUnionType']>>> };
+  healthKitUnion: ResolversParentTypes['healthKitResponse'] | ResolversParentTypes['healthKitError'];
   heartrateAllError: HeartrateAllError;
   heartrateAllResponse: HeartrateAllResponse;
   heartrateAllUnion: ResolversParentTypes['heartrateAllResponse'] | ResolversParentTypes['heartrateAllError'];
@@ -13155,6 +13156,7 @@ export type BloodPressureTypeResolvers<ContextType = any, ParentType extends Res
   systolic?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>;
   diastolic?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>;
   unit?: Resolver<Maybe<ResolversTypes['UnitType']>, ParentType, ContextType>;
+  hkid?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -13447,7 +13449,7 @@ export type RootQueryTypeResolvers<ContextType = any, ParentType extends Resolve
   walkingRunningDistanceAll?: Resolver<Maybe<ResolversTypes['walkingRunningDistanceAllUnion']>, ParentType, ContextType, RequireFields<RootQueryTypeWalkingRunningDistanceAllArgs, never>>;
   oxygenSaturation?: Resolver<Maybe<ResolversTypes['oxygenSaturationUnion']>, ParentType, ContextType, RequireFields<RootQueryTypeOxygenSaturationArgs, never>>;
   oxygenSaturationAll?: Resolver<Maybe<ResolversTypes['oxygenSaturationAllUnion']>, ParentType, ContextType, RequireFields<RootQueryTypeOxygenSaturationAllArgs, never>>;
-  healthkit?: Resolver<Maybe<ResolversTypes['healthkitUnion']>, ParentType, ContextType, RequireFields<RootQueryTypeHealthkitArgs, never>>;
+  healthkit?: Resolver<Maybe<ResolversTypes['healthKitUnion']>, ParentType, ContextType, RequireFields<RootQueryTypeHealthkitArgs, never>>;
   activity?: Resolver<Maybe<ResolversTypes['activityUnion']>, ParentType, ContextType, RequireFields<RootQueryTypeActivityArgs, never>>;
   activityAll?: Resolver<Maybe<ResolversTypes['activityAllUnion']>, ParentType, ContextType, RequireFields<RootQueryTypeActivityAllArgs, never>>;
   weight?: Resolver<Maybe<ResolversTypes['weightUnion']>, ParentType, ContextType, RequireFields<RootQueryTypeWeightArgs, never>>;
@@ -14635,19 +14637,19 @@ export type FlightsClimbedUnionResolvers<ContextType = any, ParentType extends R
   __resolveType: TypeResolveFn<'flightsClimbedResponse' | 'flightsClimbedError', ParentType, ContextType>;
 };
 
-export type HealthkitErrorResolvers<ContextType = any, ParentType extends ResolversParentTypes['healthkitError'] = ResolversParentTypes['healthkitError']> = {
-  errorCode?: Resolver<Maybe<ResolversTypes['healthkitErrorErrorCodesType']>, ParentType, ContextType>;
+export type HealthKitErrorResolvers<ContextType = any, ParentType extends ResolversParentTypes['healthKitError'] = ResolversParentTypes['healthKitError']> = {
+  errorCode?: Resolver<Maybe<ResolversTypes['healthKitErrorErrorCodesType']>, ParentType, ContextType>;
   errorDesc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
-export type HealthkitResponseResolvers<ContextType = any, ParentType extends ResolversParentTypes['healthkitResponse'] = ResolversParentTypes['healthkitResponse']> = {
-  response?: Resolver<Maybe<ResolversTypes['HealthKitType']>, ParentType, ContextType>;
+export type HealthKitResponseResolvers<ContextType = any, ParentType extends ResolversParentTypes['healthKitResponse'] = ResolversParentTypes['healthKitResponse']> = {
+  response?: Resolver<Maybe<Array<Maybe<ResolversTypes['HealthKitUnionType']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
-export type HealthkitUnionResolvers<ContextType = any, ParentType extends ResolversParentTypes['healthkitUnion'] = ResolversParentTypes['healthkitUnion']> = {
-  __resolveType: TypeResolveFn<'healthkitResponse' | 'healthkitError', ParentType, ContextType>;
+export type HealthKitUnionResolvers<ContextType = any, ParentType extends ResolversParentTypes['healthKitUnion'] = ResolversParentTypes['healthKitUnion']> = {
+  __resolveType: TypeResolveFn<'healthKitResponse' | 'healthKitError', ParentType, ContextType>;
 };
 
 export type HeartrateAllErrorResolvers<ContextType = any, ParentType extends ResolversParentTypes['heartrateAllError'] = ResolversParentTypes['heartrateAllError']> = {
@@ -15835,9 +15837,9 @@ export type Resolvers<ContextType = any> = {
   flightsClimbedError?: FlightsClimbedErrorResolvers<ContextType>;
   flightsClimbedResponse?: FlightsClimbedResponseResolvers<ContextType>;
   flightsClimbedUnion?: FlightsClimbedUnionResolvers<ContextType>;
-  healthkitError?: HealthkitErrorResolvers<ContextType>;
-  healthkitResponse?: HealthkitResponseResolvers<ContextType>;
-  healthkitUnion?: HealthkitUnionResolvers<ContextType>;
+  healthKitError?: HealthKitErrorResolvers<ContextType>;
+  healthKitResponse?: HealthKitResponseResolvers<ContextType>;
+  healthKitUnion?: HealthKitUnionResolvers<ContextType>;
   heartrateAllError?: HeartrateAllErrorResolvers<ContextType>;
   heartrateAllResponse?: HeartrateAllResponseResolvers<ContextType>;
   heartrateAllUnion?: HeartrateAllUnionResolvers<ContextType>;
