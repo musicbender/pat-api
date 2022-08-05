@@ -1,7 +1,7 @@
 export const getQuery = `  
   query GetCollections ($id: String, $date: Date) {
     collections(id: $id, date: $date) {
-        ... on collectionsResponse {
+        ... on CollectionsResponse {
           response {
             id
             shortId
@@ -13,7 +13,7 @@ export const getQuery = `
             configID
           }
         }
-      ... on collectionsError {
+      ... on CollectionsError {
         errorCode
         errorDesc
       }
@@ -36,7 +36,7 @@ export const addMutation = `
             configID
           }
       }
-      ... on addCollectionsError {
+      ... on addCollectionError {
         errorCode
         errorDesc
       }
@@ -87,15 +87,15 @@ export const incrementMutation = `
 `;
 
 export const deleteMutation = `
-  mutation DeleteCollections ($id: ID!) {
-    deleteCollections(id: $id) {
-      ... on deleteCollectionsResponse {
+  mutation DeleteCollection ($id: ID!) {
+    deleteCollection(id: $id) {
+      ... on deleteCollectionResponse {
           response {
             id
             configID
           }
       }
-      ... on deleteCollectionsError {
+      ... on deleteCollectionError {
         errorCode
         errorDesc
       }

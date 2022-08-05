@@ -10,7 +10,8 @@ const inputs = require('@mocks/inputs/cbc.json');
 /**
  * Cbc integreation tests
  *
- * @group integration/graphql/health
+ * @group integration
+ * @group int/graphql/health
  */
 
 describe('Health - Cbc', () => {
@@ -45,8 +46,6 @@ describe('Health - Cbc', () => {
             },
           },
         });
-
-      console.log('cbc test-----', JSON.stringify(res.body));
 
       const { response: data } = res.body.data.addCbc;
 
@@ -140,8 +139,6 @@ describe('Health - Cbc', () => {
           query: getQuery,
           variables: { id: itemIDs[0] },
         });
-
-      console.log('q ---', JSON.stringify(res.body));
 
       const { response: data } = res.body.data.cbc;
 

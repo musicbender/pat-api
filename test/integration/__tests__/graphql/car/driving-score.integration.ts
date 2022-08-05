@@ -15,7 +15,8 @@ const inputs = require('@mocks/inputs/driving-score.json');
 /**
  * Driving score integration tests
  *
- * @group integration/graphql/car
+ * @group integration
+ * @group int/graphql/car
  */
 
 describe('Car - Driving Score', () => {

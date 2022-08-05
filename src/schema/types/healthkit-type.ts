@@ -59,6 +59,7 @@ export const HealthKitType = new GraphQLObjectType({
   description: 'Health data',
   fields: () => ({
     ...globalTypeFields,
+    hkid: { type: GraphQLString },
     value: { type: GraphQLFloat },
     valueType: { type: GraphQLString },
     totalSampleValue: { type: GraphQLFloat },
@@ -79,4 +80,13 @@ export const HealthKitUnionType = new GraphQLUnionType({
     if (value.systolic || value.dystolic) return 'BloodPressureType';
     return 'HealthKitType';
   },
+});
+
+export const HealthKitDeleteType = new GraphQLObjectType({
+  name: 'HealthKitDeleteType',
+  description: 'Healthkit deletion data',
+  fields: () => ({
+    hkid: { type: GraphQLString },
+    configIDs: { type: new GraphQLList(GraphQLString) },
+  }),
 });

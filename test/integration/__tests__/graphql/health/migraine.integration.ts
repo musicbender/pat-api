@@ -10,7 +10,8 @@ const inputs = require('@mocks/inputs/migraine.json');
 /**
  * Migraine integreation tests
  *
- * @group integration/graphql/health
+ * @group integration
+ * @group int/graphql/health
  */
 
 describe('Health - Migraine', () => {

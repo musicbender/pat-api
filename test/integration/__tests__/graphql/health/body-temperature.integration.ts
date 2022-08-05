@@ -15,7 +15,8 @@ const inputs = require('@mocks/inputs/body-temperature.json');
 /**
  * Body temperature integration tests
  *
- * @group integration/graphql/health
+ * @group integration
+ * @group int/graphql/health
  */
 
 describe('Health - Body Temperature', () => {

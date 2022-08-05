@@ -9,6 +9,8 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "allowJs": true,
     "baseUrl": "./",
     "paths": {
       "@configs/*": ["src/configs/*"],
@@ -22,7 +24,8 @@
       "@mocks/*": ["test/mocks/*"],
       "@database": ["src/database.ts"],
       "@server": ["src/server.ts"]
-    }
+    },
+    "typeRoots": ["src/types", "node_modules/@types"]
   },
   "include": ["src/**/*", "test/**/*"],
   "exclude": ["node_modules", "dist"]

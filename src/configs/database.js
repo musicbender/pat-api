@@ -1,15 +1,19 @@
-import path from "path";
+const path = require('path');
 
-let dotenv;
-
-if (process.env.NODE_ENV === 'production') {
-  dotenv = require('dotenv').config({
-    path: path.resolve(process.cwd(), '.env.local.production')
-  });
-} else {
-  dotenv = require('dotenv').config();
+switch (process.env.NODE_ENV) {
+  case 'production':
+    require('dotenv').config({
+      path: path.resolve(process.cwd(), '.env.local.production'),
+    });
+    break;
+  case 'test':
+    require('dotenv').config({
+      path: path.resolve(process.cwd(), '.env.test'),
+    });
+  default:
+    require('dotenv').config();
 }
 
-export default require('../database.ts').getDBConfig({
-  externalAccess: true
+module.exports = require('../database.ts').getDBConfig({
+  externalAccess: true,
 });

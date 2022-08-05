@@ -6,5 +6,5 @@ export const DeleteType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLString },
     configID: { type: GraphQLString },
-  })
+  }),
 });

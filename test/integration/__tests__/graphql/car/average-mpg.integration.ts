@@ -15,7 +15,8 @@ const inputs = require('@mocks/inputs/averageMPG.json');
 /**
  * Car mpg integration tests
  *
- * @group integration/graphql/car
+ * @group integration
+ * @group int/graphql/car
  */
 
 describe('Car - Average MPG', () => {

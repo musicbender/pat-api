@@ -1,10 +1,14 @@
 import { GraphQLObjectType, GraphQLInputObjectType } from 'graphql';
 import { BaseContext } from 'koa';
-import { OrderItem } from 'sequelize/types';
+import { OrderItem } from 'sequelize';
 import { CarConfigType } from './car';
 import { CollectionConfigType } from './collection';
 import { HealthConfigType } from './health';
 import { HealthKitConfigType } from './healthkit';
+
+declare module 'nanoid' {
+  export function nanoid(size?: number): string;
+}
 
 export type ComposeQueryOptions = {
   type: GraphQLObjectType;

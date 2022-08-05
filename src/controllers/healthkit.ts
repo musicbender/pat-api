@@ -5,7 +5,9 @@ import { aggregateHealthData } from '@utils/sample';
 import { findItemByDate } from './global';
 import { addHealthItem } from './health';
 import models from '@models';
+import { nanoid } from 'nanoid';
 import { Model } from 'sequelize-typescript';
+import { FindOptions } from 'sequelize';
 import { appendResponse } from '@schema/utils/global';
 const { healthTypes } = require('@configs/healthkit.json');
 const healthConfig = require('@configs/health.json');
@@ -20,11 +22,20 @@ import {
   HealthkitInputAndConfig,
   HealthTypes,
   HealthType,
+  HealthKitDeleteType,
 } from '@types';
+import logger from '@utils/logger';
+
+// find by hkid
+export const findItemByHkid = async (hkid: string, modelID: string): Promise<Model> => {
+  const dbOptions: FindOptions = { where: { hkid } };
+  return models[modelID].findOne(dbOptions);
+};
 
 // add health item
 export const addHealthKitItem = async (
   input: HealthKitInputType,
+  hkid: string,
   config: HealthKitConfigType,
   doSave = true,
 ): Promise<HealthKitType> => {
@@ -55,6 +66,7 @@ export const addHealthKitItem = async (
   const currentDate: string = moment().toISOString();
 
   data.id = uuid();
+  data.hkid = hkid;
   data.createdOn = currentDate;
   data.updatedOn = currentDate;
 
@@ -133,12 +145,13 @@ export const updateHealthKitItem = async (
 
 const addHealthkitBloodPressure = async (
   healthItems: HealthkitInputAndConfig[],
+  hkid: string,
 ): Promise<HealthTypes> => {
   const bpConfig = healthConfig.bloodPressure;
   const processedItems: Promise<HealthKitTypeWithItemType[]> = Promise.all(
     healthItems.map(async (item: HealthkitInputAndConfig): Promise<HealthKitTypeWithItemType> => {
       const { input, config } = item;
-      const processedItem = await addHealthKitItem(input, config, false);
+      const processedItem = await addHealthKitItem(input, hkid, config, false);
       return {
         ...processedItem,
         healthkitType: config.id,
@@ -180,9 +193,34 @@ const addHealthkitBloodPressure = async (
   return appendResponse(result, bpConfig);
 };
 
+// batch controllers
+export const findHealthkitItems = async (hkid: string) => {
+  if (!hkid) throw new ExpectedError('INVALID_HEALTHKIT_INPUT');
+
+  const hkConfigs = [...healthTypes, healthConfig.bloodPressure];
+
+  const healthkitItems: HealthKitType[] = await Promise.all(
+    Object.keys(hkConfigs).map(async (hkType: string): Promise<HealthKitType> => {
+      const config = healthTypes[hkType];
+
+      if (config.disabled) return null;
+
+      try {
+        const hkItem = await findItemByHkid(hkid, config.modelID);
+        return appendResponse(hkItem, config) as HealthKitType;
+      } catch (err) {
+        logger.error(err);
+      }
+    }),
+  );
+
+  return { response: healthkitItems };
+};
+
 export const addHealthKitItems = async (inputs: HealthKitInputType[]) => {
   if (!inputs) throw new ExpectedError('INVALID_HEALTHKIT_INPUT');
 
+  const hkid: string = nanoid(11);
   let bloodPressuremItems: HealthkitInputAndConfig[] = [];
   let healthkitItems: HealthKitType[] = [];
 
@@ -198,7 +236,7 @@ export const addHealthKitItems = async (inputs: HealthKitInputType[]) => {
       if (config.modelID === healthConfig.bloodPressure.modelID) {
         bloodPressuremItems = [...bloodPressuremItems, { input, config }];
       } else {
-        const newItem = await addHealthKitItem(input, config);
+        const newItem = await addHealthKitItem(input, hkid, config);
         healthkitItems = [...healthkitItems, appendResponse(newItem, config)];
       }
     }),
@@ -207,9 +245,29 @@ export const addHealthKitItems = async (inputs: HealthKitInputType[]) => {
   const output: (HealthTypes | HealthKitType)[] = healthkitItems;
 
   if (bloodPressuremItems.length > 0) {
-    const bloodPressureOutput = await addHealthkitBloodPressure(bloodPressuremItems);
+    const bloodPressureOutput = await addHealthkitBloodPressure(bloodPressuremItems, hkid);
     output.push(bloodPressureOutput);
   }
 
   return { response: output };
+};
+
+export const deleteHealthkitItems = async (hkid: string): Promise<HealthKitDeleteType> => {
+  const configIDs: string[] = await Promise.all(
+    Object.keys(healthTypes).map(async (hkType: string): Promise<string> => {
+      if (healthTypes[hkType].disabled) return null;
+      try {
+        const item = models[healthTypes[hkType].modelID];
+        await item.destroy({ where: { hkid } });
+        return healthTypes[hkType].id;
+      } catch (err) {
+        throw new ExpectedError('DELETE_ERROR');
+      }
+    }),
+  );
+
+  return {
+    hkid,
+    configIDs,
+  };
 };

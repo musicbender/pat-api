@@ -16,7 +16,8 @@ const inputs = require('@mocks/inputs/collections.json');
 /**
  * Collections integreation tests
  *
- * @group integration/graphql/collections
+ * @group integration
+ * @group int/graphql/collections
  */
 
 describe('Collections', () => {
@@ -49,7 +50,7 @@ describe('Collections', () => {
           },
         });
 
-      const { response: data } = res.body.data.addCollections;
+      const { response: data } = res.body.data.addCollection;
 
       if (data.id) itemIDs.push(data.id);
       if (data.shortId) itemShortIDs.push(data.shortId);
@@ -81,9 +82,10 @@ describe('Collections', () => {
           },
         });
 
-      const { response: data } = res.body.data.addCollections;
+      const { response: data } = res.body.data.addCollection;
 
       if (data.id) itemIDs.push(data.id);
+      if (data.shortId) itemShortIDs.push(data.shortId);
 
       expect(typeof data.id).toEqual('string');
       expect(data.id.length).toEqual(36);
@@ -160,7 +162,7 @@ describe('Collections', () => {
           },
         });
 
-      const { response: data } = res.body.data.updateCollections;
+      const { response: data } = res.body.data.updateCollection;
 
       expect(data.id).toEqual(itemIDs[0]);
       expect(data.shortId).toEqual(itemShortIDs[0]);
@@ -186,7 +188,7 @@ describe('Collections', () => {
           },
         });
 
-      const { response: data } = res.body.data.updateCollections;
+      const { response: data } = res.body.data.updateCollection;
 
       expect(data.id).toEqual(itemIDs[1]);
       expect(data.shortId).toEqual(itemShortIDs[1]);
@@ -214,7 +216,7 @@ describe('Collections', () => {
           },
         });
 
-      const { response: data } = res.body.data.incrementCollections;
+      const { response: data } = res.body.data.incrementCollection;
 
       expect(data.id).toEqual(itemIDs[0]);
       expect(data.name).toEqual('my-things');
@@ -234,10 +236,10 @@ describe('Collections', () => {
           },
         });
 
-      const { response: data } = res.body.data.incrementCollections;
+      const { response: data } = res.body.data.incrementCollection;
 
-      expect(data.id).toEqual(itemIDs[0]);
-      expect(data.name).toEqual('my-things');
+      expect(data.id).toEqual(itemIDs[1]);
+      expect(data.name).toEqual('hand-saws');
       expect(data.count).toEqual(150);
       expect(data.configID).toEqual(CONFIG_ID);
     });
@@ -253,7 +255,7 @@ describe('Collections', () => {
           variables: { id: itemIDs[0] },
         });
 
-      const { response: data } = res.body.data.deleteCollections;
+      const { response: data } = res.body.data.deleteCollection;
 
       expect(res.status).toEqual(200);
       expect(data.id).toEqual(itemIDs[0]);
@@ -269,7 +271,7 @@ describe('Collections', () => {
           variables: { id: itemIDs[1] },
         });
 
-      const { response: data } = res.body.data.deleteCollections;
+      const { response: data } = res.body.data.deleteCollection;
 
       expect(res.status).toEqual(200);
       expect(data.id).toEqual(itemIDs[1]);

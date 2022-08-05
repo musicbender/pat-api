@@ -1,0 +1,73 @@
+[{
+    "type": "Heart Rate",
+    "unit": "count_min",
+    "sampledOn": "2021-03-14T23:30:00-07:00",
+    "sampleList": [{
+      "date": "2021-03-14T05:33:17-07:00",
+      "value": "86",
+      "source": "pat-apple-watch",
+      "duration": "0"
+    }, {
+      "date": "2021-03-14T05:39:09-07:00",
+      "value": "72",
+      "source": "pat-apple-watch",
+      "duration": "0"
+    }, {
+      "date": "2021-03-14T05:40:19-07:00",
+      "value": "68.9946136",
+      "source": "pat-apple-watch",
+      "duration": "0"
+    }, {
+      "date": "2021-03-14T05:42:24-07:00",
+      "value": "68",
+      "source": "pat-apple-watch",
+      "duration": "0"
+    }, {
+      "date": "2021-03-14T05:47:33-07:00",
+      "value": "73",
+      "source": "pat-apple-watch",
+      "duration": "0"
+    }]
+  },
+  {
+    "type": "Oxygen Saturation",
+    "unit": "percent",
+    "sampledOn": "2021-03-14T23:30:00-07:00",
+    "sampleList": [{
+      "date": "2021-03-14T06:46:26-07:00",
+      "value": "96",
+      "source": "pat-apple-watch",
+      "duration": "0"
+    }, {
+      "date": "2021-03-14T07:45:05-07:00",
+      "value": "100",
+      "source": "pat-apple-watch",
+      "duration": "0"
+    }, {
+      "date": "2021-03-14T21:08:49-07:00",
+      "value": "95",
+      "source": "pat-apple-watch",
+      "duration": "0"
+    }]
+  },
+  {
+    "type": "Systolic Blood Pressure",
+    "unit": "mmHg",
+    "sampledOn": "2021-03-14T17:32:46+0000",
+    "sampleList": [{
+      "date": "2021-03-14T17:32:46+0000",
+      "source": "Health Mate",
+      "value": "115"
+    }]
+  },
+  {
+    "type": "Diastolic Blood Pressure",
+    "unit": "mmHg",
+    "sampledOn": "2021-03-14T17:32:46+0000",
+    "sampleList": [{
+      "date": "2021-03-14T17:32:46+0000",
+      "source": "Health Mate",
+      "value": "70"
+    }]
+  }
+]
