@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 
 services:
   app:
@@ -7,6 +7,7 @@ services:
       dockerfile: Dockerfile.dev
     ports:
       - 4000:4000
+      - 9229:9229
     volumes:
       - ./:/app
     depends_on:
@@ -23,7 +24,7 @@ services:
       - /Users/pjacobs/docker/volumes/postgres
     environment:
       POSTGRES_DB: pat_api
-      POSTGRES_USER: postgres 
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 5NMMqWwQcipc1iCiQ8Dqh
   test_postgres:
     image: postgres
@@ -33,5 +34,5 @@ services:
       - /Users/pjacobs/docker/volumes/postgres
     environment:
       POSTGRES_DB: pat_api_test
-      POSTGRES_USER: integration_test 
+      POSTGRES_USER: integration_test
       POSTGRES_PASSWORD: 5NMMqWwQcipc1iCiQ8Dqh

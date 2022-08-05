@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node -r tsconfig-paths/register index.ts",
     "dev": "docker-compose up",
-    "start:nodemon": "nodemon",
+    "start:nodemon": "nodemon --inspect=0.0.0.0:9229",
     "debug": "NODE_OPTIONS='--inspect' ts-node -r tsconfig-paths/register index.t",
     "db:migrate": "ts-node node_modules/.bin/sequelize db:migrate",
     "db:migrate:prod": "export NODE_ENV=production; ts-node node_modules/.bin/sequelize db:migrate",
