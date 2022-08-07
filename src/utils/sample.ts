@@ -1,46 +1,53 @@
 import * as moment from 'moment';
 import { addToDuration } from './date';
-import { 
-  FindOutterValuesTypes, 
-  ValidSampleOptionsType, 
-  HealthKitType, 
-  HealthKitInputSampleType, 
-  HealthKitInputType, 
-  HealthKitConfigType 
+import {
+  FindOutterValuesTypes,
+  ValidSampleOptionsType,
+  HealthKitType,
+  HealthKitInputSampleType,
+  HealthKitInputType,
+  HealthKitConfigType,
 } from '@types';
 
-export const isWithinInterval = (interval: moment.unitOfTime.StartOf, date: string, sampledOn: string): boolean => {
-    if (!interval) return true;
+export const isWithinInterval = (
+  interval: moment.unitOfTime.StartOf,
+  date: string,
+  sampledOn: string,
+): boolean => {
+  if (!interval) return true;
 
-    const date1 = moment(date, 'YYYY-MM-DD');
-    const date2 = moment(sampledOn, 'YYYY-MM-DD');
+  const date1 = moment(date, 'YYYY-MM-DD');
+  const date2 = moment(sampledOn, 'YYYY-MM-DD');
 
-    return moment(date1).isSame(moment(date2), 'day');
-}
+  return moment(date1).isSame(moment(date2), 'day');
+};
 
 export const getValidSources = (validSources: string[], defaultSources?: string[]): string[] => {
-    return validSources && validSources.length > 0
-        ? validSources
-        : defaultSources && defaultSources.length > 0
-        ? defaultSources
-        : ["*"];
-}
+  return validSources && validSources.length > 0
+    ? validSources
+    : defaultSources && defaultSources.length > 0
+    ? defaultSources
+    : ['*'];
+};
 
 export const getAverage = (values: number[] = []): number => {
   if (!values || values.length < 1) return null;
 
-  let total = values.reduce((sum: number, num: number): number => sum + num, 0);
+  const total = values.reduce((sum: number, num: number): number => sum + num, 0);
   return +(total / values.length).toFixed(2);
-}
+};
 
-export const findOutterValues = (values: number[] = [], type: keyof typeof FindOutterValuesTypes = 'highest'): number => {
+export const findOutterValues = (
+  values: number[] = [],
+  type: keyof typeof FindOutterValuesTypes = 'highest',
+): number => {
   let output = null;
 
   values.forEach((num) => {
     if (output === null) {
       output = num;
       return;
-    } 
+    }
 
     if (type === 'highest' && num > output) {
       output = num;
@@ -54,11 +61,11 @@ export const findOutterValues = (values: number[] = [], type: keyof typeof FindO
   });
 
   return output;
-}
+};
 
 export const isValidSample = (options: ValidSampleOptionsType): boolean => {
   const { config, input, sample, validSources } = options;
-  
+
   // not within defined interval
   if (config.interval && !isWithinInterval(config.interval, sample.date, input.sampledOn)) {
     return false;
@@ -68,17 +75,17 @@ export const isValidSample = (options: ValidSampleOptionsType): boolean => {
   if (!validSources) {
     return false;
   }
-  
+
   // not from valid source
   if (validSources.indexOf(sample.source) < 0 && validSources.indexOf('*') < 0) {
     return false;
   }
 
   return true;
-}
+};
 
-export const getOutputValue = (valueType: string = 'totalSampleValue', output: HealthKitType): number => {
-  switch(valueType) {
+export const getOutputValue = (valueType = 'totalSampleValue', output: HealthKitType): number => {
+  switch (valueType) {
     case 'totalSampleValue':
       return output.totalSampleValue;
     case 'averageSampleValue':
@@ -86,28 +93,28 @@ export const getOutputValue = (valueType: string = 'totalSampleValue', output: H
     default:
       return output.totalSampleValue || 0;
   }
-}
+};
 
 // reduce all samples into a single output object
 export const reduceSampleData = (
-  samples: HealthKitInputSampleType[], 
-  input: HealthKitInputType, 
-  initialOutput: HealthKitType, 
-  config: HealthKitConfigType
+  samples: HealthKitInputSampleType[],
+  input: HealthKitInputType,
+  initialOutput: HealthKitType,
+  config: HealthKitConfigType,
 ): HealthKitType => {
-  let output: HealthKitType = initialOutput;
+  const output: HealthKitType = initialOutput;
   const validSources: string[] = getValidSources(input.validSources, config.defaultValidSources);
   let valueArr: number[] = [];
-  
+
   samples.forEach((sample: HealthKitInputSampleType) => {
     if (!isValidSample({ sample, input, config, validSources })) {
       return;
     }
-
+    console.log('hk2 -----', config.id, output, sample);
     if (config.valueType === 'totalSampleValue') {
       output.totalSampleValue += Number(sample.value);
     }
-   
+
     if (!output.sampledOn) {
       output.sampledOn = sample.date;
     }
@@ -120,7 +127,7 @@ export const reduceSampleData = (
       output.totalDuration = addToDuration(`${sample.duration}`, output.totalDuration);
     }
 
-    valueArr = [ ...valueArr, +sample.value ];
+    valueArr = [...valueArr, +sample.value];
   });
 
   if (output.totalSampleValue) {
@@ -131,13 +138,17 @@ export const reduceSampleData = (
   output.highestSampleValue = findOutterValues(valueArr, 'highest');
   output.lowestSampleValue = findOutterValues(valueArr, 'lowest');
   output.value = getOutputValue(config.valueType, output);
-
+  console.log('hk3 -----', output);
   return output;
-}
+};
 
 // aggregate health data based on config
-export const aggregateHealthData = (input: HealthKitInputType, config: HealthKitConfigType): HealthKitType => {
+export const aggregateHealthData = (
+  input: HealthKitInputType,
+  config: HealthKitConfigType,
+): HealthKitType => {
   const sampledOn = !!input.sampledOn && moment(input.sampledOn).isValid() ? input.sampledOn : null;
+
   const samples: HealthKitInputSampleType[] = input.hasOwnProperty('sampleList')
     ? input.sampleList
     : input.sample
@@ -150,14 +161,13 @@ export const aggregateHealthData = (input: HealthKitInputType, config: HealthKit
     valueType: config.valueType || 'totalSampleValue',
     totalSampleValue: null,
     averageSampleValue: null,
-    highestSampleValue: null, 
+    highestSampleValue: null,
     lowestSampleValue: null,
     sampledOn,
     sources: [],
     totalDuration: '0.00:00:00',
-    updatedOn: moment().toISOString()
+    updatedOn: moment().toISOString(),
   };
 
   return reduceSampleData(samples, input, initialOutput, config);
-}
-
+};

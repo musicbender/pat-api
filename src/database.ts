@@ -2,6 +2,7 @@ import { Sequelize } from 'sequelize-typescript';
 import * as fs from 'fs';
 import { DatabaseConfigOptions, DbSSLConfigType, DbSSLType } from '@types';
 import logger from '@utils/logger';
+const { healthTypes } = require('@configs/healthkit.json');
 
 let sequelize: Sequelize;
 
@@ -101,4 +102,11 @@ export const clearDatabase = async (): Promise<void> => {
   } catch (err) {
     logger.error(`There was an error clearing pat-api database: ${err}`);
   }
+};
+
+export const getHealthKitTables = (): string[] => {
+  const invalidHkIds = ['systolic-blood-pressure', 'dyastolic-blood-pressure'];
+  return Object.keys(healthTypes)
+    .filter((hk: string) => !healthTypes[hk].disabled && invalidHkIds.indexOf(hk) < 0)
+    .map((hk: string) => healthTypes[hk].id);
 };

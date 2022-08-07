@@ -23,6 +23,7 @@ import {
   HealthTypes,
   HealthType,
   HealthKitDeleteType,
+  HealthKitCombined,
 } from '@types';
 import logger from '@utils/logger';
 
@@ -190,6 +191,9 @@ const addHealthkitBloodPressure = async (
   const addResult: Model & HealthType = (await addHealthItem(output, bpConfig)) as Model &
     HealthType;
   const result = addResult.get ? addResult.get() : addResult;
+
+  // append missing hk properties
+  result.hkid = hkid;
   return appendResponse(result, bpConfig);
 };
 
@@ -217,7 +221,9 @@ export const findHealthkitItems = async (hkid: string) => {
   return { response: healthkitItems };
 };
 
-export const addHealthKitItems = async (inputs: HealthKitInputType[]) => {
+export const addHealthKitItems = async (
+  inputs: HealthKitInputType[],
+): Promise<{ response: HealthKitCombined[] }> => {
   if (!inputs) throw new ExpectedError('INVALID_HEALTHKIT_INPUT');
 
   const hkid: string = nanoid(11);
@@ -232,6 +238,7 @@ export const addHealthKitItems = async (inputs: HealthKitInputType[]) => {
 
       if (!config) new ExpectedError('INVALID_HEALTHKIT_TYPE');
       if (config.disabled) return null;
+      if (!input.sampleList?.length && !input.sample) return null;
 
       if (config.modelID === healthConfig.bloodPressure.modelID) {
         bloodPressuremItems = [...bloodPressuremItems, { input, config }];
@@ -242,12 +249,17 @@ export const addHealthKitItems = async (inputs: HealthKitInputType[]) => {
     }),
   );
 
-  const output: (HealthTypes | HealthKitType)[] = healthkitItems;
+  const output: HealthKitCombined[] = healthkitItems;
 
   if (bloodPressuremItems.length > 0) {
     const bloodPressureOutput = await addHealthkitBloodPressure(bloodPressuremItems, hkid);
     output.push(bloodPressureOutput);
   }
+
+  // sort output by configID so it is in a predictable order
+  output.sort((a: HealthKitCombined, b: HealthKitCombined): number =>
+    a.configID > b.configID ? 1 : -1,
+  );
 
   return { response: output };
 };

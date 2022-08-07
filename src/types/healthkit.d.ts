@@ -1,5 +1,6 @@
 import * as moment from 'moment';
 import { HealthKitType, HealthKitInputType, HealthKitInputSampleType, UnitType } from './generated';
+import { HealthTypes } from './health';
 
 // enums
 export enum FindOutterValuesTypes {
@@ -62,3 +63,5 @@ export type HealthkitInputAndConfig = {
   input: HealthKitInputType;
   config: HealthKitConfigType;
 };
+
+export type HealthKitCombined = HealthTypes | HealthKitType;

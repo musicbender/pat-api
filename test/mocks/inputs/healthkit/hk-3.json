@@ -23,7 +23,7 @@
       "source": "pat-apple-watch",
       "duration": "0"
     }, {
-      "date": "2021-03-14T05:47:33-07:00",
+      "date": "2021-03-16T05:47:33-07:00",
       "value": "73",
       "source": "pat-apple-watch",
       "duration": "0"
@@ -33,6 +33,7 @@
     "type": "Oxygen Saturation",
     "unit": "percent",
     "sampledOn": "2021-03-14T23:30:00-07:00",
+    "validSources": ["valid-test-source", "pat-apple-watch"],
     "sampleList": [{
       "date": "2021-03-14T06:46:26-07:00",
       "value": "96",
@@ -46,7 +47,7 @@
     }, {
       "date": "2021-03-14T21:08:49-07:00",
       "value": "95",
-      "source": "pat-apple-watch",
+      "source": "valid-test-source",
       "duration": "0"
     }]
   },
