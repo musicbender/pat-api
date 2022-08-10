@@ -41,7 +41,7 @@ export const addHealthKitItem = async (
   doSave = true,
 ): Promise<HealthKitType> => {
   // if type is not valid
-  if (!input.type || input.type !== config.healthkitID) {
+  if (!input.type || !config || input.type !== config.healthkitID) {
     throw new ExpectedError('INVALID_HEALTHKIT_TYPE');
   }
 
@@ -64,15 +64,15 @@ export const addHealthKitItem = async (
   }
 
   const data: HealthKitType = aggregateHealthData(input, config);
-  const currentDate: string = moment().toISOString();
 
+  // do not create row if there is no value or type is disabled
+  if (data.value === null) return null;
+
+  const currentDate: string = moment().toISOString();
   data.id = uuid();
   data.hkid = hkid;
   data.createdOn = currentDate;
   data.updatedOn = currentDate;
-
-  // do not create row if there is no value or type is disabled
-  if (data.value === null) return null;
 
   // if doSave is false, only return healthkit data and do not save to the database
   if (!doSave) return data;
@@ -236,7 +236,7 @@ export const addHealthKitItems = async (
       const config =
         healthTypes[Object.keys(healthTypes).find((c) => healthTypes[c].healthkitID === type)];
 
-      if (!config) new ExpectedError('INVALID_HEALTHKIT_TYPE');
+      if (!config) throw new ExpectedError('INVALID_HEALTHKIT_TYPE');
       if (config.disabled) return null;
       if (!input.sampleList?.length && !input.sample) return null;
 
@@ -244,6 +244,9 @@ export const addHealthKitItems = async (
         bloodPressuremItems = [...bloodPressuremItems, { input, config }];
       } else {
         const newItem = await addHealthKitItem(input, hkid, config);
+
+        if (!newItem || !newItem.id) return null;
+
         healthkitItems = [...healthkitItems, appendResponse(newItem, config)];
       }
     }),
@@ -267,7 +270,9 @@ export const addHealthKitItems = async (
 export const deleteHealthkitItems = async (hkid: string): Promise<HealthKitDeleteType> => {
   const configIDs: string[] = await Promise.all(
     Object.keys(healthTypes).map(async (hkType: string): Promise<string> => {
+      if (!healthTypes[hkType]) return null;
       if (healthTypes[hkType].disabled) return null;
+
       try {
         const item = models[healthTypes[hkType].modelID];
         await item.destroy({ where: { hkid } });

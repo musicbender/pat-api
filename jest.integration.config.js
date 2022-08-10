@@ -13,5 +13,6 @@ module.exports = {
     '^.+\\.ts$': 'ts-jest',
   },
   verbose: true,
+  bail: false,
   moduleNameMapper,
 };

@@ -67,7 +67,10 @@ export const isValidSample = (options: ValidSampleOptionsType): boolean => {
   const { config, input, sample, validSources } = options;
 
   // not within defined interval
-  if (config.interval && !isWithinInterval(config.interval, sample.date, input.sampledOn)) {
+  if (
+    config.interval &&
+    !isWithinInterval(config.interval, sample.date, input.sampledOn || sample.date)
+  ) {
     return false;
   }
 
@@ -110,7 +113,7 @@ export const reduceSampleData = (
     if (!isValidSample({ sample, input, config, validSources })) {
       return;
     }
-    console.log('hk2 -----', config.id, output, sample);
+
     if (config.valueType === 'totalSampleValue') {
       output.totalSampleValue += Number(sample.value);
     }
@@ -138,7 +141,6 @@ export const reduceSampleData = (
   output.highestSampleValue = findOutterValues(valueArr, 'highest');
   output.lowestSampleValue = findOutterValues(valueArr, 'lowest');
   output.value = getOutputValue(config.valueType, output);
-  console.log('hk3 -----', output);
   return output;
 };
 

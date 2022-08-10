@@ -104,9 +104,26 @@ export const clearDatabase = async (): Promise<void> => {
   }
 };
 
-export const getHealthKitTables = (): string[] => {
-  const invalidHkIds = ['systolic-blood-pressure', 'dyastolic-blood-pressure'];
+export const getHealthKitTables = (explicitTables: string[] = []): string[] => {
+  const invalidHkIds = ['systolic-blood-pressure', 'diastolic-blood-pressure'];
   return Object.keys(healthTypes)
-    .filter((hk: string) => !healthTypes[hk].disabled && invalidHkIds.indexOf(hk) < 0)
+    .filter((hk: string) => {
+      if (!healthTypes[hk] || healthTypes[hk].disabled) return false;
+
+      if (explicitTables.length && explicitTables.indexOf(healthTypes[hk].id) < 0) {
+        return false;
+      }
+
+      return invalidHkIds.indexOf(healthTypes[hk].id) < 0;
+    })
     .map((hk: string) => healthTypes[hk].id);
+};
+
+export const clearHealthKitTables = async (explicitTables: string[] = []): Promise<void> => {
+  const hkTables = getHealthKitTables(explicitTables);
+  await Promise.all(
+    hkTables.map(async (hkTable) => {
+      await clearTable(hkTable);
+    }),
+  );
 };

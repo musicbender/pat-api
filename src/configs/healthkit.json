@@ -25,7 +25,7 @@
       "healthkitID": "Flights Climbed",
       "modelID": "FlightsClimbed",
       "interval": "day",
-      "defaultValidSources": ["pat-iphone"],
+      "defaultValidSources": ["pat-iphone", "pat-apple-watch"],
       "valueType": "totalSampleValue",
       "defaultUnit": "count",
       "disabled": false
