@@ -4,6 +4,7 @@ const COLUMN_NAME = 'hkid';
 
 const tables = [
   'active-energy',
+  'resting-energy',
   'caffeine',
   'flights-climbed',
   'heartrate-variability',

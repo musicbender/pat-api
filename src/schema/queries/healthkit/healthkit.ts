@@ -24,10 +24,11 @@ export const healthkit = {
     }
 
     if (!hkid) throw new ExpectedError('INVALID_ARGUMENTS');
+
     try {
       const response = await findHealthkitItems(hkid);
       if (!response) throw new ExpectedError('NOT_FOUND');
-      return { response };
+      return response;
     } catch (err) {
       throw err;
     }

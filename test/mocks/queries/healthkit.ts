@@ -1,7 +1,7 @@
 export const getQuery = `
   query GetHealthKit ($hkid: String!) {
     healthkit(hkid: $hkid){
-      ... on addHealthKitResponse {
+      ... on healthKitResponse {
         response {
           ... on HealthKitType {
             id
@@ -33,7 +33,7 @@ export const getQuery = `
           }
         }
       }
-      ... on addHealthKitError {
+      ... on healthKitError {
         errorCode
         errorDesc
       }

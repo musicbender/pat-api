@@ -3,7 +3,7 @@ import * as queries from './queries';
 
 const RootQueryType = new GraphQLObjectType({
   name: 'RootQueryType',
-  fields: () => (queries)
+  fields: () => queries,
 });
 
 export default RootQueryType;

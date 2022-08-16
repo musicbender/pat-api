@@ -1,7 +1,8 @@
 import { Sequelize } from 'sequelize-typescript';
 import * as fs from 'fs';
-import { DatabaseConfigOptions, DbSSLConfigType, DbSSLType } from '@types';
+import { DatabaseConfigOptions, DbSSLConfigType, DbSSLType, HealthConfigType } from '@types';
 import logger from '@utils/logger';
+import { getHealthkitConfigs } from '@utils/util';
 const { healthTypes } = require('@configs/healthkit.json');
 
 let sequelize: Sequelize;
@@ -105,18 +106,16 @@ export const clearDatabase = async (): Promise<void> => {
 };
 
 export const getHealthKitTables = (explicitTables: string[] = []): string[] => {
-  const invalidHkIds = ['systolic-blood-pressure', 'diastolic-blood-pressure'];
-  return Object.keys(healthTypes)
+  const hkConfigs: HealthConfigType[] = getHealthkitConfigs();
+  return Object.keys(hkConfigs)
     .filter((hk: string) => {
-      if (!healthTypes[hk] || healthTypes[hk].disabled) return false;
-
-      if (explicitTables.length && explicitTables.indexOf(healthTypes[hk].id) < 0) {
+      if (explicitTables.length && explicitTables.indexOf(hkConfigs[hk].id) < 0) {
         return false;
       }
 
-      return invalidHkIds.indexOf(healthTypes[hk].id) < 0;
+      return !hkConfigs[hk].disabled;
     })
-    .map((hk: string) => healthTypes[hk].id);
+    .map((hk: string) => hkConfigs[hk].id);
 };
 
 export const clearHealthKitTables = async (explicitTables: string[] = []): Promise<void> => {

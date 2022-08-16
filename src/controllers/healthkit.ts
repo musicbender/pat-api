@@ -24,8 +24,10 @@ import {
   HealthType,
   HealthKitDeleteType,
   HealthKitCombined,
+  HealthConfigType,
 } from '@types';
 import logger from '@utils/logger';
+import { getHealthkitConfigs } from '@utils/util';
 
 // find by hkid
 export const findItemByHkid = async (hkid: string, modelID: string): Promise<Model> => {
@@ -173,6 +175,7 @@ const addHealthkitBloodPressure = async (
         result = {
           sampledOn: currentItem.sampledOn,
           unit: currentItem.unit,
+          hkid,
         };
       }
 
@@ -182,7 +185,6 @@ const addHealthkitBloodPressure = async (
           : 'diastolic';
 
       result = { ...result, [valueType]: currentItem.value };
-
       return result;
     },
     {},
@@ -201,24 +203,28 @@ const addHealthkitBloodPressure = async (
 export const findHealthkitItems = async (hkid: string) => {
   if (!hkid) throw new ExpectedError('INVALID_HEALTHKIT_INPUT');
 
-  const hkConfigs = [...healthTypes, healthConfig.bloodPressure];
+  const hkConfigs: HealthConfigType[] = getHealthkitConfigs();
 
-  const healthkitItems: HealthKitType[] = await Promise.all(
-    Object.keys(hkConfigs).map(async (hkType: string): Promise<HealthKitType> => {
-      const config = healthTypes[hkType];
-
+  const healthkitItems: HealthKitCombined[] = await Promise.all(
+    hkConfigs.map(async (config: HealthConfigType): Promise<HealthKitCombined> => {
       if (config.disabled) return null;
-
       try {
         const hkItem = await findItemByHkid(hkid, config.modelID);
-        return appendResponse(hkItem, config) as HealthKitType;
+        if (!hkItem) return null;
+        return appendResponse(hkItem.get(), config) as HealthKitCombined;
       } catch (err) {
         logger.error(err);
       }
     }),
   );
 
-  return { response: healthkitItems };
+  const response: HealthKitCombined[] = healthkitItems
+    .filter((item: HealthKitCombined | null) => !!item)
+    .sort((a: HealthKitCombined, b: HealthKitCombined): number =>
+      a.configID > b.configID ? 1 : -1,
+    );
+
+  return { response };
 };
 
 export const addHealthKitItems = async (
