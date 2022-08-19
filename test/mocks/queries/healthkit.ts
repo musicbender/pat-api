@@ -86,7 +86,7 @@ export const addMutation = `
 
 export const deleteMutation = `
   mutation DeleteHealthKit ($hkid: String!) {
-    deleteDrivingScore(hkid: $hkid) {
+    deleteHealthKit(hkid: $hkid) {
       ... on deleteHealthKitResponse {
           response {
             hkid

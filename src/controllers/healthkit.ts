@@ -218,11 +218,9 @@ export const findHealthkitItems = async (hkid: string) => {
     }),
   );
 
-  const response: HealthKitCombined[] = healthkitItems
-    .filter((item: HealthKitCombined | null) => !!item)
-    .sort((a: HealthKitCombined, b: HealthKitCombined): number =>
-      a.configID > b.configID ? 1 : -1,
-    );
+  const response: HealthKitCombined[] = healthkitItems.filter(
+    (item: HealthKitCombined | null) => !!item,
+  );
 
   return { response };
 };
@@ -273,24 +271,36 @@ export const addHealthKitItems = async (
   return { response: output };
 };
 
-export const deleteHealthkitItems = async (hkid: string): Promise<HealthKitDeleteType> => {
-  const configIDs: string[] = await Promise.all(
-    Object.keys(healthTypes).map(async (hkType: string): Promise<string> => {
-      if (!healthTypes[hkType]) return null;
-      if (healthTypes[hkType].disabled) return null;
+export const deleteHealthkitItems = async (
+  hkid: string,
+): Promise<{ response: HealthKitDeleteType }> => {
+  const hkConfigs: HealthConfigType[] = getHealthkitConfigs();
+  const deletedItems: string[] = await Promise.all(
+    hkConfigs.map(async (config: HealthConfigType): Promise<string> => {
+      if (config.disabled) return null;
 
       try {
-        const item = models[healthTypes[hkType].modelID];
-        await item.destroy({ where: { hkid } });
-        return healthTypes[hkType].id;
+        const itemModel = models[config.modelID];
+        const item = await itemModel.findOne({ where: { hkid } });
+
+        if (item && item.get().id) {
+          await itemModel.destroy({ where: { hkid } });
+          return config.id;
+        }
+
+        return null;
       } catch (err) {
         throw new ExpectedError('DELETE_ERROR');
       }
     }),
   );
 
+  const configIDs = deletedItems.filter((item: string | null) => !!item);
+
   return {
-    hkid,
-    configIDs,
+    response: {
+      hkid,
+      configIDs,
+    },
   };
 };

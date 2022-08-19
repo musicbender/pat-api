@@ -34,5 +34,8 @@ export const getHealthkitConfigs = (): HealthConfigType[] => {
     .map((hk: string) => healthTypes[hk]);
 
   hkConfigs.push(healthConfig.bloodPressure);
-  return hkConfigs;
+
+  return hkConfigs.sort((a: HealthConfigType, b: HealthConfigType): number =>
+    a.id > b.id ? 1 : -1,
+  );
 };

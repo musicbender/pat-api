@@ -1072,14 +1072,14 @@ describe('Healthkit', () => {
         .use(gqlPlugin)
         .send({
           query: deleteMutation,
-          variables: { id: hkIdList[0] },
+          variables: { hkid: hkIdList[0] },
         });
 
       const { response: data } = res.body.data.deleteHealthKit;
 
       expect(res.status).toEqual(200);
-      expect(data.id).toEqual(hkIdList[0]);
-      expect(data.configID).toContain(['steps']);
+      expect(data.hkid).toEqual(hkIdList[0]);
+      expect(data.configIDs).toEqual(['steps']);
     });
 
     it('can remove hk items 2', async () => {
@@ -1088,14 +1088,14 @@ describe('Healthkit', () => {
         .use(gqlPlugin)
         .send({
           query: deleteMutation,
-          variables: { id: hkIdList[1] },
+          variables: { hkid: hkIdList[1] },
         });
 
       const { response: data } = res.body.data.deleteHealthKit;
 
       expect(res.status).toEqual(200);
-      expect(data.id).toEqual(hkIdList[1]);
-      expect(data.configID).toContain(['blood-pressure', 'heartrate', 'oxygen-saturation']);
+      expect(data.hkid).toEqual(hkIdList[1]);
+      expect(data.configIDs).toEqual(['blood-pressure', 'heartrate', 'oxygen-saturation']);
     });
 
     it('can remove hk items 3', async () => {
@@ -1104,20 +1104,20 @@ describe('Healthkit', () => {
         .use(gqlPlugin)
         .send({
           query: deleteMutation,
-          variables: { id: hkIdList[2] },
+          variables: { hkid: hkIdList[2] },
         });
 
       const { response: data } = res.body.data.deleteHealthKit;
 
       expect(res.status).toEqual(200);
-      expect(data.id).toEqual(hkIdList[2]);
-      expect(data.configID).toContain([
-        'steps',
+      expect(data.hkid).toEqual(hkIdList[2]);
+      expect(data.configIDs).toEqual([
         'flights-climbed',
         'heartrate',
         'heartrate-variability',
         'oxygen-saturation',
         'resting-heartrate',
+        'steps',
         'walking-heartrate-average',
         'walking-running-distance',
       ]);
