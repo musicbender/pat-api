@@ -9,9 +9,9 @@ export default class BaseModel<T = any, T2 = any> extends Model<BaseModel> {
 
   @Default(moment().toISOString())
   @Column
-  createdOn: Date;
+  declare createdOn: Date;
 
   @Default(moment().toISOString())
   @Column
-  updatedOn: Date;
+  declare updatedOn: Date;
 }

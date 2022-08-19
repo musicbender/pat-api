@@ -1,11 +1,7 @@
 import * as moment from 'moment';
 import { baseTable } from '../prototypes/base-table';
 import BaseModel from '../prototypes/base-model';
-import { 
-  Table,
-  Column, 
-  Default
-} from 'sequelize-typescript';
+import { Table, Column, Default } from 'sequelize-typescript';
 
 @Table({
   ...baseTable,
@@ -14,25 +10,25 @@ import {
 export default class DrivingScore extends BaseModel<DrivingScore> {
   @Default(0)
   @Column
-  accelerationScore: number;
+  declare accelerationScore: number;
 
   @Default(0)
   @Column
-  coastingScore: number;
+  declare coastingScore: number;
 
   @Default(0)
   @Column
-  breakingScore: number;
+  declare breakingScore: number;
 
   @Default(0)
   @Column
-  totalScore: number;
+  declare totalScore: number;
 
   @Default('priusPrime')
   @Column
-  vehicle: string;
+  declare vehicle: string;
 
   @Default(moment().toISOString())
   @Column
-  sampledOn: Date;
+  declare sampledOn: Date;
 }

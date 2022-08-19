@@ -14,9 +14,9 @@
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "tdd": "jest --group=unit --watch",
     "test": "jest --group=unit",
-    "test:int:base": "jest -c jest.integration.config.js --setupFiles ./test/integration/lib/setup.ts --setupFilesAfterEnv ./test/integration/lib/setup-after-env.ts",
+    "test:int:base": "jest --runInBand -c jest.integration.config.js --setupFiles ./test/integration/lib/setup.ts --setupFilesAfterEnv ./test/integration/lib/setup-after-env.ts",
     "test:int": "yarn test:int:base --group=integration",
-    "test:int:debug": "yarn test:int --inspect-brk --runInBand",
+    "test:int:debug": "yarn test:int --inspect-brk",
     "generate": "graphql-codegen -r dotenv/config",
     "postversion": "sh .deployment/scripts/version.sh"
   },

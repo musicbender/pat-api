@@ -11,20 +11,20 @@ import { Table, Column, Default, DataType, PrimaryKey } from 'sequelize-typescri
 export default class BloodPressure<T = any, T2 = any> extends BaseModel<BloodPressure> {
   @PrimaryKey
   @Column
-  hkid: string;
+  declare hkid: string;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  diastolic: number;
+  declare diastolic: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  systolic: number;
+  declare systolic: number;
 
   @Column
-  unit: string;
+  declare unit: string;
 
   @Default(moment().toISOString())
   @Column
-  sampledOn: Date;
+  declare sampledOn: Date;
 }

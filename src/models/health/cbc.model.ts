@@ -11,73 +11,73 @@ import Platelets from './platelets.model';
 export default class Cbc extends BaseModel<Cbc> {
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  wbcCount: number;
+  declare wbcCount: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  rbcCount: number;
+  declare rbcCount: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  hematrocrit: number;
+  declare hematrocrit: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  hgb: number;
+  declare hgb: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  mvc: number;
+  declare mvc: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  mch: number;
+  declare mch: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  mchc: number;
+  declare mchc: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  redCellDistributionWidth: number;
+  declare redCellDistributionWidth: number;
 
   @HasOne(() => Platelets)
-  platelets: Platelets;
+  declare platelets: Platelets;
 
   @ForeignKey(() => Platelets)
   @IsUUID(4)
   @Column
-  plateletsId: string;
+  declare plateletsId: string;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  meanPlateletVolume: number;
+  declare meanPlateletVolume: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  granulocytes: number;
+  declare granulocytes: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  lymphocytes: number;
+  declare lymphocytes: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  monocytes: number;
+  declare monocytes: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  neutrophil: number;
+  declare neutrophil: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  lymphocytePercent: number;
+  declare lymphocytePercent: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  monocytePercent: number;
+  declare monocytePercent: number;
 
   @Default(moment().toISOString())
   @Column
-  sampledOn: Date;
+  declare sampledOn: Date;
 }

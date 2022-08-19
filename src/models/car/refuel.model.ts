@@ -1,12 +1,7 @@
 import * as moment from 'moment';
 import { baseTable } from '../prototypes/base-table';
 import BaseModel from '../prototypes/base-model';
-import { 
-  Table,
-  Column, 
-  Default,
-  DataType
-} from 'sequelize-typescript';
+import { Table, Column, Default, DataType } from 'sequelize-typescript';
 
 @Table({
   ...baseTable,
@@ -15,17 +10,17 @@ import {
 export default class Refuel extends BaseModel<Refuel> {
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  gallons: number;
+  declare gallons: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  cost: number;
+  declare cost: number;
 
   @Default('prius prime')
   @Column
-  vehicle: string;
+  declare vehicle: string;
 
   @Default(moment().toISOString())
   @Column
-  sampledOn: Date;
+  declare sampledOn: Date;
 }

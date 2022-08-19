@@ -2,12 +2,7 @@ import * as moment from 'moment';
 import BaseModel from '../prototypes/base-model';
 import { baseTable } from '../prototypes/base-table';
 const healthTypes = require('@configs/health.json');
-import { 
-  Table,
-  Column, 
-  Default,
-  DataType,
-} from 'sequelize-typescript';
+import { Table, Column, Default, DataType } from 'sequelize-typescript';
 
 @Table({
   ...baseTable,
@@ -16,28 +11,28 @@ import {
 export default class Migraine<T = any, T2 = any> extends BaseModel<Migraine> {
   @Default(0)
   @Column
-  painLevel: number;
+  declare painLevel: number;
 
   @Default(0)
   @Column
-  auraLevel: number;
+  declare auraLevel: number;
 
   @Default(0)
   @Column
-  nauseaLevel: number;
+  declare nauseaLevel: number;
 
   @Default([])
   @Column(DataType.ARRAY(DataType.STRING))
-  auraTags: string[]
+  declare auraTags: string[];
 
   @Column
-  description: string
+  declare description: string;
 
   @Default('0.00:00:00')
   @Column
-  totalDuration: string;
+  declare totalDuration: string;
 
   @Default(moment().toISOString())
   @Column
-  sampledOn: Date
+  declare sampledOn: Date;
 }

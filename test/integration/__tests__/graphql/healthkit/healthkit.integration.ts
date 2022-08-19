@@ -1,12 +1,11 @@
 import * as supertest from 'supertest';
 import { SuperTest, Test } from 'supertest';
-import { clearHealthKitTables, clearTable, getHealthKitTables } from '@database';
+import { clearHealthKitTables } from '@database';
 import { GRAPHQL_PATH } from '@integration/lib/constants';
 import { addMutation, getQuery, deleteMutation } from '@mocks/queries/healthkit';
 import { gqlPlugin } from '@integration/lib/plugins';
 import * as inputs from '@mocks/inputs/healthkit';
 import * as moment from 'moment';
-const { healthTypes } = require('@configs/healthkit.json');
 
 /**
  * Healthkit integration tests
@@ -20,6 +19,10 @@ describe('Healthkit', () => {
   let request: SuperTest<Test>;
 
   beforeAll(async () => {
+    await clearHealthKitTables();
+  });
+
+  afterAll(async () => {
     await clearHealthKitTables();
   });
 
