@@ -1,0 +1,65 @@
+name: Unit Test
+
+on:
+  workflow_call:
+  push:
+    branches: [feature/e2e-testing]
+
+env:
+  POSTGRES_DB: pat_api_test
+  POSTGRES_USER: integration_test
+  POSTGRES_PASSWORD: 5NMMqWwQcipc1iCiQ8Dqh
+
+jobs:
+  integration-test:
+    name: Run integration tests
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        node-version: [16.x]
+    services:
+      postgres:
+        image: postgres:12-alpine
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_DB: ${{ env.POSTGRES_DB }}
+          POSTGRES_USER: ${{ env.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+      - name: Install dependencies
+        run: |
+          yarn global add jest
+          yarn install --frozen-lockfile
+      - name: Run unit tests
+        run: yarn test:int
+        env:
+          NODE_ENV: test
+          PATAPI_PORT: 0
+          PATAPI_DB_HOST: 0.0.0.0
+          PATAPI_DB_PORT: 5432
+          PATAPI_DB_NAME: ${{ env.POSTGRES_DB }}
+          PATAPI_DB_USER: ${{ env.POSTGRES_USER }}
+          PATAPI_DB_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+          PATAPI_DB_USE_SSL: false
+          PATAPI_API_KEY: 12345
+          PATAPI_LOGGING_ENABLED: false
+          PATAPI_LOGGING_DEBUG: false
+          PATAPI_SCHEMA_PATH: http://localhost:4001/graphql
+          PATAPI_HEALTHKIT_USER_AGENT: false
+          PATAPI_DISABLE_HELMET: true
+          PATAPI_DISABLE_ALTAIR: true
+          PATAPI_BUILD_NUMBER: 123
+          PATAPI_COMMIT_HASH: 7777777
+          PATAPI_LAST_DEPLOY_DATE: 9/9/2016
