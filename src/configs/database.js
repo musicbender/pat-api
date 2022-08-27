@@ -10,6 +10,7 @@ switch (process.env.NODE_ENV) {
     require('dotenv').config({
       path: path.resolve(process.cwd(), '.env.test'),
     });
+    break;
   default:
     require('dotenv').config();
 }

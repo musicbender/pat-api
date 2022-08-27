@@ -3,7 +3,6 @@ import * as fs from 'fs';
 import { DatabaseConfigOptions, DbSSLConfigType, DbSSLType, HealthConfigType } from '@types';
 import logger from '@utils/logger';
 import { getHealthkitConfigs } from '@utils/util';
-const { healthTypes } = require('@configs/healthkit.json');
 
 let sequelize: Sequelize;
 

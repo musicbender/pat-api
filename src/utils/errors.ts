@@ -1,4 +1,3 @@
-import logger from './logger';
 const errors = require('../configs/error-codes.json');
 
 export class ExpectedError extends Error {
