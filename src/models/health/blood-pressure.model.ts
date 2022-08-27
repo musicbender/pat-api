@@ -9,7 +9,7 @@ import { Table, Column, Default, DataType, PrimaryKey } from 'sequelize-typescri
   tableName: healthTypes.bloodPressure.id,
 })
 export default class BloodPressure<T = any, T2 = any> extends BaseModel<BloodPressure> {
-  @PrimaryKey
+  @Default(null)
   @Column
   declare hkid: string;
 
