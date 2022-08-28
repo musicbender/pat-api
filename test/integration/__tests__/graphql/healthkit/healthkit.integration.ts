@@ -42,7 +42,7 @@ describe('Healthkit', () => {
           },
         });
 
-      console.log('DEBUG', res.body);
+      console.log('DEBUG', JSON.stringify(res.body));
 
       const {
         response: [data1],
