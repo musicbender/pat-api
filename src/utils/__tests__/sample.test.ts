@@ -17,9 +17,9 @@ import { TestItem } from '@types';
 const { healthTypes } = require('@configs/healthkit.json');
 
 // mocks
-const mockStepData = require('@mocks/inputs/step-data-1.json');
-const mockFlightsData = require('@mocks/inputs/flights-climbed-data.json');
-const mockHeartratesData = require('@mocks/inputs/heartrate-data.json');
+const mockStepData = require('@mocks/inputs/steps.json');
+const mockFlightsData = require('@mocks/inputs/flights-climbed.json');
+const mockHeartratesData = require('@mocks/inputs/heartrate.json');
 
 describe('sample.ts', () => {
   describe('isWithinInterval()', () => {
@@ -256,7 +256,7 @@ describe('sample.ts', () => {
     });
   });
 
-  describe('aggregateHealthData()', function () {
+  describe('aggregateHealthData()', () => {
     const tests = [
       {
         assert: [mockStepData[0], healthTypes.steps],
@@ -382,9 +382,9 @@ describe('sample.ts', () => {
         assert: [mockFlightsData[1], healthTypes.flightsClimbed],
         expected: {
           unit: 'count',
-          value: 2,
+          value: 5,
           sampledOn: '2019-12-10T12:03:11-07:00',
-          sources: ['pat-iphone'],
+          sources: ['pat-apple-watch', 'pat-iphone'],
         },
         info: 'Does not include invalid flights source sample',
       },

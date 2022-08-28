@@ -14,10 +14,6 @@ jobs:
   integration-test:
     name: Run integration tests
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: true
-      matrix:
-        node-version: [16.x]
     services:
       postgres:
         image: postgres:12-alpine
