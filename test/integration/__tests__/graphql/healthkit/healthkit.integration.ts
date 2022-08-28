@@ -32,7 +32,7 @@ describe('Healthkit', () => {
 
   describe('create mutation', () => {
     it('works with input variation 1', async () => {
-      console.log('DEBUG --- input variation 1 begin');
+      console.log('DEBUG --- input variation 1 begin', inputs.hk1[0]?.sampledOn);
       const res = await request
         .post(GRAPHQL_PATH)
         .use(gqlPlugin)

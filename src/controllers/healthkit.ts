@@ -240,6 +240,8 @@ export const addHealthKitItems = async (
   let bloodPressuremItems: HealthkitInputAndConfig[] = [];
   let healthkitItems: HealthKitType[] = [];
 
+  console.log('DEBUG --- addHealthKitItems begin', inputs[0]?.sampledOn, hkid);
+
   await Promise.all(
     inputs.map(async (input: HealthKitInputType): Promise<void> => {
       const { type } = input;
@@ -247,7 +249,7 @@ export const addHealthKitItems = async (
         healthTypes[Object.keys(healthTypes).find((c) => healthTypes[c].healthkitID === type)];
 
       console.log(
-        'DEBUG --- addHealthKitItems go',
+        'DEBUG --- addHealthKitItems input loop',
         input.type,
         !!config,
         config?.disabled,
