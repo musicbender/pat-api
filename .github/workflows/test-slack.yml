@@ -9,7 +9,7 @@ jobs:
   finish:
     name: Post-release actions
     runs-on: ubuntu-latest
-    environment: production
+    environment: feature
     steps:
       - uses: actions/checkout@v2
       - name: Get package version
