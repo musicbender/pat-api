@@ -42,6 +42,8 @@ describe('Healthkit', () => {
           },
         });
 
+      console.log('DEBUG', res.body);
+
       const {
         response: [data1],
       } = res.body.data.addHealthKit;

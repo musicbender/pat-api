@@ -22,7 +22,7 @@ const logMiddleware = (winstonInstance: winston.Logger) => {
 
     const msg = `${ctx.method} ${ctx.originalUrl} ${ctx.status} ${ms}ms reqID(${ctx.state.reqID})`;
 
-    if (process.env.NODE_ENV !== 'test') {
+    if (process.env.PATAPI_LOGGING_ENABLED === 'true') {
       winstonInstance.log(logLevel, msg);
     }
   };
