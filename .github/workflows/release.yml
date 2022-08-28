@@ -13,8 +13,11 @@ env:
 
 jobs:
   test:
-    name: Run tests
+    name: Run unit tests
     uses: ./.github/workflows/unit-test.yml
+  integration-test:
+    name: Run integration tests
+    uses: ./.github/workflows/integration-test.yml
   build:
     name: Build and push to ECR
     runs-on: ubuntu-latest

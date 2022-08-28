@@ -2,8 +2,8 @@ name: Integration Tests
 
 on:
   workflow_call:
-  push:
-    branches: [feature/e2e-testing]
+  pull_request:
+    branches: [master]
 
 env:
   POSTGRES_DB: pat_api_test
