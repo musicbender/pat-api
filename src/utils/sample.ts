@@ -71,16 +71,19 @@ export const isValidSample = (options: ValidSampleOptionsType): boolean => {
     config.interval &&
     !isWithinInterval(config.interval, sample.date, input.sampledOn || sample.date)
   ) {
+    console.log('DEBUG --- isValidSample: not within interval', sample?.date, input?.sampledOn);
     return false;
   }
 
   // no valid sources
   if (!validSources) {
+    console.log('DEBUG --- isValidSample: no valid sources');
     return false;
   }
 
   // not from valid source
   if (validSources.indexOf(sample.source) < 0 && validSources.indexOf('*') < 0) {
+    console.log('DEBUG --- isValidSample: not valid source', sample?.source);
     return false;
   }
 
@@ -111,6 +114,7 @@ export const reduceSampleData = (
 
   samples.forEach((sample: HealthKitInputSampleType) => {
     if (!isValidSample({ sample, input, config, validSources })) {
+      console.log('DEBUG --- invalid sample');
       return;
     }
 
@@ -141,6 +145,9 @@ export const reduceSampleData = (
   output.highestSampleValue = findOutterValues(valueArr, 'highest');
   output.lowestSampleValue = findOutterValues(valueArr, 'lowest');
   output.value = getOutputValue(config.valueType, output);
+
+  console.log('DEBUG --- reduce samples', JSON.stringify(output), initialOutput);
+
   return output;
 };
 

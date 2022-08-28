@@ -262,7 +262,7 @@ export const addHealthKitItems = async (
         bloodPressuremItems = [...bloodPressuremItems, { input, config }];
       } else {
         const newItem = await addHealthKitItem(input, hkid, config);
-        console.log('DEBUG --- addHealthKitItems newItem res', !!newItem, newItem.unit || 'nope');
+        console.log('DEBUG --- addHealthKitItems newItem res', !!newItem, newItem?.unit || 'nope');
         if (!newItem || !newItem.id) return null;
 
         healthkitItems = [...healthkitItems, appendResponse(newItem, config)];
