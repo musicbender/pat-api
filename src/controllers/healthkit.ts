@@ -54,7 +54,7 @@ export const addHealthKitItem = async (
 
   if (config.interval && !doSave) {
     const dupeItem: any = await findItemByDate(input.sampledOn, config.modelID);
-
+    console.log('DEBUG --- has dupe item!?');
     const id =
       dupeItem && dupeItem.id
         ? dupeItem.id
@@ -82,7 +82,7 @@ export const addHealthKitItem = async (
   const HealthItem = models[config.modelID];
 
   try {
-    console.log('DEBUG --- addHealthkitItem', JSON.stringify(data));
+    console.log('DEBUG --- addHealthkitItem', data.id);
     const res: any = await HealthItem.create(data);
     console.log('DEBUG --- addHealthkitItem res', JSON.stringify(res));
     return res.dataValues;
@@ -239,6 +239,7 @@ export const addHealthKitItems = async (
 
   await Promise.all(
     inputs.map(async (input: HealthKitInputType): Promise<void> => {
+      console.log('DEBUG --- addHealthKitItems go', input.type);
       const { type } = input;
       const config =
         healthTypes[Object.keys(healthTypes).find((c) => healthTypes[c].healthkitID === type)];
@@ -251,7 +252,7 @@ export const addHealthKitItems = async (
         bloodPressuremItems = [...bloodPressuremItems, { input, config }];
       } else {
         const newItem = await addHealthKitItem(input, hkid, config);
-
+        console.log('DEBUG --- addHealthKitItems newItem res', newItem.configID);
         if (!newItem || !newItem.id) return null;
 
         healthkitItems = [...healthkitItems, appendResponse(newItem, config)];
@@ -270,6 +271,8 @@ export const addHealthKitItems = async (
   output.sort((a: HealthKitCombined, b: HealthKitCombined): number =>
     a.configID > b.configID ? 1 : -1,
   );
+
+  console.log('DEBUG --- addHealthKitItems output count', output.length);
 
   return { response: output };
 };
