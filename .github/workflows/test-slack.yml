@@ -10,7 +10,10 @@ jobs:
     name: Post-release actions
     runs-on: ubuntu-latest
     steps:
-      - uses: nyaa8/package-version@v1
+      - name: Get package version
+        uses: nyaa8/package-version@v1
+        with:
+          path: "./package.json"
       - name: Post to a Slack channel
         id: slack
         uses: slackapi/slack-github-action@v1.21.0
