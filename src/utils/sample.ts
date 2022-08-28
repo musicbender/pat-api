@@ -19,6 +19,15 @@ export const isWithinInterval = (
   const date1 = moment(date, 'YYYY-MM-DD');
   const date2 = moment(sampledOn, 'YYYY-MM-DD');
 
+  console.log(
+    'DEBUG --- isWithinInterval',
+    date,
+    sampledOn,
+    date1,
+    date2,
+    moment(date1).isSame(moment(date2), 'day'),
+  );
+
   return moment(date1).isSame(moment(date2), 'day');
 };
 
@@ -157,6 +166,8 @@ export const aggregateHealthData = (
   config: HealthKitConfigType,
 ): HealthKitType => {
   const sampledOn = !!input.sampledOn && moment(input.sampledOn).isValid() ? input.sampledOn : null;
+
+  console.log('DEBUG --- aggregateHealthData', input.sampledOn, moment(input.sampledOn).isValid());
 
   const samples: HealthKitInputSampleType[] = input.hasOwnProperty('sampleList')
     ? input.sampleList
