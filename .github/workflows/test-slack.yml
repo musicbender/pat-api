@@ -1,0 +1,21 @@
+name: Test Slack
+
+on:
+  workflow_call:
+  push:
+    branches: [feature/post-release-ci]
+
+jobs:
+  finish:
+    name: Post-release actions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: nyaa8/package-version@v1
+      - name: Post to a Slack channel
+        id: slack
+        uses: slackapi/slack-github-action@v1.21.0
+        with:
+          channel-id: "pat-api"
+          slack-message: "pat-api release result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}\nversion ${{ env.PACKAGE_VERSION }}"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
