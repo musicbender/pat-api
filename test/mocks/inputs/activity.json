@@ -1,0 +1,46 @@
+{
+  "addMutation": [{
+    "energy": 226,
+    "energyUnit": "kcal",
+    "energyGoal": 400,
+    "energyProgress": 56,
+    "energyComplete": false,
+    "standHours": 12,
+    "standProgress": 100,
+    "standGoal": 8,
+    "standComplete": true,
+    "exerciseMinutes": 15,
+    "exerciseGoal": 30,
+    "exerciseProgress": 50,
+    "exerciseComplete": false,
+    "ringsProgress": 72,
+    "ringsComplete": false
+  }, {
+    "energy": 400,
+    "energyUnit": "kcal",
+    "energyGoal": 400,
+    "energyProgress": 100,
+    "energyComplete": true,
+    "standHours": 12,
+    "standProgress": 100,
+    "standGoal": 12,
+    "standComplete": true,
+    "exerciseMinutes": 30,
+    "exerciseGoal": 30,
+    "exerciseProgress": 100,
+    "exerciseComplete": true,
+    "ringsProgress": 100,
+    "ringsComplete": true
+  }],
+  "updateMutation": [{
+    "exerciseMinutes": 30,
+    "exerciseProgress": 100,
+    "exerciseComplete": true
+  }, {
+    "energy": 399,
+    "energyProgress": 99,
+    "energyComplete": false,
+    "ringsProgress": 99,
+    "ringsComplete": false
+  }]
+}

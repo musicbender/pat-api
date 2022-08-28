@@ -1,4 +1,4 @@
 export const baseTable = {
-  createdAt: false, 
+  createdAt: false,
   updatedAt: false,
-}
+};

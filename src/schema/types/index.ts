@@ -9,6 +9,7 @@ export * from './platelet-type';
 export * from './blood-pressure-type';
 export * from './collection-type';
 export * from './migraine-type';
+export * from './delete-type';
 export { default as ResponseUnionType } from './response-union-type';
 export { default as ResponseType } from './response-type';
 export { default as ErrorType } from './error-type';

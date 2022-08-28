@@ -1,17 +1,13 @@
-import {
-  GraphQLObjectType,
-  GraphQLInputObjectType,
-  GraphQLFloat,
-  GraphQLString
-} from 'graphql';
-import { globalTypeFields } from '../utils/global';
+import { GraphQLObjectType, GraphQLInputObjectType, GraphQLFloat, GraphQLString } from 'graphql';
+import * as GraphQLDate from 'graphql-date';
+import { globalTypeFields } from '@schema/utils/global';
 import { PlateletType } from './platelet-type';
 
 export const CbcInputType = new GraphQLInputObjectType({
   name: 'CbcInputType',
   description: 'Complete blood count data input',
   fields: () => ({
-    sampledOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
     wbcCount: { type: GraphQLFloat },
     rbcCount: { type: GraphQLFloat },
     hematrocrit: { type: GraphQLFloat },
@@ -28,15 +24,15 @@ export const CbcInputType = new GraphQLInputObjectType({
     neutrophil: { type: GraphQLFloat },
     lymphocytePercent: { type: GraphQLFloat },
     monocytePercent: { type: GraphQLFloat },
-  })
+  }),
 });
 
 export const CbcInputUpdateType = new GraphQLInputObjectType({
   name: 'CbcInputUpdateType',
   description: 'Complete blood count data update input',
   fields: () => ({
-    sampledOn: { type: GraphQLString },
-    updatedOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
+    updatedOn: { type: GraphQLDate },
     wbcCount: { type: GraphQLFloat },
     rbcCount: { type: GraphQLFloat },
     hematrocrit: { type: GraphQLFloat },
@@ -53,7 +49,7 @@ export const CbcInputUpdateType = new GraphQLInputObjectType({
     neutrophil: { type: GraphQLFloat },
     lymphocytePercent: { type: GraphQLFloat },
     monocytePercent: { type: GraphQLFloat },
-  })
+  }),
 });
 
 export const CbcType = new GraphQLObjectType({
@@ -64,9 +60,9 @@ export const CbcType = new GraphQLObjectType({
     wbcCount: { type: GraphQLFloat },
     rbcCount: { type: GraphQLFloat },
     hematrocrit: { type: GraphQLFloat },
-    hgb: { type: GraphQLFloat }, 
+    hgb: { type: GraphQLFloat },
     mvc: { type: GraphQLFloat },
-    mch: { type: GraphQLFloat }, 
+    mch: { type: GraphQLFloat },
     mchc: { type: GraphQLFloat },
     redCellDistributionWidth: { type: GraphQLFloat },
     platelets: { type: PlateletType },
@@ -77,6 +73,6 @@ export const CbcType = new GraphQLObjectType({
     monocytes: { type: GraphQLFloat },
     neutrophil: { type: GraphQLFloat },
     lymphocytePercent: { type: GraphQLFloat },
-    monocytePercent: { type: GraphQLFloat }, 
-  })
+    monocytePercent: { type: GraphQLFloat },
+  }),
 });

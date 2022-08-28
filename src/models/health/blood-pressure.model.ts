@@ -1,31 +1,30 @@
 import * as moment from 'moment';
 import BaseModel from '../prototypes/base-model';
 import { baseTable } from '../prototypes/base-table';
-const healthTypes = require('../../configs/health.json');
-import { 
-  Table,
-  Column, 
-  Default,
-  DataType,
-} from 'sequelize-typescript';
+const healthTypes = require('@configs/health.json');
+import { Table, Column, Default, DataType, PrimaryKey } from 'sequelize-typescript';
 
 @Table({
   ...baseTable,
   tableName: healthTypes.bloodPressure.id,
 })
 export default class BloodPressure<T = any, T2 = any> extends BaseModel<BloodPressure> {
-  @Default(0)
-  @Column({ type: DataType.FLOAT })
-  diastolic: number;
+  @Default(null)
+  @Column
+  declare hkid: string;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  systolic: number;
+  declare diastolic: number;
+
+  @Default(0)
+  @Column({ type: DataType.FLOAT })
+  declare systolic: number;
 
   @Column
-  unit: string;
+  declare unit: string;
 
   @Default(moment().toISOString())
   @Column
-  sampledOn: Date
+  declare sampledOn: Date;
 }

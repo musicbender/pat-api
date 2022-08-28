@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  test_postgres:
+    image: postgres
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_DB: pat_api_test
+      POSTGRES_USER: integration_test
+      POSTGRES_PASSWORD: 5NMMqWwQcipc1iCiQ8Dqh

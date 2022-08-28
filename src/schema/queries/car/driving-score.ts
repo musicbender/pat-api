@@ -1,9 +1,9 @@
-import { composeQuery, composeQueryAll } from '../../utils/global';
-import { DrivingScoreType } from '../../types';
-const carConf = require('../../../configs/cars.json');
+import { composeQuery, composeQueryAll } from '@schema/utils/global';
+import { DrivingScoreType } from '@schema/types';
+const carConf = require('@configs/cars.json');
 
 const options = {
-  name: carConf.drivingScore.modelID, 
+  name: 'drivingScore',
   type: DrivingScoreType,
   config: carConf.drivingScore,
 };

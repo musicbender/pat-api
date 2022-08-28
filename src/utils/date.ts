@@ -1,11 +1,11 @@
 import * as moment from 'moment';
 
-//--//--//--// private //--//--//--//
+// --//--//--// private //--//--//--//
 const formatInputDuration = (input: string): string => {
   let newDuration = `${input}`;
 
   switch (true) {
-    case newDuration === "0":
+    case newDuration === '0':
       newDuration = '0.00:00:00';
       break;
     case newDuration.length === 4 && newDuration.indexOf(':') === 1:
@@ -26,25 +26,25 @@ const formatInputDuration = (input: string): string => {
   }
 
   return newDuration;
-}
+};
 
-//--//--//--// public //--//--//--//
+// --//--//--// public //--//--//--//
 export const formatDuration = (duration: moment.Duration): string => {
   if (!duration || !moment.isDuration(duration)) {
     throw new Error('Must give duration paramter');
   }
 
-  const time = moment.utc(duration.asMilliseconds()).format('HH:mm:ss')
+  const time = moment.utc(duration.asMilliseconds()).format('HH:mm:ss');
   const days = duration.days();
   return `${days}.${time}`;
-}
+};
 
-export const addToDuration = (input: string = '0.00:00:00', inputTotal: string = '0.00:00:00'): string => {
+export const addToDuration = (input = '0.00:00:00', inputTotal = '0.00:00:00'): string => {
   if (!moment.isDuration(moment.duration(inputTotal))) {
     throw new Error('Total must be duration string');
   }
 
-  let newDuration = formatInputDuration(input);
+  const newDuration = formatInputDuration(input);
   let total = inputTotal;
 
   // if only minutes/seconds provided to total
@@ -58,4 +58,4 @@ export const addToDuration = (input: string = '0.00:00:00', inputTotal: string =
 
   const sum = moment.duration(total).add(moment.duration(newDuration));
   return formatDuration(sum);
-}
+};

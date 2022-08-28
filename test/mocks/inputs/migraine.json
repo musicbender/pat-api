@@ -1,0 +1,29 @@
+{
+  "addMutation": [{
+      "painLevel": 3,
+      "auraLevel": 5,
+      "nauseaLevel": 9,
+      "auraTags": ["ceiling-fan"],
+      "description": "That was not pleasant",
+      "totalDuration": "0.02.13.00"
+    },
+    {
+      "painLevel": 9,
+      "auraLevel": 1,
+      "nauseaLevel": 1,
+      "auraTags": ["alien", "flashing"],
+      "description": "Owch",
+      "totalDuration": "1.12.45.12"
+    }
+  ],
+  "updateMutation": [{
+      "painLevel": 0,
+      "auraLevel": 6,
+      "nauseaLevel": 10
+    },
+    {
+      "totalDuration": "8.00.00.00",
+      "auraTags": ["alien", "flashing", "ceiling-fan"]
+    }
+  ]
+}

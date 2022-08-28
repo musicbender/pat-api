@@ -1,20 +1,16 @@
 import * as moment from 'moment';
 import BaseModel from './base-model';
-import { 
-  Column, 
-  Default,
-  DataType
-} from 'sequelize-typescript';
+import { Column, Default, DataType } from 'sequelize-typescript';
 
 export default class BasicHealth<T = any, T2 = any> extends BaseModel<BasicHealth> {
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  value: number;
+  declare value: number;
 
   @Default(moment().toISOString())
   @Column
-  sampledOn: Date
+  declare sampledOn: Date;
 
   @Column
-  unit: string;
+  declare unit: string;
 }

@@ -1,10 +1,10 @@
-import { composeQuery, composeQueryAll } from '../../utils/global';
-import { RefuelType } from '../../types';
-const carConf = require('../../../configs/cars.json');
+import { composeQuery, composeQueryAll } from '@schema/utils/global';
+import { RefuelType } from '@schema/types';
+const carConf = require('@configs/cars.json');
 
 const options = {
-  name: carConf.refuel.modelID, 
-  type: RefuelType, 
+  name: 'refuel',
+  type: RefuelType,
   config: carConf.refuel,
 };
 

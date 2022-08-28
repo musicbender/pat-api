@@ -3,10 +3,11 @@ import {
   GraphQLInputObjectType,
   GraphQLInt,
   GraphQLString,
-  GraphQLNonNull
+  GraphQLNonNull,
 } from 'graphql';
+import * as GraphQLDate from 'graphql-date';
 import { VehicleType } from './vehicles-type';
-import { globalTypeFields } from '../utils/global';
+import { globalTypeFields } from '@schema/utils/global';
 
 export const DrivingScoreInputType = new GraphQLInputObjectType({
   name: 'DrivingScoreInputType',
@@ -17,8 +18,8 @@ export const DrivingScoreInputType = new GraphQLInputObjectType({
     breakingScore: { type: GraphQLInt },
     totalScore: { type: GraphQLNonNull(GraphQLInt) },
     vehicle: { type: VehicleType },
-    sampledOn: { type: GraphQLString },
-  })
+    sampledOn: { type: GraphQLDate },
+  }),
 });
 
 export const DrivingScoreInputUpdateType = new GraphQLInputObjectType({
@@ -30,9 +31,9 @@ export const DrivingScoreInputUpdateType = new GraphQLInputObjectType({
     breakingScore: { type: GraphQLInt },
     totalScore: { type: GraphQLInt },
     vehicle: { type: VehicleType },
-    sampledOn: { type: GraphQLString },
-    updatedOn: { type: GraphQLString },
-  })
+    sampledOn: { type: GraphQLDate },
+    updatedOn: { type: GraphQLDate },
+  }),
 });
 
 export const DrivingScoreType = new GraphQLObjectType({
@@ -45,5 +46,6 @@ export const DrivingScoreType = new GraphQLObjectType({
     breakingScore: { type: GraphQLInt },
     totalScore: { type: GraphQLInt },
     vehicle: { type: VehicleType },
-  })
+    configID: { type: GraphQLString },
+  }),
 });

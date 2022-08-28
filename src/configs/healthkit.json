@@ -18,14 +18,14 @@
       "defaultValidSources": ["*"],
       "valueType": "totalSampleValue",
       "defaultUnit": "mg",
-      "disabled": false
+      "disabled": true
     },
     "flightsClimbed": {
       "id": "flights-climbed",
       "healthkitID": "Flights Climbed",
       "modelID": "FlightsClimbed",
       "interval": "day",
-      "defaultValidSources": ["pat-iphone"],
+      "defaultValidSources": ["pat-iphone", "pat-apple-watch"],
       "valueType": "totalSampleValue",
       "defaultUnit": "count",
       "disabled": false
@@ -66,7 +66,7 @@
       "modelID": "OxygenSaturation",
       "interval": "day",
       "valueType": "averageSampleValue",
-      "defaultValidSources":["pat-apple-watch", "Blood Oxygen"],
+      "defaultValidSources": ["pat-apple-watch", "Blood Oxygen"],
       "defaultUnit": "%",
       "disabled": false
     },

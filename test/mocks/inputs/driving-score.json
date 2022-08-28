@@ -1,0 +1,14 @@
+{
+  "addMutation": [{
+    "accelerationScore": 5,
+    "coastingScore": 3,
+    "breakingScore": 3,
+    "totalScore": 75,
+    "vehicle": "priusPrime"
+  }],
+  "updateMutation": [{
+    "coastingScore": 5,
+    "breakingScore": 1,
+    "totalScore": 64
+  }]
+}

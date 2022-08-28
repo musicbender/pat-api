@@ -1,47 +1,47 @@
 import * as moment from 'moment';
 import BaseModel from './base-model';
-import { 
-  DataType,
-  Column, 
-  Default,
-} from 'sequelize-typescript';
+import { DataType, Column, Default, PrimaryKey } from 'sequelize-typescript';
 
 export default class Healthkit<T = any, T2 = any> extends BaseModel<Healthkit> {
+  @PrimaryKey
+  @Column
+  declare hkid: string;
+
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  value: number;
+  declare value: number;
 
   @Default('totalSampleValue')
   @Column
-  valueType: string
+  declare valueType: string;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  totalSampleValue: number;
+  declare totalSampleValue: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  averageSampleValue: number;
+  declare averageSampleValue: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  highestSampleValue: number;
+  declare highestSampleValue: number;
 
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  lowestSampleValue: number;
+  declare lowestSampleValue: number;
 
   @Default(moment().toISOString())
   @Column
-  sampledOn: Date
+  declare sampledOn: Date;
 
   @Column(DataType.ARRAY(DataType.STRING))
-  sources: string[];
+  declare sources: string[];
 
   @Column
-  unit: string;
+  declare unit: string;
 
   @Default('0.00:00:00')
   @Column
-  totalDuration: string;
+  declare totalDuration: string;
 }

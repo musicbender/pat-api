@@ -1,12 +1,7 @@
 import * as moment from 'moment';
 import { baseTable } from '../prototypes/base-table';
 import BaseModel from '../prototypes/base-model';
-import { 
-  Table,
-  Column, 
-  Default,
-  DataType,
-} from 'sequelize-typescript';
+import { Table, Column, Default, DataType } from 'sequelize-typescript';
 
 @Table({
   ...baseTable,
@@ -15,13 +10,13 @@ import {
 export default class AverageMPG extends BaseModel<AverageMPG> {
   @Default(0)
   @Column({ type: DataType.FLOAT })
-  value: number;
+  declare value: number;
 
-  @Default('prius-prime')
+  @Default('priusPrime')
   @Column
-  vehicle: string;
+  declare vehicle: string;
 
   @Default(moment().toISOString())
   @Column
-  sampledOn: Date;
+  declare sampledOn: Date;
 }

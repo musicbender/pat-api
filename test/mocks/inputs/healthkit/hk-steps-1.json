@@ -1,0 +1,150 @@
+[{
+    "type": "Steps",
+    "sampledOn": "2019-07-06T01:00:00-07:00",
+    "validSources": ["pat-apple-watch", "pat-iphone"],
+    "sampleList": [{
+        "date": "2019-07-07T23:00:00-07:00",
+        "source": "pat-iphone",
+        "value": "1"
+      },
+      {
+        "date": "2019-07-06T01:00:00-07:00",
+        "source": "pat-apple-watch",
+        "value": "1"
+      },
+      {
+        "date": "2019-07-06T02:00:00-07:00",
+        "source": "pat-apple-watch",
+        "value": "1"
+      },
+      {
+        "date": "2019-07-06T03:00:00-07:00",
+        "source": "pat-apple-watch",
+        "value": "1"
+      },
+      {
+        "date": "2019-07-06T04:00:00-07:00",
+        "source": "pat-apple-watch",
+        "value": "1"
+      },
+      {
+        "date": "2019-07-06T05:00:00-07:00",
+        "source": "pat-apple-watch",
+        "value": "1"
+      },
+      {
+        "date": "2019-07-06T06:00:00-07:00",
+        "source": "pat-iphone",
+        "value": "1"
+      },
+      {
+        "date": "2019-07-06T06:00:00-07:00",
+        "source": "pat-iphone",
+        "value": "1"
+      },
+      {
+        "date": "2019-07-06T06:00:00-07:00",
+        "source": "pat-apple-watch",
+        "value": "1"
+      }
+    ],
+    "unit": "count"
+  },
+  {
+    "type": "Steps",
+    "sampledOn": "2019-10-11T01:00:00-07:00",
+    "unit": "count",
+    "validSources": ["pat-iphone"],
+    "sampleList": [{
+      "date": "2019-10-11T23:00:00-07:00",
+      "source": "pat-iphone",
+      "value": "10"
+    }]
+  },
+  {
+    "type": "Steps",
+    "unit": "count",
+    "validSources": ["test-device", "not-used-device"],
+    "sampleList": [{
+      "date": "2019-10-12T23:23:00-07:00",
+      "source": "test-device",
+      "value": "10"
+    }]
+  },
+  {
+    "type": "Steps",
+    "unit": "count",
+    "validSources": ["pat-apple-watch"],
+    "sampledOn": "2019-10-13T12:03:11-07:00",
+    "sampleList": [{
+      "date": "2019-10-14T00:00:00-07:00",
+      "source": "pat-apple-watch",
+      "value": "100"
+    }]
+  },
+  {
+    "type": "Steps",
+    "unit": "count",
+    "validSources": ["pat-apple-watch"],
+    "sampledOn": "2019-10-16T12:03:11-07:00",
+    "sampleList": [{
+      "date": "2019-10-15T23:59:59-07:00",
+      "source": "pat-apple-watch",
+      "value": "100"
+    }]
+  },
+  {
+    "type": "Steps",
+    "unit": "count",
+    "validSources": ["pat-iphone"],
+    "sampledOn": "2019-10-17T12:03:11-07:00",
+    "sampleList": [{
+      "date": "2019-10-17T23:59:59-07:00",
+      "source": "pat-apple-watch",
+      "value": "100"
+    }]
+  },
+  {
+    "type": "Steps",
+    "unit": "count",
+    "validSources": ["*"],
+    "sampledOn": "2019-10-18T12:03:11-07:00",
+    "sampleList": [{
+        "date": "2019-10-18T23:59:59-07:00",
+        "source": "pat-iphone",
+        "value": "100"
+      },
+      {
+        "date": "2019-10-18T23:59:59-07:00",
+        "source": "wut-is-this",
+        "value": "100"
+      },
+      {
+        "date": "2019-10-18T23:59:59-07:00",
+        "source": "another-device",
+        "value": "100"
+      },
+      {
+        "date": "2019-10-18T23:59:59-07:00",
+        "source": "its-over-nine-thousand",
+        "value": "100"
+      }
+    ]
+  },
+  {
+    "type": "Steps",
+    "unit": "count",
+    "sampledOn": "2019-10-19T12:03:11-07:00",
+    "sampleList": [{
+      "date": "2019-10-19T23:59:59-07:00",
+      "source": "pat-apple-watch",
+      "value": "0"
+    }]
+  },
+  {
+    "type": "Steps",
+    "unit": "count",
+    "sampledOn": "2019-10-20T12:03:11-07:00",
+    "sampleList": []
+  }
+]

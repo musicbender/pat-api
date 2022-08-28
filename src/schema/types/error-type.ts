@@ -1,5 +1,5 @@
 import { GraphQLObjectType, GraphQLEnumType, GraphQLString } from 'graphql';
-const errors = require('../../configs/error-codes.json');
+const errors = require('@configs/error-codes.json');
 
 const ErrorType = (name: string): GraphQLObjectType => {
   const errorCodesType = new GraphQLEnumType({

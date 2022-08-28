@@ -1,0 +1,55 @@
+[{
+    "type": "Walking + Running Distance",
+    "unit": "mi",
+    "sampledOn": "2019-10-22T12:03:11-07:00",
+    "sampleList": [{
+        "date": "2019-10-22T18:00:59-05:00",
+        "source": "pat-apple-watch",
+        "duration": "10",
+        "value": "10"
+      },
+      {
+        "date": "2019-10-22T18:00:59-07:00",
+        "source": "pat-apple-watch",
+        "value": "5",
+        "duration": "10:20"
+      },
+      {
+        "date": "2019-10-22T18:00:59-09:00",
+        "source": "pat-apple-watch",
+        "value": "1",
+        "duration": "3"
+      },
+      {
+        "date": "2019-10-22T18:00:59-09:00",
+        "source": "not-a-valid-source",
+        "value": "10",
+        "duration": "3"
+      }
+    ]
+  },
+  {
+    "type": "Flights Climbed",
+    "unit": "count",
+    "sampledOn": "2019-10-22T23:15:00-07:00",
+    "sampleList": [{
+        "date": "2019-10-22T06:52:33-07:00",
+        "value": "1",
+        "source": "pat-iphone",
+        "duration": "2"
+      },
+      {
+        "date": "2019-10-22T06:52:33-07:00",
+        "value": "3",
+        "source": "pat-iphone",
+        "duration": "20"
+      },
+      {
+        "date": "2019-10-22T06:52:33-07:00",
+        "value": "1",
+        "source": "pat-iphone",
+        "duration": "12"
+      }
+    ]
+  }
+]

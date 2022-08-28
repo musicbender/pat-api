@@ -1,4 +1,4 @@
-const healthTypes = require('../../configs/health.json');
+const healthTypes = require('@configs/health.json');
 import Activity from './activity.model';
 import Weight from './weight.model';
 import BodyTemperature from './body-temperature.model';

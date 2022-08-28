@@ -1,5 +1,5 @@
 export type CollectionConfigType = {
-  id: string,
-  modelID: string,
-  disabled: boolean,
-}
+  id: string;
+  modelID: string;
+  disabled: boolean;
+};

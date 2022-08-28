@@ -5,11 +5,12 @@ import {
   GraphQLFloat,
   GraphQLList,
   GraphQLString,
-  GraphQLNonNull
+  GraphQLNonNull,
 } from 'graphql';
+import * as GraphQLDate from 'graphql-date';
 import { BloodPressureType } from './blood-pressure-type';
 import { UnitType } from './unit-type';
-import { globalTypeFields } from '../utils/global'
+import { globalTypeFields } from '@schema/utils/global';
 
 export const HealthKitInputSampleType = new GraphQLInputObjectType({
   name: 'HealthKitInputSampleType',
@@ -17,9 +18,9 @@ export const HealthKitInputSampleType = new GraphQLInputObjectType({
   fields: () => ({
     date: { type: GraphQLString },
     source: { type: GraphQLString },
-    value: { type: new GraphQLNonNull(GraphQLString)},
-    duration: { type: GraphQLString }
-  })
+    value: { type: new GraphQLNonNull(GraphQLString) },
+    duration: { type: GraphQLString },
+  }),
 });
 
 export const HealthKitInputType = new GraphQLInputObjectType({
@@ -30,9 +31,9 @@ export const HealthKitInputType = new GraphQLInputObjectType({
     unit: { type: UnitType },
     sampleList: { type: new GraphQLList(HealthKitInputSampleType) },
     sample: { type: HealthKitInputSampleType },
-    sampledOn: { type: GraphQLString },
-    validSources: { type: new GraphQLList(GraphQLString) }
-  })
+    sampledOn: { type: GraphQLDate },
+    validSources: { type: new GraphQLList(GraphQLString) },
+  }),
 });
 
 export const HealthKitInputUpdateType = new GraphQLInputObjectType({
@@ -45,12 +46,12 @@ export const HealthKitInputUpdateType = new GraphQLInputObjectType({
     averageSampleValue: { type: GraphQLFloat },
     highestSampleValue: { type: GraphQLFloat },
     lowestSampleValue: { type: GraphQLFloat },
-    sampledOn: { type: GraphQLString },
-    createdOn: { type: GraphQLString },
+    sampledOn: { type: GraphQLDate },
+    createdOn: { type: GraphQLDate },
     sources: { type: new GraphQLList(GraphQLString) },
     unit: { type: UnitType },
-    totalDuration: { type: GraphQLString }
-  })
+    totalDuration: { type: GraphQLString },
+  }),
 });
 
 export const HealthKitType = new GraphQLObjectType({
@@ -58,6 +59,7 @@ export const HealthKitType = new GraphQLObjectType({
   description: 'Health data',
   fields: () => ({
     ...globalTypeFields,
+    hkid: { type: GraphQLString },
     value: { type: GraphQLFloat },
     valueType: { type: GraphQLString },
     totalSampleValue: { type: GraphQLFloat },
@@ -67,16 +69,24 @@ export const HealthKitType = new GraphQLObjectType({
     sources: { type: new GraphQLList(GraphQLString) },
     unit: { type: UnitType },
     totalDuration: { type: GraphQLString },
-  })
+  }),
 });
 
 export const HealthKitUnionType = new GraphQLUnionType({
-    name: 'HealthKitUnionType',
-    description: `Return either HealthKittype item or Blood Pressure item`,
-    types: [ HealthKitType, BloodPressureType ],
-    resolveType: (value) => {
-      if (value.systolic || value.dystolic) return 'BloodPressureType';
-      return 'HealthKitType';
-    }
+  name: 'HealthKitUnionType',
+  description: 'Return either HealthKittype item or Blood Pressure item',
+  types: [HealthKitType, BloodPressureType],
+  resolveType: (value) => {
+    if (value.systolic || value.dystolic) return 'BloodPressureType';
+    return 'HealthKitType';
+  },
 });
 
+export const HealthKitDeleteType = new GraphQLObjectType({
+  name: 'HealthKitDeleteType',
+  description: 'Healthkit deletion data',
+  fields: () => ({
+    hkid: { type: GraphQLString },
+    configIDs: { type: new GraphQLList(GraphQLString) },
+  }),
+});

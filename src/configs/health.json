@@ -28,7 +28,6 @@
     "id": "blood-pressure",
     "modelID": "BloodPressure",
     "unit": "mmHg",
-    "interval": "day",
     "disabled": false
   },
   "bodyTemperature": {

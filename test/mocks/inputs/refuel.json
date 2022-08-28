@@ -1,0 +1,20 @@
+{
+  "addMutation": [{
+      "gallons": 30.4,
+      "cost": 35.5,
+      "vehicle": "priusPrime"
+    },
+    {
+      "gallons": 1,
+      "cost": 1.59,
+      "vehicle": "crv"
+    }
+  ],
+  "updateMutation": [{
+      "gallons": 100
+    },
+    {
+      "cost": 1000
+    }
+  ]
+}

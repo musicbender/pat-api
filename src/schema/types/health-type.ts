@@ -1,19 +1,15 @@
-import {
-  GraphQLObjectType,
-  GraphQLInputObjectType,
-  GraphQLFloat,
-  GraphQLString
-} from 'graphql';
+import { GraphQLObjectType, GraphQLInputObjectType, GraphQLFloat, GraphQLString } from 'graphql';
+import * as GraphQLDate from 'graphql-date';
 import { UnitType } from './unit-type';
-import { globalTypeFields } from '../utils/global';
+import { globalTypeFields } from '@schema/utils/global';
 
 export const HealthInputType = new GraphQLInputObjectType({
   name: 'HealthInputType',
   description: 'Health data input',
   fields: () => ({
     value: { type: GraphQLFloat },
-    sampledOn: { type: GraphQLString },
-  })
+    sampledOn: { type: GraphQLDate },
+  }),
 });
 
 export const HealthInputUpdateType = new GraphQLInputObjectType({
@@ -21,10 +17,10 @@ export const HealthInputUpdateType = new GraphQLInputObjectType({
   description: 'Health data input for updating',
   fields: () => ({
     value: { type: GraphQLFloat },
-    sampledOn: { type: GraphQLString },
-    createdOn: { type: GraphQLString },
-    unit: { type: UnitType }
-  })
+    sampledOn: { type: GraphQLDate },
+    createdOn: { type: GraphQLDate },
+    unit: { type: UnitType },
+  }),
 });
 
 export const HealthType = new GraphQLObjectType({
@@ -34,5 +30,5 @@ export const HealthType = new GraphQLObjectType({
     ...globalTypeFields,
     value: { type: GraphQLFloat },
     unit: { type: UnitType },
-  })
+  }),
 });
