@@ -42,6 +42,7 @@ export const addHealthKitItem = async (
   config: HealthKitConfigType,
   doSave = true,
 ): Promise<HealthKitType> => {
+  console.log('DEBUG --- addHealthKitItem go', doSave, !!input);
   // if type is not valid
   if (!input.type || !config || input.type !== config.healthkitID) {
     throw new ExpectedError('INVALID_HEALTHKIT_TYPE');
@@ -67,6 +68,8 @@ export const addHealthKitItem = async (
 
   const data: HealthKitType = aggregateHealthData(input, config);
 
+  console.log('DEBUG --- addHealthKitItem data', data?.value, doSave);
+
   // do not create row if there is no value or type is disabled
   if (data.value === null) return null;
 
@@ -82,7 +85,7 @@ export const addHealthKitItem = async (
   const HealthItem = models[config.modelID];
 
   try {
-    console.log('DEBUG --- addHealthkitItem', data.id);
+    console.log('DEBUG --- addHealthkitItem saving to db', data.id);
     const res: any = await HealthItem.create(data);
     console.log('DEBUG --- addHealthkitItem res', JSON.stringify(res));
     return res.dataValues;
@@ -239,10 +242,17 @@ export const addHealthKitItems = async (
 
   await Promise.all(
     inputs.map(async (input: HealthKitInputType): Promise<void> => {
-      console.log('DEBUG --- addHealthKitItems go', input.type);
       const { type } = input;
       const config =
         healthTypes[Object.keys(healthTypes).find((c) => healthTypes[c].healthkitID === type)];
+
+      console.log(
+        'DEBUG --- addHealthKitItems go',
+        input.type,
+        !!config,
+        config?.disabled,
+        !!input?.sampleList?.length || !!input?.sample,
+      );
 
       if (!config) throw new ExpectedError('INVALID_HEALTHKIT_TYPE');
       if (config.disabled) return null;
@@ -252,7 +262,7 @@ export const addHealthKitItems = async (
         bloodPressuremItems = [...bloodPressuremItems, { input, config }];
       } else {
         const newItem = await addHealthKitItem(input, hkid, config);
-        console.log('DEBUG --- addHealthKitItems newItem res', !!newItem, newItem.unit);
+        console.log('DEBUG --- addHealthKitItems newItem res', !!newItem, newItem.unit || 'nope');
         if (!newItem || !newItem.id) return null;
 
         healthkitItems = [...healthkitItems, appendResponse(newItem, config)];
