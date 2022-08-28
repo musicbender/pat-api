@@ -42,7 +42,7 @@ jobs:
         run: |
           yarn global add jest
           yarn install --frozen-lockfile
-      - name: Run unit tests
+      - name: Run integration tests
         run: yarn test:int
         env:
           NODE_ENV: test
