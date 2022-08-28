@@ -82,9 +82,12 @@ export const addHealthKitItem = async (
   const HealthItem = models[config.modelID];
 
   try {
+    console.log('DEBUG --- addHealthkitItem', JSON.stringify(data));
     const res: any = await HealthItem.create(data);
+    console.log('DEBUG --- addHealthkitItem res', JSON.stringify(res));
     return res.dataValues;
   } catch (err) {
+    console.log('DEBUG --- addHealthkitItem err', err);
     throw new ExpectedError('ADD_HEALTHKIT_ERROR');
   }
 };
