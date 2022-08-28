@@ -1,4 +1,4 @@
-name: Unit Test
+name: Integration Tests
 
 on:
   workflow_call:
@@ -46,6 +46,7 @@ jobs:
         run: yarn test:int
         env:
           NODE_ENV: test
+          TZ: UTC
           PATAPI_PORT: 0
           PATAPI_DB_HOST: 0.0.0.0
           PATAPI_DB_PORT: 5432

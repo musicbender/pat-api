@@ -248,14 +248,6 @@ export const addHealthKitItems = async (
       const config =
         healthTypes[Object.keys(healthTypes).find((c) => healthTypes[c].healthkitID === type)];
 
-      console.log(
-        'DEBUG --- addHealthKitItems input loop',
-        input.type,
-        !!config,
-        config?.disabled,
-        !!input?.sampleList?.length || !!input?.sample,
-      );
-
       if (!config) throw new ExpectedError('INVALID_HEALTHKIT_TYPE');
       if (config.disabled) return null;
       if (!input.sampleList?.length && !input.sample) return null;
@@ -264,7 +256,6 @@ export const addHealthKitItems = async (
         bloodPressuremItems = [...bloodPressuremItems, { input, config }];
       } else {
         const newItem = await addHealthKitItem(input, hkid, config);
-        console.log('DEBUG --- addHealthKitItems newItem res', !!newItem, newItem?.unit || 'nope');
         if (!newItem || !newItem.id) return null;
 
         healthkitItems = [...healthkitItems, appendResponse(newItem, config)];
