@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import * as moment from 'moment-timezone';
 import { addToDuration } from './date';
 import {
   FindOutterValuesTypes,
@@ -17,16 +17,7 @@ export const isWithinInterval = (
   if (!interval) return true;
 
   const date1 = moment(date, 'YYYY-MM-DD');
-  const date2 = moment(sampledOn, 'YYYY-MM-DD');
-
-  console.log(
-    'DEBUG --- isWithinInterval',
-    date,
-    sampledOn,
-    date1,
-    date2,
-    moment(date1).isSame(moment(date2), 'day'),
-  );
+  const date2 = moment(sampledOn).tz('America/Los_Angeles').format('YYYY-MM-DD');
 
   return moment(date1).isSame(moment(date2), 'day');
 };
