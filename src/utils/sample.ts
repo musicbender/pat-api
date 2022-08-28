@@ -111,7 +111,6 @@ export const reduceSampleData = (
 
   samples.forEach((sample: HealthKitInputSampleType) => {
     if (!isValidSample({ sample, input, config, validSources })) {
-      console.log('DEBUG --- invalid sample');
       return;
     }
 

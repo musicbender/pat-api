@@ -42,7 +42,6 @@ export const addHealthKitItem = async (
   config: HealthKitConfigType,
   doSave = true,
 ): Promise<HealthKitType> => {
-  console.log('DEBUG --- addHealthKitItem go', doSave, !!input);
   // if type is not valid
   if (!input.type || !config || input.type !== config.healthkitID) {
     throw new ExpectedError('INVALID_HEALTHKIT_TYPE');
@@ -55,7 +54,6 @@ export const addHealthKitItem = async (
 
   if (config.interval && !doSave) {
     const dupeItem: any = await findItemByDate(input.sampledOn, config.modelID);
-    console.log('DEBUG --- has dupe item!?');
     const id =
       dupeItem && dupeItem.id
         ? dupeItem.id
@@ -67,8 +65,6 @@ export const addHealthKitItem = async (
   }
 
   const data: HealthKitType = aggregateHealthData(input, config);
-
-  console.log('DEBUG --- addHealthKitItem data', data?.value, doSave);
 
   // do not create row if there is no value or type is disabled
   if (data.value === null) return null;
@@ -85,12 +81,9 @@ export const addHealthKitItem = async (
   const HealthItem = models[config.modelID];
 
   try {
-    console.log('DEBUG --- addHealthkitItem saving to db', data.id);
     const res: any = await HealthItem.create(data);
-    console.log('DEBUG --- addHealthkitItem res', JSON.stringify(res));
     return res.dataValues;
   } catch (err) {
-    console.log('DEBUG --- addHealthkitItem err', err);
     throw new ExpectedError('ADD_HEALTHKIT_ERROR');
   }
 };
@@ -240,8 +233,6 @@ export const addHealthKitItems = async (
   let bloodPressuremItems: HealthkitInputAndConfig[] = [];
   let healthkitItems: HealthKitType[] = [];
 
-  console.log('DEBUG --- addHealthKitItems begin', inputs[0]?.sampledOn, hkid);
-
   await Promise.all(
     inputs.map(async (input: HealthKitInputType): Promise<void> => {
       const { type } = input;
@@ -274,8 +265,6 @@ export const addHealthKitItems = async (
   output.sort((a: HealthKitCombined, b: HealthKitCombined): number =>
     a.configID > b.configID ? 1 : -1,
   );
-
-  console.log('DEBUG --- addHealthKitItems output count', output.length);
 
   return { response: output };
 };
