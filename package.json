@@ -94,7 +94,7 @@
     "memory-cache": "^0.2.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.37",
-    "nanoid": "3.0.0",
+    "nanoid": "3.1.31",
     "path": "^0.12.7",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
