@@ -5,10 +5,10 @@ WORKDIR /app
 COPY ./package.json .
 COPY ./tsconfig.json .
 COPY yarn.lock .
-RUN npm install -g ts-node typescript && yarn
+RUN npm install -g ts-node typescript foreman && yarn
 
 COPY ./ .
 
 EXPOSE 4000
 
-CMD ["/bin/bash", "-c", "bin/run_cloud_sql_proxy &>null && yarn start"]
+CMD ["nf", "start", "web"]

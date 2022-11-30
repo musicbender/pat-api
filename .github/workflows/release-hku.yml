@@ -6,17 +6,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
-    name: Run unit tests
-    uses: ./.github/workflows/unit-test.yml
-  integration-test:
-    name: Run integration tests
-    uses: ./.github/workflows/integration-test.yml
-    needs: test
+  # test:
+  #   name: Run unit tests
+  #   uses: ./.github/workflows/unit-test.yml
+  # integration-test:
+  #   name: Run integration tests
+  #   uses: ./.github/workflows/integration-test.yml
+  #   needs: test
   deploy:
     name: Deploy to heroku
     runs-on: ubuntu-latest
-    needs: integration-test
+    # needs: integration-test
     environment: production
     steps:
       - uses: actions/checkout@v3
@@ -27,7 +27,7 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
           dockerfile_directory: ./
-          dockerfile_name: Dockerfile.prod
+          dockerfile_name: Dockerfile
   finish:
     name: Post-release actions
     runs-on: ubuntu-latest
