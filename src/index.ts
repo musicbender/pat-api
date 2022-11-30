@@ -4,8 +4,8 @@ import app from './server';
 
 (async () => {
   await connectDatabase();
-  app.listen(process.env.PATAPI_PORT, () => {
-    logger.info(`Pat API running at port ${process.env.PATAPI_PORT}`);
+  app.listen(process.env.PORT, () => {
+    logger.info(`Pat API running at port ${process.env.PORT}`);
     app.context.isReady = true;
   });
 })();

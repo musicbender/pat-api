@@ -1,1 +1,1 @@
-web: bin/run_cloud_sql_proxy &>null && yarn start
+web: bin/run_cloud_sql_proxy &>null && PORT=$PORT yarn start
