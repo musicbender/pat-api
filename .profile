@@ -1,2 +1,2 @@
-echo "starting cloud sql proxy for pat-api ${DYNO}..."
+echo "starting cloud sql proxy for pat-api..."
 bin/run_cloud_sql_proxy
