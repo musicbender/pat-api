@@ -13,21 +13,46 @@ jobs:
   #   name: Run integration tests
   #   uses: ./.github/workflows/integration-test.yml
   #   needs: test
+  # deploy:
+  #   name: Deploy to heroku
+  #   runs-on: ubuntu-latest
+  #   # needs: integration-test
+  #   environment: production
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Buld, Push, Release to Heroku
+  #       uses: gonuit/heroku-docker-deploy@v1.3.3
+  #       with:
+  #         email: ${{ secrets.HEROKU_EMAIL }}
+  #         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+  #         heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+  #         dockerfile_directory: ./
+  #         dockerfile_name: Dockerfile
   deploy:
     name: Deploy to heroku
     runs-on: ubuntu-latest
-    # needs: integration-test
     environment: production
     steps:
       - uses: actions/checkout@v3
-      - name: Buld, Push, Release to Heroku
-        uses: gonuit/heroku-docker-deploy@v1.3.3
-        with:
-          email: ${{ secrets.HEROKU_EMAIL }}
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-          dockerfile_directory: ./
-          dockerfile_name: Dockerfile
+      - name: Heroku login credentials
+        run: |
+          cat > ~/.netrc <<EOF
+            machine api.heroku.com
+              login $HEROKU_EMAIL
+              password $HEROKU_API_KEY
+            machine git.heroku.com
+              login $HEROKU_EMAIL
+              password $HEROKU_API_KEY
+          EOF
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
+      - name: Add Heroku remote
+        run: heroku git:remote --app $HEROKU_APP_NAME
+        env:
+          HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+      - name: Push to Heroku
+        run: git push heroku feature/heroku-migration
   finish:
     name: Post-release actions
     runs-on: ubuntu-latest
