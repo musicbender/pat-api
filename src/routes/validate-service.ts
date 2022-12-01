@@ -16,7 +16,7 @@ router.get('/health/liveness', async (ctx: KoaContext): Promise<void> => {
   restResponse(ctx);
 });
 
-router.get('/health/readiness', async (ctx: KoaContext): Promise<void>  => {
+router.get('/health/readiness', async (ctx: KoaContext): Promise<void> => {
   if (ctx.isReady) {
     restResponse(ctx);
   } else {
@@ -25,23 +25,23 @@ router.get('/health/readiness', async (ctx: KoaContext): Promise<void>  => {
 });
 
 router.get('/version', async (ctx: KoaContext): Promise<void> => {
-  restResponse(ctx, 200, "success", { version: pkg.version });
+  restResponse(ctx, 200, 'success', { version: pkg.version });
 });
 
 router.get('/info', async (ctx: KoaContext): Promise<void> => {
-  let randomDadJoke = "No dad jokes today.";
+  let randomDadJoke = 'No dad jokes today.';
 
   try {
     const dadJokeRes = await axios.get(externalConf.urls.dadJokesApiUri, {
       headers: {
-        'Accept': 'text/plain',
+        Accept: 'text/plain',
         'User-Agent': externalConf.config.customUserAgent,
-      }
+      },
     });
 
     randomDadJoke = dadJokeRes.data;
   } catch (err) {
-    logger.error("Error fetching a dad joke", err);
+    logger.error('Error fetching a dad joke', err);
   }
 
   const data = {
@@ -49,10 +49,10 @@ router.get('/info', async (ctx: KoaContext): Promise<void> => {
     buildNumber: process.env.PATAPI_BUILD_NUMBER,
     commitHash: process.env.PATAPI_COMMIT_HASH,
     lastDeployDate: process.env.PATAPI_LAST_DEPLOY_DATE,
-    randomDadJoke
+    randomDadJoke,
   };
 
-  restResponse(ctx, 200, "success", data);
+  restResponse(ctx, 200, 'success', data);
 });
 
 export default router;
