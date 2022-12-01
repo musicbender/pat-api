@@ -54,7 +54,7 @@ jobs:
         env:
           HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
       - name: Push to Heroku
-        run: git push heroku feature/heroku-migration
+        run: git push heroku main
   finish:
     name: Post-release actions
     runs-on: ubuntu-latest
