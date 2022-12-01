@@ -5,11 +5,11 @@ WORKDIR /app
 COPY ./package.json .
 COPY ./tsconfig.json .
 COPY yarn.lock .
-RUN npm install -g ts-node typescript foreman && yarn
+RUN npm install -g ts-node typescript && yarn
 
 COPY ./ .
 
 ARG PORT=80
 ENV PORT=$PORT
 
-CMD ["nf", "start", "web"]
+CMD ["yarn", "start"]
