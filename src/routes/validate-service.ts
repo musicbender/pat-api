@@ -44,6 +44,9 @@ router.get('/info', async (ctx: KoaContext): Promise<void> => {
     logger.error('Error fetching a dad joke', err);
   }
 
+  logger.info('build #: ' + process.env.PATAPI_BUILD_NUMBER);
+  logger.info('debug?: ' + process.env.PAT_API_DEBUG_HEROKU);
+
   const data = {
     version: pkg.version,
     buildNumber: process.env.PATAPI_BUILD_NUMBER,
