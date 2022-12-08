@@ -2,7 +2,7 @@ name: Release Heroku
 
 on:
   push:
-    branches: [main, feature/heroku-migration]
+    branches: [feature/heroku-migration]
   workflow_dispatch:
 
 jobs:

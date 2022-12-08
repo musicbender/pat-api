@@ -8,6 +8,10 @@ const pkg = require('../../package.json');
 
 const router = new Router();
 
+router.get('/healthz', async (ctx: KoaContext): Promise<void> => {
+  restResponse(ctx);
+});
+
 router.get('/test', async (ctx: KoaContext): Promise<void> => {
   ctx.redirect('/health/liveness');
 });
