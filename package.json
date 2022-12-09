@@ -1,6 +1,6 @@
 {
   "name": "pat-api",
-  "version": "1.7.0-alpha.3",
+  "version": "1.7.0-alpha.4",
   "description": "My life tracking GraphQL API service",
   "main": "index.js",
   "scripts": {
