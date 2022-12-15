@@ -9,7 +9,4 @@ RUN npm install -g ts-node typescript && yarn
 
 COPY ./ .
 
-ARG PORT=80
-ENV PORT=$PORT
-
 CMD ["yarn", "start"]
