@@ -8,8 +8,8 @@ if (process.env.PATAPI_DISABLE_ALTAIR !== 'true') {
     url: '/altair',
     router,
     opts: {
-      endpointURL: '/graphql'
-    }
+      endpointURL: '/graphql',
+    },
   });
 }
 

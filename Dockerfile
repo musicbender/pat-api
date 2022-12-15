@@ -9,6 +9,4 @@ RUN npm install -g ts-node typescript && yarn
 
 COPY ./ .
 
-EXPOSE 4000
-
 CMD ["yarn", "start"]

@@ -3,7 +3,7 @@ const path = require('path');
 switch (process.env.NODE_ENV) {
   case 'production':
     require('dotenv').config({
-      path: path.resolve(process.cwd(), '.env.local.production'),
+      path: path.resolve(process.cwd(), '.env.production'),
     });
     break;
   case 'test':
