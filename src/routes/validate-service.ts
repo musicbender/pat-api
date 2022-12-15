@@ -54,7 +54,7 @@ router.get('/info', async (ctx: KoaContext): Promise<void> => {
   const data = {
     version: pkg.version,
     buildNumber: process.env.PATAPI_BUILD_NUMBER,
-    commitHash: process.env.PATAPI_COMMIT_HASH,
+    commitHash: process.env.RENDER_GIT_COMMIT,
     lastDeployDate: process.env.PATAPI_LAST_DEPLOY_DATE,
     randomDadJoke,
   };
