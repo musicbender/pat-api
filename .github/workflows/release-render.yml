@@ -1,18 +1,18 @@
-name: Release Heroku
+name: Release
 
 on:
   push:
-    branches: [main, feature/render-migration]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
-  # test:
-  #   name: Run unit tests
-  #   uses: ./.github/workflows/unit-test.yml
-  # integration-test:
-  #   name: Run integration tests
-  #   uses: ./.github/workflows/integration-test.yml
-  #   needs: test
+  test:
+    name: Run unit tests
+    uses: ./.github/workflows/unit-test.yml
+  integration-test:
+    name: Run integration tests
+    uses: ./.github/workflows/integration-test.yml
+    needs: test
   deploy:
     name: Deploy to Render
     runs-on: ubuntu-latest
