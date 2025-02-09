@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Run unit tests
+    uses: ./.github/workflows/unit-test.yml
+  integration-test:
+    name: Run integration tests
+    uses: ./.github/workflows/integration-test.yml
+    needs: test
+  deploy:
+    name: Deploy to Render
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v3
+      - uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
+
+  finish:
+    name: Post-release actions
+    runs-on: ubuntu-latest
+    environment: production
+    needs: deploy
+    steps:
+      - uses: actions/checkout@v2
+      - name: Get package version
+        uses: nyaa8/package-version@v1
+      - name: Post to a Slack channel
+        id: slack
+        uses: slackapi/slack-github-action@v1.21.0
+        with:
+          channel-id: "G0134LWH21X"
+          slack-message: "pat-api release result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}\nversion ${{ env.PACKAGE_VERSION }}"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

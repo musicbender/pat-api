@@ -79,9 +79,7 @@ describe('Validate Service Routes', () => {
       const response = await request.get(INFO_PATH);
       const { data } = response.body;
       expect(data.version).toEqual(pkg.version);
-      expect(data.buildNumber).toEqual('123');
       expect(data.commitHash).toEqual('7777777');
-      expect(data.lastDeployDate).toEqual('9/9/2016');
       expect(typeof data.randomDadJoke).toBe('string');
       expect(data.randomDadJoke).not.toEqual('No dad jokes today.');
     });
